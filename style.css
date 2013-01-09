@@ -1,0 +1,132 @@
+/*
+Theme Name: UW Theme Child
+Description: Child theme for the UW-Wordpress Theme 
+Author: Rick Ells
+Template: UW-Wordpress-Theme
+*/
+
+@import url("../UW-Wordpress-Theme/style.css");
+
+
+div.breadcrumbs { font-style: italic; font-size: 95%; }
+
+span#arrow-mark { top: 55px; }
+
+div.nav-collapse.responsiveSelectContainer { visibility: visible; height: inherit; display: block; }
+
+div.navbar-inner { width: auto; }
+
+.nav-collapse.responsiveSelectContainer select.responsiveMenuSelect { 
+   font-weight: bold; 
+   padding: .25em;
+   background: #eeeeee;
+   margin: .3em 3em;
+   width: 80%;
+   } 
+
+
+
+
+	/* Feature box, text float right, graphic on left */
+
+
+ ul.ptoc {
+    margin:1em 0 1.5em 2em;
+    }
+
+ ul.ptoc li.onthispage {
+    list-style-type:none;
+    margin-left:0em;
+    font-style:italic;
+    background: none;
+    padding-left: 0;
+    }
+
+ ol.procedure {
+    border:solid #ccc 1px;
+    margin-left:0;
+    margin-top: 1.5em;
+    padding:1em 1em 1em 3em;
+    }
+
+ ol.procedure img { margin: 1em 0; }
+
+ ol.procedure li {
+    padding-left:2em;
+    padding-bottom:1em;
+    margin-left:1em;
+    }
+
+ ol.procedure li.colheads {
+    list-style-type:none;
+    font-weight:700;
+    margin-left:-1.5em;
+    padding-left:0;
+    padding-bottom:1em;
+    border-bottom:solid #000 1px;
+    margin-bottom:1em;
+    }
+
+ ol.procedure li ul,
+ ol.procedure li ol,
+ ol.procedure li li { margin: .3em; padding: 0 0 0 1em; }	
+ li.colheads span {
+    margin-left:1.5em;
+    }
+    
+ ol.procedure li ul li,
+ ol.procedure li ol li { 
+    margin: 0 0 0 2em; 
+    }	
+
+ div.button { 
+    padding-top: .6em; 
+    padding-bottom: .6em;
+    text-align: center;
+    border: solid gray 1px; 
+    border-radius: .4em;
+    -moz-border-radius: .4em; 
+    -webkit-border-radius: .4em; 
+    -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
+    -khtml-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
+    }
+
+    
+ div.fbox {
+    position: relative ;
+    padding: 1em; 
+    clear: right;
+    }
+
+ div.fbox.lastfbox {
+	  margin-bottom: 3em;
+		}
+
+ div.ftext { 
+    padding-left: 8em;
+    line-height: 1.5em;
+    }
+
+ div.ftext span {
+    border-right: solid black 1px;
+	padding-right: .5em;
+	margin-right: .5em;
+	}
+ div.ftext span.last {
+    border-right: none;
+	}
+
+ div.fbox div.button {
+   width: 6em; 
+   float: left;
+	 }
+
+ div.fbox div.button a {
+    text-decoration: none;
+    }
+
+ div.fbox div.button a img {
+    width: 4em; height: 4em;
+    }
+
