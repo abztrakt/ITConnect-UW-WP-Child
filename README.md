@@ -1,5 +1,10 @@
 # Introduction for Child Theme for IT Connect
 
+## Required parent theme
+This theme extends the University of Washington WordPress Theme. You'll need to install it to your themes directory as well:
+
+https://github.com/uweb/UW-Wordpress-Theme
+
 ## Required Plug-ins
 
 ### Breadcrumb NavXT
