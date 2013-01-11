@@ -1,10 +1,5 @@
 # Introduction for Child Theme for IT Connect
 
-## Required parent theme
-This theme extends the University of Washington WordPress Theme. You'll need to install it to your themes directory as well:
-
-https://github.com/uweb/UW-Wordpress-Theme
-
 ## Required Plug-ins
 
 ### Breadcrumb NavXT
@@ -17,7 +12,7 @@ relationships defined when editing the page
 
 ### Responsive Select Menu
 
-* http://wpmegamenu.com/responsive-select-menu/
+* http://wordpress.org/extend/plugins/responsive-select-menu/
 * Configured in the theme. When activated, a Responsive Select
 link appears with the current theme when you view the Manage
 Themes page. 
@@ -31,3 +26,7 @@ pulled down the select list. Currently set to IT Connect Topics
 The UW Marketing theme desktop view only handles two 
 levels. It blows up if you have a menu with three or more levels  
 
+## Required parent theme
+This theme extends the University of Washington WordPress Theme. You'll need to install it to your themes directory as well:
+* https://github.com/uweb/UW-Wordpress-Theme
+* Activate "UW Theme Child"
