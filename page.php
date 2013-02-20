@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-
 		<div id="primary">
 			<div id="content" role="main" class="container">
 			
@@ -15,12 +14,12 @@
 				
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
-<div class="breadcrumbs">
-    <?php if(function_exists('bcn_display'))
-    {
-        bcn_display();
-    }?>
-</div>
+                    <div class="breadcrumbs">
+                        <?php if(function_exists('bcn_display'))
+                        {
+                            bcn_display();
+                        }?>
+                    </div>
 					<h1 class="entry-title"><?php apply_filters('italics', get_the_title()); ?></h1>
 				</header><!-- .entry-header -->
 			
@@ -32,10 +31,12 @@
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
 			</article><!-- #post-<?php the_ID(); ?> -->
+
                 <p class="date"><?php the_date(); ?></p>
 					<?php comments_template( '', true ); ?>
 
 			<?php endwhile; // end of the loop. ?>
+
 				</div>
 				<div id="secondary" class="span4 right-bar" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
