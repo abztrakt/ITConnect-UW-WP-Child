@@ -9,9 +9,24 @@ Template: UW-Wordpress-Theme
 /******************************************************/
 
 
+/*** Color ********/
+
 /*** Typography ***********/
 
 
+
+
+
+
+
+/*** Helpers ********/
+.assistive-text {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
 
 
 
@@ -24,14 +39,17 @@ body { background: yellow; }
 
 /*** Navigation Menu ********/
 
-.navbar { padding: 0; }
-.navbar h3 { margin: 0;  }
+.navbar { padding: 0; background: #4b81bf; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; }
+.navbar .nav { margin: 0; }
+.navbar .nav li a { padding: 8px 15px; color: #fff; font-weight: normal; }
 
-.nav-collapse { display: none; }
+.btn-navbar { background: #4b81bf; margin-top: 3px; }
 
+.navbar h3 { margin: 0; font-weight: normal; padding-left: 15px; }
+.navbar h3 a { color: #fff; }
 
-
-
+.nav-collapse { display: none; background: #82b4de; }
+.nav-collapse li { border-bottom: solid 1px #fff; }
 
 
 
@@ -42,5 +60,9 @@ body { background: yellow; }
 @media screen and (min-width: 40.5em) {
 
     body { background: lime; }
+
+    /*** Navigation Menu ********/
+    .nav-collapse { display: block; }
+    .nav-collapse li { border-bottom: none; }
 
 }
