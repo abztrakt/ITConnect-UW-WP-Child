@@ -4,8 +4,9 @@
 			<div id="content" role="main" class="container">
 			
 						
-			<div class="row show-grid">
+			<div class="row row-offcanvas row-offcanvas-left">
 				<div class="span8">
+                <p class="pull-right visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"><i class="glyphicon-resize-horizontal"></i></a></p>
 					
 					
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -34,11 +35,11 @@
 			<?php endwhile; // end of the loop. ?>
 
 				</div>
-				<div id="secondary" class="span4 right-bar" role="complementary">
+				<div id="secondary" class="span4 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
-          <div id="sidebar">
-          <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
-          </div>
+                      <div class="" id="sidebar">
+                      <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
+                      </div>
 				</div>
  			 </div>
 			</div><!-- #content -->
