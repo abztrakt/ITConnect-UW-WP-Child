@@ -50,14 +50,18 @@ body { background: yellow; }
 
 .nav-collapse { display: none; background: #82b4de; }
 .nav-collapse li { border-bottom: solid 1px #fff; }
+.nav-collapse li:last-child { border-bottom: none; }
 
 
 /*** Sidebar Off-Canvas *********/
 .sidebar-offcanvas {
     background: #ddd;
-    -webkit-box-shadow: inset -2px 0px 6px 1px rgba(50, 50, 50, .55);
-    box-shadow: inset -2px 0px 6px 1px rgba(50, 50, 50, .55);
+    -webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
+    box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
 }
+
+#sidebar { height: 200px; overflow-y: auto; }
+
 
 
 /*** Content ***/
@@ -83,5 +87,7 @@ body { background: yellow; }
         -webkit-box-shadow: inherit;
         box-shadow: inherit;
     }
+
+    #sidebar { height: auto; overflow-y: auto; }
 
 }
