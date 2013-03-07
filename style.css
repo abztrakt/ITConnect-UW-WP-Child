@@ -45,11 +45,15 @@ body { background: yellow; }
 
 .btn-navbar { background: #4b81bf; margin-top: 3px; }
 
-.navbar h3 { margin: 0; font-weight: normal; padding-left: 15px; }
+.navbar h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; }
 .navbar h3 a { color: #fff; }
 
 .nav-collapse { display: none; background: #82b4de; }
 .nav-collapse li { border-bottom: solid 1px #fff; }
+
+
+/*** Content ***/
+.row { margin: 0; }
 
 
 
@@ -63,6 +67,6 @@ body { background: yellow; }
 
     /*** Navigation Menu ********/
     .nav-collapse { display: block; }
-    .nav-collapse li { border-bottom: none; }
+    .nav-collapse li { border-bottom: none; border-right: solid 1px #eee; }
 
 }
