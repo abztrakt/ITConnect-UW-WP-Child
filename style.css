@@ -1,6 +1,45 @@
 /*
 Theme Name: UW Theme Child
-Description: Child theme for the UW-Wordpress Theme 
+Description: Child theme for the UW-Wordpress Theme
 Author: Rick Ells
 Template: UW-Wordpress-Theme
 */
+
+/**** GLOBAL ******************************************/
+/******************************************************/
+
+
+/*** Typography ***********/
+
+
+
+
+
+
+/**** SMALL SCREENS **********************************/
+/*****************************************************/
+
+body { background: yellow; }
+
+
+/*** Navigation Menu ********/
+
+.navbar h3 { margin: 0;  }
+
+.nav-collapse { display: none; }
+
+
+
+
+
+
+
+/**** LARGE SCREENS **********************************/
+/*****************************************************/
+
+
+@media screen and (min-width: 40.5em) {
+
+    body { background: lime; }
+
+}

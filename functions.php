@@ -1,5 +1,5 @@
 <?
-if ( ! function_exists( 'uw_enqueue_default_styles' ) ): 
+if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
 /**
  * This is where all the CSS files are registered
  *
@@ -10,9 +10,9 @@ if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
       global $current_blog;
       $is_child_theme = get_bloginfo('template_directory') != get_bloginfo('stylesheet_directory');
       wp_register_style( 'bootstrap',get_bloginfo('stylesheet_directory') . '/css/bootstrap.css', array(), '3.0.0' );
-      wp_register_style( 'bootstrap-responsive', get_bloginfo('template_directory') . '/css/bootstrap-responsive.css', array('bootstrap'), '2.0.3' );
+      /*wp_register_style( 'bootstrap-responsive', get_bloginfo('template_directory') . '/css/bootstrap-responsive.css', array('bootstrap'), '2.0.3' );*/
       wp_register_style( 'google-font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300' );
-      wp_register_style( 'itconnect-master', get_bloginfo('stylesheet_directory') . '/style.css', array('bootstrap-responsive'), '3.4.2.5' );
+      wp_register_style( 'itconnect-master', get_bloginfo('stylesheet_directory') . '/style.css', array(), '1.0' );
       wp_enqueue_style( 'bootstrap' );
       /* wp_enqueue_style( 'bootstrap-responsive' ); */
       wp_enqueue_style( 'google-font-open-sans' );
@@ -21,7 +21,7 @@ if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
 
 endif;
 
-if ( ! function_exists( 'uw_enqueue_default_scripts' ) ): 
+if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
 /**
  * This is where all the JS files are registered
  *
@@ -62,7 +62,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
       wp_enqueue_script( 'jquery.imagesloaded' );
       wp_enqueue_script( 'jquery.parallax' );
       wp_enqueue_script( 'jquery.404' );
-       
+
     }
   }
 
