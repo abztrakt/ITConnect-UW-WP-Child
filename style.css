@@ -52,6 +52,14 @@ body { background: yellow; }
 .nav-collapse li { border-bottom: solid 1px #fff; }
 
 
+/*** Sidebar Off-Canvas *********/
+.sidebar-offcanvas {
+    background: #ddd;
+    -webkit-box-shadow: inset -2px 0px 6px 1px rgba(50, 50, 50, .55);
+    box-shadow: inset -2px 0px 6px 1px rgba(50, 50, 50, .55);
+}
+
+
 /*** Content ***/
 .row { margin: 0; }
 
@@ -68,5 +76,12 @@ body { background: yellow; }
     /*** Navigation Menu ********/
     .nav-collapse { display: block; }
     .nav-collapse li { border-bottom: none; border-right: solid 1px #eee; }
+
+    /*** Sidebar Off-Canvas *********/
+    .sidebar-offcanvas {
+        background: none;
+        -webkit-box-shadow: inherit;
+        box-shadow: inherit;
+    }
 
 }
