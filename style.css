@@ -24,6 +24,7 @@ body { background: yellow; }
 
 /*** Navigation Menu ********/
 
+.navbar { padding: 0; }
 .navbar h3 { margin: 0;  }
 
 .nav-collapse { display: none; }
