@@ -6,7 +6,7 @@
 						
 			<div class="row row-offcanvas row-offcanvas-left">
 				<div class="span8">
-                <p class="pull-right visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"><i class="glyphicon-resize-horizontal"></i></a></p>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"><i class="glyphicon-resize-horizontal"></i></a></p>
 					
 					
 			<?php while ( have_posts() ) : the_post(); ?>
