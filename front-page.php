@@ -51,9 +51,19 @@
 				</div>
 
 				<div id="home_tertiary" class="span9" style="background-color:#fff;">
+                <?php
+                /* from http://codex.wordpress.org/Template_Tags/get_posts */
+                $args = array ( 'numberposts' => 3, 'order' => 'ASC', 'orderby' => 'post_date');
+                $postslist = get_posts( $args ); ?>
     			     <h2>News</h2>
-    			     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a ipsum lorem, in pulvinar risus. Suspendisse id pretium diam. Praesent suscipit mauris eget dolor laoreet hendrerit. In sit amet lacus in orci interdum gravida. Integer vitae massa massa. In pellentesque faucibus imperdiet. Phasellus justo urna, sagittis non pulvinar ac, sollicitudin at massa. Fusce nec massa dolor, eget blandit ipsum.</div>
-    			 </div>
+                <?php foreach ($postslist as $post) : setup_postdata($post); ?>
+    			     <div>
+                        <span id="home_date"><?php the_date(); ?></span>
+                        <h3><?php the_title(); ?></h3>
+                        <?php the_excerpt(); ?>
+                     </div>
+                <?php endforeach; ?>
+   			    </div>
 
  			 </div>
 			</div><!-- #content -->
