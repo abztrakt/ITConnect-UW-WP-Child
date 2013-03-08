@@ -436,6 +436,9 @@ display:none;
     .wTextInput:focus, input[type="text"].wTextInput:focus {
         width: 225px;
     }
+    .wfield {
+        background: none;
+    }
     .main-search {
         visibility: visible;
     }
