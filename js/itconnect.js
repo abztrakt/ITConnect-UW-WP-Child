@@ -8,7 +8,7 @@
 
 	$(document).ready(function() {
 		checkMobile();
-		setOffCanvasHeight();
+		//setOffCanvasHeight();
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize

@@ -64,13 +64,27 @@ body { background: yellow; }
     box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
 }
 
-#sidebar { height: 200px; overflow-y: auto; }
+#sidebar { /*height: 200px; overflow-y: auto;*/ }
 
 #content { overflow-x: hidden; }
 
 /*** Content ***/
 .row { margin: 0; }
 
+/*** Homepage ***/
+#home_main { background: url('./img/itconnect-front.png') no-repeat 0 50%; padding: 0; background-size: 100%; }
+
+#home_main article { padding: 10px; }
+#home_main article .entry-header { margin: 0; }
+#home_main article .entry-header h1 { margin: 0; color: #fff; }
+#home_main article .entry-content {  }
+
+#home_main .date {  }
+#home_main .nocomments {  }
+
+#home_secondary { }
+
+#home_tertiary { }
 
 
 /**** LARGE SCREENS **********************************/
@@ -95,4 +109,17 @@ body { background: yellow; }
     #sidebar { height: auto; overflow-y: auto; }
 
     #content { overflow-x: auto; }
+
+
+    /*** Homepage ***/
+
+    #home_main { float: right; background: url('./img/itconnect-front.png') no-repeat 0 0; }
+    #home_main article { padding: 30px; }
+    #home_main article .entry-header h1 { background: #fff; color: blue; padding: 3px 15px; display: inline-block; }
+
+
+
+    #home_secondary { float: left; }
+    #home_tertiary { float: right; }
+
 }
