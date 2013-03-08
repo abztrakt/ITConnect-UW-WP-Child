@@ -1,4 +1,4 @@
-<?php wp_footer(); ?> 
+<?php wp_footer(); ?>
 
 
 <div id="footerBG">
@@ -23,10 +23,15 @@
             <li><a href="http://www.washington.edu/online/privacy">Privacy</a></li>
             <li><a href="http://www.washington.edu/online/terms">Terms</a></li>
           </ul>
-      <div id="footer-left">
-        <a href="http://www.washington.edu/">&copy; <?php echo date('Y'); ?> University of Washington</a>
-      </div>
   </div> <!-- .container -->
+
+  <div id="footer-left">
+
+    <div class="container">
+        <a href="http://www.washington.edu/">&copy; <?php echo date('Y'); ?> University of Washington</a>
+    </div>
+  </div>
+
 </div>
 
 
