@@ -161,8 +161,8 @@ display:none;
     display: block;
 }
 .wfield {
-    -webkit-box-shadow: inset 2px 2px 4px #888;
-    box-shadow: inset 2px 2px 4px #888;
+    -webkit-box-shadow: inset 1px 1px 4px #888;
+    box-shadow: inset 1px 1px 4px #888;
     -webkit-border-radius: 20px;
     border-radius: 20px;
     overflow: hidden;
@@ -437,7 +437,7 @@ display:none;
         width: 225px;
     }
     .wfield {
-        background: none;
+        background: white;
     }
     .main-search {
         visibility: visible;
