@@ -28,6 +28,10 @@ Template: UW-Wordpress-Theme
   margin: -1px; padding: 0; border: 0;
 }
 
+.freeze-horizontal {
+    overflow-x: hidden;
+}
+
 
 
 
@@ -62,7 +66,7 @@ body { background: yellow; }
 
 #sidebar { height: 200px; overflow-y: auto; }
 
-
+#content { overflow-x: hidden; }
 
 /*** Content ***/
 .row { margin: 0; }
@@ -90,4 +94,5 @@ body { background: yellow; }
 
     #sidebar { height: auto; overflow-y: auto; }
 
+    #content { overflow-x: auto; }
 }
