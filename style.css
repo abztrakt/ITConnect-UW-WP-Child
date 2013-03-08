@@ -21,19 +21,13 @@ Template: UW-Wordpress-Theme
 
 
 /*** Helpers ********/
-.assistive-text {
+.assistive-text, .visuallyhidden {
   position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
   height: 1px; width: 1px;
   margin: -1px; padding: 0; border: 0;
 }
-
-.freeze-horizontal {
-    overflow-x: hidden;
-}
-
-
 
 
 /**** SMALL SCREENS **********************************/
@@ -73,7 +67,7 @@ body { background: yellow; }
 .row { margin: 0; }
 
 /*** Homepage ***/
-#home_main { background: url('./img/itconnect-front.png') no-repeat 0 50%; padding: 0; background-size: 100%; }
+#home_main { background: url('./img/itconnect-front.png') no-repeat 0 50%; padding: 0; background-size: 100%; position: relative; }
 
 #home_main article { padding: 10px; }
 #home_main article .entry-header { margin: 0; }
@@ -82,6 +76,8 @@ body { background: yellow; }
 
 #home_main .date {  }
 #home_main .nocomments {  }
+
+
 
 #home_secondary { }
 
@@ -95,6 +91,10 @@ body { background: yellow; }
 @media screen and (min-width: 40.5em) {
 
     body { background: lime; }
+
+    /*** Branding ****/
+
+    #branding { margin-bottom: 0; height: auto; }
 
     /*** Navigation Menu ********/
     .nav-collapse { display: block; }
@@ -113,11 +113,11 @@ body { background: yellow; }
 
     /*** Homepage ***/
 
-    #home_main { float: right; background: url('./img/itconnect-front.png') no-repeat 0 0; }
+    #home_main { float: right; background: url('./img/itconnect-front.png') no-repeat 0 0; min-height: 400px; max-height: 600px; overflow: hidden; }
     #home_main article { padding: 30px; }
     #home_main article .entry-header h1 { background: #fff; color: blue; padding: 3px 15px; display: inline-block; }
 
-
+    #home_spotlight { background-color: #fff; width: 300px; position: absolute; bottom: 30px; right: 0; padding: 30px; }
 
     #home_secondary { float: left; }
     #home_tertiary { float: right; }

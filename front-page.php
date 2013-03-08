@@ -35,6 +35,12 @@
 
         			<?php endwhile; // end of the loop. ?>
 
+
+        			 <div id="home_spotlight" class="hidden-phone">
+        			     <h6>SPOTLIGHT</h6>
+        			     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a ipsum lorem, in pulvinar risus. Suspendisse id pretium diam. Praesent suscipit mauris eget dolor laoreet hendrerit. In sit amet lacus in orci interdum gravida. Integer vitae massa massa. In pellentesque faucibus imperdiet. Phasellus justo urna, sagittis non pulvinar ac, sollicitudin at massa. Fusce nec massa dolor, eget blandit ipsum.</p>
+        			 </div>
+
 				</div>
 
 				<div id="home_secondary" class="span3" role="complementary">
