@@ -96,21 +96,22 @@ body { background: #f5f7f6; }
 /*****************************************************/
 
 
-@media screen and (min-width: 40.5em) {
+@media screen and (min-width: 768px) {
 
     body {  }
 
     /*** Branding ****/
 
-    #branding { margin-bottom: 0; height: auto; background: #404042 url('./img/itconnect-front.png') no-repeat 50% 50% !important;  }
+    #branding { margin-bottom: 0; height: auto; background: #404042 url('./img/itconnect-front.png') no-repeat 50% 50% !important; background-size: 1170px;  }
     #header { background: none !important; }
 
     /*** Navigation Menu ********/
 
-    nav {  background: #4b81bf; opacity: .40; }
-
+    nav, .navbar {  background: rgba(75, 129, 191, 0.25); }
     .nav-collapse { display: block; }
     .nav-collapse li { border-bottom: none; border-right: solid 1px #eee; }
+
+    .navbar .active a { background: #3f6289 !important; }
 
     /*** Sidebar Off-Canvas *********/
     .sidebar-offcanvas {

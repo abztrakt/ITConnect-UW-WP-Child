@@ -21,7 +21,7 @@
     height: 44px;
 }
 #listicon-wrapper, #searchicon-wrapper {
-    background: url("img/mobile-header/dropdowns1x.png") no-repeat -29px 0px transparent;   
+    background: url("img/mobile-header/dropdowns1x.png") no-repeat -29px 0px transparent;
     position: absolute;
     top: 4px;
     right: 10px;
@@ -31,10 +31,10 @@
     text-indent: -9999px;
     overflow: hidden;
 }
-#searchicon-wrapper {   
+#searchicon-wrapper {
     right: 50px;
     height: 30px;
-    background: url("img/mobile-header/dropdowns1x.png") no-repeat 7px 0px transparent; 
+    background: url("img/mobile-header/dropdowns1x.png") no-repeat 7px 0px transparent;
 }
 .main-search, #thin-strip {
      visibility: hidden;
@@ -66,7 +66,7 @@
     text-align: center;
     text-transform: uppercase;
     width: 61px;
-}   
+}
 #background {
   width: 100%;
   background-color:#000;
@@ -196,7 +196,7 @@ display:none;
 #thin-strip li a {
     background-image: url('img/mobile-header/sprite1x.png');
     background-repeat: no-repeat;
-} 
+}
 #thin-strip li:nth-child(1) a { background-position: center 0;      }
 #thin-strip li:nth-child(2) a { background-position: center -173px; }
 #thin-strip li:nth-child(3) a { background-position: center -267px; }
@@ -205,11 +205,11 @@ display:none;
 #thin-strip li:nth-child(6) a { background-position: center -690px; }
 #thin-strip li:nth-child(7) a { background-position: center -530px; }
 #thin-strip li:nth-child(9) a { background-position: center -83px;  }
-#thin-strip li:nth-child(10) a { background-position: center -530px; }  
-#thin-strip li:nth-child(11) a { background: none; padding: 0; }    
-#thin-strip li:nth-child(12) a { background: none; padding: 0; margin: 0 }  
+#thin-strip li:nth-child(10) a { background-position: center -530px; }
+#thin-strip li:nth-child(11) a { background: none; padding: 0; }
+#thin-strip li:nth-child(12) a { background: none; padding: 0; margin: 0 }
 #thin-strip li:nth-child(12) { background: none; margin: 0; }
-                                                                            
+
 .nav-collapse .dropdown-menu.open {
     height: auto;
     width: auto;
@@ -223,13 +223,13 @@ display:none;
     display: none;
 }
 
-@media screen and (min-width: 40.5em) {
+@media screen and (min-width: 768px) {
     body {
         background: url(img/header/bg-stripe.gif) repeat-x 197px 0 #FFF;
     }
-    
+
     /* ----  Thin Strip ---- */
-    
+
     #thin-strip {
         visibility: visible;
         height: 30px;
@@ -246,7 +246,7 @@ display:none;
     }
     #thin-strip.thin-fixed {
         position: fixed;
-        top: 0px;       
+        top: 0px;
     }
     .logged-in #thin-strip.thin-fixed {
         top:28px;
@@ -261,7 +261,7 @@ display:none;
         height: 30px;
         width: 960px;
         margin: 0 auto;
-    }  
+    }
     #thin-strip ul {
         float: right;
         background: none;
@@ -298,7 +298,7 @@ display:none;
         width: 48px;
         text-align: center;
         font-weight: bold;
-    } 
+    }
     #thin-strip li a {
         background-image: none;
         color: #fff;
@@ -312,9 +312,9 @@ display:none;
     #listicon-wrapper, #searchicon-wrapper {
         display: none;
     }
-    
+
     /* ----  Switch thin strip colors based on class ---- */
-    
+
     .tan-band #thin-strip {
         background-color: #F3F2E9;
     }
@@ -336,10 +336,10 @@ display:none;
     }
     .wordmark-white .wordmark {
         background-position: 0 -197px;
-    }   
-    
+    }
+
     /* ----  Header Logos Area ---- */
-    
+
     #branding {
         position:relative;
         height: 150px;
@@ -381,11 +381,11 @@ display:none;
         left: 125px;
         top: 25px;
     }
-    
-    
-    
+
+
+
     /* ----  Top Search ---- */
-    
+
     #search {
         position: absolute;
         top: 20px;
@@ -435,7 +435,7 @@ display:none;
     }
 
   /* ---- Super Search ---- */
-  
+
     #search .search-toggle {
       display:none;
       position: absolute;
@@ -520,8 +520,8 @@ display:none;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
     }
-  
-    
+
+
     .header-image {
         margin-top: -200px;
         display: block;
