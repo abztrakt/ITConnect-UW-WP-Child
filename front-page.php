@@ -57,10 +57,17 @@
                 $postslist = get_posts( $args ); ?>
     			     <h2>News</h2>
                 <?php foreach ($postslist as $post) : setup_postdata($post); ?>
-    			     <div>
-                        <span id="home_date"><?php the_date(); ?></span>
-                        <h3><?php the_title(); ?></h3>
-                        <?php the_excerpt(); ?>
+    			     <div class="media">
+                        <?php if ( has_post_thumbnail ) : ?>
+                        <a class="pull-left" href="#">
+                            <?php the_post_thumbnail(); ?>
+                        </a>
+                        <?php endif; ?>
+                        <div class="media-body">
+                            <span class="home_date"><?php the_date(); ?></span>
+                            <h3><?php the_title(); ?></h3>
+                            <?php the_excerpt(); ?>
+                        </div>
                      </div>
                 <?php endforeach; ?>
    			    </div>
