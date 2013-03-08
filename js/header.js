@@ -139,8 +139,14 @@ jQuery(document).ready(function($){
       , $nav  = [search, topnav]
       , ismenu = $this.is('#listicon-wrapper') 
 
-    if ( ismenu ) 
-      $nav.reverse()
+    if ( ismenu ) {
+      $nav.reverse();
+    }
+    else {
+      if ($('#search').css('height') == '0px'){
+        $('#search').css('height', 'auto');
+      }
+    }
 
     search.find('input.wTextInput').blur()
 
