@@ -33,7 +33,7 @@ Template: UW-Wordpress-Theme
 /**** SMALL SCREENS **********************************/
 /*****************************************************/
 
-body { background: yellow; }
+body { background: #f5f7f6; }
 
 
 /*** Navigation Menu ********/
@@ -61,7 +61,7 @@ body { background: yellow; }
 
 #sidebar { /*height: 200px; overflow-y: auto;*/ }
 
-#content { overflow-x: hidden; }
+#content { overflow-x: hidden; background: #e6e7e9; }
 
 /*** Content ***/
 .row { margin: 0; }
@@ -84,13 +84,19 @@ body { background: yellow; }
 #home_tertiary { }
 
 
+/*** Footer ***/
+#footer, #footer-main { background: #404042; }
+#footer h2, #footer ul { margin: 0; }
+
+#footer-left { background: #353537; }
+
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
 
 
 @media screen and (min-width: 40.5em) {
 
-    body { background: lime; }
+    body {  }
 
     /*** Branding ****/
 
@@ -117,7 +123,7 @@ body { background: yellow; }
     #home_main article { padding: 30px; }
     #home_main article .entry-header h1 { background: #fff; color: blue; padding: 3px 15px; display: inline-block; }
 
-    #home_spotlight { background-color: #fff; width: 300px; position: absolute; bottom: 30px; right: 0; padding: 30px; }
+    #home_spotlight { background-color: rgba(255,255,255,0.85); width: 300px; position: absolute; bottom: 30px; right: 0; padding: 30px; }
 
     #home_secondary { float: left; }
     #home_tertiary { float: right; }
