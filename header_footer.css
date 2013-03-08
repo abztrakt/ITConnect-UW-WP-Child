@@ -259,7 +259,7 @@ display:none;
     } */
     #thin-strip div {
         height: 30px;
-        width: 960px;
+        min-width: 40.5em;
         margin: 0 auto;
     }  
     #thin-strip ul {
@@ -336,7 +336,7 @@ display:none;
     }
     .wordmark-white .wordmark {
         background-position: 0 -197px;
-    }   
+    }
     
     /* ----  Header Logos Area ---- */
     
@@ -351,9 +351,8 @@ display:none;
     #header {
     /* z-index: 2; */
         position: relative;
-        max-width: 960px;
-        left: 50%;
-        margin-left: -480px;
+        max-width: 1170px;
+        margin: auto;
         height: 100px;
         background-image:none;
     /* added with super-search */
@@ -368,18 +367,25 @@ display:none;
         top: -30px;
         display: block;
         position: absolute;
-        background: url(img/header/header-sprite.png) no-repeat 5px 15px #D7A900;
         width: 95px;
         height: 90px;
         text-indent: -999px;
         z-index:2;
     }
+    .patch {
+        background: url(img/header/header-sprite.png) no-repeat 5px 15px #D7A900;
+    }
     .wordmark {
-        background: url(img/header/header-sprite.png) no-repeat 0 -87px transparent;
         width: 325px;
-        height: 25px;
-        left: 125px;
         top: 25px;
+        background: url(img/header/header-sprite.png) no-repeat 0 -87px transparent;
+        height: 25px;
+    }
+    .wordmark.visible-phone {
+        left: 50px;
+    }
+    .wordmark.hidden-phone {
+        left: 125px;
     }
     
     
@@ -390,7 +396,7 @@ display:none;
         position: absolute;
         top: 20px;
         right: 45px;
-        visibility: hidden;
+        height: 0px;
     }
     input[type="submit"].formbutton {
         position: absolute;
