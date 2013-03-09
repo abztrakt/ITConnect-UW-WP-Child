@@ -401,7 +401,7 @@ display:none;
     input[type="submit"].formbutton {
         position: absolute;
         left: 9px;
-        top: 4px;
+        top: 6px;
         background: url(img/header/header-sprite.png) no-repeat -103px 2px transparent;
         box-shadow: none;
         border: none;
@@ -416,7 +416,7 @@ display:none;
         border-radius: 30px;
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
-        padding: 9px 0 9px 38px;
+        padding: 8px 0 10px 38px;
         width: 175px;
         color: #999;
         box-shadow: 0 0 8px #8F8F8F;
