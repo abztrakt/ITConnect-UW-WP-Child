@@ -466,15 +466,17 @@ jQuery(window).load(function() {
    * Responsive
    */
   $(window).resize(function() {
-    var w = $(this).width()
-    if ( w > 979 ) {
+    var w = $(this).width();
+    /*if ( w > 979 ) {
       $('div.nav-collapse').show().find('.dropdown-menu').removeClass('open')
       calculate_dropdowns()
-    } else if ( w > 767 ) {
-      search.removeAttr('style') 
-      $thin.removeAttr('style')
-      strip.css('visibility','visible')
-      $('div.nav-collapse').removeAttr('style').find('.dropdown-menu').removeClass('open').removeAttr('style')
+    } else if ( w > 767 ) {*/
+    if (w > 767) {
+      search.removeAttr('style'); 
+      $thin.removeAttr('style');
+      strip.css('visibility','visible');
+      $('div.nav-collapse').removeAttr('style').find('.dropdown-menu').removeClass('open').removeAttr('style');
+      $('#search').removeAttr('style');
     }
   })
 
