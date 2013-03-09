@@ -417,7 +417,7 @@ display:none;
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
         padding: 8px 0 10px 38px;
-        width: 175px;
+        width: 190px;
         color: #999;
         box-shadow: 0 0 8px #8F8F8F;
         -webkit-box-shadow: 0 0 8px #8F8F8F;
@@ -432,15 +432,19 @@ display:none;
         -o-transition-duration: 400ms;
         -o-transition-property: width, background;
         -o-transition-timing-function: ease;
+        float: right;
     }
     .wTextInput:focus, input[type="text"].wTextInput:focus {
         width: 225px;
     }
     .wfield {
         background: white;
+        float:right;
+        width: auto;
     }
     .main-search {
         visibility: visible;
+        width: auto;
     }
 
   /* ---- Super Search ---- */
@@ -448,7 +452,7 @@ display:none;
     #search .search-toggle {
       display:none;
       position: absolute;
-      top: 6px;
+      top: 7px;
       right: 7px;
       width:25px;
       height:25px;
