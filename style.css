@@ -133,7 +133,10 @@ body { background: #f5f7f6; }
 
     #home_main { float: right; background: url('./img/itconnect-front.png') no-repeat 0 0; min-height: 500px; max-height: 600px; overflow: hidden; }
     #home_main article { padding: 30px; }
-    #home_main article .entry-header h1, #home_main article .entry-content h2 { background: #fff; color: #4a81bc; padding: 5px; display: inline; line-height: 50px; }
+    /*#home_main article .entry-header h1, #home_main article .entry-content h2 { background: #fff; color: #4a81bc; padding: 5px; display: inline; line-height: 50px; }*/
+    #home_main article .entry-header h1, #home_main article .entry-content h2 { padding:5px 0; color:#4a81bc; display: inline; background-color:#fff; box-shadow: 10px 0 0 0 #fff, -10px 0 0 0 #fff; left:10px; position: relative; line-height: 50px; }
+
+
     #home_main article .entry-content { width: 75%; }
 
     #home_spotlight { background-color: rgba(255,255,255,0.85); width: 300px; position: absolute; bottom: 30px; right: 0; padding: 30px; }
