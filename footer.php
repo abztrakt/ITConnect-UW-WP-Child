@@ -1,6 +1,6 @@
 <?php wp_footer(); ?>
 
-
+<!--  Removing from view for now
 <div id="footerBG">
     <div id="footer" role="navigation" aira-label="Global Footer Menu">
         <div class="container">
@@ -8,7 +8,7 @@
         </div>
     </div>
 </div>
-
+--!>
 
 <div id="footer-main" role="footer">
   <div class="container">
