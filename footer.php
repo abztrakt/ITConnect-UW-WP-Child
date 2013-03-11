@@ -28,7 +28,7 @@
   <div id="footer-left">
 
     <div class="container">
-        <a href="http://www.washington.edu/">&copy; <?php echo date('Y'); ?> University of Washington</a>
+        <a href="http://www.washington.edu/">&copy; <?php echo date('Y'); ?> University of Washington. All rights reserved</a>
     </div>
   </div>
 
