@@ -8,6 +8,7 @@
 <header id="branding" role="banner" <?php banner_class(); ?>>
 <?php endif; ?>
 
+<div id="banner-image" class="container hidden-phone" style="position:absolute; left:0; right:0; top:0; bottom:0;">&nbsp;</div>
 
 <div id="header">
 		<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to primary content', 'twentyeleven' ); ?></a></div>
@@ -38,5 +39,5 @@
 			<li class="visible-phone"><a href="http://www.uw.edu/news">News</a></li>
 			<li class="visible-phone"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
 		</ul>
-	</div>	
+	</div>
 </div>
