@@ -488,8 +488,8 @@ display:none;
     #search .search-toggle {
       display:none;
       position: absolute;
-      top: 7px;
-      right: 7px;
+      top: 8px;
+      right: 4px;
       width:25px;
       height:25px;
       background: url('img/misc/super-search-handle.png') no-repeat center center #e4e4e4;
