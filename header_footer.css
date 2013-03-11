@@ -544,7 +544,6 @@ display:none;
         background-color: #d6e8fa;
     }
     #footer-main {
-        background: url(img/footer/bg.gif) repeat-x 0 0 #62584b;
         height: 25px;
         position: relative;
         padding: 4px 0 0;
@@ -577,4 +576,3 @@ display:none;
         right: 30px;
         left: auto;
     }
-}
