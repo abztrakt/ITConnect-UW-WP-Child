@@ -161,8 +161,8 @@ display:none;
     display: block;
 }
 .wfield {
-    -webkit-box-shadow: inset 2px 2px 4px #888;
-    box-shadow: inset 2px 2px 4px #888;
+    -webkit-box-shadow: inset 1px 1px 4px #888;
+    box-shadow: inset 1px 1px 4px #888;
     -webkit-border-radius: 20px;
     border-radius: 20px;
     overflow: hidden;
@@ -223,6 +223,42 @@ display:none;
     display: none;
 }
 
+/* ----  footer  ---- */
+
+#footer-main {
+    height: auto;
+    position: relative;
+    padding: 4px 0 0;
+}
+#footer-main a {
+    font-size: 10px;
+    color: #fff;
+}
+#footer-main ul {
+    text-align: center;
+    margin: 0;
+}
+#footer-main li {
+    padding: 0 9px 0 0;
+    display: inline;
+    margin: 0 0 0 3px;
+    border-right: 2px solid #A1A1A1;
+}
+#footer-main li:last-child {
+    border-right: none;
+}
+#footer-left {
+    padding: 5px;
+}
+#footer-left {
+    text-align: center;
+}
+#footer-right {
+    text-transform: uppercase;
+    margin: auto;
+    clear: left;
+}
+
 @media screen and (min-width: 768px) {
     body {
         background: url(img/header/bg-stripe.gif) repeat-x 197px 0 #FFF;
@@ -259,7 +295,7 @@ display:none;
     } */
     #thin-strip div {
         height: 30px;
-        width: 960px;
+        min-width: 40.5em;
         margin: 0 auto;
     }
     #thin-strip ul {
@@ -351,9 +387,8 @@ display:none;
     #header {
     /* z-index: 2; */
         position: relative;
-        max-width: 960px;
-        left: 50%;
-        margin-left: -480px;
+        max-width: 1170px;
+        margin: auto;
         height: 100px;
         background-image:none;
     /* added with super-search */
@@ -368,18 +403,25 @@ display:none;
         top: -30px;
         display: block;
         position: absolute;
-        background: url(img/header/header-sprite.png) no-repeat 5px 15px #D7A900;
         width: 95px;
         height: 90px;
         text-indent: -999px;
         z-index:2;
     }
+    .patch {
+        background: url(img/header/header-sprite.png) no-repeat 5px 15px #D7A900;
+    }
     .wordmark {
-        background: url(img/header/header-sprite.png) no-repeat 0 -87px transparent;
         width: 325px;
-        height: 25px;
-        left: 125px;
         top: 25px;
+        background: url(img/header/header-sprite.png) no-repeat 0 -87px transparent;
+        height: 25px;
+    }
+    .wordmark.visible-phone {
+        left: 50px;
+    }
+    .wordmark.hidden-phone {
+        left: 125px;
     }
 
 
@@ -390,12 +432,12 @@ display:none;
         position: absolute;
         top: 20px;
         right: 45px;
-        visibility: hidden;
+        height: 0px;
     }
     input[type="submit"].formbutton {
         position: absolute;
         left: 9px;
-        top: 4px;
+        top: 6px;
         background: url(img/header/header-sprite.png) no-repeat -103px 2px transparent;
         box-shadow: none;
         border: none;
@@ -410,8 +452,8 @@ display:none;
         border-radius: 30px;
         -webkit-border-radius: 30px;
         -moz-border-radius: 30px;
-        padding: 9px 0 9px 38px;
-        width: 175px;
+        padding: 8px 0 10px 38px;
+        width: 190px;
         color: #999;
         box-shadow: 0 0 8px #8F8F8F;
         -webkit-box-shadow: 0 0 8px #8F8F8F;
@@ -426,12 +468,19 @@ display:none;
         -o-transition-duration: 400ms;
         -o-transition-property: width, background;
         -o-transition-timing-function: ease;
+        float: right;
     }
     .wTextInput:focus, input[type="text"].wTextInput:focus {
         width: 225px;
     }
+    .wfield {
+        background: white;
+        float:right;
+        width: auto;
+    }
     .main-search {
         visibility: visible;
+        width: auto;
     }
 
   /* ---- Super Search ---- */
@@ -439,8 +488,8 @@ display:none;
     #search .search-toggle {
       display:none;
       position: absolute;
-      top: 6px;
-      right: 7px;
+      top: 8px;
+      right: 4px;
       width:25px;
       height:25px;
       background: url('img/misc/super-search-handle.png') no-repeat center center #e4e4e4;
@@ -529,5 +578,24 @@ display:none;
         overflow: hidden;
         text-align: center;
         background-color: #d6e8fa;
+    }
+
+    /* ----  footer  ---- */
+
+    #footer-main {
+        height: 25px;
+    }
+    #footer-left, #footer-right {
+        position: absolute;
+        top: 5px;
+        left: 30px;
+    }
+    #footer-right {
+        right: 30px;
+        left: auto;
+    }
+    #footer-left {
+        padding: 0px;
+        text-align: left;
     }
 }
