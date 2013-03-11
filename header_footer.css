@@ -223,6 +223,42 @@ display:none;
     display: none;
 }
 
+/* ----  footer  ---- */
+
+#footer-main {
+    height: auto;
+    position: relative;
+    padding: 4px 0 0;
+}
+#footer-main a {
+    font-size: 10px;
+    color: #fff;
+}
+#footer-main ul {
+    text-align: center;
+    margin: 0;
+}
+#footer-main li {
+    padding: 0 9px 0 0;
+    display: inline;
+    margin: 0 0 0 3px;
+    border-right: 2px solid #A1A1A1;
+}
+#footer-main li:last-child {
+    border-right: none;
+}
+#footer-left {
+    padding: 5px;
+}
+#footer-left {
+    text-align: center;
+}
+#footer-right {
+    text-transform: uppercase;
+    margin: auto;
+    clear: left;
+}
+
 @media screen and (min-width: 768px) {
     body {
         background: url(img/header/bg-stripe.gif) repeat-x 197px 0 #FFF;
@@ -543,28 +579,11 @@ display:none;
         text-align: center;
         background-color: #d6e8fa;
     }
+
+    /* ----  footer  ---- */
+
     #footer-main {
         height: 25px;
-        position: relative;
-        padding: 4px 0 0;
-    }
-    #footer-main a {
-        text-transform: uppercase;
-        font-size: 10px;
-        color: #fff;
-    }
-    #footer-main ul {
-        text-align: center;
-        margin: 0;
-    }
-    #footer-main li {
-        padding: 0 9px 0 0;
-        display: inline;
-        margin: 0 0 0 3px;
-        border-right: 2px solid #A1A1A1;
-    }
-    #footer-main li:last-child {
-        border-right: none;
     }
     #footer-left, #footer-right {
         position: absolute;
@@ -575,3 +594,8 @@ display:none;
         right: 30px;
         left: auto;
     }
+    #footer-left {
+        padding: 0px;
+        text-align: left;
+    }
+}
