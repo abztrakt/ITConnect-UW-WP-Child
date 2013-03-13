@@ -57,13 +57,33 @@ body { background: #f5f7f6; }
 /*** Sidebar Off-Canvas *********/
 .sidebar-offcanvas {
     background: #ddd;
-    -webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
-    box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
+    /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
+    box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);            not in mockup*/
 }
 
 #sidebar { /*height: 200px; overflow-y: auto;*/
 }
 
+
+/*** Regular Sidebar ***/
+#secondary {
+    height: 100%;
+    background-color: #DDDDDD;
+}
+
+#secondary ul {
+    list-style-type: none;
+}
+
+#secondary h2 {
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #404040;
+    font-weight: normal;
+    margin-left: 25px;
+    margin-bottom: 0px;
+    line-height: 30px;
+}
 
 /*** Homepage Sidebar ***/
 #sidebar.home_sidebar ul {
@@ -100,7 +120,7 @@ body { background: #f5f7f6; }
     font-size: 12px;
 }
 
-#content { overflow-x: hidden; background: #e6e7e9; }
+#content { overflow-x: hidden; background: white; }
 
 /*** Content ***/
 .row { margin: 0; }
@@ -187,6 +207,10 @@ body { background: #f5f7f6; }
     }
 
     #sidebar { height: auto; overflow-y: auto; }
+    
+    #secondary {
+        width: 25%;
+    }
 
     #content { overflow-x: auto; }
 
@@ -217,4 +241,5 @@ body { background: #f5f7f6; }
     #sidebar.home_sidebar h2.widgettitle {
         padding-left: 0px;
     }
+
 }
