@@ -54,6 +54,12 @@ body { background: #f5f7f6; }
 .nav-collapse li:last-child { border-bottom: none; }
 
 
+/*** breadcrumbs ***/
+ul.breadcrumbs-list {
+    list-style-type: none;
+    margin: 0px;
+}
+
 /*** Sidebar Off-Canvas *********/
 .sidebar-offcanvas {
     background: #ddd;
