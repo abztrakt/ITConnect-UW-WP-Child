@@ -104,16 +104,15 @@ body { background: #f5f7f6; }
 .row { margin: 0; }
 
 /*** Homepage ***/
-#home_main { background: url('./img/itconnect-front.png') no-repeat 0 50%; padding: 0; background-size: 100%; position: relative; }
+#home_main { background: red url('./img/itconnect-banner1.png') no-repeat 0 50%; padding: 0; background-size: 100%; position: relative; }
 
-#home_main article { padding: 10px; }
+#home_main article { padding: 10px; height: 75px; }
 #home_main article .entry-header { margin: 0; }
-#home_main article .entry-header h1 { margin: 0; color: #fff; }
+#home_main article .entry-header h1 { margin: 0; color: #fff; font-size: 22px; position: absolute; bottom: 0; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9); }
 #home_main article .entry-content {  }
 
 #home_main .date {  }
 #home_main .nocomments {  }
-
 
 
 #home_secondary { }
