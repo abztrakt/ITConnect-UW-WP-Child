@@ -57,7 +57,24 @@ body { background: #f5f7f6; }
 /*** breadcrumbs ***/
 ul.breadcrumbs-list {
     list-style-type: none;
-    margin: 0px;
+    margin-top: 20px;
+}
+
+ul.breadcrumbs-list li {
+    text-transform: uppercase;
+    display: inline;
+}
+
+ul.breadcrumbs-list li a {
+    color: #404040;
+}
+
+ul.breadcrumbs-list li:after {
+    content: " / ";
+}
+
+ul.breadcrumbs-list li.current:after {
+    content: "";
 }
 
 /*** Sidebar Off-Canvas *********/
