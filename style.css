@@ -237,6 +237,22 @@ ul.breadcrumbs-list li.current:after {
         margin-left: 40px;
     }
 
+    .wordmark {
+        padding-left: 40px;
+        background: none;
+        text-indent: 0px;
+        color: white;
+        font-size: 36px;
+        height: auto;
+        line-height: 36px;
+        text-transform: uppercase;
+    }
+
+    .wordmark:hover {
+        color: white;
+        text-decoration: none;
+    }
+
     /*** Navigation Menu ********/
 
     nav, .navbar {  background: rgba(75, 129, 191, 0.5); }
