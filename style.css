@@ -100,7 +100,7 @@ ul.breadcrumbs-list li.current:after {
 
 #secondary h2 {
     font-size: 14px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     color: #404040;
     font-weight: normal;
     margin-left: 25px;
