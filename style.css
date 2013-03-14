@@ -54,16 +54,61 @@ body { background: #f5f7f6; }
 .nav-collapse li:last-child { border-bottom: none; }
 
 
+/*** breadcrumbs ***/
+ul.breadcrumbs-list {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+ul.breadcrumbs-list li {
+    text-transform: uppercase;
+    display: inline;
+}
+
+ul.breadcrumbs-list li a {
+    color: #404040;
+}
+
+ul.breadcrumbs-list li:after {
+    content: " / ";
+}
+
+ul.breadcrumbs-list li.current:after {
+    content: "";
+}
+
 /*** Sidebar Off-Canvas *********/
 .sidebar-offcanvas {
     background: #ddd;
-    -webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
-    box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
+    /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
+    box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);            not in mockup*/
 }
 
 #sidebar { /*height: 200px; overflow-y: auto;*/
 }
 
+
+/*** Regular Sidebar ***/
+#secondary {
+    height: 100%;
+    background-color: #DDDDDD;
+}
+
+#secondary ul {
+    list-style-type: none;
+}
+
+#secondary h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #404040;
+    font-weight: normal;
+    margin-left: 25px;
+    margin-bottom: 0px;
+    line-height: 30px;
+}
+
+/*** Homepage Sidebar ***/
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
@@ -98,7 +143,7 @@ body { background: #f5f7f6; }
     font-size: 12px;
 }
 
-#content { overflow-x: hidden; background: #e6e7e9; }
+#content { overflow-x: hidden; background: white; }
 
 /*** Content ***/
 .row { margin: 0; }
@@ -117,9 +162,33 @@ body { background: #f5f7f6; }
 
 #home_secondary { }
 
-#home_tertiary { }
+#home_tertiary {
+    padding: 10px 0px 0px 10px;
+}
 
+#home_tertiary h2 {
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 3%;
+}
 
+#home_tertiary div.media{
+    padding-left: 3%;
+}
+
+#home_tertiary div.media-body {
+    float: right;
+    width: 75%;
+}
+
+#home_tertiary div.media-body h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4B81BF;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 /*** Footer ***/
 #footer, #footer-main { background: #404042; }
 #footer h2, #footer ul { margin: 0; }
@@ -168,6 +237,10 @@ body { background: #f5f7f6; }
     }
 
     #sidebar { height: auto; overflow-y: auto; }
+    
+    #secondary {
+        width: 25%;
+    }
 
     #content { overflow-x: auto; }
 
@@ -198,4 +271,5 @@ body { background: #f5f7f6; }
     #sidebar.home_sidebar h2.widgettitle {
         padding-left: 0px;
     }
+
 }
