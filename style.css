@@ -222,6 +222,21 @@ ul.breadcrumbs-list li.current:after {
     }
     #header { background: none !important; }
 
+    /*** UW Header overrides ***/
+
+    #thin-strip {
+        background-color: #202020;
+        opacity: .8;
+    }
+
+    #thin-strip li a {
+        font-weight: normal;
+    }
+
+    .patch.hidden-phone {
+        margin-left: 40px;
+    }
+
     /*** Navigation Menu ********/
 
     nav, .navbar {  background: rgba(75, 129, 191, 0.25); }
