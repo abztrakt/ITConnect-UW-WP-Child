@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 		<div id="primary">
-			<div id="content" role="main" class="container">
+			<div id="content" role="main" class="it_container">
 
 
 			<div class="row row-offcanvas row-offcanvas-left">

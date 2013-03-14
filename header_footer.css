@@ -387,7 +387,6 @@ display:none;
     #header {
     /* z-index: 2; */
         position: relative;
-        max-width: 1170px;
         margin: auto;
         height: 100px;
         background-image:none;

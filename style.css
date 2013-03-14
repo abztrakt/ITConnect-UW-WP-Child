@@ -9,6 +9,11 @@ Template: UW-Wordpress-Theme
 /**** GLOBAL ******************************************/
 /******************************************************/
 
+.it_container {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*** Color ********/
 
@@ -34,6 +39,7 @@ Template: UW-Wordpress-Theme
 /*****************************************************/
 
 body { background: #f5f7f6; }
+
 
 
 /*** Navigation Menu ********/
@@ -267,4 +273,10 @@ ul.breadcrumbs-list li.current:after {
         padding-left: 0px;
     }
 
+}
+
+@media screen and (min-width: 1200px) {
+  .it_container {
+    max-width: 1170px;
+  }
 }
