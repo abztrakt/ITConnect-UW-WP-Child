@@ -15,7 +15,7 @@
 		<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to sidebar content', 'twentyeleven' ); ?>"><?php _e( 'Skip to sidebar content', 'twentyeleven' ); ?></a></div>
 
 		<a class="patch hidden-phone" href="http://www.uw.edu" title="University of Washington"></a>
-		<a class="wordmark hidden-phone" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">University of Washington</a>
+		<a class="wordmark hidden-phone" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">IT Connect</a>
 		<a class="wordmark visible-phone" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">University of Washington</a>
 		<a title="Show search" role="button" href="#searchicon-wrapper" id="searchicon-wrapper" aria-haspopup="true">Search</a>
 
@@ -33,7 +33,9 @@
 			<li><a href="http://www.washington.edu/discover/visit/uw-events">Calendar</a></li>
 			<li><a href="http://www.lib.washington.edu/">Libraries</a></li>
 			<li><a href="http://www.washington.edu/maps">Maps</a></li>
-			<li class="visible-phone"><a href="http://myuw.washington.edu/">My UW</a></li>
+			<li><a href="http://myuw.washington.edu/">My UW</a></li>
+            <li class="hidden-desktop hidden-tablet hidden-phone"><a href="http://www.bothell.washington.edu/">UW Bothell</a></li>
+            <li class="hidden-desktop hidden-tablet hidden-phone"><a href="http://www.tacoma.uw.edu/">UW Tacoma</a></li>
 			<li class="visible-phone"><a href="http://www.uw.edu/news">News</a></li>
 			<li class="visible-phone"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
 		</ul>
