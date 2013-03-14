@@ -239,11 +239,20 @@ ul.breadcrumbs-list li.current:after {
 
     /*** Navigation Menu ********/
 
-    nav, .navbar {  background: rgba(75, 129, 191, 0.25); }
+    nav, .navbar {  background: rgba(75, 129, 191, 0.5); }
     .nav-collapse { display: block; }
     .nav-collapse li { border-bottom: none; border-right: solid 1px #eee; }
+    .navbar .nav li a { padding: 8px 10px;}
+    #menu-main {float: right;}
 
-    .navbar .active a { background: #3f6289 !important; }
+    .navbar .active a { 
+        color: white !important;
+        background: #2F5783 !important; 
+    }
+
+    .dropdown-toggle {
+        font-size: 12px;
+    }
 
     /*** Sidebar Off-Canvas *********/
     .sidebar-offcanvas {
@@ -291,7 +300,10 @@ ul.breadcrumbs-list li.current:after {
 }
 
 @media screen and (min-width: 1200px) {
-  .it_container {
-    max-width: 1170px;
-  }
+    .it_container {
+        max-width: 1170px;
+    }
+    .navbar .nav li a { 
+        padding: 8px 15px;
+    }
 }
