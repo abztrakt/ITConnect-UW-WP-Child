@@ -63,10 +63,12 @@ ul.breadcrumbs-list {
 ul.breadcrumbs-list li {
     text-transform: uppercase;
     display: inline;
+    color: grey;
+    font-size: 12px;
 }
 
 ul.breadcrumbs-list li a {
-    color: #404040;
+    color: grey;
 }
 
 ul.breadcrumbs-list li:after {
@@ -99,9 +101,9 @@ ul.breadcrumbs-list li.current:after {
 }
 
 #secondary h2 {
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
-    color: #404040;
+    color: grey;
     font-weight: normal;
     margin-left: 25px;
     margin-bottom: 0px;
