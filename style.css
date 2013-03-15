@@ -253,6 +253,25 @@ ul.breadcrumbs-list li.current:after {
         text-decoration: none;
     }
 
+    .wfield {
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        opacity: .8;
+    }
+
+    input[type="text"].wTextInput {
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    input[type="submit"].formbutton {
+        left: 6px;
+    }
+
     /*** Navigation Menu ********/
 
     nav, .navbar {  background: rgba(75, 129, 191, 0.5); }
