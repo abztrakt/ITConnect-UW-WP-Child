@@ -73,12 +73,12 @@ ul.breadcrumbs-list {
 ul.breadcrumbs-list li {
     text-transform: uppercase;
     display: inline;
-    color: grey;
+    color: #606060;
     font-size: 12px;
 }
 
 ul.breadcrumbs-list li a {
-    color: grey;
+    color: #606060;
 }
 
 ul.breadcrumbs-list li:after {
@@ -113,7 +113,7 @@ ul.breadcrumbs-list li.current:after {
 #secondary h2 {
     font-size: 12px;
     text-transform: uppercase;
-    color: grey;
+    color: #606060;
     font-weight: normal;
     margin-left: 25px;
     margin-bottom: 0px;
@@ -155,7 +155,7 @@ ul.breadcrumbs-list li.current:after {
 #sidebar.home_sidebar h2 a {
     padding-left: 1.2em;
     text-transform: uppercase;
-    color: grey;
+    color: #606060;
     font-size: 12px;
 }
 
