@@ -184,9 +184,13 @@ ul.breadcrumbs-list li.current:after {
     padding-left: 3%;
 }
 
+#home_tertiary div.media .pull-left {
+    max-width: 25%;
+}
+
 #home_tertiary div.media-body {
     float: right;
-    width: 75%;
+    width: 70%;
 }
 
 #home_tertiary div.media-body h3 {
@@ -326,6 +330,16 @@ ul.breadcrumbs-list li.current:after {
     }
     #home_tertiary { float: right; }
 
+    #home_tertiary div.media .pull-left {
+        max-width: 17%;
+        max-height: 100px;
+        overflow: hidden;
+    }
+
+    #home_tertiary div.media-body {
+        width: 80%;
+    }
+
     /*** Sidebar desktop ***/
     #sidebar.home_sidebar ul {
         padding-right: 0px;
@@ -334,11 +348,6 @@ ul.breadcrumbs-list li.current:after {
 
     #sidebar.home_sidebar h2.widgettitle {
         padding-left: 0px;
-    }
-
-    .pull-left {
-        max-width: 20%;
-        max-height: 100%;
     }
 
 }
