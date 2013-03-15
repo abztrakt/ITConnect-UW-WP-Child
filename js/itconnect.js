@@ -11,8 +11,8 @@
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
-		sw = $(window).width(),
-		sh = $(window).height(),
+		sw = $(window).width();
+		sh = $(window).height();
 		checkMobile();
 	});
 
