@@ -3,11 +3,13 @@
   
     <div class="it_container">
         <div id="navbar-menu" class="navbar">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" title="Open Navigation" href="#menu" tabindex="0" role="button" aria-haspopup="true">
+
+          <a class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".nav-collapse" title="Open Navigation" href="#menu" tabindex="0" role="button" aria-haspopup="true">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
+
           <div class="navbar-inner">
             <span class="navbar-caret" style="position:absolute;"></span>
             <h3 class="visible-phone"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('title'); ?></a></h3>
