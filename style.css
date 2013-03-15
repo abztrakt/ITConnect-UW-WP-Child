@@ -332,6 +332,11 @@ ul.breadcrumbs-list li.current:after {
         padding-left: 0px;
     }
 
+    .pull-left {
+        max-width: 20%;
+        max-height: 100%;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
