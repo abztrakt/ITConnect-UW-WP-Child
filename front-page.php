@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 		<div id="primary">
-			<div id="content" role="main" class="container clearfix">
+			<div id="content" role="main" class="it_container clearfix">
 
 			<div class="row">
 

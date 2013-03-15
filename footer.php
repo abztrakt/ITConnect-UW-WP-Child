@@ -11,7 +11,7 @@
 --!>
 
 <div id="footer-main" role="footer">
-  <div class="container">
+  <div class="it_container">
       <div id="footer-right">
           <ul role="footer">
             <li><a href="http://www.washington.edu/home/siteinfo/form">Contact Us</a></li>
@@ -27,7 +27,7 @@
 
   <div id="footer-left">
 
-    <div class="container">
+    <div class="it_container">
         <a href="http://www.washington.edu/">&copy; <?php echo date('Y'); ?> University of Washington. All rights reserved</a>
     </div>
   </div>

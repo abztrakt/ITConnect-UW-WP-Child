@@ -11,8 +11,8 @@
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
-		sw = $(window).width(),
-		sh = $(window).height(),
+		sw = $(window).width();
+		sh = $(window).height();
 		checkMobile();
 	});
 
@@ -32,7 +32,7 @@
     	// set the offcanvas (sidebar) height equal to the content for now... for mobile, might want to do something sweet
     	// like setting it to the height of the viewport (i.e. facebook)
         if (mobile) {
-            $("sidebar").height('auto');
+            $("#sidebar").height('auto');
         }
         else {
     	    var contentH = $("#content").height();

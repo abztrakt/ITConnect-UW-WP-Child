@@ -9,6 +9,11 @@ Template: UW-Wordpress-Theme
 /**** GLOBAL ******************************************/
 /******************************************************/
 
+.it_container {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*** Color ********/
 
@@ -34,6 +39,7 @@ Template: UW-Wordpress-Theme
 /*****************************************************/
 
 body { background: #f5f7f6; }
+
 
 
 /*** Navigation Menu ********/
@@ -63,10 +69,12 @@ ul.breadcrumbs-list {
 ul.breadcrumbs-list li {
     text-transform: uppercase;
     display: inline;
+    color: grey;
+    font-size: 12px;
 }
 
 ul.breadcrumbs-list li a {
-    color: #404040;
+    color: grey;
 }
 
 ul.breadcrumbs-list li:after {
@@ -91,7 +99,7 @@ ul.breadcrumbs-list li.current:after {
 /*** Regular Sidebar ***/
 #secondary {
     height: 100%;
-    background-color: #DDDDDD;
+    background-color: #e6e7e9;
 }
 
 #secondary ul {
@@ -99,9 +107,9 @@ ul.breadcrumbs-list li.current:after {
 }
 
 #secondary h2 {
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
-    color: #404040;
+    color: grey;
     font-weight: normal;
     margin-left: 25px;
     margin-bottom: 0px;
@@ -109,6 +117,10 @@ ul.breadcrumbs-list li.current:after {
 }
 
 /*** Homepage Sidebar ***/
+#sidebar.home_sidebar {
+    background-color: #e6e7e9;
+}
+
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
@@ -176,9 +188,13 @@ ul.breadcrumbs-list li.current:after {
     padding-left: 3%;
 }
 
+#home_tertiary div.media .pull-left {
+    max-width: 25%;
+}
+
 #home_tertiary div.media-body {
     float: right;
-    width: 75%;
+    width: 70%;
 }
 
 #home_tertiary div.media-body h3 {
@@ -213,11 +229,62 @@ ul.breadcrumbs-list li.current:after {
         position:absolute;
         left:0;
         right:0;
-        top:30px; /*height of uw purple stripe */
+        top:0;
         bottom:0;
     }
 
-    #header { background: none !important; }
+    #header { 
+        background: none !important;
+    }
+
+    /*** UW Header overrides ***/
+
+    #thin-strip {
+        background: rgba(32, 32, 32, .8);
+    }
+
+    #thin-strip li a {
+        font-weight: normal;
+    }
+
+    .patch.hidden-phone {
+        margin-left: 40px;
+    }
+
+    .wordmark {
+        padding-left: 40px;
+        background: none;
+        text-indent: 0px;
+        color: white;
+        font-size: 36px;
+        height: auto;
+        line-height: 36px;
+        text-transform: uppercase;
+    }
+
+    .wordmark:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .wfield {
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        opacity: .8;
+    }
+
+    input[type="text"].wTextInput {
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    input[type="submit"].formbutton {
+        left: 6px;
+    }
 
     /*** Navigation Menu ********/
 
@@ -226,8 +293,14 @@ ul.breadcrumbs-list li.current:after {
     .nav-collapse { display: block; }
     .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(75, 129, 191, 0.7); }
     .nav-collapse li:last-child { margin-right: 0; }
+    .navbar .active a { 
+        color: white !important;
+        background: #2F5783 !important; 
+    }
 
-    .navbar .active a { background: #3f6289 !important; }
+    .dropdown-toggle {
+        font-size: 12px;
+    }
 
     /*** Sidebar Off-Canvas *********/
     .sidebar-offcanvas {
@@ -262,6 +335,16 @@ ul.breadcrumbs-list li.current:after {
     }
     #home_tertiary { float: right; }
 
+    #home_tertiary div.media .pull-left {
+        max-width: 17%;
+        max-height: 100px;
+        overflow: hidden;
+    }
+
+    #home_tertiary div.media-body {
+        width: 80%;
+    }
+
     /*** Sidebar desktop ***/
     #sidebar.home_sidebar ul {
         padding-right: 0px;
@@ -272,4 +355,13 @@ ul.breadcrumbs-list li.current:after {
         padding-left: 0px;
     }
 
+}
+
+@media screen and (min-width: 1200px) {
+    .it_container {
+        max-width: 1170px;
+    }
+    .navbar .nav li a { 
+        padding: 8px 15px;
+    }
 }
