@@ -215,8 +215,40 @@ ul.breadcrumbs-list li.current:after {
     margin-bottom: 5px;
 }
 /*** Footer ***/
-#footer, #footer-main { background: #404042; }
-#footer h2, #footer ul { margin: 0; }
+#footer {
+    padding: 25px;
+    color: #4B81BF;
+    background: #4D4D4D;
+}
+
+#footer h4 {
+    margin: 0px;
+}
+
+#footer h5 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+#footer table {
+    margin: 0px;
+}
+
+#footer td {
+    border: none;
+    padding: 0px;
+    text-align: left;
+}
+
+#footer td:first-child {
+    color: #CCCCCC;
+    width: 40%;
+}
+
+#footer-main { background: #404042; }
 
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
@@ -368,6 +400,29 @@ ul.breadcrumbs-list li.current:after {
         padding-left: 0px;
     }
 
+    /*** Footer ***/
+    #footer {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #footer .hidden-phone {
+        width: 30%;
+        float: left;
+    }
+
+    #footer_links {
+        width: 70%;
+        float: right;
+    }
+
+    #footer_links_left {
+        padding-left: 0px;
+    }
+
+    #footer_links_right {
+        padding-right: 0px;
+    } 
 }
 
 @media screen and (min-width: 1200px) {
