@@ -170,7 +170,12 @@ ul.breadcrumbs-list li.current:after {
 .row { margin: 0; }
 
 /*** Homepage ***/
-#home_main { background: red url('./img/itconnect-banner1.png') no-repeat 0 50%; padding: 0; background-size: 100%; position: relative; }
+#home_main { 
+    background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
+    padding: 0;
+    background-size: cover;
+    position: relative;
+}
 
 #home_main article { padding: 10px; height: 75px; }
 #home_main article .entry-header { margin: 0; }
@@ -247,6 +252,10 @@ ul.breadcrumbs-list li.current:after {
     color: #CCCCCC;
     width: 40%;
 }
+
+#footer_links_left, #footer_links_right {
+    padding: 0px;
+} 
 
 #footer-main { background: #404042; }
 
@@ -417,11 +426,11 @@ ul.breadcrumbs-list li.current:after {
     }
 
     #footer_links_left {
-        padding-left: 0px;
+        padding-right: 10px;
     }
 
     #footer_links_right {
-        padding-right: 0px;
+        padding-left: 10px;
     } 
 }
 
