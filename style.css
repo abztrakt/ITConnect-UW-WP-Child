@@ -40,7 +40,11 @@ Template: UW-Wordpress-Theme
 
 body { background: #f5f7f6; }
 
+/*** Header ***/
 
+#header {
+    background: rgba(32,32,32,1);
+}
 
 /*** Navigation Menu ********/
 
@@ -69,12 +73,12 @@ ul.breadcrumbs-list {
 ul.breadcrumbs-list li {
     text-transform: uppercase;
     display: inline;
-    color: grey;
+    color: #606060;
     font-size: 12px;
 }
 
 ul.breadcrumbs-list li a {
-    color: grey;
+    color: #606060;
 }
 
 ul.breadcrumbs-list li:after {
@@ -109,7 +113,7 @@ ul.breadcrumbs-list li.current:after {
 #secondary h2 {
     font-size: 12px;
     text-transform: uppercase;
-    color: grey;
+    color: #606060;
     font-weight: normal;
     margin-left: 25px;
     margin-bottom: 0px;
@@ -117,15 +121,20 @@ ul.breadcrumbs-list li.current:after {
 }
 
 /*** Homepage Sidebar ***/
+#home_secondary {
+    padding: 0px;
+}
+
 #sidebar.home_sidebar {
     background-color: #e6e7e9;
+    padding-bottom: 30px;
 }
 
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
     padding-right: 30%;
-    padding-left: 3%;
+    padding-left: 7%;
 }
 
 #sidebar.home_sidebar li {
@@ -145,13 +154,13 @@ ul.breadcrumbs-list li.current:after {
 #sidebar.home_sidebar h2.widgettitle {
     height: 1.4em;
     margin: 0px;
-    padding-left: 3%;
+    padding-left: 7%;
 }
 
 #sidebar.home_sidebar h2 a {
     padding-left: 1.2em;
     text-transform: uppercase;
-    color: grey;
+    color: #606060;
     font-size: 12px;
 }
 
@@ -161,7 +170,12 @@ ul.breadcrumbs-list li.current:after {
 .row { margin: 0; }
 
 /*** Homepage ***/
-#home_main { background: red url('./img/itconnect-banner1.png') no-repeat 0 50%; padding: 0; background-size: 100%; position: relative; }
+#home_main { 
+    background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
+    padding: 0;
+    background-size: cover;
+    position: relative;
+}
 
 #home_main article { padding: 10px; height: 75px; }
 #home_main article .entry-header { margin: 0; }
@@ -206,8 +220,44 @@ ul.breadcrumbs-list li.current:after {
     margin-bottom: 5px;
 }
 /*** Footer ***/
-#footer, #footer-main { background: #404042; }
-#footer h2, #footer ul { margin: 0; }
+#footer {
+    padding: 25px;
+    color: #4B81BF;
+    background: #4D4D4D;
+}
+
+#footer h4 {
+    margin: 0px;
+}
+
+#footer h5 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+#footer table {
+    margin: 0px;
+}
+
+#footer td {
+    border: none;
+    padding: 0px;
+    text-align: left;
+}
+
+#footer td:first-child {
+    color: #CCCCCC;
+    width: 40%;
+}
+
+#footer_links_left, #footer_links_right {
+    padding: 0px;
+} 
+
+#footer-main { background: #404042; }
 
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
@@ -346,6 +396,10 @@ ul.breadcrumbs-list li.current:after {
     }
 
     /*** Sidebar desktop ***/
+    #sidebar.home_sidebar {
+        padding-bottom: 10px;
+    }
+
     #sidebar.home_sidebar ul {
         padding-right: 0px;
         padding-left: 0px;
@@ -355,6 +409,29 @@ ul.breadcrumbs-list li.current:after {
         padding-left: 0px;
     }
 
+    /*** Footer ***/
+    #footer {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #footer .hidden-phone {
+        width: 30%;
+        float: left;
+    }
+
+    #footer_links {
+        width: 70%;
+        float: right;
+    }
+
+    #footer_links_left {
+        padding-right: 10px;
+    }
+
+    #footer_links_right {
+        padding-left: 10px;
+    } 
 }
 
 @media screen and (min-width: 1200px) {
