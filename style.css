@@ -121,15 +121,20 @@ ul.breadcrumbs-list li.current:after {
 }
 
 /*** Homepage Sidebar ***/
+#home_secondary {
+    padding: 0px;
+}
+
 #sidebar.home_sidebar {
     background-color: #e6e7e9;
+    padding-bottom: 30px;
 }
 
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
     padding-right: 30%;
-    padding-left: 3%;
+    padding-left: 7%;
 }
 
 #sidebar.home_sidebar li {
@@ -149,7 +154,7 @@ ul.breadcrumbs-list li.current:after {
 #sidebar.home_sidebar h2.widgettitle {
     height: 1.4em;
     margin: 0px;
-    padding-left: 3%;
+    padding-left: 7%;
 }
 
 #sidebar.home_sidebar h2 a {
@@ -350,6 +355,10 @@ ul.breadcrumbs-list li.current:after {
     }
 
     /*** Sidebar desktop ***/
+    #sidebar.home_sidebar {
+        padding-bottom: 10px;
+    }
+
     #sidebar.home_sidebar ul {
         padding-right: 0px;
         padding-left: 0px;
