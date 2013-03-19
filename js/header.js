@@ -250,12 +250,12 @@ jQuery(window).load(function() {
       })
 
       var shift  = $this.parent().position().left + width - 980
-        , height = $items.length < 7 ?  $this.height() : 240
+        // , height = $items.length < 7 ?  $this.height() : 240  no need to define height here
 
       $this.css({
         width: width+1, //+1 for IE...
         left: shift > 0 ? -1*shift : 0
-      }).data('height',height) 
+      })//.data('height',height)  no need to set height here
     })
   }
   calculate_dropdowns();
@@ -290,7 +290,7 @@ jQuery(window).load(function() {
           , $ul     = $this.children('.dropdown-menu')
 
           $ul.removeClass('open').attr('aria-hidden','true')
-            .height(0)
+            //.height(0) no need to set height back to 0, removing open should do it.
 
         $('span.navbar-caret').stop().hide()
       }
