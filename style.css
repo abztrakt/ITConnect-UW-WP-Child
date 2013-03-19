@@ -367,6 +367,17 @@ ul.breadcrumbs-list li.current:after {
 
     #content { overflow-x: auto; }
 
+    .nav-collapse .dropdown-menu.open {
+        padding: 0px;
+        height: auto;
+        width: auto;
+    }
+
+    .dropdown-menu.open li {
+        text-transform: none;
+        width: 100%;
+    }
+
     /*** Homepage ***/
 
     #home_main { float: right; background: url('./img/itconnect-home-hero1.png') no-repeat 0 0; min-height: 500px; max-height: 600px; overflow: hidden; }

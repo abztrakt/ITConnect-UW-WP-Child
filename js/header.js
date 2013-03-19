@@ -263,55 +263,62 @@ jQuery(window).load(function() {
   $('div.nav-collapse').children('.nav').attr('role','menubar')
 
 /* disable the submenu clicks so links actually work.
+    Brought this back and made it so none of the code runs under our 768px mobile breakpoint  -Jon */
   $('.dropdown')
     .mouseenter(function(e) {
     
-      if ( e.type === 'mouseenter' && $(window).width() < 979 ) 
-        return false;
+      if ($(window).width() >= 768) {
+        /*if ( e.type === 'mouseenter' && $(window).width() < 979 ) 
+          return false;  blocks dropdowns below 979 (but not mobile somehow) */
          
-      var $this   = $(this)
-        , $ul     = $this.children('.dropdown-menu')
+        var $this   = $(this)
+          , $ul     = $this.children('.dropdown-menu')
 
-        $ul.addClass('open').attr('aria-hidden','false')
-          .height($ul.data('height'))
+          $ul.addClass('open').attr('aria-hidden','false')
+            .height($ul.data('height'))
 
-      $('span.navbar-caret').css('left', $this.position().left + 20 ).hide().fadeIn(100);
+        $('span.navbar-caret').css('left', $this.position().left + 20 ).hide().fadeIn(100);
+      }
 
     }).mouseleave(function() {
 
-      if ( $(window).width() < 979 ) 
-        return false;
+      if ($(window).width() >= 768) {
+        /*if ( $(window).width() < 979 ) 
+          return false; */
          
-      var $this   = $(this)
-        , $ul     = $this.children('.dropdown-menu')
+        var $this   = $(this)
+          , $ul     = $this.children('.dropdown-menu')
 
-        $ul.removeClass('open').attr('aria-hidden','true')
-          .height(0)
+          $ul.removeClass('open').attr('aria-hidden','true')
+            .height(0)
 
-      $('span.navbar-caret').stop().hide()
+        $('span.navbar-caret').stop().hide()
+      }
 
     }).click(function(e) {
 
-      if ( $(window).width() < 979 )  {
+      if ($(window).width() >= 768) {
+        if ( $(window).width() < 979 )  {
 
-        var $this   = $(this)
-          , $ul     = $this.children('.dropdown-menu')
-          , $a      = $this.children('a')
+          var $this   = $(this)
+            , $ul     = $this.children('.dropdown-menu')
+            , $a      = $this.children('a')
 
-      if ( $ul.hasClass('open') ) {
-        document.location.href = $(e.target).attr('href')
-      } else {
-        window.scrollTo(0,0)
-          $('.dropdown-menu').removeClass('open').height(0)
-          $ul.addClass('open').attr('aria-hidden','false')
-            .height($ul.data('height')) 
-      }
+        if ( $ul.hasClass('open') ) {
+          document.location.href = $(e.target).attr('href')
+        } else {
+          window.scrollTo(0,0)
+            $('.dropdown-menu').removeClass('open').height(0)
+            $ul.addClass('open').attr('aria-hidden','false')
+              .height($ul.data('height')) 
+        }
 
-        return false;
+          return false;
+        }
       }
     
     })
-*/
+
 
   $('body').on('keydown.dropdown', 'ul.dropdown-menu a', function(e) {
     

@@ -22,7 +22,7 @@
         
 		if (!mobile) { //Desktop
 		} else { //Mobile
-            
+           removeOpenDropdowns(); 
 		}
 		setOffCanvasHeight(mobile);
 	}
@@ -40,5 +40,10 @@
         }
 
 	}
+
+    function removeOpenDropdowns() {
+        $('.dropdown-menu').removeClass('open');
+    }
+
 
 })(this);
