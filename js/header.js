@@ -275,7 +275,7 @@ jQuery(window).load(function() {
           , $ul     = $this.children('.dropdown-menu')
 
           $ul.addClass('open').attr('aria-hidden','false')
-            .height($ul.data('height'))
+            //.height($ul.data('height'))  unnecessary reset to 'height'
 
         $('span.navbar-caret').css('left', $this.position().left + 20 ).hide().fadeIn(100);
       }
@@ -308,9 +308,9 @@ jQuery(window).load(function() {
           document.location.href = $(e.target).attr('href')
         } else {
           window.scrollTo(0,0)
-            $('.dropdown-menu').removeClass('open').height(0)
+            $('.dropdown-menu').removeClass('open')//.height(0) another unnecessary reset to 0
             $ul.addClass('open').attr('aria-hidden','false')
-              .height($ul.data('height')) 
+              //.height($ul.data('height')) unnecessary
         }
 
           return false;
