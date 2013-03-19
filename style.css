@@ -370,12 +370,23 @@ ul.breadcrumbs-list li.current:after {
     .nav-collapse .dropdown-menu.open {
         padding: 0px;
         height: auto;
-        width: auto;
+        width:161px;
+        text-transform: none;
+    }
+
+    .nav-collapse .dropdown-menu.open.twocolumn {
+        width: 322px;
+        left: -80px;
+    }
+    
+    .nav-collapse .dropdown-menu.open.threecolumn {
+        width: 483px;
+        left: -160px;
     }
 
     .dropdown-menu.open li {
-        text-transform: none;
-        width: 100%;
+        float: left;
+        width: 160px;
     }
 
     /*** Homepage ***/

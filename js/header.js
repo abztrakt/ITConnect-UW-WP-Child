@@ -245,6 +245,14 @@ jQuery(window).load(function() {
         , $items = $this.find('li')
         , width  = height = 0
 
+      /* set number of columns based on number of items in menu */
+      if (($items.length > 6) && ($items.length <= 12)) {
+        $this.addClass('twocolumn');
+      }
+      else if ($items.length > 12) {
+        $this.addClass('threecolumn');
+      }
+
       $this.find('.menu-block').filter(function() {
         return width += $(this).outerWidth()
       })
@@ -253,7 +261,7 @@ jQuery(window).load(function() {
         // , height = $items.length < 7 ?  $this.height() : 240  no need to define height here
 
       $this.css({
-        width: width+1, //+1 for IE...
+        //width: width+1, +1 for IE...
         left: shift > 0 ? -1*shift : 0
       })//.data('height',height)  no need to set height here
     })
