@@ -253,9 +253,10 @@ jQuery(window).load(function() {
         $this.addClass('threecolumn');
       }
 
+      /*  with the removal of local var width from executed code, we must also remove this, which isn't used
       $this.find('.menu-block').filter(function() {
         return width += $(this).outerWidth()
-      })
+      }) */
 
       /* left postition shift handled on a per-class (one for each number of columns) basis in the css
       var shift  = $this.parent().position().left + width - 980
