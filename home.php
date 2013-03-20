@@ -5,30 +5,24 @@
 			
 						
 			<div class="row show-grid">
-				<div class="span8">
+				<div id='tertiary' class="span9">
 				<span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
 			<?php while ( have_posts() ) : the_post(); ?>
 
+    			     <div class="media">
+                        <?php if ( has_post_thumbnail ) : ?>
+                        <a class="pull-left" href="#">
+                            <?php the_post_thumbnail(); ?>
+                        </a>
+                        <?php endif; ?>
+                        <div class="media-body">
+                            <span class="home_date"><?php the_date(); ?></span>
+                            <h3><?php the_title(); ?></h3>
+                            <?php the_content(); ?>
+                        </div>
+                     </div>
 				
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<header class="entry-header">
-
-					<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            <?php if ( comments_open() && ! post_password_required() && get_comments_number() > 0 ): ?>
-              <span class="comments-link">
-                <?php comments_popup_link( '<span class="leave-reply">' . __( 'Reply', 'uw' ) . '</span>', _x( '1', 'comments number', 'uw' ), _x( '%', 'comments number', 'uw' ) ); ?>
-              </span>
-            <?php endif; ?>
-
-					<span class="post-info"><p><?php the_time('F j, Y'); ?></p></span>
-				</header><!-- .entry-header -->
-			
-				<div class="entry-content">
-					<?php the_content(); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
-				</div><!-- .entry-content -->
-				<hr>
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
