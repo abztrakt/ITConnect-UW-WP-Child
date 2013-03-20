@@ -243,27 +243,29 @@ jQuery(window).load(function() {
     $('.dropdown-menu').each(function() {
       var $this  = $(this) 
         , $items = $this.find('li')
-        , width  = height = 0
+        //, width  = height = 0 unnecessary local variables
 
       /* set number of columns based on number of items in menu */
-      if (($items.length > 6) && ($items.length <= 12)) {
+      if (($items.length > 7) && ($items.length <= 14)) {
         $this.addClass('twocolumn');
       }
-      else if ($items.length > 12) {
+      else if ($items.length > 14) {
         $this.addClass('threecolumn');
       }
 
+      /*  with the removal of local var width from executed code, we must also remove this, which isn't used
       $this.find('.menu-block').filter(function() {
         return width += $(this).outerWidth()
-      })
+      }) */
 
+      /* left postition shift handled on a per-class (one for each number of columns) basis in the css
       var shift  = $this.parent().position().left + width - 980
-        // , height = $items.length < 7 ?  $this.height() : 240  no need to define height here
+         , height = $items.length < 7 ?  $this.height() : 240  no need to define height here
 
       $this.css({
-        //width: width+1, +1 for IE...
+        width: width+1, +1 for IE...
         left: shift > 0 ? -1*shift : 0
-      })//.data('height',height)  no need to set height here
+      }).data('height',height)  no need to set height here  */
     })
   }
   calculate_dropdowns();
