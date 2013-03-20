@@ -391,8 +391,6 @@ ul.breadcrumbs-list li.current:after {
         box-shadow: inherit;
     }
 
-    #sidebar { height: auto; overflow-y: auto; }
-    
     #content { overflow-x: auto; }
 
     .nav-collapse .dropdown-menu.open {

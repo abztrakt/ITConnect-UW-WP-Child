@@ -10,6 +10,10 @@
 		checkMobile();
 	});
 
+    $(window).load(function() {
+        checkMobile();
+    });
+
 	$(w).resize(function(){ //Update dimensions on resize
 		sw = $(window).width();
 		sh = $(window).height();
