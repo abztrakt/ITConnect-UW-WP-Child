@@ -5,7 +5,16 @@
 			
 						
 			<div class="row show-grid">
-				<div id='tertiary' class="span9">
+				<div id="secondary" class="span4 right-bar" role="complementary">
+					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
+          <div id="sidebar">
+          <?php if (is_active_sidebar('homepage-sidebar')) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
+          </div>
+				</div>
+				<div id='tertiary' class="span8">
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas">&nbsp;<i class="icon-chevron-left"></i></a></p>
+                <?php uw_breadcrumbs(); ?>
+                <h1>News</h1>
 				<span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -34,12 +43,6 @@
 
         <?php uw_prev_next_links(); ?>
 
-				</div>
-				<div id="secondary" class="span4 right-bar" role="complementary">
-					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
-          <div id="sidebar">
-          <?php if (is_active_sidebar('homepage-sidebar')) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
-          </div>
 				</div>
  			 </div>
 			</div><!-- #content -->
