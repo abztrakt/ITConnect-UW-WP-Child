@@ -5,13 +5,13 @@
 
 
 			<div class="row row-offcanvas row-offcanvas-left">
-				<div id="secondary" class="span4 sidebar-offcanvas" role="complementary">
+				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>
                       <div class="" id="sidebar">
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
 				</div>
-				<div class="span8">
+				<div class="span9">
                 <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas">&nbsp;<i class="icon-chevron-left"></i></a></p>
 
 

@@ -97,6 +97,7 @@ ul.breadcrumbs-list li.current:after {
 }
 
 #sidebar { /*height: 200px; overflow-y: auto;*/
+    height: 100%;
 }
 
 
@@ -392,10 +393,6 @@ ul.breadcrumbs-list li.current:after {
 
     #sidebar { height: auto; overflow-y: auto; }
     
-    #secondary {
-        width: 25%;
-    }
-
     #content { overflow-x: auto; }
 
     .nav-collapse .dropdown-menu.open {
