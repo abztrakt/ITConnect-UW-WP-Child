@@ -372,6 +372,7 @@ ul.breadcrumbs-list li.current:after {
         height: auto;
         width:241px;
         text-transform: none;
+        background: rgba(75, 129, 191, 0.9);
     }
 
     .nav-collapse .dropdown-menu.open.twocolumn {
@@ -392,6 +393,7 @@ ul.breadcrumbs-list li.current:after {
 
     .dropdown-menu.open li {
         width: 240px;
+        background: transparent;
     }
 
     .dropdown-menu.open li:last-child {
@@ -399,8 +401,8 @@ ul.breadcrumbs-list li.current:after {
     }
 
     .nav-collapse .dropdown-menu.open li a {
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     /*** Homepage ***/
