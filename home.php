@@ -27,7 +27,7 @@
                                 <?php endif; ?>
                                 <div class="media-body">
                                     <span class="home_date"><?php the_date(); ?></span>
-                                    <h3><?php the_title(); ?></h3>
+                                    <h3><a href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h3>
                                     <?php the_content(); ?>
                                 </div>
                             </div>
