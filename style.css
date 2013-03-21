@@ -453,6 +453,7 @@ a.btn-offcanvas {
     .nav-collapse .dropdown-menu.open li a {
         padding-left: 10px;
         padding-right: 10px;
+        background: transparent !important;
     }
 
     /*** Homepage ***/
