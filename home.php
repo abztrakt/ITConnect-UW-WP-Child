@@ -11,7 +11,7 @@
                         <?php dynamic_sidebar('sidebar'); ?>
                         </div>
 				    </div>
-                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas">&nbsp;<i class="icon-chevron-left"></i></a>sample text</p>
+                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>sample text</p>
 				    <div id='tertiary' class="span9">
                         <?php uw_breadcrumbs(); ?>
                         <h1>News</h1>
