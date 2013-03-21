@@ -100,6 +100,7 @@ a.btn-offcanvas {
     height: 25px;
     width: 25px;
     padding: 6px;
+    border-radius: 0px;
 }
 
 .sidebar-offcanvas {
@@ -121,6 +122,7 @@ a.btn-offcanvas {
 
 #secondary ul {
     list-style-type: none;
+    margin-left: 0px;
 }
 
 #secondary h2 {
@@ -128,9 +130,16 @@ a.btn-offcanvas {
     text-transform: uppercase;
     color: #606060;
     font-weight: normal;
-    margin-left: 25px;
     margin-bottom: 0px;
     line-height: 30px;
+}
+
+#secondary div {
+    padding-left: 15px;
+}
+
+#secondary div.textwidget {
+    padding-left: 0px;
 }
 
 /*** Homepage Sidebar ***/
