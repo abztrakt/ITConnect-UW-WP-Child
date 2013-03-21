@@ -43,7 +43,7 @@ body { background: #f5f7f6; }
 /*** Header ***/
 
 #header {
-    background: rgba(32,32,32,1);
+    background: rgba(32,32,32,.9);
 }
 
 /*** Navigation Menu ********/
