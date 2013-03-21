@@ -8,11 +8,11 @@
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                         <div id="sidebar">
-                        <?php if (is_active_sidebar('homepage-sidebar')) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
+                        <?php dynamic_sidebar('sidebar'); ?>
                         </div>
 				    </div>
+                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas">&nbsp;<i class="icon-chevron-left"></i></a>sample text</p>
 				    <div id='tertiary' class="span9">
-                        <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas">&nbsp;<i class="icon-chevron-left"></i></a></p>
                         <?php uw_breadcrumbs(); ?>
                         <h1>News</h1>
 				        <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
