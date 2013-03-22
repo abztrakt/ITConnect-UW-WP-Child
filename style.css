@@ -43,7 +43,7 @@ body { background: #f5f7f6; }
 /*** Header ***/
 
 #header {
-    background: rgba(32,32,32,1);
+    background: rgba(32,32,32,.9);
 }
 
 /*** Navigation Menu ********/
@@ -90,6 +90,22 @@ ul.breadcrumbs-list li.current:after {
 }
 
 /*** Sidebar Off-Canvas *********/
+.pull-left.visible-phone {
+    width: 100%;
+    background: #ddd;
+    margin: 0px;
+}
+
+a.btn-offcanvas {
+    margin-right: 20px;
+    height: 36px;
+    width: 36px;
+    font-size:24px;
+    line-height: 42px;
+    padding: 0px;
+    border-radius: 0px;
+}
+
 .sidebar-offcanvas {
     background: #ddd;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
@@ -109,6 +125,7 @@ ul.breadcrumbs-list li.current:after {
 
 #secondary ul {
     list-style-type: none;
+    margin-left: 0px;
 }
 
 #secondary h2 {
@@ -116,9 +133,16 @@ ul.breadcrumbs-list li.current:after {
     text-transform: uppercase;
     color: #606060;
     font-weight: normal;
-    margin-left: 25px;
     margin-bottom: 0px;
     line-height: 30px;
+}
+
+#secondary div {
+    padding-left: 15px;
+}
+
+#secondary div.textwidget {
+    padding-left: 0px;
 }
 
 /*** Homepage Sidebar ***/
@@ -429,6 +453,7 @@ ul.breadcrumbs-list li.current:after {
     .nav-collapse .dropdown-menu.open li a {
         padding-left: 10px;
         padding-right: 10px;
+        background: transparent !important;
     }
 
     /*** Homepage ***/
