@@ -392,6 +392,13 @@ a.btn-offcanvas {
         left: 6px;
     }
 
+    #header-help {
+        position: absolute;
+        right: 50px;
+        top: 60px;
+        color: white;
+    }
+
     /*** Navigation Menu ********/
 
     nav, .navbar {  background: rgba(75, 129, 191, 0.30); }
