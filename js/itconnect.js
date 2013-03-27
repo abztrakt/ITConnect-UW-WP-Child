@@ -44,10 +44,8 @@
 
     	// set the offcanvas (sidebar) height equal to the content for now... for mobile, might want to do something sweet
     	// like setting it to the height of the viewport (i.e. facebook)
-        if (mobile) {
-            $("#sidebar").height('auto');
-        }
-        else {
+        $("#sidebar").height('auto');
+        if (!mobile) {
     	    var contentH = $("#content").height();
     	    $("#sidebar").height(contentH);
         }
