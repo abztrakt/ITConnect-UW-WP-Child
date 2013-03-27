@@ -11,7 +11,6 @@
 	});
 
     $(window).load(function() {
-        checkMobile();
         $('.btn-offcanvas').click(function() {
             if ($('.btn-offcanvas').hasClass('glyphicon-chevron-left')) {
                 $('.btn-offcanvas').removeClass('glyphicon-chevron-left');
