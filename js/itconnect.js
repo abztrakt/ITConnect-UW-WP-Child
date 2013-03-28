@@ -38,6 +38,7 @@
 		}
         setImageWindowHeight();
 		setOffCanvasHeight(mobile);
+        checkNavbarWrap(mobile);
 	}
 
 	function setOffCanvasHeight(mobile) {
@@ -59,6 +60,13 @@
     function setImageWindowHeight() {
         var width = $('.media .pull-left').width();
         $('.media .pull-left').css({"max-height": width * 3 / 4 + 'px'});
+    }
+    
+    function checkNavbarWrap() {
+        $('.navbar.mobile').removeClass('mobile');
+        if (($('.navbar').height() > 50 ) && (!mobile)) {
+            $('.navbar').addClass('mobile');
+        }
     }
 
 })(this);

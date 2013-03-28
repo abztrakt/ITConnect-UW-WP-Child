@@ -417,6 +417,38 @@ a.btn-offcanvas {
         font-size: 12px;
     }
 
+    /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
+
+    .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #4b81bf; }
+    .navbar.mobile .nav {
+        margin: 0; 
+        float: none;
+    }
+    .navbar.mobile .nav li {
+        float: none;
+    }
+    .navbar.mobile .nav li a { padding: 5px 10px; color: #fff; font-weight: normal; font-size: .85em; }
+    .navbar.mobile h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
+    .navbar.mobile h3 a { color: #fff; }
+
+    .navbar.mobile .nav-collapse { display: none; background: #82b4de; }
+    .navbar.mobile .nav-collapse li {
+        border-bottom: solid 1px #fff;
+        background: transparent;
+    }
+    .navbar.mobile .nav-collapse li:last-child { border-bottom: none; }
+    .navbar.mobile .navbar-toggle {
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+    }
+    .navbar.mobile .visible-phone {
+        display: block !important;
+    }
+    .navbar.mobile .open {
+        display: none;
+    }
+
     /*** Sidebar Off-Canvas *********/
     .sidebar-offcanvas {
         background: none;
