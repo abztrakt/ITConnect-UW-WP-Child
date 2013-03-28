@@ -229,6 +229,7 @@ a.btn-offcanvas {
 
 #home_tertiary div.media .pull-left {
     max-width: 25%;
+    overflow: hidden;
 }
 
 #home_tertiary div.media-body {
