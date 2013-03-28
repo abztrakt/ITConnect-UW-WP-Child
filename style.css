@@ -483,7 +483,7 @@ a.btn-offcanvas {
 
     #home_tertiary div.media .pull-left {
         max-width: 17%;
-        max-height: 100px;
+        max-height: 86px;
         overflow: hidden;
     }
 
@@ -554,5 +554,9 @@ a.btn-offcanvas {
     }
     .navbar .nav li a { 
         padding: 8px 15px;
+    }
+
+    #home_tertiary div.media .pull-left {
+        max-height: 108px;
     }
 }
