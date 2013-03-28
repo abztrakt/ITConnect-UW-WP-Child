@@ -36,7 +36,7 @@
 		if (mobile) { //mobile mode
            removeOpenDropdowns();
 		}
-        setImageWindowHeight(mobile);
+        setImageWindowHeight();
 		setOffCanvasHeight(mobile);
 	}
 
@@ -56,14 +56,9 @@
         $('.dropdown-menu').removeClass('open');
     }
 
-    function setImageWindowHeight(mobile) {
-        if (mobile) {
-            var width = $('.media .pull-left').width();
-            $('.media .pull-left').css({"max-height": width * 3 / 4 + 'px'});
-        }
-        else {
-            $('.media .pull-left').removeAttr('style');
-        }
+    function setImageWindowHeight() {
+        var width = $('.media .pull-left').width();
+        $('.media .pull-left').css({"max-height": width * 3 / 4 + 'px'});
     }
 
 })(this);

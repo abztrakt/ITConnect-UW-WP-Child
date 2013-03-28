@@ -228,7 +228,7 @@ a.btn-offcanvas {
 }
 
 #home_tertiary div.media .pull-left {
-    max-width: 25%;
+    width: 25%;
     overflow: hidden;
 }
 
@@ -259,7 +259,8 @@ a.btn-offcanvas {
 }
 
 #tertiary div.media .pull-left {
-    max-width: 25%;
+    width: 25%;
+    overflow: hidden;
 }
 
 #tertiary div.media-body {
@@ -483,7 +484,7 @@ a.btn-offcanvas {
     #home_tertiary { float: right; }
 
     #home_tertiary div.media .pull-left {
-        max-width: 17%;
+        width: 17%;
         max-height: 86px;
         overflow: hidden;
     }
@@ -501,8 +502,7 @@ a.btn-offcanvas {
     #tertiary { float: right; }
 
     #tertiary div.media .pull-left {
-        max-width: 17%;
-        max-height: 100px;
+        width: 17%;
         overflow: hidden;
     }
 
@@ -555,9 +555,5 @@ a.btn-offcanvas {
     }
     .navbar .nav li a { 
         padding: 8px 15px;
-    }
-
-    #home_tertiary div.media .pull-left {
-        max-height: 108px;
     }
 }
