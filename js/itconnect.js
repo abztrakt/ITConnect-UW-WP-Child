@@ -11,7 +11,6 @@
 	});
 
     $(window).load(function() {
-        checkMobile();
         $('.btn-offcanvas').click(function() {
             if ($('.btn-offcanvas').hasClass('glyphicon-chevron-left')) {
                 $('.btn-offcanvas').removeClass('glyphicon-chevron-left');
@@ -34,21 +33,20 @@
 	function checkMobile() {
 		mobile = (sw > breakpoint) ? false : true;
         
-		if (!mobile) { //Desktop
-		} else { //Mobile
-           removeOpenDropdowns(); 
+		if (mobile) { //mobile mode
+           removeOpenDropdowns();
 		}
+        setImageWindowHeight();
 		setOffCanvasHeight(mobile);
+        checkNavbarWrap(mobile);
 	}
 
 	function setOffCanvasHeight(mobile) {
 
     	// set the offcanvas (sidebar) height equal to the content for now... for mobile, might want to do something sweet
     	// like setting it to the height of the viewport (i.e. facebook)
-        if (mobile) {
-            $("#sidebar").height('auto');
-        }
-        else {
+        $("#sidebar").height('auto');
+        if (!mobile) {
     	    var contentH = $("#content").height();
     	    $("#sidebar").height(contentH);
         }
@@ -59,5 +57,16 @@
         $('.dropdown-menu').removeClass('open');
     }
 
+    function setImageWindowHeight() {
+        var width = $('.media .pull-left').width();
+        $('.media .pull-left').css({"max-height": width * 3 / 4 + 'px'});
+    }
+    
+    function checkNavbarWrap() {
+        $('.navbar.mobile').removeClass('mobile');
+        if (($('.navbar').height() > 50 ) && (!mobile)) {
+            $('.navbar').addClass('mobile');
+        }
+    }
 
 })(this);

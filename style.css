@@ -228,7 +228,8 @@ a.btn-offcanvas {
 }
 
 #home_tertiary div.media .pull-left {
-    max-width: 25%;
+    width: 25%;
+    overflow: hidden;
 }
 
 #home_tertiary div.media-body {
@@ -258,7 +259,8 @@ a.btn-offcanvas {
 }
 
 #tertiary div.media .pull-left {
-    max-width: 25%;
+    width: 25%;
+    overflow: hidden;
 }
 
 #tertiary div.media-body {
@@ -392,6 +394,13 @@ a.btn-offcanvas {
         left: 6px;
     }
 
+    #header-help {
+        position: absolute;
+        right: 50px;
+        top: 60px;
+        color: white;
+    }
+
     /*** Navigation Menu ********/
 
     nav, .navbar {  background: rgba(75, 129, 191, 0.30); }
@@ -399,13 +408,45 @@ a.btn-offcanvas {
     .nav-collapse { display: block; }
     .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(75, 129, 191, 0.7); }
     .nav-collapse li:last-child { margin-right: 0; }
-    .navbar .active a { 
-        color: white !important;
-        background: #2F5783 !important; 
+    .navbar #menu-main li.dropdown.active a.dropdown-toggle { 
+        color: white;
+        background: #2F5783; 
     }
 
     .dropdown-toggle {
         font-size: 12px;
+    }
+
+    /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
+
+    .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #4b81bf; }
+    .navbar.mobile .nav {
+        margin: 0; 
+        float: none;
+    }
+    .navbar.mobile .nav li {
+        float: none;
+    }
+    .navbar.mobile .nav li a { padding: 5px 10px; color: #fff; font-weight: normal; font-size: .85em; }
+    .navbar.mobile h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
+    .navbar.mobile h3 a { color: #fff; }
+
+    .navbar.mobile .nav-collapse { display: none; background: #82b4de; }
+    .navbar.mobile .nav-collapse li {
+        border-bottom: solid 1px #fff;
+        background: transparent;
+    }
+    .navbar.mobile .nav-collapse li:last-child { border-bottom: none; }
+    .navbar.mobile .navbar-toggle {
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+    }
+    .navbar.mobile .visible-phone {
+        display: block !important;
+    }
+    .navbar.mobile .open {
+        display: none;
     }
 
     /*** Sidebar Off-Canvas *********/
@@ -475,8 +516,8 @@ a.btn-offcanvas {
     #home_tertiary { float: right; }
 
     #home_tertiary div.media .pull-left {
-        max-width: 17%;
-        max-height: 100px;
+        width: 17%;
+        max-height: 86px;
         overflow: hidden;
     }
 
@@ -493,8 +534,7 @@ a.btn-offcanvas {
     #tertiary { float: right; }
 
     #tertiary div.media .pull-left {
-        max-width: 17%;
-        max-height: 100px;
+        width: 17%;
         overflow: hidden;
     }
 
