@@ -64,7 +64,7 @@
                         </a>
                         <?php endif; ?>
                         <div class="media-body">
-                            <span class="home_date"><?php the_date(); ?></span>
+                            <h5 class="home_date"><?php echo get_the_date(); ?></h5>
                             <h3><?php the_title(); ?></h3>
                             <?php the_excerpt(); ?>
                         </div>
