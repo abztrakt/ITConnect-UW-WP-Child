@@ -11,7 +11,7 @@
                         <?php dynamic_sidebar('sidebar'); ?>
                         </div>
 				    </div>
-                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>sample text</p>
+                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>sample text</p>
 				    <div id='tertiary' class="span9">
                         <?php uw_breadcrumbs(); ?>
                         <h1>News</h1>
@@ -26,7 +26,7 @@
                                 </a>
                                 <?php endif; ?>
                                 <div class="media-body">
-                                    <span class="home_date"><?php the_date(); ?></span>
+                                    <h5 class="home_date"><?php echo get_the_date(); ?></h5>
                                     <h3><a href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h3>
                                     <?php the_content(); ?>
                                 </div>
