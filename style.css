@@ -232,6 +232,10 @@ ol.commentlist {
     padding-right: 3%;
 }
 
+.comment-author.vcard {
+    height: 32px;
+}
+
 /*** Homepage ***/
 #home_main { 
     background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
