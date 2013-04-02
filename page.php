@@ -12,7 +12,7 @@
                       </div>
 				</div>
                 <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>All</p>
-				<div class="span9">
+				<div id='tertiary' class="span9">
 
 
 			<?php while ( have_posts() ) : the_post(); ?>

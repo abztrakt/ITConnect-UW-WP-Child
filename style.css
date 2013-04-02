@@ -191,8 +191,50 @@ a.btn-offcanvas {
 
 #content { overflow-x: hidden; background: white; }
 
-/*** Content ***/
+/*** Content and comments ***/
 .row { margin: 0; }
+
+article, #respond {
+    padding: 3%;
+}
+
+h1.entry-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 0px;
+}
+
+h5.date {
+    margin-top: 0px;
+    color: rgb(96, 96, 96);
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 12px;
+}
+
+#tertiary {
+    padding: 48px 0px 0px 10px;
+}
+
+#respond h3 {
+    font-size: 18px;
+}
+
+#comments {
+    font-size: 18px;
+    padding: 3%;
+    margin: 0px;
+}
+
+ol.commentlist {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.comment-author.vcard {
+    height: 32px;
+}
 
 /*** Homepage ***/
 #home_main { 
@@ -213,7 +255,7 @@ a.btn-offcanvas {
 
 #home_secondary { }
 
-#home_tertiary, #tertiary {
+#home_tertiary {
     padding: 10px 0px 0px 10px;
 }
 
@@ -221,6 +263,7 @@ a.btn-offcanvas {
     font-weight: bold;
     font-size: 22px;
     margin-left: 3%;
+    margin-top: 10px;
 }
 
 #home_tertiary div.media{
@@ -505,6 +548,12 @@ h5.home_date {
         padding-left: 10px;
         padding-right: 10px;
         background: transparent !important;
+    }
+
+    /*** content ***/
+
+    #tertiary {
+        padding: 10px 0px 0px 10px;
     }
 
     /*** Homepage ***/
