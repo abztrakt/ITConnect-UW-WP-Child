@@ -191,10 +191,10 @@ a.btn-offcanvas {
 
 #content { overflow-x: hidden; background: white; }
 
-/*** Content ***/
+/*** Content and comments ***/
 .row { margin: 0; }
 
-article {
+article, #respond {
     padding: 3%;
 }
 
@@ -215,6 +215,10 @@ h5.date {
 
 #tertiary {
     padding: 48px 0px 0px 10px;
+}
+
+#respond h3 {
+    font-size: 18px;
 }
 
 /*** Homepage ***/
