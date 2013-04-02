@@ -4,8 +4,15 @@
 			<div id="content" role="main" class="it_container">
 			
 						
-			<div class="row show-grid">
-				<div class="span8">
+			<div class="row row-offcanvas row-offcanvas-left">
+				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
+					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
+                    <div id="sidebar">
+					    <?php dynamic_sidebar('sidebar'); ?>
+                    </div>
+                </div>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>All</p>
+				<div class="span9">
 					<span id="arrow-mark"></span>
 						
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -34,14 +41,6 @@
 				
 					<?php endwhile; // end of the loop. ?>
 				</div>
-
-				<div id="secondary" class="span4 right-bar" role="complementary">
-					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
-          <div id="sidebar">
-					  <?php dynamic_sidebar('sidebar'); ?>
-          </div>
-        </div><!-- .span4 -->
-
  			 </div>
 			</div><!-- #content -->
 		</div><!-- #primary -->
