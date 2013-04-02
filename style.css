@@ -213,6 +213,10 @@ h5.date {
     line-height: 12px;
 }
 
+#tertiary {
+    padding: 48px 0px 0px 10px;
+}
+
 /*** Homepage ***/
 #home_main { 
     background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
@@ -232,7 +236,7 @@ h5.date {
 
 #home_secondary { }
 
-#home_tertiary, #tertiary {
+#home_tertiary {
     padding: 10px 0px 0px 10px;
 }
 
@@ -524,6 +528,12 @@ h5.home_date {
         padding-left: 10px;
         padding-right: 10px;
         background: transparent !important;
+    }
+
+    /*** content ***/
+
+    #tertiary {
+        padding: 10px 0px 0px 10px;
     }
 
     /*** Homepage ***/
