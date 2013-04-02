@@ -221,6 +221,17 @@ h5.date {
     font-size: 18px;
 }
 
+#comments {
+    font-size: 18px;
+    padding: 3%;
+    margin: 0px;
+}
+
+ol.commentlist {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
 /*** Homepage ***/
 #home_main { 
     background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
