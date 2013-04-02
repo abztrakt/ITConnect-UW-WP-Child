@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>All</p>
-				<div class="span9">
+				<div id='tertiary' class="span9">
 					<span id="arrow-mark"></span>
 						
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -20,7 +20,7 @@
 						
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-            <p class="date"><?php the_date(); ?></p>
+                        <h5 class="date"><?php echo get_the_date(); ?></h5>
 
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_title(); ?></h1>
