@@ -615,6 +615,12 @@ h5.home_date {
         padding-left: 0px;
     }
 
+    h1.news-title {
+        padding-left: 3%;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
     /*** Footer ***/
     #footer {
         padding-left: 0px;
