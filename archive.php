@@ -14,7 +14,7 @@
                     <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a><?php single_month_title(' '); single_cat_title(); ?></p>
 				<div id='tertiary' class="span9">
                     <?php uw_breadcrumbs(); ?>
-                    <span class='hidden-phone'><h1><?php single_month_title(' '); single_cat_title(); ?></h1></span>
+                    <h1 class='hidden-phone'><?php single_month_title(' '); single_cat_title(); ?></h1>
 				    <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
                     <?php while ( have_posts() ) : the_post(); ?>
