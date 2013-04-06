@@ -6,7 +6,9 @@
         <div class='row'>
         <!--<?php uw_footer_menu(); ?>  Will want to use this, but for styling purposes, making flat HTML -->
             <div class='hidden-phone span3'>
-                <a href='/itconnect'>UW-IT</a>
+                <div id='footer_logo_wrapper'>
+                    <a id='it_footer_logo' href='/itconnect'></a>
+                </div>
             </div>
             <div id='footer_links' class='row span9'>
                 <h4>Need Help?</h4>
