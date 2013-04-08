@@ -8,7 +8,7 @@
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                         <div id="sidebar">
-                        <?php dynamic_sidebar('sidebar'); ?>
+                        <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
 				    </div>
                     <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>News</p>
