@@ -74,4 +74,22 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
 
 endif;
 
+if (! function_exists ( 'it_widgets_init' )):
+
+  function it_widgets_init()
+  {
+    $args = array(
+      'name' => 'News Sidebar',
+      'id' => 'news-sidebar',
+      'description' => 'Widgets for the left column of the archives page on ITConnect',
+      'before_widget' => '<div id="%1$s class="widget %2$s">',
+      'after_widget' => '</div>'
+    );
+
+    register_sidebar($args);
+  }
+endif;
+
+add_action( 'widgets_init', 'it_widgets_init' );
+
 ?>

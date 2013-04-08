@@ -8,13 +8,13 @@
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                         <div id="sidebar">
-                        <?php dynamic_sidebar('sidebar'); ?>
+                        <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
 				    </div>
-                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>sample text</p>
+                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>News</p>
 				    <div id='tertiary' class="span9">
                         <?php uw_breadcrumbs(); ?>
-                        <h1>News</h1>
+                        <h1 class='hidden-phone news-title'>News</h1>
 				        <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
 			            <?php while ( have_posts() ) : the_post(); ?>
