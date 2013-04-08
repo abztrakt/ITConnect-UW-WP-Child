@@ -198,6 +198,10 @@ article, #respond {
     padding: 3%;
 }
 
+#tertiary article div.media {
+    padding-left: 0px;
+}
+
 h1.entry-title {
     font-weight: bold;
     font-size: 24px;
