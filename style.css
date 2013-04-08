@@ -485,10 +485,6 @@ h5.home_date {
     .nav-collapse { display: block; }
     .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(75, 129, 191, 0.7); }
     .nav-collapse li:last-child { margin-right: 0; }
-    .navbar #menu-main li.dropdown.active a.dropdown-toggle { 
-        color: white;
-        background: #2F5783; 
-    }
 
     .dropdown-toggle {
         font-size: 12px;
