@@ -176,9 +176,20 @@ a.btn-offcanvas {
     background-color: #4B81BF;
     opacity: .9;
     padding-left: 1em;
-    padding-top: .4em;
-    padding-bottom: .4em;
     margin-bottom: .25em;
+    height: 36px;
+    line-height: 36px;
+}
+
+.home_sidebar li span {
+    height: 31px;
+    width: 30px;
+    background-color: #2F5783;
+    float: right;
+    font-size: 24px;
+    padding-top: 5px;
+    padding-left: 6px;
+    line-height: 24px;
 }
 
 #sidebar.home_sidebar li a {
