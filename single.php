@@ -28,6 +28,11 @@
                         </header><!-- .entry-header -->
 					
 						<div class="entry-content">
+                            <?php if ( has_post_thumbnail ) : ?>
+                                <div class='featured_image'>
+                                    <?php the_post_thumbnail(); ?>
+                                </div>
+                            <?php endif ?>
 							<?php the_content(); ?>
 							<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 						</div><!-- .entry-content -->
