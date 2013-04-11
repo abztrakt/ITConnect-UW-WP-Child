@@ -58,8 +58,18 @@
     }
 
     function setImageWindowHeight() {
-        var width = $('.media .pull-left').width();
-        $('.media .pull-left').css({"max-height": width * 3 / 4 + 'px'});
+        
+        //retooled to work with featured images, wherever they may be
+        var imgdiv;
+        if ($('.media .pull-left').width()) {
+            imgdiv = $('.media .pull-left');
+        }
+        else {
+            imgdiv = $('.featured_container .featured_image');
+        }
+
+        var width = imgdiv.width();
+        imgdiv.css({"max-height": width * 3 / 4 + 'px'});
     }
     
     function checkNavbarWrap() {
