@@ -219,6 +219,18 @@ article, #respond {
     padding: 3%;
 }
 
+div.featured_container {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+
+div.featured_container div.featured_image {
+    display: inline-block;
+    margin: 0px;
+    overflow: hidden;
+}
+
 #tertiary article div.media {
     padding-left: 0px;
 }

@@ -29,8 +29,10 @@
 					
 						<div class="entry-content">
                             <?php if ( has_post_thumbnail ) : ?>
-                                <div class='featured_image'>
-                                    <?php the_post_thumbnail(); ?>
+                                <div class='featured_container'>
+                                    <div class='featured_image'>
+                                        <?php the_post_thumbnail(); ?>
+                                    </div>
                                 </div>
                             <?php endif ?>
 							<?php the_content(); ?>
