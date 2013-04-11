@@ -219,6 +219,31 @@ article, #respond {
     padding: 3%;
 }
 
+#tertiary article h2 {
+    font-weight: normal;
+    margin-left: 0px;
+}
+
+#tertiary article h3 {
+    font-size: 18px;
+}
+
+#tertiary article ul {
+    list-style-type: none;
+}
+
+#tertiary article li {
+    margin-bottom: 5px;
+}
+
+#tertiary article dl {
+    margin-left: 15px;
+}
+
+#tertiary article dd {
+    margin-bottom: 5px;
+}
+
 div.featured_container {
     text-align: center;
     margin-bottom: 10px;
