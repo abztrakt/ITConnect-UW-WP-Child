@@ -177,19 +177,15 @@ a.btn-offcanvas {
     opacity: .9;
     padding-left: 1em;
     margin-bottom: .25em;
-    height: 36px;
+    height: 35px;
     line-height: 36px;
 }
 
 .home_sidebar li span {
-    height: 31px;
-    width: 30px;
-    background-color: #2F5783;
+    background: url('img/right-arrow.png');
+    height: 35px;
+    width: 37px;
     float: right;
-    font-size: 24px;
-    padding-top: 5px;
-    padding-left: 6px;
-    line-height: 24px;
 }
 
 #sidebar.home_sidebar li a {
