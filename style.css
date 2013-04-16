@@ -115,6 +115,11 @@ a.btn-offcanvas {
     border-radius: 0px;
 }
 
+a.btn-offcanvas.active {
+    background: url('img/left-chevron.png'); /*if we want to use another picture for when the offcanvas nav is oout, put it here */
+}
+    
+
 .sidebar-offcanvas {
     background: #ddd;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
