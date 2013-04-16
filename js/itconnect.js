@@ -10,19 +10,6 @@
 		checkMobile();
 	});
 
-    $(window).load(function() {
-        $('.btn-offcanvas').click(function() {
-            if ($('.btn-offcanvas').hasClass('glyphicon-chevron-left')) {
-                $('.btn-offcanvas').removeClass('glyphicon-chevron-left');
-                $('.btn-offcanvas').addClass('glyphicon-remove-circle');
-            }
-            else {
-                $('.btn-offcanvas').addClass('glyphicon-chevron-left');
-                $('.btn-offcanvas').removeClass('glyphicon-remove-circle');
-            }
-        });
-    });
-
 	$(w).resize(function(){ //Update dimensions on resize
 		sw = $(window).width();
 		sh = $(window).height();
