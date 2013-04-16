@@ -107,12 +107,11 @@ ul.breadcrumbs-list li.current:after {
 }
 
 a.btn-offcanvas {
-    margin-right: 20px;
-    height: 36px;
-    width: 36px;
-    font-size:24px;
-    line-height: 42px;
+    background: url('img/left-chevron.png');
     padding: 0px;
+    margin-right: 20px;
+    height: 39px;
+    width: 39px;
     border-radius: 0px;
 }
 
