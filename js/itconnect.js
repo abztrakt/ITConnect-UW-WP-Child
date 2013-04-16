@@ -10,19 +10,6 @@
 		checkMobile();
 	});
 
-    $(window).load(function() {
-        $('.btn-offcanvas').click(function() {
-            if ($('.btn-offcanvas').hasClass('glyphicon-chevron-left')) {
-                $('.btn-offcanvas').removeClass('glyphicon-chevron-left');
-                $('.btn-offcanvas').addClass('glyphicon-remove-circle');
-            }
-            else {
-                $('.btn-offcanvas').addClass('glyphicon-chevron-left');
-                $('.btn-offcanvas').removeClass('glyphicon-remove-circle');
-            }
-        });
-    });
-
 	$(w).resize(function(){ //Update dimensions on resize
 		sw = $(window).width();
 		sh = $(window).height();
@@ -58,8 +45,18 @@
     }
 
     function setImageWindowHeight() {
-        var width = $('.media .pull-left').width();
-        $('.media .pull-left').css({"max-height": width * 3 / 4 + 'px'});
+        
+        //retooled to work with featured images, wherever they may be
+        var imgdiv;
+        if ($('.media .pull-left').width()) {
+            imgdiv = $('.media .pull-left');
+        }
+        else {
+            imgdiv = $('.featured_container .featured_image');
+        }
+
+        var width = imgdiv.width();
+        imgdiv.css({"max-height": width * 3 / 4 + 'px'});
     }
     
     function checkNavbarWrap() {

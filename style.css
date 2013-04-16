@@ -49,7 +49,7 @@ body { background: #f5f7f6; }
 /*** Navigation Menu ********/
 
 
-.navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #4b81bf; }
+.navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
 .navbar .nav { margin: 0; }
 .navbar .nav li {  }
 .navbar .nav li a { padding: 5px 10px; color: #fff; font-weight: normal; font-size: .85em; }
@@ -64,7 +64,7 @@ body { background: #f5f7f6; }
     border-bottom-color: white;
 }
 
-.btn-navbar { background: #4b81bf; margin-top: 0; }
+.btn-navbar { background: #628ac5; margin-top: 0; }
 
 .navbar h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
 .navbar h3 a { color: #fff; }
@@ -107,14 +107,18 @@ ul.breadcrumbs-list li.current:after {
 }
 
 a.btn-offcanvas {
-    margin-right: 20px;
-    height: 36px;
-    width: 36px;
-    font-size:24px;
-    line-height: 42px;
+    background: url('img/left-chevron.png');
     padding: 0px;
+    margin-right: 20px;
+    height: 39px;
+    width: 39px;
     border-radius: 0px;
 }
+
+a.btn-offcanvas.active {
+    background: url('img/left-chevron.png'); /*if we want to use another picture for when the offcanvas nav is oout, put it here */
+}
+    
 
 .sidebar-offcanvas {
     background: #ddd;
@@ -173,12 +177,19 @@ a.btn-offcanvas {
 }
 
 #sidebar.home_sidebar li {
-    background-color: #4B81BF;
+    background-color: #628ac5;
     opacity: .9;
     padding-left: 1em;
-    padding-top: .4em;
-    padding-bottom: .4em;
     margin-bottom: .25em;
+    height: 35px;
+    line-height: 36px;
+}
+
+.home_sidebar li span {
+    background: url('img/right-arrow.png');
+    height: 35px;
+    width: 37px;
+    float: right;
 }
 
 #sidebar.home_sidebar li a {
@@ -206,6 +217,43 @@ a.btn-offcanvas {
 
 article, #respond {
     padding: 3%;
+}
+
+#tertiary article h2 {
+    font-weight: normal;
+    margin-left: 0px;
+}
+
+#tertiary article h3 {
+    font-size: 18px;
+}
+
+#tertiary article ul {
+    list-style-type: none;
+}
+
+#tertiary article li {
+    margin-bottom: 5px;
+}
+
+#tertiary article dl {
+    margin-left: 15px;
+}
+
+#tertiary article dd {
+    margin-bottom: 5px;
+}
+
+div.featured_container {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+
+div.featured_container div.featured_image {
+    display: inline-block;
+    margin: 0px;
+    overflow: hidden;
 }
 
 #tertiary article div.media {
@@ -298,7 +346,7 @@ ol.commentlist {
 #home_tertiary div.media-body h3 {
     font-size: 16px;
     font-weight: bold;
-    color: #4B81BF;
+    color: #628ac5;
     line-height: 20px;
     margin-top: 0px;
     margin-bottom: 5px;
@@ -330,7 +378,7 @@ ol.commentlist {
 #tertiary div.media-body h3 {
     font-size: 16px;
     font-weight: bold;
-    color: #4B81BF;
+    color: #628ac5;
     line-height: 20px;
     margin-top: 0px;
     margin-bottom: 5px;
@@ -347,7 +395,7 @@ h5.home_date {
 /*** Footer ***/
 #footer {
     padding: 25px;
-    color: #4B81BF;
+    color: #628ac5;
     background: #4D4D4D;
 }
 
@@ -485,10 +533,10 @@ h5.home_date {
 
     /*** Navigation Menu ********/
 
-    nav, .navbar {  background: rgba(75, 129, 191, 0.30); }
+    nav, .navbar {  background: rgba(98, 138, 197, 0.30); }
     .navbar .nav { float: right; }
     .nav-collapse { display: block; }
-    .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(75, 129, 191, 0.7); }
+    .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(98, 138, 197, 0.7); }
     .nav-collapse li:last-child { margin-right: 0; }
 
     .dropdown-toggle {
@@ -497,7 +545,7 @@ h5.home_date {
 
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
-    .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #4b81bf; }
+    .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
     .navbar.mobile .nav {
         margin: 0; 
         float: none;
@@ -541,7 +589,7 @@ h5.home_date {
         height: auto;
         width:241px;
         text-transform: none;
-        background: rgba(75, 129, 191, 0.9);
+        background: rgba(98, 138, 197, 0.9);
     }
 
     .nav-collapse .dropdown-menu.open.twocolumn {
