@@ -194,7 +194,7 @@ a.btn-offcanvas.active {
     line-height: 36px;
 }
 
-.home_sidebar li span {
+#sidebar.home_sidebar li a span {
     background: url('img/right-arrow.png');
     height: 35px;
     width: 37px;
