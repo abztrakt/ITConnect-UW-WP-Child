@@ -11,7 +11,7 @@
 					    <?php dynamic_sidebar('sidebar'); ?>
                     </div>
                 </div>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>All</p>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a>All</p>
 				<div id='tertiary' class="span9">
 					<span id="arrow-mark"></span>
 						
@@ -28,6 +28,13 @@
                         </header><!-- .entry-header -->
 					
 						<div class="entry-content">
+                            <?php if ( has_post_thumbnail ) : ?>
+                                <div class='featured_container'>
+                                    <div class='featured_image'>
+                                        <?php the_post_thumbnail(); ?>
+                                    </div>
+                                </div>
+                            <?php endif ?>
 							<?php the_content(); ?>
 							<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 						</div><!-- .entry-content -->

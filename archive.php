@@ -11,7 +11,7 @@
                         <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
 				    </div>
-                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a><?php single_month_title(' '); single_cat_title(); ?></p>
+                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><?php single_month_title(' '); single_cat_title(); ?></p>
 				<div id='tertiary' class="span9">
                     <?php uw_breadcrumbs(); ?>
                     <h1 class='news-title hidden-phone'><?php single_month_title(' '); single_cat_title(); ?></h1>

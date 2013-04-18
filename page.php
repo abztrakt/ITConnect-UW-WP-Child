@@ -11,7 +11,7 @@
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
 				</div>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas glyphicon glyphicon-chevron-left glyphicon-white" data-toggle="offcanvas"></a>All</p>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a>All</p>
 				<div id='tertiary' class="span9">
 
 
