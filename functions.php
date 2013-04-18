@@ -120,7 +120,7 @@ if ( ! function_exists( 'custom_homepage_image' ) ):
 
     $homepage_image = (array) $option['homepage_image'];
     if ( isset($homepage_image['custom'] )) {
-      echo ' style="background:url('.$homepage_image['custom']['url'].') no-repeat; background-style:cover;" ' ;
+      echo ' style="background:url('.$homepage_image['custom']['url'].') no-repeat; background-size:cover;" ' ;
     }   
   }
 endif;
