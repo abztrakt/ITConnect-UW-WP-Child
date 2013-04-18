@@ -58,7 +58,7 @@
     			     <h2>News</h2>
                 <?php foreach ($postslist as $post) : setup_postdata($post); ?>
     			     <div class="media">
-                        <?php if ( has_post_thumbnail ) : ?>
+                        <?php if ( has_post_thumbnail() ) : ?>
                         <a class="pull-left" href="#">
                             <?php the_post_thumbnail(); ?>
                         </a>
