@@ -92,4 +92,37 @@ endif;
 
 add_action( 'widgets_init', 'it_widgets_init' );
 
+require('homepage-image-options.php' );
+
+if ( ! function_exists( 'is_custom_hompage_image' ) ):  
+  function is_custom_homepage_image()
+  {
+    $option = get_option('homepage_image'); 
+
+    if ( ! is_array( $option) )
+      return false;
+
+    $homepage_image = (array) $option['homepage_image'];
+    if ( isset($homepage_image['custom'] ))  
+      return true;
+
+    return false;
+  }
+endif;
+
+if ( ! function_exists( 'custom_homepage_image' ) ):  
+  function custom_homepage_image() 
+  {
+    $option = get_option('homepage_image');
+
+    if ( ! is_array( $option) )
+      return;
+
+    $homepage_image = (array) $option['homepage_image'];
+    if ( isset($homepage_image['custom'] )) {
+      echo ' style="background:url('.$homepage_image['custom']['url'].') no-repeat; background-style:cover;" ' ;
+    }   
+  }
+endif;
+
 ?>
