@@ -22,7 +22,7 @@ function homepage_image_initialize_options() {
 	// Next, we'll introduce the fields for toggling the visibility of content elements.
 	add_settings_field(
 		'choose_homepage_image',				// ID used to identify the field throughout the theme
-		'Choose Homepage Image',				// The label to the left of the option interface element
+		'Select an image',				            // The label to the left of the option interface element
 		'homepage_image_upload_callback',	    // The name of the function responsible for rendering the option interface
 		'homepage_image',	                    // The page on which this option will be displayed
 		'homepage_image_section'			    // The name of the section to which this field belongs
@@ -35,7 +35,7 @@ function homepage_image_initialize_options() {
 add_action('admin_init', 'homepage_image_initialize_options');
 
 function homepage_image_section_callback() {
-	echo '<p>Here be a custom image, yo</p>';
+	echo '<pChoose the homepage image</p>';
 }
 
 
@@ -85,9 +85,9 @@ function homepage_image_upload_callback() {
 	$options = (array) get_option('homepage_image');
   if( isset($options['homepage_image']['custom'])) {
     $html = '<input type="hidden" id="homepage_image_upload" name="homepage_image_attachment_id" value="' . $options['homepage_image']['custom']['id'] .'" data-url="'. $options['homepage_image']['custom']['url'] .'"/>';
-    submit_button( __( 'Remove' ), 'button', 'remove_homepage_image', false );
+    submit_button( __( 'Remove current (use default)' ), 'button', 'remove_homepage_image', false );
   } else {
-	  $html = '<input type="file" name="homepage_image" /><p class="help">'._('The image should be <strong>gigantic</strong>').'</p>';
+	  $html = '<input type="file" name="homepage_image" /><p class="help">'._('The image should be over 500px tall, but less than 2MB.  A well-compressed 500K image is ideal').'</p>';
   }
 	echo $html;
 }
@@ -108,8 +108,10 @@ function homepage_image_options_html() {
 
         <?php
         if (is_custom_homepage_image()) {?>
-            <div <?php custom_homepage_image(); ?>>
-                <p style="height:200px;">Current custom image</p>
+            <div style="width:70%; margin:auto;">
+                <div <?php custom_homepage_image(); ?>>
+                    <p style="height:400px; color:white;">Current custom image</p>
+                </div>
             </div>
         <?}?>
 
