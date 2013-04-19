@@ -238,7 +238,7 @@ article, #respond {
 }
 
 #tertiary article ul {
-    list-style-type: none;
+    list-style-type: disc;
 }
 
 #tertiary article li {
