@@ -333,6 +333,11 @@ article div.entry-content ul.ptoc {
     font-style:italic;
     }
 
+/* Sidebar Topic List Indentation */
+    #secondary #sidebar ul.page-list li.page_item ul.children {
+       padding-left: .75em;
+       }
+
 /* Procedures */
 	
 article div.entry-content  ol.procedure {
@@ -813,7 +818,7 @@ h5.home_date {
         padding-bottom: 10px;
     }
 
-    #sidebar.home_sidebar ul {
+    #sidebar.home_sidebar {
         padding-right: 0px;
         padding-left: 0px;
     }
@@ -821,6 +826,8 @@ h5.home_date {
     #sidebar.home_sidebar h2.widgettitle {
         padding-left: 0px;
     }
+
+
 
     h1.news-title {
         padding-left: 3%;
