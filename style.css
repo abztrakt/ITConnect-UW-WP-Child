@@ -181,7 +181,6 @@ a.btn-offcanvas.active {
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
-    padding-right: 30%;
     padding-left: 7%;
 }
 
@@ -231,14 +230,19 @@ article, #respond {
 #tertiary article h2 {
     font-weight: normal;
     margin-left: 0px;
+    font-size: 2.0rem;
 }
 
 #tertiary article h3 {
-    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+#tertiary article h4 {
+    font-size: 1.5rem;
 }
 
 #tertiary article ul {
-    list-style-type: none;
+    list-style-type: disc;
 }
 
 #tertiary article li {
@@ -306,6 +310,131 @@ ol.commentlist {
 .comment-author.vcard {
     height: 32px;
 }
+
+/* ITC Specific Styles */
+
+  #tertiary article h2,
+  #tertiary article h3,
+  #tertiary article h4 {
+  margin-left: 0;
+  }
+
+
+/* Page table of contents */
+
+article div.entry-content ul.ptoc {
+    margin:1em 0 1.5em 2em;
+    }
+
+  article div.entry-content  ul.ptoc li.onthispage {
+    list-style-type:none;
+    margin-left:-1em;
+    font-style:italic;
+    }
+
+/* Sidebar Topic List Indentation */
+    #secondary #sidebar ul.page-list li.page_item ul.children {
+       padding-left: .75em;
+       }
+
+/* Procedures */
+	
+article div.entry-content  ol.procedure {
+    border:solid #ccc 1px;
+    margin-left:0;
+    margin-top: 1.5em;
+    padding:1em 1em 1em 3em;
+    }
+
+  article div.entry-content ol.procedure img { margin: 1em 0; }
+
+  article div.entry-content ol.procedure li {
+    padding-left:2em;
+    padding-bottom:1em;
+    margin-left:1em;
+    }
+
+  article div.entry-content ol.procedure li.colheads {
+    list-style-type:none;
+    font-weight:700;
+    margin-left:-1.5em;
+    padding-left:0;
+    padding-bottom:1em;
+    border-bottom:solid #000 1px;
+    margin-bottom:1em;
+    }
+
+  article div.entry-content ol.procedure li ul,
+  article div.entry-content ol.procedure li ol,
+  article div.entry-content ol.procedure li li { margin: .3em; padding: 0 0 0 1em; }	
+  article div.entry-content  li.colheads span {
+    margin-left:1.5em;
+
+    }
+
+  article div.entry-content  ol.procedure li ul li,
+  article div.entry-content  ol.procedure li ol li { 
+    margin: 0 0 0 2em; 
+
+    }	
+	
+/* Feature box, text float right, graphic on left */
+
+article div.entry-content div.button { 
+    padding-top: .6em; 
+    padding-bottom: .6em;
+    text-align: center;
+    border: solid gray 1px; 
+    border-radius: .4em;
+    -moz-border-radius: .4em; 
+    -webkit-border-radius: .4em; 
+    -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
+    -khtml-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
+    }
+
+  article div.entry-content div.fbox {
+    position: relative ;
+    padding: 1em; clear: right;
+    }
+
+  article div.entry-content div.fbox.lastfbox {
+	  margin-bottom: 3em;
+		}
+
+  article div.entry-content  div.ftext { 
+    padding-left: 8em;
+    }
+  article div.entry-content div.ftext span {
+    border-right: solid black 1px;
+	padding-right: .5em;
+	margin-right: .5em;
+	}
+  article div.entry-content div.ftext span.last {
+    border-right: none;
+	}
+
+  article div.entry-content div.fbox div.button {
+   width: 6em; 
+   float: left;
+	 }
+
+   article div.entry-content div.fbox div.button a {
+    text-decoration: none;
+    }
+
+   article div.entry-content div.fbox div.button a img {
+    width: 4em; height: 4em;
+    }
+
+/* Blockquote */
+
+   article div.entry-content blockquote p {
+     font-size: inherit;
+     font-weight: inherit; 
+     line-height: inherit;
+     margin-bottom: .25em;
+   }
 
 /*** Homepage ***/
 #home_main { 
@@ -439,7 +568,7 @@ h5.home_date {
     padding: 0px;
 } 
 
-#footer-main { background: #404042; }
+#footer-main { background: #39275b; }
 
 
 /**** UW Alerts ****/
@@ -592,7 +721,7 @@ h5.home_date {
     /*** UW Header overrides ***/
 
     #thin-strip {
-        background: rgba(32, 32, 32, .8);
+        background: #39275b;
     }
 
     #thin-strip li a {
@@ -793,7 +922,7 @@ h5.home_date {
         padding-bottom: 10px;
     }
 
-    #sidebar.home_sidebar ul {
+    #sidebar.home_sidebar {
         padding-right: 0px;
         padding-left: 0px;
     }
@@ -801,6 +930,8 @@ h5.home_date {
     #sidebar.home_sidebar h2.widgettitle {
         padding-left: 0px;
     }
+
+
 
     h1.news-title {
         padding-left: 3%;
