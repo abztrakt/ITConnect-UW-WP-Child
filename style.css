@@ -922,7 +922,7 @@ h5.home_date {
         padding-bottom: 10px;
     }
 
-    #sidebar.home_sidebar {
+    #sidebar.home_sidebar ul {
         padding-right: 0px;
         padding-left: 0px;
     }
