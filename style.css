@@ -181,7 +181,6 @@ a.btn-offcanvas.active {
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
-    padding-right: 30%;
     padding-left: 7%;
 }
 
@@ -569,7 +568,7 @@ h5.home_date {
     padding: 0px;
 } 
 
-#footer-main { background: #404042; }
+#footer-main { background: #39275b; }
 
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
@@ -617,7 +616,7 @@ h5.home_date {
     /*** UW Header overrides ***/
 
     #thin-strip {
-        background: rgba(32, 32, 32, .8);
+        background: #39275b;
     }
 
     #thin-strip li a {
