@@ -8,6 +8,7 @@
 
 	$(document).ready(function() {
 		checkMobile();
+        checkFrontPage();
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
@@ -15,6 +16,40 @@
 		sh = $(window).height();
 		checkMobile();
 	});
+
+    //Checks to see if we're on the front page and starts the spotlight rotation if yes
+    function checkFrontPage() {
+        var spotlighted = $('#home_spotlight').children('.spotlight');
+        if (spotlighted.length) {
+            $(spotlighted[0]).addClass('active');
+        }
+        if (spotlighted.length > 1 ){
+            var rotation = setInterval(function(){ rotate(spotlighted) }, 10000);
+        }
+    }
+
+    //rotates to the next spotlighted item in the home_spotlight
+    function rotate(spotlighted) {
+        var activeindex;
+        for (var index = 0; index < spotlighted.length; index++) {
+            if ($(spotlighted[index]).hasClass('active')) {
+                activeindex = index;
+            }
+        }
+        var nextindex;
+        if (activeindex == (spotlighted.length -1)) {
+            nextindex = 0;
+        }
+        else {
+            nextindex = activeindex + 1;
+        }
+        $(spotlighted[activeindex]).fadeOut(function(){
+            $(spotlighted[nextindex]).fadeIn(function(){
+                $(spotlighted[nextindex]).addClass('active');
+                $(spotlighted[activeindex]).removeClass('active')
+            });
+        });
+    }
 
 	//Check if Mobile
 	function checkMobile() {
