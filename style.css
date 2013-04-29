@@ -68,6 +68,10 @@ body { background: #f5f7f6; }
     color: white;
 }
 
+.navbar #menu-main li.current-menu-ancestor a.dropdown-toggle { 
+    background-color: #2F5783;
+}
+
 .navbar #menu-main li a.dropdown-toggle b.caret {
     border-top-color: white;
     border-bottom-color: white;
