@@ -682,7 +682,21 @@ h5.home_date {
         padding: 5px 100px 0 200px;
         margin: 0;
     }
-
+    #alert-mini {
+        position: fixed;
+        display:none;
+        top: 0;
+        right: 0;
+        left: 0;
+        text-align:center;
+        z-index: 1;
+        color: #fff;
+        padding: 40px 0 10px 0; 
+        z-index: 0;
+    }    
+    .logged-in #alert-mini {
+        top: 28px;
+    }
     /*** Branding ****/
 
     #branding { background: #404042 ; margin-bottom: 0; height: auto; }
