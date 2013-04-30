@@ -35,7 +35,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
     wp_deregister_script('jquery'); //we use googles CDN below
     wp_deregister_script('header'); //we use our own below
     wp_register_script( 'jquery','https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array(), '1.7.2' );
-    wp_register_script( 'header', get_bloginfo('stylesheet_directory') . '/js/header.js', array('jquery'), '1.2.7' );
+    wp_register_script( 'header', get_bloginfo('stylesheet_directory') . '/js/header.js', array('jquery'), '1.3' );
     wp_register_script( 'jquery.firenze', get_bloginfo('template_directory') . '/js/jquery.firenze.js', array('jquery'), '1.0.1' );
     wp_register_script( 'jquery.weather', get_bloginfo('template_directory') . '/js/jquery.weather.js', array('jquery'), '1.1' );
     wp_register_script( 'jquery.placeholder', get_bloginfo('template_directory') . '/js/jquery.placeholder.js', array('jquery'), '1.0' );
@@ -49,7 +49,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
     wp_register_script( 'itconnect', get_bloginfo('stylesheet_directory') . '/js/itconnect.js', array('jquery') );
 
     wp_register_script( 'widget-youtube-playlist', get_bloginfo('template_directory') . '/js/widget-youtube-playlist.js', array('jquery','swfobject','jquery.imagesloaded') );
-    wp_register_script( 'uw-gallery', get_bloginfo('template_directory') . '/js/gallery.js', array('jquery','jquery.imagesloaded') );
+    wp_register_script( 'uw-gallery', get_bloginfo('template_directory') . '/js/gallery.js', array('jquery','jquery.imagesloaded'), '1.1' );
 
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'header' );
@@ -91,5 +91,38 @@ if (! function_exists ( 'it_widgets_init' )):
 endif;
 
 add_action( 'widgets_init', 'it_widgets_init' );
+
+require('homepage-image-options.php' );
+
+if ( ! function_exists( 'is_custom_hompage_image' ) ):  
+  function is_custom_homepage_image()
+  {
+    $option = get_option('homepage_image'); 
+
+    if ( ! is_array( $option) )
+      return false;
+
+    $homepage_image = (array) $option['homepage_image'];
+    if ( isset($homepage_image['custom'] ))  
+      return true;
+
+    return false;
+  }
+endif;
+
+if ( ! function_exists( 'custom_homepage_image' ) ):  
+  function custom_homepage_image() 
+  {
+    $option = get_option('homepage_image');
+
+    if ( ! is_array( $option) )
+      return;
+
+    $homepage_image = (array) $option['homepage_image'];
+    if ( isset($homepage_image['custom'] )) {
+      echo ' style="background:url('.$homepage_image['custom']['url'].') no-repeat; background-size:cover;" ' ;
+    }   
+  }
+endif;
 
 ?>

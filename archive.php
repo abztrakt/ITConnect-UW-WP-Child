@@ -20,7 +20,7 @@
                     <?php while ( have_posts() ) : the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <div class="media">
-                            <?php if ( has_post_thumbnail ) : ?>
+                            <?php if ( has_post_thumbnail() ) : ?>
                             <a class="pull-left" href="#">
                                 <?php the_post_thumbnail(); ?>
                             </a>

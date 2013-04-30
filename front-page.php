@@ -5,7 +5,7 @@
 
 			<div class="row">
 
-				<div id="home_main" class="span9">
+				<div id="home_main" class="span9" <?php custom_homepage_image();?>>
 
         			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -58,7 +58,7 @@
     			     <h2>News</h2>
                 <?php foreach ($postslist as $post) : setup_postdata($post); ?>
     			     <div class="media">
-                        <?php if ( has_post_thumbnail ) : ?>
+                        <?php if ( has_post_thumbnail() ) : ?>
                         <a class="pull-left" href="#">
                             <?php the_post_thumbnail(); ?>
                         </a>

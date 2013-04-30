@@ -1,5 +1,9 @@
 jQuery(document).ready(function($){
 
+  // footer links
+  $("[href='http://#']").click(function() {
+    return false; 
+  })
   //prevent ios nav bar from popping down
   $('[href=#]').removeAttr('href'); 
   $('table').addClass('table') //for bootstrap 
@@ -270,7 +274,7 @@ jQuery(window).load(function() {
   }
   calculate_dropdowns();
 
-  $('div.nav-collapse').children('.nav').attr('role','menubar')
+  //$('div.nav-collapse').children('.nav').attr('role','menubar')
 
 /* disable the submenu clicks so links actually work.
     Brought this back and made it so none of the code runs under our 768px mobile breakpoint  -Jon */
@@ -313,6 +317,7 @@ jQuery(window).load(function() {
           var $this   = $(this)
             , $ul     = $this.children('.dropdown-menu')
             , $a      = $this.children('a')
+            , height  = $ul.data('height') == 0 ? $ul.find('li').length * 35 : $ul.data('height')
 
         if ( $ul.hasClass('open') ) {
           document.location.href = $(e.target).attr('href')
@@ -320,7 +325,7 @@ jQuery(window).load(function() {
           window.scrollTo(0,0)
             $('.dropdown-menu').removeClass('open')//.height(0) another unnecessary reset to 0
             $ul.addClass('open').attr('aria-hidden','false')
-              //.height($ul.data('height')) unnecessary
+              //.height(height) unnecessary
         }
 
           return false;
@@ -476,6 +481,23 @@ jQuery(window).load(function() {
             $lis.slice(i,i+10).wrapAll('<ul class="pull-left" style="width:200px"/>')
           };
         }
+      }).end().end()
+      .on('click', 'a', function() {
+        var $this = $(this)
+          , width = $(window).width() 
+        
+        if ( width > 767 || 
+             !$this.siblings('ul').length ||
+             $this.siblings('ul').hasClass('open') )
+          return true;
+
+
+        $this.closest('ul').find('ul.sub-menu').removeClass('open').end().end()
+          .siblings('ul').toggleClass('open')
+
+
+        return false;
+
       })
 
 
