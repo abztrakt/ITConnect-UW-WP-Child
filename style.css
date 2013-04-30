@@ -19,7 +19,17 @@ Template: UW-Wordpress-Theme
 
 /*** Typography ***********/
 
-
+/*** Heading *********/
+.four-oh-four h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    color: #5C441F;
+    font-size: 1.3em;
+    line-height: 26px;
+}
 
 
 
@@ -861,3 +871,31 @@ h5.home_date {
         padding: 8px 15px;
     }
 }
+
+    /* ----  404 ---- */
+
+    .parallax-viewport {
+        position:relative;
+        overflow:hidden;
+    }
+    .parallax-layer {
+        position:absolute;
+    }
+    #parallax {
+        margin: 1.5em 0px;
+        overflow: hidden;
+        position: relative;
+        height: 450px;
+    }
+    .four-oh-four {
+        padding: 0 0 50px;
+    }
+    .span3 ul {
+        padding: 0;
+        margin: 0 0 10px 5px;
+        list-style: disc outside none;
+    }
+    .span3 ul li {
+        list-style: none outside none;
+    }
+
