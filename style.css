@@ -185,6 +185,7 @@ a.btn-offcanvas.active {
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
+    padding-right: 30%;
     padding-left: 7%;
 }
 
