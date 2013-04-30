@@ -1,5 +1,9 @@
 jQuery(document).ready(function($){
 
+  // footer links
+  $("[href='http://#']").click(function() {
+    return false; 
+  })
   //prevent ios nav bar from popping down
   $('[href=#]').removeAttr('href'); 
   $('table').addClass('table') //for bootstrap 
