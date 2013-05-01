@@ -908,13 +908,16 @@ h5.home_date {
 
     div.spotlight {
         display: none;
-        max-height: 200px;
+        max-height: 210px;
         overflow: hidden;
     }
 
     div.spotlight.active {
         display: block;
     }
+
+    div.spotlight h5 {
+        margin-top: 0px;
 
     #home_secondary {
         float: left;
