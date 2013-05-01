@@ -951,7 +951,7 @@ h5.home_date {
 
     /*** Sidebar desktop ***/
     #sidebar.home_sidebar {
-        padding-bottom: 10px;
+        padding-bottom: 0px;
     }
 
     #sidebar.home_sidebar ul {
