@@ -25,6 +25,11 @@
         }
         if (spotlighted.length > 1 ){
             var rotation = setInterval(function(){ rotate(spotlighted) }, 10000);
+            $('#home_spotlight').hover(function(){
+                rotation = clearInterval(rotation);
+            }, function() {
+                rotation = setInterval(function (){ rotate(spotlighted) }, 10000);
+            });
         }
     }
 
