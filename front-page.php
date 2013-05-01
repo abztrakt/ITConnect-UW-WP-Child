@@ -33,23 +33,23 @@
             			     <p><?php comments_template( '', true ); ?></p>
         			     </div>
 
-        			<?php endwhile; // end of the loop. ?>
+        			<?php endwhile; // end of the loop.
 
+                    $args = array(
+                        'numberposts' => 3,
+                        'order' => 'ASC',
+                        'orderby' => 'post_date',
+                    );
+                    $postslist = get_posts( $args );
+                    ?>
 
         			<div id="home_spotlight" class="hidden-phone">
-                        <h6>SPOTLIGHT</h6>
                         <?php
-                        $array = array(
-                            'numberposts' => 3,
-                            'order' => 'ASC',
-                            'orderby' => 'post_date',
-                        );
-                        $spotlightposts = get_posts( $array );
-                        foreach ($spotlightposts as $spotlightpost):
-                            setup_postdata($spotlightpost);
-                            ?>
+                        foreach ($postslist as $post):
+                            setup_postdata($post); ?>
         			        <div class='spotlight'>
-                                <?php the_excerpt(); ?>
+                                <h5><a href=<?php echo get_permalink(); ?>><?php the_title();?></a></h5>
+                                <p><?php echo get_the_content(); ?></p>
                             </div>
                         <?php endforeach; ?>
         			</div>
@@ -63,14 +63,10 @@
                       </div>
 				</div>
 
-				<div id="home_tertiary" class="span9" style="background-color:#fff;">
-                <?php
-                /* from http://codex.wordpress.org/Template_Tags/get_posts */
-                $args = array ( 'numberposts' => 3, 'order' => 'ASC', 'orderby' => 'post_date');
-                $postslist = get_posts( $args ); ?>
-    			     <h2>News</h2>
-                <?php foreach ($postslist as $post) : setup_postdata($post); ?>
-    			     <div class="media">
+				<div id="home_tertiary" class="span9 visible-phone" style="background-color:#fff;">
+    			    <h2>News</h2>
+                    <?php foreach ($postslist as $post) : setup_postdata($post); ?>
+    			    <div class="media">
                         <?php if ( has_post_thumbnail() ) : ?>
                         <a class="pull-left" href="#">
                             <?php the_post_thumbnail(); ?>
