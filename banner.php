@@ -18,7 +18,6 @@
 		<a class="wordmark hidden-phone" <?php custom_wordmark(); ?> href="<?php echo site_url(); ?>">IT Connect</a>
 		<a class="wordmark visible-phone" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">University of Washington</a>
 		<a title="Show search" role="button" href="#searchicon-wrapper" id="searchicon-wrapper" aria-haspopup="true">Search</a>
-        <a title='Need Help' id='header-help' class='hidden-phone' href='<?php echo site_url(); ?>/help'>Need Help?</a>
 
       <?php get_template_part('uw-search'); ?>
 
