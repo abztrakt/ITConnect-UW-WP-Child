@@ -19,10 +19,17 @@ Template: UW-Wordpress-Theme
 
 /*** Typography ***********/
 
-
-
-
-
+/*** Heading *********/
+.four-oh-four h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    color: #5C441F;
+    font-size: 1.3em;
+    line-height: 26px;
+}
 
 
 /*** Helpers ********/
@@ -40,11 +47,7 @@ Template: UW-Wordpress-Theme
 
 body { background: #f5f7f6; }
 
-/*** Header ***/
 
-#header {
-    background: rgba(32,32,32,.9);
-}
 
 /*** Navigation Menu ********/
 
@@ -705,17 +708,20 @@ h5.home_date {
     /*** Branding ****/
 
     #branding { background: #404042 ; margin-bottom: 0; height: auto; }
-    #banner-image {
-        background: #404042 url('./img/itconnect-banner2.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        z-index: -1;
-        position:absolute;
+    #banner-container {
+        position: absolute;
         left:0;
         right:0;
         top:0;
         bottom:0;
+    }
+    #banner-image {
+        background: #404042 url('./img/itconnect-banner2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        z-index: -1;
+        height: 100%;
     }
 
     #header { 
@@ -991,3 +997,31 @@ h5.home_date {
         padding: 8px 15px;
     }
 }
+
+    /* ----  404 ---- */
+
+    .parallax-viewport {
+        position:relative;
+        overflow:hidden;
+    }
+    .parallax-layer {
+        position:absolute;
+    }
+    #parallax {
+        margin: -5em 0 0 0;
+        overflow: hidden;
+        position: relative;
+        height: 450px;
+    }
+    .four-oh-four {
+        padding: 0 0 50px;
+    }
+    .span3 ul {
+        padding: 0;
+        margin: 0 0 10px 5px;
+        list-style: disc outside none;
+    }
+    .span3 ul li {
+        list-style: none outside none;
+    }
+

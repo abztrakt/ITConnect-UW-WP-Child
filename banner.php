@@ -7,8 +7,9 @@
 <?php else: ?>
 <header id="branding" role="banner" <?php banner_class(); ?>>
 <?php endif; ?>
-
-<div id="banner-image" class="it_container hidden-phone">&nbsp;</div>
+<div id='banner-container' class='hidden-phone'>
+    <div id="banner-image" class='it_container'></div>
+</div>
 
 <div id="header" class="it_container">
 		<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to primary content', 'twentyeleven' ); ?></a></div>
