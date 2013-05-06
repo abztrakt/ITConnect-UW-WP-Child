@@ -705,17 +705,20 @@ h5.home_date {
     /*** Branding ****/
 
     #branding { background: #404042 ; margin-bottom: 0; height: auto; }
-    #banner-image {
-        background: #404042 url('./img/itconnect-banner2.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        z-index: -1;
-        position:absolute;
+    #banner-container {
+        position: absolute;
         left:0;
         right:0;
         top:0;
         bottom:0;
+    }
+    #banner-image {
+        background: #404042 url('./img/itconnect-banner2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        z-index: -1;
+        height: 100%;
     }
 
     #header { 
