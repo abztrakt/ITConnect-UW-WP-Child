@@ -32,9 +32,6 @@ Template: UW-Wordpress-Theme
 }
 
 
-
-
-
 /*** Helpers ********/
 .assistive-text, .visuallyhidden {
   position: absolute;
@@ -1012,7 +1009,7 @@ h5.home_date {
         position:absolute;
     }
     #parallax {
-        margin: 1.5em 0px;
+        margin: -5em 0 0 0;
         overflow: hidden;
         position: relative;
         height: 450px;
