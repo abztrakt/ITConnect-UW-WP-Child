@@ -35,8 +35,6 @@
 				</footer><!-- .entry-meta -->
 			</article><!-- #post-<?php the_ID(); ?> -->
 
-                <p class="date"><?php the_date(); ?></p>
-					<?php comments_template( '', true ); ?>
 
 			<?php endwhile; // end of the loop. ?>
 
