@@ -439,6 +439,18 @@ article div.entry-content div.button {
     width: 4em; height: 4em;
     }
 
+/* DL with float left dt */
+
+   article div.entry-content dl.left dt {
+    float: left;
+    font-weight: 700;
+    width: 10em;
+    }
+
+   article div.entry-content dl.left dd {
+    margin-left: 11em; 
+    }
+
 /* Blockquote */
 
    article div.entry-content blockquote p {
