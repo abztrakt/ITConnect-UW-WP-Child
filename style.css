@@ -995,9 +995,6 @@ h5.home_date {
     }
 
     #it_footer_logo {
-        background: url('./img/UW-IT_stacked.png');
-        background-repeat: no-repeat;
-        background-size: 200px 76px;
         width: 200px;
         height: 76px;
         display: block;
