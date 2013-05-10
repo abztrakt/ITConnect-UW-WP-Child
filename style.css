@@ -2,7 +2,7 @@
 /*
 Theme Name: UW Theme Child
 Description: Child theme for the UW-Wordpress Theme
-Author: Rick Ells
+Author: Rick Ells and Jon Swanson
 Template: UW-Wordpress-Theme
 */
 
@@ -1029,10 +1029,6 @@ h5.home_date {
 
     .thin-fixed div {
         background: url("img/mobile-header/logo1x.png") no-repeat -35px -5px;
-    }
-
-    .logged-in #thin-strip {
-        top: 28px;
     }
 
     #thin-strip div {
