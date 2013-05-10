@@ -42,10 +42,6 @@ body h2 {
 
 /*** sidebar ***/
 
-#banner-image {
-    display:none;
-}
-
 /* main menu */
 .nav-collapse .dropdown-menu.open {
     background: rgb(98, 138, 197);

@@ -1586,6 +1586,11 @@ h5.home_date {
     .it_container {
         max-width: 1170px;
     }
+    .it_container .row {
+        width: 1170px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
     .navbar .nav li a { 
         padding: 8px 15px;
     }
