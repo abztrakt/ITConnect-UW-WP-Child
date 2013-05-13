@@ -8,6 +8,7 @@
 
 	$(document).ready(function() {
 		checkMobile();
+        fixDropdownOverrun();
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
@@ -64,6 +65,18 @@
         if (($('.navbar').height() > 50 ) && (!mobile)) {
             $('.navbar').addClass('mobile');
         }
+    }
+
+    function fixDropdownOverrun() {
+        $('#menu-main > li').hover(function() {
+            var dropdown = $(this).children('ul');
+            var container = $('#menu-main');
+            if (dropdown.length != 0) {     //menu items might not have dropdowns
+                if ((dropdown.outerWidth() + $(this).position().left + dropdown.position().left) > (container.outerWidth() + container.position().left)){
+                    dropdown.css('left',  ($(this).outerWidth() - dropdown.outerWidth()) + 'px');
+                }
+            }
+        });
     }
 
 })(this);
