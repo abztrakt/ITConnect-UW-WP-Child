@@ -385,7 +385,7 @@ display:none;
         z-index: 1;
     }
     #header {
-    /* z-index: 2; */
+        z-index: 2; 
         position: relative;
         margin: auto;
         height: 100px;
@@ -409,7 +409,8 @@ display:none;
     }
     .patch {
         background: url(img/header/header-sprite.png) no-repeat 5px 15px #D7A900;
-    }
+    }      
+
     .wordmark {
         width: 325px;
         top: 25px;
