@@ -41,6 +41,30 @@ Template: UW-Wordpress-Theme
   margin: -1px; padding: 0; border: 0;
 }
 
+/*** Content Div ***/
+article .entry-content {
+        overflow: hidden;
+}
+
+/*** Photo Handling ***/
+
+.alignleft {
+    float: left;
+    margin: 5px 15px 20px 0;
+    position: relative;
+}
+
+.alignright {
+    float: right;
+    margin: 5px 0 15px 20px;
+    position: relative;
+}
+ 
+.aligncenter {
+    margin: 10px auto 10px auto;
+    display: block;
+}
+
 
 /**** SMALL SCREENS **********************************/
 /*****************************************************/
@@ -539,6 +563,7 @@ h5.home_date {
     line-height: 12px;
 }
 
+
 /*** Footer ***/
 #footer {
     padding: 25px;
@@ -1025,4 +1050,3 @@ h5.home_date {
     .span3 ul li {
         list-style: none outside none;
     }
-
