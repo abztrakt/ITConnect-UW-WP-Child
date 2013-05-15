@@ -19,14 +19,14 @@
 
 	//Check if Mobile
 	function checkMobile() {
-		mobile = (sw > breakpoint) ? false : true;
+		mobile = (sw >= breakpoint) ? false : true;
         
 		if (mobile) { //mobile mode
            removeOpenDropdowns();
 		}
         setImageWindowHeight();
 		setOffCanvasHeight(mobile);
-        checkNavbarWrap(mobile);
+        checkNavbarWrap();
 	}
 
 	function setOffCanvasHeight(mobile) {
