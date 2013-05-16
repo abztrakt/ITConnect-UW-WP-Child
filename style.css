@@ -360,6 +360,7 @@ a.btn-offcanvas.active {
 
 .sidebar-offcanvas {
     background: #ddd;
+    overflow: scroll;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
     box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);            not in mockup*/
 }
@@ -1409,6 +1410,7 @@ h5.home_date {
         background: none;
         -webkit-box-shadow: inherit;
         box-shadow: inherit;
+        overflow: auto;
     }
 
     #content { overflow-x: auto; }
