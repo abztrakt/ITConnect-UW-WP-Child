@@ -6,9 +6,11 @@
         speed = 800,
         mobile = true;
 
+
 	$(document).ready(function() {
 		checkMobile();
         fixDropdownOverrun();
+        resetOffcanvasScroll();
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
@@ -28,6 +30,18 @@
 		setOffCanvasHeight(mobile);
         checkNavbarWrap();
 	}
+
+    function resetOffcanvasScroll() {
+        if (!($('.row-offcanvas-left').hasClass('active'))){
+            /*  The click event is for desktop and screen readers, touchstart for touch devices */
+            $('.btn-offcanvas').click(function(e) {
+                $('.sidebar-offcanvas').scrollTop(0);
+            });
+            $('.btn-offcanvas').on('touchstart', function() {
+                $('.sidebar-offcanvas').scrollTop(0);
+            });
+        }
+    }
 
 	function setOffCanvasHeight(mobile) {
 
