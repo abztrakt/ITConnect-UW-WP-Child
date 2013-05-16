@@ -63,11 +63,11 @@
         
         //retooled to work with featured images, wherever they may be
         var imgdiv;
-        if ($('.media .pull-left').width()) {
-            imgdiv = $('.media .pull-left');
+        if ($('.media').find('.pull-left').width()) {
+            imgdiv = $('.media').find('.pull-left');
         }
         else {
-            imgdiv = $('.featured_container .featured_image');
+            imgdiv = $('.featured_container').find('.featured_image');
         }
 
         var width = imgdiv.width();
