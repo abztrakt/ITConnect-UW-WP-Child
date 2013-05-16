@@ -19,10 +19,17 @@ Template: UW-Wordpress-Theme
 
 /*** Typography ***********/
 
-
-
-
-
+/*** Heading *********/
+.four-oh-four h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    color: #5C441F;
+    font-size: 1.3em;
+    line-height: 26px;
+}
 
 
 /*** Helpers ********/
@@ -40,7 +47,6 @@ Template: UW-Wordpress-Theme
 
 body { background: #f5f7f6; }
 
-/*** Header ***/
 
 #branding {
     background-image: none;
@@ -626,7 +632,9 @@ article div.entry-content div.button {
 
   article div.entry-content div.fbox {
     position: relative ;
-    padding: 1em; clear: right;
+    padding: 1em; 
+    clear: right;
+    min-height: 4em;
     }
 
   article div.entry-content div.fbox.lastfbox {
@@ -636,11 +644,13 @@ article div.entry-content div.button {
   article div.entry-content  div.ftext { 
     padding-left: 8em;
     }
+
   article div.entry-content div.ftext span {
     border-right: solid black 1px;
 	padding-right: .5em;
 	margin-right: .5em;
 	}
+
   article div.entry-content div.ftext span.last {
     border-right: none;
 	}
@@ -656,6 +666,18 @@ article div.entry-content div.button {
 
    article div.entry-content div.fbox div.button a img {
     width: 4em; height: 4em;
+    }
+
+/* DL with float left dt */
+
+   article div.entry-content dl.left dt {
+    float: left;
+    font-weight: 700;
+    width: 10em;
+    }
+
+   article div.entry-content dl.left dd {
+    margin-left: 11em; 
     }
 
 /* Blockquote */
@@ -1590,3 +1612,31 @@ h5.home_date {
         padding: 8px 15px;
     }
 }
+
+    /* ----  404 ---- */
+
+    .parallax-viewport {
+        position:relative;
+        overflow:hidden;
+    }
+    .parallax-layer {
+        position:absolute;
+    }
+    #parallax {
+        margin: -5em 0 0 0;
+        overflow: hidden;
+        position: relative;
+        height: 450px;
+    }
+    .four-oh-four {
+        padding: 0 0 50px;
+    }
+    .span3 ul {
+        padding: 0;
+        margin: 0 0 10px 5px;
+        list-style: disc outside none;
+    }
+    .span3 ul li {
+        list-style: none outside none;
+    }
+
