@@ -23,11 +23,16 @@
 	function checkMobile() {
 		mobile = (sw >= breakpoint) ? false : true;
         
+        clearTertiaryStyles();
+
 		if (mobile) { //mobile mode
-           removeOpenDropdowns();
+            removeOpenDropdowns();
 		}
+        else {
+            growTertiary();
+        }
+        
         setImageWindowHeight();
-		setOffCanvasHeight(mobile);
         checkNavbarWrap();
 	}
 
@@ -43,20 +48,17 @@
         }
     }
 
-	function setOffCanvasHeight(mobile) {
-
-    	// set the offcanvas (sidebar) height equal to the content for now... for mobile, might want to do something sweet
-    	// like setting it to the height of the viewport (i.e. facebook)
-        $("#sidebar").height('auto');
-        if (!mobile) {
-    	    var contentH = $("#content").height();
-    	    $("#sidebar").height(contentH);
-        }
-
-	}
-
     function removeOpenDropdowns() {
         $('.dropdown-menu').removeClass('open');
+    }
+
+    function clearTertiaryStyles() {
+        $('#tertiary').removeAttr('style');
+    }
+
+    function growTertiary() {
+        var containerHeight = $('div.row.row-offcanvas').height() + 'px';
+        $('#tertiary').css("min-height", containerHeight);
     }
 
     function setImageWindowHeight() {

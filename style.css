@@ -344,6 +344,10 @@ ul.breadcrumbs-list li.current:after {
 }
 
 /*** Sidebar Off-Canvas *********/
+#content > div.row.row-offcanvas {
+    background-color: white;
+}
+
 .pull-left.visible-phone {
     width: 100%;
     background: #ddd;
@@ -367,18 +371,18 @@ a.btn-offcanvas.active {
 .sidebar-offcanvas {
     background: #ddd;
     overflow: scroll;
+    max-height: 100%;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
     box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);            not in mockup*/
 }
 
 #sidebar { /*height: 200px; overflow-y: auto;*/
-    height: 100%;
+    height: auto;
 }
 
 
 /*** Regular Sidebar ***/
 #secondary {
-    height: 100%;
     background-color: #e6e7e9;
 }
 
@@ -455,7 +459,10 @@ a.btn-offcanvas.active {
     font-size: 12px;
 }
 
-#content { overflow-x: hidden; background: white; }
+#content {
+    overflow-x: hidden;
+    background-color: rgb(230, 231, 233);
+}
 
 /*** Content and comments ***/
 .row { margin: 0; }
@@ -527,6 +534,7 @@ h5.date {
 
 #tertiary {
     padding: 48px 0px 0px 10px;
+    background: white;
 }
 
 #respond h3 {
@@ -1519,12 +1527,18 @@ h5.home_date {
     }
 
     /*** News Page ***/
+    
+    #content > div.row.row-offcanvas {
+        background: transparent;
+    }
 
     #secondary {
         float: left;
         padding: 0px;
     }
-    #tertiary { float: right; }
+    #tertiary {
+        float: right;
+    }
 
     #tertiary div.media .pull-left {
         width: 17%;
