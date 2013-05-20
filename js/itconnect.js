@@ -11,19 +11,22 @@
 		checkMobile();
         fixDropdownOverrun();
         resetOffcanvasScroll();
+        setImageWindowHeight();
+        checkNavbarWrap();
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
 		sw = $(window).width();
 		sh = $(window).height();
+        clearTertiaryStyles();
 		checkMobile();
+        setImageWindowHeight();
+        checkNavbarWrap();
 	});
 
 	//Check if Mobile
 	function checkMobile() {
 		mobile = (sw >= breakpoint) ? false : true;
-        
-        clearTertiaryStyles();
 
 		if (mobile) { //mobile mode
             removeOpenDropdowns();
@@ -31,9 +34,6 @@
         else {
             growTertiary();
         }
-        
-        setImageWindowHeight();
-        checkNavbarWrap();
 	}
 
     function resetOffcanvasScroll() {
