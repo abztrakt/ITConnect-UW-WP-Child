@@ -611,7 +611,12 @@ article div.entry-content ul.ptoc {
        }
 
 /* Procedures */
-	
+
+    article div.entry-content h2 {
+        margin-top: 0;
+        padding-top: 25px;
+    }
+
 article div.entry-content  ol.procedure {
     border:solid #ccc 1px;
     margin-left:0;
