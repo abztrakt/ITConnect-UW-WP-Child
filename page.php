@@ -12,7 +12,7 @@
                       </div>
 				</div>
 			    <?php while ( have_posts() ) : the_post(); ?>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><?php echo get_the_title(); ?></p>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php echo get_the_title(); ?></span></p>
 				<div id='tertiary' class="span9">
 
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
