@@ -11,11 +11,9 @@
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
 				</div>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a>All</p>
+			    <?php while ( have_posts() ) : the_post(); ?>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><?php echo get_the_title(); ?></p>
 				<div id='tertiary' class="span9">
-
-
-			<?php while ( have_posts() ) : the_post(); ?>
 
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 
