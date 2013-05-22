@@ -12,7 +12,22 @@
                       </div>
 				</div>
 			    <?php while ( have_posts() ) : the_post(); ?>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php echo get_the_title(); ?></span></p>
+				<p id="mobile_image" class="span9 visible-phone" <?php custom_homepage_image();?>>
+                    <span class='overlay'></span>
+                    <span class='category'>
+                    <?php $ancestor_list = array_reverse(get_post_ancestors($post->ID));
+                    $is_top = false;
+                    if (sizeof($ancestor_list) > 0) {
+                        $top_parent = get_page($ancestor_list[0]);
+                        echo get_the_title($top_parent);
+                    }
+                    else {
+                        echo get_the_title();
+                        $is_top = true;
+                    }?>
+                    </span>
+                </p>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php if(!$is_top) { echo get_the_title(); }?></span></p>
 				<div id='tertiary' class="span9">
 
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>

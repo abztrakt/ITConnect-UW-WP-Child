@@ -318,6 +318,35 @@ body { background: #f5f7f6; }
     display: none;
 }
 
+/*** Mobile banner pic ***/
+#mobile_image { 
+    background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
+    padding: 0px;
+    margin: 0px;
+    background-size: cover;
+    height: 95px;
+}
+
+#mobile_image .overlay {
+    z-index: 1;
+    height: 95px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.2);
+}
+
+#mobile_image .category {
+    z-index: 2;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 55px;
+    left: 25px;
+    font-size: 24px;
+}
+
 /*** breadcrumbs ***/
 ul.breadcrumbs-list {
     list-style-type: none;
@@ -356,7 +385,7 @@ p.pull-left.visible-phone {
 
 p.pull-left.visible-phone span {
     position: absolute;
-    top: 11px;
+    top: 106px;
 }
 
 a.btn-offcanvas {
