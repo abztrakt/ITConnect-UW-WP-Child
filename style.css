@@ -404,7 +404,8 @@ a.btn-offcanvas.active {
 
 .sidebar-offcanvas {
     background: #ddd;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     max-height: 100%;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
     box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);            not in mockup*/
