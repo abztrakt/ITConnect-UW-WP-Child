@@ -12,7 +12,7 @@
                       </div>
 				</div>
 			    <?php while ( have_posts() ) : the_post(); ?>
-				<p id="mobile_image" class="span9 visible-phone" <?php custom_homepage_image();?>>
+				<p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
                     <span class='overlay'></span>
                     <span class='category'>
                     <?php $ancestor_list = array_reverse(get_post_ancestors($post->ID));
