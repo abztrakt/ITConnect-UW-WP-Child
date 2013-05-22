@@ -1041,7 +1041,7 @@ h5.home_date {
         top:0;
         left: 0;
         right: 0;
-        background-color: #39275B;
+        background-color: #666;
         z-index: 1;
         box-shadow: 0 0px 6px #333;
         -moz-box-shadow: 0 0px 6px #333;
@@ -1187,7 +1187,7 @@ h5.home_date {
     }
     
     .patch {
-        background: url(img/header/header-sprite.png) no-repeat 5px 15px #D7A900;
+        background: url(img/header/header-sprite.png) no-repeat 5px 15px #39275b;
     }
     
     .wordmark {
