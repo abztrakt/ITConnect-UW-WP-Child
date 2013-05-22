@@ -11,12 +11,11 @@
 					    <?php dynamic_sidebar('sidebar'); ?>
                     </div>
                 </div>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a>All</p>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All News</span></p>
 				<div id='tertiary' class="span9">
 					<span id="arrow-mark"></span>
 						
 					<?php while ( have_posts() ) : the_post(); ?>
-				
 						
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 

@@ -5,7 +5,7 @@
 
 			<div class="row">
 
-				<div id="home_main" class="span9" <?php custom_homepage_image();?>>
+				<div id="home_main" class="span9" <?php custom_main_image();?>>
 
         			<?php while ( have_posts() ) : the_post(); ?>
 
