@@ -348,10 +348,15 @@ ul.breadcrumbs-list li.current:after {
     background-color: white;
 }
 
-.pull-left.visible-phone {
+p.pull-left.visible-phone {
     width: 100%;
     background: #ddd;
     margin: 0px;
+}
+
+p.pull-left.visible-phone span {
+    position: absolute;
+    top: 11px;
 }
 
 a.btn-offcanvas {
