@@ -360,7 +360,7 @@ p.pull-left.visible-phone span {
 }
 
 a.btn-offcanvas {
-    background: url('img/left-chevron.png');
+    background: url('img/sub-menu.png');
     padding: 0px;
     margin-right: 20px;
     height: 39px;
@@ -369,7 +369,7 @@ a.btn-offcanvas {
 }
 
 a.btn-offcanvas.active {
-    background: url('img/left-chevron.png'); /*if we want to use another picture for when the offcanvas nav is oout, put it here */
+    background: url('img/sub-menu.png'); /*if we want to use another picture for when the offcanvas nav is oout, put it here */
 }
     
 
