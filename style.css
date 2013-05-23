@@ -404,6 +404,10 @@ ul.breadcrumbs-list li.current:after {
     background-color: white;
 }
 
+#parallax, div.row.four-oh-four {
+    background-color: white;
+}
+
 p.pull-left.visible-phone {
     width: 100%;
     background: #ddd;
