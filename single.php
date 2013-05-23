@@ -15,7 +15,7 @@
 				<?php while ( have_posts() ) : the_post(); ?>
 				
                 <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
-                    <span class='overlay'></span>
+                    <span id='overlay'></span>
                     <span class='category'>
                     <?php $categories = get_the_category();
                     echo $categories[0]->cat_name;

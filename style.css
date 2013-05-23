@@ -354,7 +354,7 @@ b.caret {
     height: 95px;
 }
 
-.overlay {
+#overlay {
     z-index: 1;
     height: 95px;
     width: 100%;
