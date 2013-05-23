@@ -6,7 +6,7 @@
 			<div class="row">
 
 				<div id="home_main" class="span9" <?php custom_main_image();?>>
-
+                    <span class='overlay visible-phone'></span>
         			<?php while ( have_posts() ) : the_post(); ?>
 
         			<span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
