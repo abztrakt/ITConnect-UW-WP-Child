@@ -12,7 +12,7 @@
                         </div>
 				    </div>
                     <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
-                        <span class='overlay'></span>
+                        <span id='overlay'></span>
                         <span class='category'>News</span>
                     </p>
                     <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>

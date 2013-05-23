@@ -354,7 +354,7 @@ b.caret {
     height: 95px;
 }
 
-#mobile_image .overlay {
+#overlay {
     z-index: 1;
     height: 95px;
     width: 100%;
@@ -370,8 +370,8 @@ b.caret {
     color: white;
     position: absolute;
     top: 55px;
-    left: 25px;
-    font-size: 24px;
+    left: 20px;
+    font-size: 22px;
 }
 
 /*** breadcrumbs ***/
@@ -401,6 +401,10 @@ ul.breadcrumbs-list li.current:after {
 
 /*** Sidebar Off-Canvas *********/
 #content > div.row.row-offcanvas {
+    background-color: white;
+}
+
+#parallax, div.row.four-oh-four {
     background-color: white;
 }
 
@@ -769,7 +773,15 @@ article div.entry-content div.button {
 
 #home_main article { padding: 10px; height: 75px; }
 #home_main article .entry-header { margin: 0; }
-#home_main article .entry-header h1 { margin: 0; color: #fff; font-size: 22px; position: absolute; bottom: 0; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9); }
+#home_main article .entry-header h1 {
+    z-index: 2;
+    margin: 0;
+    color: #fff;
+    font-size: 22px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
 #home_main article .entry-content {  }
 
 #home_main .date {  }
