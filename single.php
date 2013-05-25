@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+    <div id="wrap"> 
 		<div id="primary">
 			<div id="content" role="main" class="it_container">
 			
@@ -59,6 +59,6 @@
  			 </div>
 			</div><!-- #content -->
 		</div><!-- #primary -->
-
-
+        <div class="push"></div>
+    </div><!-- #wrap -->
 <?php get_footer(); ?>

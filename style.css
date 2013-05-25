@@ -14,6 +14,23 @@ Template: UW-Wordpress-Theme
     margin-right: auto;
 }
 
+
+/*** Push down footer ***/
+html, body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -185px;
+}
+
+.push {
+    height: 185px;
+}
+
 /*** Color ********/
 
 /*** Typography ***********/
@@ -649,7 +666,12 @@ article div.entry-content ul.ptoc {
        }
 
 /* Procedures */
-	
+
+    article div.entry-content h2 {
+        margin-top: 0;
+        padding-top: 25px;
+    }
+
 article div.entry-content  ol.procedure {
     border:solid #ccc 1px;
     margin-left:0;
@@ -869,9 +891,15 @@ h5.home_date {
 
 /*** Footer ***/
 #footer {
+   /*
+    position: relative;
+    margin-top: -185px;
+    height: 185px;
+    clear: both;
+    padding-top: 20px;*/
     padding: 25px;
-    color: #628ac5;
-    background: #4D4D4D;
+    color: #fff;
+    background: #343434;
 }
 
 #footer h4 {
@@ -896,20 +924,28 @@ h5.home_date {
     text-align: left;
 }
 
+#footer td a {
+    color: #70aefa;
+}
+
 #footer td:first-child {
     color: #CCCCCC;
     width: 40%;
 }
 
-#footer_links_left, #footer_links_right {
+#footer_links_left, #footer_links_mid, #footer_links_right {
     padding: 0px;
-} 
+}
+
+#footer_links_right{
+    margin-top: 20px;
+}
 
 #footer-main {
     height: auto;
     position: relative;
     padding: 4px 0 0;
-    background: #39275b;
+    background: #4D4D4D;
 }
 
 #footer-main a {
@@ -1105,7 +1141,7 @@ h5.home_date {
         width: 200px;
         height: 76px;
         display: block;
-        margin-top: 40px;
+        margin-top: 15px;
     }
 
     /*** UW Header overrides ***/
@@ -1650,6 +1686,12 @@ h5.home_date {
     }
 
     /*** Footer ***/
+    #footer-band {
+        background: none repeat scroll 0 0 #465670;
+        height: 10px;
+        position: relative;
+    }
+        
     #footer {
         padding-left: 0px;
         padding-right: 0px;
@@ -1665,13 +1707,24 @@ h5.home_date {
         float: right;
     }
 
-    #footer_links_left {
+    #footer_links_left, #footer_links_mid, #footer_links_right {
+        margin-top: 20px;
+        padding-left: 10px;
         padding-right: 10px;
     }
 
-    #footer_links_right {
-        padding-left: 10px;
-    } 
+    #footer td {
+        padding-right: 20px;
+        padding-bottom: 10px;
+    }
+
+    #footer_links_left td:first-child, #footer_links_mid td:first-child {
+        text-align: right;
+    }
+
+    .span6 {
+        width: 33.333%;
+    }
 
     #footer-main {
         height: 25px;
