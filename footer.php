@@ -1,6 +1,7 @@
 <?php wp_footer(); ?>
 
 <div id="footerBG">
+    <div id="footer-band"></div>
     <div id="footer" role="navigation" aira-label="Global Footer Menu">
         <div class="it_container">
         <div class='row'>
@@ -11,32 +12,33 @@
                 </div>
             </div>
             <div id='footer_links' class='row span9'>
-                <h4>Need Help?</h4>
                 <div id='footer_links_left' class='span6'>
-                    <h5>General Questions</h5>
                     <table>
                         <tr>
-                            <td>Online</td><td><a href='#'>Fill out a form</a></td>
+                            <td>Online</td><td><a href='#'>Contact form</a></td>
                         </tr>
                         <tr>
                             <td>Email</td><td><a href='mailto:help@uw.edu'>help@uw.edu</a></td>
                         </tr>
+                    </table>
+                </div>
+                <div id='footer_links_mid' class='span6'>
+                    <table>
                         <tr>
                             <td>Phone</td><td>206-221-5000</td>
                         </tr>
                         <tr>
-                            <td>In-Person</td><td>UW-IT Service Center is at C-3000 in the UW Tower</td>
+                            <td>In-Person</td><td>UW Tower, C-3000 M-F, 9-8</td>
                         </tr>
                     </table>
                 </div>
                 <div id='footer_links_right' class='span6'>
-                    <h5>Specific IT Services</h5>
                     <table>
                         <tr>
-                            <td>Contact list</td><td><a href='#'>Contact Information for all UW-IT services</a></td>
+                            <td><a href='/uwtscat'>Service catalog</a></td>
                         </tr>
                         <tr>
-                            <td>Service Catalog</td><td><a href='/uwtscat'>Descriptions of all UW-IT services, categorized and sorted</a></td>
+                            <td><a href='#'>UW-IT Service Contact list</a></td>
                         </tr>
                     </table>
                 </div>
@@ -64,12 +66,11 @@
   <div id="footer-left">
 
     <div class="it_container">
-        <a href="http://www.washington.edu/">&copy; <?php echo date('Y'); ?> University of Washington. All rights reserved</a>
+        <a href="http://www.washington.edu/">&copy; Copyright <?php echo date('Y'); ?> University of Washington. All rights reserved</a>
     </div>
   </div>
 
 </div>
-
 
 </body>
 </html>
