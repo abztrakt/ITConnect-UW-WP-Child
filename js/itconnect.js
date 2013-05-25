@@ -8,7 +8,8 @@
 
 
 	$(document).ready(function() {
-		if (checkMobile()) { //mobile mode
+        mobile = checkMobile();
+		if (mobile) { //mobile mode
             removeOpenDropdowns();
 		}
         else {
@@ -17,21 +18,22 @@
         fixDropdownOverrun();
         resetOffcanvasScroll();
         setImageWindowHeight();
-        checkNavbarWrap();
+        checkNavbarWrap(mobile);
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
 		sw = $(window).width();
 		sh = $(window).height();
         clearTertiaryStyles();
-		if (checkMobile()) { //mobile mode
+        mobile = checkMobile();
+		if (mobile) { //mobile mode
             removeOpenDropdowns();
 		}
         else {
             growTertiary();
         }
         setImageWindowHeight();
-        checkNavbarWrap();
+        checkNavbarWrap(mobile);
 	});
 
 	//Check if Mobile

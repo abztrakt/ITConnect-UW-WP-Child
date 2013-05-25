@@ -1,4 +1,3 @@
-@import url('header_footer.css');
 /*
 Theme Name: UW Theme Child
 Description: Child theme for the UW-Wordpress Theme
@@ -346,6 +345,35 @@ b.caret {
     display: none;
 }
 
+/*** Mobile banner pic ***/
+#mobile_image { 
+    background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
+    padding: 0px;
+    margin: 0px;
+    background-size: cover;
+    height: 95px;
+}
+
+#overlay {
+    z-index: 1;
+    height: 95px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.2);
+}
+
+#mobile_image .category {
+    z-index: 2;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 55px;
+    left: 20px;
+    font-size: 22px;
+}
+
 /*** breadcrumbs ***/
 ul.breadcrumbs-list {
     list-style-type: none;
@@ -376,14 +404,23 @@ ul.breadcrumbs-list li.current:after {
     background-color: white;
 }
 
-.pull-left.visible-phone {
+#parallax, div.row.four-oh-four {
+    background-color: white;
+}
+
+p.pull-left.visible-phone {
     width: 100%;
     background: #ddd;
     margin: 0px;
 }
 
+p.pull-left.visible-phone span {
+    position: absolute;
+    top: 106px;
+}
+
 a.btn-offcanvas {
-    background: url('img/left-chevron.png');
+    background: url('img/sub-menu.png');
     padding: 0px;
     margin-right: 20px;
     height: 39px;
@@ -392,13 +429,14 @@ a.btn-offcanvas {
 }
 
 a.btn-offcanvas.active {
-    background: url('img/left-chevron.png'); /*if we want to use another picture for when the offcanvas nav is oout, put it here */
+    background: url('img/sub-menu.png'); /*if we want to use another picture for when the offcanvas nav is oout, put it here */
 }
     
 
 .sidebar-offcanvas {
     background: #ddd;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     max-height: 100%;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
     box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);            not in mockup*/
@@ -735,7 +773,15 @@ article div.entry-content div.button {
 
 #home_main article { padding: 10px; height: 75px; }
 #home_main article .entry-header { margin: 0; }
-#home_main article .entry-header h1 { margin: 0; color: #fff; font-size: 22px; position: absolute; bottom: 0; text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9); }
+#home_main article .entry-header h1 {
+    z-index: 2;
+    margin: 0;
+    color: #fff;
+    font-size: 22px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
 #home_main article .entry-content {  }
 
 #home_main .date {  }

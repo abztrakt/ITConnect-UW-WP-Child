@@ -11,7 +11,11 @@
                         <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
 				    </div>
-                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a>News</p>
+                    <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
+                        <span id='overlay'></span>
+                        <span class='category'>News</span>
+                    </p>
+                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>
 				    <div id='tertiary' class="span9">
                         <?php uw_breadcrumbs(); ?>
                         <h1 class='hidden-phone news-title'>News</h1>
