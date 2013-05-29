@@ -13,13 +13,13 @@
 				</div>
                 <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
                     <span id='overlay'></span>
-                    <span class='category'>News</span>
+                    <span class='category'>Search</span>
                 </p>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>Results for "<?php the_search_query(); ?>"</span></p>
 				<div id='tertiary' class="span9 search">
 					<span id="arrow-mark"></span>
 					
-                    <h1>Search results: <?php the_search_query(); ?></h1>
+                    <h1 class='hidden-phone news-title'>Search results for "<?php the_search_query(); ?>"</h1>
 					
                     <?php if (have_posts() ): while ( have_posts() ) : the_post(); ?>
 
