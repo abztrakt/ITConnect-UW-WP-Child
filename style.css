@@ -322,7 +322,14 @@ b.caret {
     visibility: hidden;
 }
 
-.btn-navbar { background: #628ac5; margin-top: 0; }
+a.btn.btn-navbar.navbar-toggle {
+    background: #628ac5;
+    margin-top: 0;
+}
+
+a.btn:hover {
+    border-color: rgb(221,221,221);
+}
 
 .navbar h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
 .navbar h3 a { color: #fff; }
