@@ -1173,6 +1173,11 @@ h5.home_date {
     .thin-fixed div {
         background: url("img/mobile-header/logo1x.png") no-repeat -35px -5px;
     }
+    
+    .top-fixed div {
+        background: url("img/mobile-header/logo1x.png") no-repeat -35px -5px;
+        background-position: 100px -5px;
+    }
 
     #thin-strip div {
         height: 30px;
