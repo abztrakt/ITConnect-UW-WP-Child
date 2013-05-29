@@ -42,7 +42,34 @@ Template: UW-Wordpress-Theme
 
 /*** Content Div ***/
 article .entry-content {
-        overflow: hidden;
+    overflow: hidden;
+}
+
+
+/*** search page stuff ***/
+.search > article {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.search > article h2.entry-title {
+    margin-bottom: 0px;
+}
+
+.pagination-centered {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagination-centered ul {
+    text-align: center;
+    margin-left: 0px;
+}
+
+.pagination-centered ul > li {
+    display: inline-block;
+    width: 42px;
 }
 
 /*** Photo Handling ***/
