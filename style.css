@@ -717,6 +717,7 @@ article div.entry-content div.button {
 
   article div.entry-content  div.ftext { 
     padding-left: 8em;
+    min-height: 6em;
     }
 
   article div.entry-content div.ftext span {
