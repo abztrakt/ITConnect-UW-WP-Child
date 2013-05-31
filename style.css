@@ -754,17 +754,6 @@ article div.entry-content div.button {
     margin-left: 11em; 
     }
 
-/*  Test section - remove before push */
-   article div.entry-content a,
-   div#sidebar div.textwidget a {
-    color: #0a3f6b;
-    }
-   article div.entry-content a,
-   div#sidebar div.textwidget a {
-    border-bottom: 2px solid #c7d8e5;
-    }
-/* End Test Section */
-
 /* Blockquote */
 
    article div.entry-content blockquote p {
