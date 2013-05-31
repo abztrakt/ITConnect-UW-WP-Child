@@ -6,53 +6,75 @@
         speed = 800,
         mobile = true;
 
+
 	$(document).ready(function() {
-		checkMobile();
+        mobile = checkMobile();
+		if (mobile) { //mobile mode
+            removeOpenDropdowns();
+		}
+        else {
+            growTertiary();
+        }
+        fixDropdownOverrun();
+        resetOffcanvasScroll();
+        setImageWindowHeight();
+        checkNavbarWrap(mobile);
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
 		sw = $(window).width();
 		sh = $(window).height();
-		checkMobile();
+        clearTertiaryStyles();
+        mobile = checkMobile();
+		if (mobile) { //mobile mode
+            removeOpenDropdowns();
+		}
+        else {
+            growTertiary();
+        }
+        setImageWindowHeight();
+        checkNavbarWrap(mobile);
 	});
 
 	//Check if Mobile
 	function checkMobile() {
-		mobile = (sw > breakpoint) ? false : true;
-        
-		if (mobile) { //mobile mode
-           removeOpenDropdowns();
-		}
-        setImageWindowHeight();
-		setOffCanvasHeight(mobile);
-        checkNavbarWrap(mobile);
+		return (sw >= breakpoint) ? false : true;
 	}
 
-	function setOffCanvasHeight(mobile) {
-
-    	// set the offcanvas (sidebar) height equal to the content for now... for mobile, might want to do something sweet
-    	// like setting it to the height of the viewport (i.e. facebook)
-        $("#sidebar").height('auto');
-        if (!mobile) {
-    	    var contentH = $("#content").height();
-    	    $("#sidebar").height(contentH);
+    function resetOffcanvasScroll() {
+        if (!($('.row-offcanvas-left').hasClass('active'))){
+            /*  The click event is for desktop and screen readers, touchstart for touch devices */
+            $('.btn-offcanvas').click(function(e) {
+                $('.sidebar-offcanvas').scrollTop(0);
+            });
+            $('.btn-offcanvas').on('touchstart', function() {
+                $('.sidebar-offcanvas').scrollTop(0);
+            });
         }
-
-	}
+    }
 
     function removeOpenDropdowns() {
         $('.dropdown-menu').removeClass('open');
+    }
+
+    function clearTertiaryStyles() {
+        $('#tertiary').removeAttr('style');
+    }
+
+    function growTertiary() {
+        var containerHeight = $('div.row.row-offcanvas').height() + 'px';
+        $('#tertiary').css("min-height", containerHeight);
     }
 
     function setImageWindowHeight() {
         
         //retooled to work with featured images, wherever they may be
         var imgdiv;
-        if ($('.media .pull-left').width()) {
-            imgdiv = $('.media .pull-left');
+        if ($('.media').find('.pull-left').width()) {
+            imgdiv = $('.media').find('.pull-left');
         }
         else {
-            imgdiv = $('.featured_container .featured_image');
+            imgdiv = $('.featured_container').find('.featured_image');
         }
 
         var width = imgdiv.width();
@@ -64,6 +86,18 @@
         if (($('.navbar').height() > 50 ) && (!mobile)) {
             $('.navbar').addClass('mobile');
         }
+    }
+
+    function fixDropdownOverrun() {
+        $('#menu-main > li').hover(function() {
+            var dropdown = $(this).children('ul');
+            var container = $('#menu-main');
+            if (dropdown.length != 0) {     //menu items might not have dropdowns
+                if ((dropdown.outerWidth() + $(this).position().left + dropdown.position().left) > (container.outerWidth() + container.position().left)){
+                    dropdown.css('left',  ($(this).outerWidth() - dropdown.outerWidth()) + 'px');
+                }
+            }
+        });
     }
 
 })(this);

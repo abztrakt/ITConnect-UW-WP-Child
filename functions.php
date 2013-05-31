@@ -92,35 +92,35 @@ endif;
 
 add_action( 'widgets_init', 'it_widgets_init' );
 
-require('homepage-image-options.php' );
+require('main-image-options.php' );
 
-if ( ! function_exists( 'is_custom_hompage_image' ) ):  
-  function is_custom_homepage_image()
+if ( ! function_exists( 'is_custom_main_image' ) ):  
+  function is_custom_main_image()
   {
-    $option = get_option('homepage_image'); 
+    $option = get_option('main_image'); 
 
     if ( ! is_array( $option) )
       return false;
 
-    $homepage_image = (array) $option['homepage_image'];
-    if ( isset($homepage_image['custom'] ))  
+    $main_image = (array) $option['main_image'];
+    if ( isset($main_image['custom'] ))  
       return true;
 
     return false;
   }
 endif;
 
-if ( ! function_exists( 'custom_homepage_image' ) ):  
-  function custom_homepage_image() 
+if ( ! function_exists( 'custom_main_image' ) ):  
+  function custom_main_image() 
   {
-    $option = get_option('homepage_image');
+    $option = get_option('main_image');
 
     if ( ! is_array( $option) )
       return;
 
-    $homepage_image = (array) $option['homepage_image'];
-    if ( isset($homepage_image['custom'] )) {
-      echo ' style="background:url('.$homepage_image['custom']['url'].') no-repeat; background-size:cover;" ' ;
+    $main_image = (array) $option['main_image'];
+    if ( isset($main_image['custom'] )) {
+      echo ' style="background:url('.$main_image['custom']['url'].') no-repeat; background-size:cover;" ' ;
     }   
   }
 endif;
