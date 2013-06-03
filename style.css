@@ -1777,18 +1777,18 @@ h5.home_date {
 /*** IE styles ***/ 
 
 /* --- IE Cascading Bug Fix --- */
-#ie8,#ie7 body h1 {
+#ie8 body h1, #ie7 body h1 {
 	margin: 10px 0 33px;
 	font-size: 35px;
 	font-weight: 600; 
 }
-#ie8,#ie7 body h2 {
+#ie8 body h2, #ie7 body h2 {
     font-size: 21px;
     line-height: 26px;
     margin-bottom: 10px;
 }
 
 /* --- IE main menu --- */
-#ie8,#ie7 .nav-collapse .dropdown-menu.open {
+#ie8 .nav-collapse .dropdown-menu.open, #ie7 .nav-collapse .dropdown-menu.open {
     background: rgb(98, 138, 197);
 }
