@@ -1002,6 +1002,61 @@ h5.home_date {
     clear: left;
 }
 
+/***  404 Page Styles ***/
+
+.parallax-viewport {
+    position:relative;
+    overflow:hidden;
+}
+
+.parallax-layer {
+    position:absolute;
+}
+
+#parallax {
+    margin: -5em 0 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 450px;
+}
+
+.four-oh-four {
+    padding: 0 0 50px;
+}
+
+.span3 ul {
+    padding: 0;
+    margin: 0 0 10px 5px;
+    list-style: disc outside none;
+}
+
+.span3 ul li {
+    list-style: none outside none;
+}
+
+/*** IE styles ***/ 
+
+/* --- IE Cascading Bug Fix --- */
+#ie8 body h1, #ie7 body h1 {
+	margin: 10px 0 33px;
+	font-size: 35px;
+	font-weight: 600; 
+}
+#ie8 body h2, #ie7 body h2 {
+    font-size: 21px;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+
+/* --- IE main menu --- */
+#ie8 .nav-collapse .dropdown-menu.open, #ie7 .nav-collapse .dropdown-menu.open {
+    background: rgb(98, 138, 197);
+}
+
+#ie7 .nav-collapse .dropdown-menu .menu-block li{
+    float: left;
+}
+
 /**** UW Alerts ****/
 
 .alert-steel div, .alert-orange div, .alert-red div, .alert-blue divs {
@@ -1798,54 +1853,4 @@ h5.home_date {
     .navbar .nav li a { 
         padding: 8px 15px;
     }
-}
-
-/* ----  404 ---- */
-
-.parallax-viewport {
-    position:relative;
-    overflow:hidden;
-}
-.parallax-layer {
-    position:absolute;
-}
-#parallax {
-    margin: -5em 0 0 0;
-    overflow: hidden;
-    position: relative;
-    height: 450px;
-}
-.four-oh-four {
-    padding: 0 0 50px;
-}
-.span3 ul {
-    padding: 0;
-    margin: 0 0 10px 5px;
-    list-style: disc outside none;
-}
-.span3 ul li {
-    list-style: none outside none;
-}
-
-/*** IE styles ***/ 
-
-/* --- IE Cascading Bug Fix --- */
-#ie8 body h1, #ie7 body h1 {
-	margin: 10px 0 33px;
-	font-size: 35px;
-	font-weight: 600; 
-}
-#ie8 body h2, #ie7 body h2 {
-    font-size: 21px;
-    line-height: 26px;
-    margin-bottom: 10px;
-}
-
-/* --- IE main menu --- */
-#ie8 .nav-collapse .dropdown-menu.open, #ie7 .nav-collapse .dropdown-menu.open {
-    background: rgb(98, 138, 197);
-}
-
-#ie7 .nav-collapse .dropdown-menu .menu-block li{
-    float: left;
 }
