@@ -48,7 +48,6 @@
 <!--[if lt IE 9]>
   <script src="<?php bloginfo("template_directory"); ?>/js/html5shiv.js" type="text/javascript"></script>
   <script src="<?php bloginfo("template_directory"); ?>/js/respond.min.js" type="text/javascript"></script>
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo("stylesheet_directory"); ?>/css/ie8-and-down.css" />
 <![endif]-->
 
 

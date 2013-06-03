@@ -42,7 +42,34 @@ Template: UW-Wordpress-Theme
 
 /*** Content Div ***/
 article .entry-content {
-        overflow: hidden;
+    overflow: hidden;
+}
+
+
+/*** search page stuff ***/
+.search > article {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.search > article h2.entry-title {
+    margin-bottom: 0px;
+}
+
+.pagination-centered {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagination-centered ul {
+    text-align: center;
+    margin-left: 0px;
+}
+
+.pagination-centered ul > li {
+    display: inline-block;
+    width: 42px;
 }
 
 /*** Photo Handling ***/
@@ -322,7 +349,14 @@ b.caret {
     visibility: hidden;
 }
 
-.btn-navbar { background: #628ac5; margin-top: 0; }
+a.btn.btn-navbar.navbar-toggle {
+    background: #628ac5;
+    margin-top: 0;
+}
+
+a.btn:hover {
+    border-color: rgb(221,221,221);
+}
 
 .navbar h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
 .navbar h3 a { color: #fff; }
@@ -435,7 +469,7 @@ a.btn-offcanvas.active {
 
 .sidebar-offcanvas {
     background: #ddd;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     max-height: 100%;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
@@ -1745,3 +1779,26 @@ h5.home_date {
     .span3 ul li {
         list-style: none outside none;
     }
+
+/*** IE styles ***/ 
+
+/* --- IE Cascading Bug Fix --- */
+#ie8 body h1, #ie7 body h1 {
+	margin: 10px 0 33px;
+	font-size: 35px;
+	font-weight: 600; 
+}
+#ie8 body h2, #ie7 body h2 {
+    font-size: 21px;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+
+/* --- IE main menu --- */
+#ie8 .nav-collapse .dropdown-menu.open, #ie7 .nav-collapse .dropdown-menu.open {
+    background: rgb(98, 138, 197);
+}
+
+#ie7 .nav-collapse .dropdown-menu .menu-block li{
+    float: left;
+}
