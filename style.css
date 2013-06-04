@@ -36,6 +36,7 @@ html, body {
 /*** Typography ***********/
 
 /*** Heading *********/
+
 .four-oh-four h3 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -47,8 +48,8 @@ html, body {
     line-height: 26px;
 }
 
-
 /*** Helpers ********/
+
 .assistive-text, .visuallyhidden {
   position: absolute;
   overflow: hidden;
@@ -58,8 +59,36 @@ html, body {
 }
 
 /*** Content Div ***/
+
 article .entry-content {
-        overflow: hidden;
+    overflow: hidden;
+}
+
+/*** search page stuff ***/
+
+.search > article {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.search > article h2.entry-title {
+    margin-bottom: 0px;
+}
+
+.pagination-centered {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagination-centered ul {
+    text-align: center;
+    margin-left: 0px;
+}
+
+.pagination-centered ul > li {
+    display: inline-block;
+    width: 42px;
 }
 
 /*** Photo Handling ***/
@@ -86,7 +115,6 @@ article .entry-content {
 /*****************************************************/
 
 body { background: #f5f7f6; }
-
 
 #branding {
     background-image: none;
@@ -292,24 +320,37 @@ body { background: #f5f7f6; }
 }
 
 #thin-strip li:nth-child(1) a { background-position: center 0;      }
+
 #thin-strip li:nth-child(2) a { background-position: center -173px; }
+
 #thin-strip li:nth-child(3) a { background-position: center -267px; }
+
 #thin-strip li:nth-child(4) a { background-position: center -364px; }
+
 #thin-strip li:nth-child(5) a { background-position: center -446px; }
+
 #thin-strip li:nth-child(6) a { background-position: center -690px; }
+
 #thin-strip li:nth-child(7) a { background-position: center -530px; }
+
 #thin-strip li:nth-child(9) a { background-position: center -83px;  }
+
 #thin-strip li:nth-child(10) a { background-position: center -530px; }
+
 #thin-strip li:nth-child(11) a { background: none; padding: 0; }
+
 #thin-strip li:nth-child(12) a { background: none; padding: 0; margin: 0 }
+
 #thin-strip li:nth-child(12) { background: none; margin: 0; }
 
 /*** Navigation Menu ********/
 
-
 .navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
+
 .navbar .nav { margin: 0; }
+
 .navbar .nav li {  }
+
 .navbar .nav li a {
     padding: 5px 10px;
     color: #fff;
@@ -339,9 +380,17 @@ b.caret {
     visibility: hidden;
 }
 
-.btn-navbar { background: #628ac5; margin-top: 0; }
+a.btn.btn-navbar.navbar-toggle {
+    background: #628ac5;
+    margin-top: 0;
+}
+
+a.btn:hover {
+    border-color: rgb(221,221,221);
+}
 
 .navbar h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
+
 .navbar h3 a { color: #fff; }
 
 .nav-collapse .dropdown-menu.open {
@@ -355,7 +404,9 @@ b.caret {
 }
 
 .nav-collapse { display: none; background: #82b4de; }
+
 .nav-collapse li { border-bottom: solid 1px #fff; }
+
 .nav-collapse li:last-child { border-bottom: none; }
 
 .formbutton {
@@ -363,6 +414,7 @@ b.caret {
 }
 
 /*** Mobile banner pic ***/
+
 #mobile_image { 
     background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
     padding: 0px;
@@ -392,6 +444,7 @@ b.caret {
 }
 
 /*** breadcrumbs ***/
+
 ul.breadcrumbs-list {
     list-style-type: none;
     margin-top: 20px;
@@ -417,6 +470,7 @@ ul.breadcrumbs-list li.current:after {
 }
 
 /*** Sidebar Off-Canvas *********/
+
 #content > div.row.row-offcanvas {
     background-color: white;
 }
@@ -446,13 +500,12 @@ a.btn-offcanvas {
 }
 
 a.btn-offcanvas.active {
-    background: url('img/sub-menu.png'); /*if we want to use another picture for when the offcanvas nav is oout, put it here */
+    background: url('img/sub-menu.png'); /*if we want to use another picture for when the offcanvas nav is out, put it here */
 }
-    
 
 .sidebar-offcanvas {
     background: #ddd;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     max-height: 100%;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
@@ -463,8 +516,8 @@ a.btn-offcanvas.active {
     height: auto;
 }
 
-
 /*** Regular Sidebar ***/
+
 #secondary {
     background-color: #e6e7e9;
 }
@@ -492,6 +545,7 @@ a.btn-offcanvas.active {
 }
 
 /*** Homepage Sidebar ***/
+
 #home_secondary {
     padding: 0px;
 }
@@ -548,6 +602,7 @@ a.btn-offcanvas.active {
 }
 
 /*** Content and comments ***/
+
 .row { margin: 0; }
 
 article, #respond {
@@ -645,29 +700,27 @@ ol.commentlist {
 
 /* ITC Specific Styles */
 
-  #tertiary article h2,
-  #tertiary article h3,
-  #tertiary article h4 {
-  margin-left: 0;
-  }
-
+#tertiary article h2, #tertiary article h3, #tertiary article h4 {
+    margin-left: 0;
+}
 
 /* Page table of contents */
 
 article div.entry-content ul.ptoc {
     margin:1em 0 1.5em 2em;
-    }
+}
 
-  article div.entry-content  ul.ptoc li.onthispage {
+article div.entry-content  ul.ptoc li.onthispage {
     list-style-type:none;
     margin-left:-1em;
     font-style:italic;
-    }
+}
 
 /* Sidebar Topic List Indentation */
-    #secondary #sidebar ul.page-list li.page_item ul.children {
-       padding-left: .75em;
-       }
+
+#secondary #sidebar ul.page-list li.page_item ul.children {
+    padding-left: .75em;
+}
 
 /* Procedures */
 
@@ -681,17 +734,17 @@ article div.entry-content  ol.procedure {
     margin-left:0;
     margin-top: 1.5em;
     padding:1em 1em 1em 3em;
-    }
+}
 
-  article div.entry-content ol.procedure img { margin: 1em 0; }
+article div.entry-content ol.procedure img { margin: 1em 0; }
 
-  article div.entry-content ol.procedure li {
+article div.entry-content ol.procedure li {
     padding-left:2em;
     padding-bottom:1em;
     margin-left:1em;
-    }
+}
 
-  article div.entry-content ol.procedure li.colheads {
+article div.entry-content ol.procedure li.colheads {
     list-style-type:none;
     font-weight:700;
     margin-left:-1.5em;
@@ -699,21 +752,20 @@ article div.entry-content  ol.procedure {
     padding-bottom:1em;
     border-bottom:solid #000 1px;
     margin-bottom:1em;
-    }
+}
 
-  article div.entry-content ol.procedure li ul,
-  article div.entry-content ol.procedure li ol,
-  article div.entry-content ol.procedure li li { margin: .3em; padding: 0 0 0 1em; }	
-  article div.entry-content  li.colheads span {
+article div.entry-content ol.procedure li ul,
+article div.entry-content ol.procedure li ol,
+article div.entry-content ol.procedure li li { margin: .3em; padding: 0 0 0 1em; }
+
+article div.entry-content li.colheads span {
     margin-left:1.5em;
+}
 
-    }
-
-  article div.entry-content  ol.procedure li ul li,
-  article div.entry-content  ol.procedure li ol li { 
+article div.entry-content ol.procedure li ul li, article div.entry-content ol.procedure li ol li { 
     margin: 0 0 0 2em; 
 
-    }	
+}	
 	
 /* Styling of sitemap */
 
@@ -733,69 +785,70 @@ article div.entry-content div.button {
     -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
     -khtml-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
     -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.8);
-    }
+}
 
-  article div.entry-content div.fbox {
+article div.entry-content div.fbox {
     position: relative ;
     padding: 1em; 
     clear: right;
     min-height: 4em;
-    }
+}
 
-  article div.entry-content div.fbox.lastfbox {
-	  margin-bottom: 3em;
-		}
+article div.entry-content div.fbox.lastfbox {
+    margin-bottom: 3em;
+}
 
-  article div.entry-content  div.ftext { 
+article div.entry-content  div.ftext { 
     padding-left: 8em;
     min-height: 6em;
-    }
+}
 
-  article div.entry-content div.ftext span {
+article div.entry-content div.ftext span {
     border-right: solid black 1px;
 	padding-right: .5em;
 	margin-right: .5em;
-	}
+}
 
-  article div.entry-content div.ftext span.last {
+article div.entry-content div.ftext span.last {
     border-right: none;
-	}
+}
 
-  article div.entry-content div.fbox div.button {
-   width: 6em; 
-   float: left;
-	 }
+article div.entry-content div.fbox div.button {
+    width: 6em; 
+    float: left;
+}
 
-   article div.entry-content div.fbox div.button a {
+article div.entry-content div.fbox div.button a {
     text-decoration: none;
-    }
+}
 
-   article div.entry-content div.fbox div.button a img {
+article div.entry-content div.fbox div.button a img {
     width: 4em; height: 4em;
-    }
+}
 
 /* DL with float left dt */
 
-   article div.entry-content dl.left dt {
+article div.entry-content dl.left dt {
     float: left;
     font-weight: 700;
     width: 10em;
-    }
+}
 
-   article div.entry-content dl.left dd {
+article div.entry-content dl.left dd {
     margin-left: 11em; 
-    }
+}
 
 /* Blockquote */
 
-   article div.entry-content blockquote p {
+article div.entry-content blockquote p {
      font-size: inherit;
      font-weight: inherit; 
      line-height: inherit;
      margin-bottom: .25em;
-   }
+}
 
 /*** Homepage ***/
+
 #home_main { 
     background: url('./img/itconnect-banner1.png') no-repeat 0 50%;
     padding: 0;
@@ -804,7 +857,9 @@ article div.entry-content div.button {
 }
 
 #home_main article { padding: 10px; height: 75px; }
+
 #home_main article .entry-header { margin: 0; }
+
 #home_main article .entry-header h1 {
     z-index: 2;
     margin: 0;
@@ -814,12 +869,12 @@ article div.entry-content div.button {
     bottom: 20px;
     left: 20px;
 }
+
 #home_main article .entry-content {  }
 
 #home_main .date {  }
-#home_main .nocomments { 
-}
 
+#home_main .nocomments { }
 
 #home_secondary { }
 
@@ -898,8 +953,8 @@ h5.home_date {
     line-height: 12px;
 }
 
-
 /*** Footer ***/
+
 #footer {
    /*
     position: relative;
@@ -993,6 +1048,61 @@ h5.home_date {
     clear: left;
 }
 
+/***  404 Page Styles ***/
+
+.parallax-viewport {
+    position:relative;
+    overflow:hidden;
+}
+
+.parallax-layer {
+    position:absolute;
+}
+
+#parallax {
+    margin: -5em 0 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 450px;
+}
+
+.four-oh-four {
+    padding: 0 0 50px;
+}
+
+.span3 ul {
+    padding: 0;
+    margin: 0 0 10px 5px;
+    list-style: disc outside none;
+}
+
+.span3 ul li {
+    list-style: none outside none;
+}
+
+/*** IE styles ***/ 
+
+/* --- IE Cascading Bug Fix --- */
+#ie8 body h1, #ie7 body h1 {
+	margin: 10px 0 33px;
+	font-size: 35px;
+	font-weight: 600; 
+}
+#ie8 body h2, #ie7 body h2 {
+    font-size: 21px;
+    line-height: 26px;
+    margin-bottom: 10px;
+}
+
+/* --- IE main menu --- */
+#ie8 .nav-collapse .dropdown-menu.open, #ie7 .nav-collapse .dropdown-menu.open {
+    background: rgb(98, 138, 197);
+}
+
+#ie7 .nav-collapse .dropdown-menu .menu-block li{
+    float: left;
+}
+
 /**** UW Alerts ****/
 
 .alert-steel div, .alert-orange div, .alert-red div, .alert-blue divs {
@@ -1003,6 +1113,7 @@ h5.home_date {
     position: relative;
     z-index: 1;
 }
+
 #uwalert-alert-message div {
     width: 100%;
     margin: 0 auto;
@@ -1024,6 +1135,7 @@ h5.home_date {
 #uwalert-alert-message h1 {
 	font-size: 18px;
 }
+
 #uwalert-alert-message p {
 	font-size: 13px;
 	line-height: 15px;
@@ -1099,11 +1211,13 @@ h5.home_date {
         width: 1100px;
         padding: 5px 0 15px;
     }
+
     #uwalert-alert-message h1, #uwalert-alert-message p {
         color: white;
         padding: 5px 100px 0 200px;
         margin: 0;
     }
+
     #alert-mini {
         position: fixed;
         display:none;
@@ -1115,13 +1229,16 @@ h5.home_date {
         color: #fff;
         padding: 40px 0 10px 0; 
         z-index: 0;
-    }    
+    }
+
     .logged-in #alert-mini {
         top: 28px;
     }
+
     /*** Branding ****/
 
     #branding { background: #404042 ; margin-bottom: 0; height: auto; }
+
     #banner-container {
         position: absolute;
         left:0;
@@ -1129,6 +1246,7 @@ h5.home_date {
         top:0;
         bottom:0;
     }
+
     #banner-image {
         background: #404042 url('./img/itconnect-banner2.png');
         background-repeat: no-repeat;
@@ -1288,6 +1406,7 @@ h5.home_date {
         padding-top: 30px;
         z-index: 1;
     }
+
     #header {
         z-index: 2;
         position: relative;
@@ -1352,6 +1471,7 @@ h5.home_date {
         right: 45px;
         height: 0px;
     }
+
     input[type="submit"].formbutton {
         position: absolute;
         left: 6px;
@@ -1366,6 +1486,7 @@ h5.home_date {
         height: 28px;
         width: 32px;
     }
+
     input[type="text"].wTextInput {
         padding: 8px 0 10px 38px;
         width: 190px;
@@ -1382,18 +1503,22 @@ h5.home_date {
         -o-transition-timing-function: ease;
         float: right;
     }
+
     .wTextInput:focus, input[type="text"].wTextInput:focus {
         width: 225px;
     }
+
     .wfield {
         background: white;
         float:right;
         width: auto;
     }
+
     .main-search {
         visibility: visible;
         width: auto;
     }
+
     .wfield {
         border-radius: 0px;
         -webkit-border-radius: 0px;
@@ -1402,7 +1527,7 @@ h5.home_date {
         opacity: .8;
     }
 
-  /* ---- Super Search ---- */
+    /* ---- Super Search ---- */
 
     #search .search-toggle {
       display:none;
@@ -1518,12 +1643,18 @@ h5.home_date {
     #listicon-wrapper, #searchicon-wrapper {
         display: none;
     }
+
+
     /*** Navigation Menu ********/
 
     nav, .navbar {  background: rgba(98, 138, 197, 0.30); }
+
     .navbar .nav { float: right; }
+
     .nav-collapse { display: block; }
+
     .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(98, 138, 197, 0.7); }
+
     .nav-collapse li:last-child { margin-right: 0; }
 
     .dropdown-toggle {
@@ -1534,31 +1665,41 @@ h5.home_date {
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
     .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
+
     .navbar.mobile .nav {
         margin: 0; 
         float: none;
     }
+
     .navbar.mobile .nav li {
         float: none;
     }
+
     .navbar.mobile .nav li a { padding: 5px 10px; color: #fff; font-weight: normal; font-size: .85em; }
+
     .navbar.mobile h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
+
     .navbar.mobile h3 a { color: #fff; }
 
     .navbar.mobile .nav-collapse { display: none; background: #82b4de; }
+
     .navbar.mobile .nav-collapse li {
         border-bottom: solid 1px #fff;
         background: transparent;
     }
+
     .navbar.mobile .nav-collapse li:last-child { border-bottom: none; }
+
     .navbar.mobile .navbar-toggle {
         display: inline-block;
         position: absolute;
         top: 8px;
     }
+
     .navbar.mobile .visible-phone {
         display: block !important;
     }
+
     .navbar.mobile .open {
         display: none;
     }
@@ -1621,8 +1762,11 @@ h5.home_date {
     /*** Homepage ***/
 
     #home_main { float: right; background: url('./img/itconnect-home-hero1.png') no-repeat 0 0; min-height: 500px; max-height: 600px; overflow: hidden; }
+    
     #home_main article { padding: 30px; }
+    
     /*#home_main article .entry-header h1, #home_main article .entry-content h2 { background: #fff; color: #4a81bc; padding: 5px; display: inline; line-height: 50px; }*/
+    
     #home_main article .entry-header h1, #home_main article .entry-content h2 { padding:5px 0; color:#4a81bc; display: inline; background-color:#fff; box-shadow: 10px 0 0 0 #fff, -10px 0 0 0 #fff; left:10px; position: relative; line-height: 50px; }
 
 
@@ -1690,8 +1834,6 @@ h5.home_date {
     #sidebar.home_sidebar h2.widgettitle {
         padding-left: 0px;
     }
-
-
 
     h1.news-title {
         padding-left: 3%;
@@ -1779,30 +1921,3 @@ h5.home_date {
         padding: 8px 15px;
     }
 }
-
-    /* ----  404 ---- */
-
-    .parallax-viewport {
-        position:relative;
-        overflow:hidden;
-    }
-    .parallax-layer {
-        position:absolute;
-    }
-    #parallax {
-        margin: -5em 0 0 0;
-        overflow: hidden;
-        position: relative;
-        height: 450px;
-    }
-    .four-oh-four {
-        padding: 0 0 50px;
-    }
-    .span3 ul {
-        padding: 0;
-        margin: 0 0 10px 5px;
-        list-style: disc outside none;
-    }
-    .span3 ul li {
-        list-style: none outside none;
-    }
