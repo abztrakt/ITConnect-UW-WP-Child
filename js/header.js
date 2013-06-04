@@ -76,7 +76,7 @@ jQuery(document).ready(function($){
 
     /**
      * Header weather widget
-     */
+     
       var data = {
         q:'http://www.atmos.washington.edu/rss/home.rss',
         v:'2.0'
@@ -98,6 +98,9 @@ jQuery(document).ready(function($){
           $('#thin-strip').find('ul').append(html)
         }
       });
+    */
+
+
 
   var lip = $('#lip'),
       linkRotator = $('#linkRotator'),
@@ -202,7 +205,7 @@ jQuery(window).load(function() {
    * Header Strip
    */
   var $thin    = $('#thin-strip')
-      , strip  = $thin.clone().removeAttr('style').addClass('thin-fixed')
+      , strip  = $thin.clone().removeAttr('style').addClass('thin-fixed').removeClass('top-fixed')
       , search = $('#search form')
       , win    = $(window)
       , bod    = $('body')
