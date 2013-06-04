@@ -615,6 +615,10 @@ h5.date {
     line-height: 12px;
 }
 
+#last-modified-date {
+    margin: 10px 0 0;
+}
+
 #tertiary {
     padding: 48px 0px 0px 10px;
     background: white;

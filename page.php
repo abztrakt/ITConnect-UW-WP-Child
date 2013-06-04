@@ -46,8 +46,10 @@
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
-			</article><!-- #post-<?php the_ID(); ?> -->
-
+			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
+            </article><!-- #post-<?php the_ID(); ?> -->
+          
+                
 
 			<?php endwhile; // end of the loop. ?>
 
