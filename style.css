@@ -715,6 +715,11 @@ article div.entry-content  ol.procedure {
 
     }	
 	
+/* Styling of sitemap */
+
+div.entry-content ul.page-list li.page_item a {font-weight: bold; }
+div.entry-content ul.page-list li.page_item ul.children li a {font-weight: normal; }
+
 /* Feature box, text float right, graphic on left */
 
 article div.entry-content div.button { 
@@ -743,6 +748,7 @@ article div.entry-content div.button {
 
   article div.entry-content  div.ftext { 
     padding-left: 8em;
+    min-height: 6em;
     }
 
   article div.entry-content div.ftext span {
