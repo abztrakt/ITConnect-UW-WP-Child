@@ -2,12 +2,14 @@
 
     var sw = $(window).width(),
         sh = $(window).height(),
+        navbar_width,
         breakpoint = 768,
         speed = 800,
         mobile = true;
 
 
 	$(document).ready(function() {
+        navbar_width = $('.navbar').width(),
         mobile = checkMobile();
 		if (mobile) { //mobile mode
             removeOpenDropdowns();
@@ -22,18 +24,25 @@
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
-		sw = $(window).width();
-		sh = $(window).height();
-        clearTertiaryStyles();
-        mobile = checkMobile();
-		if (mobile) { //mobile mode
-            removeOpenDropdowns();
-		}
-        else {
-            growTertiary();
+        var width_resize = (sw != $(window).width());
+        var height_resize = (sh != $(window).height());
+        if (width_resize || height_resize){
+            sw = $(window).width();
+            sh = $(window).height();
+            clearTertiaryStyles();
+            mobile = checkMobile();
+            if (mobile) { //mobile mode
+                removeOpenDropdowns();
+            }
+            else {
+                growTertiary();
+            }
+            setImageWindowHeight();
+            if (navbar_width != $('.navbar').width()) {
+                navbar_width = $('.navbar').width(),
+                checkNavbarWrap(mobile);
+            }
         }
-        setImageWindowHeight();
-        checkNavbarWrap(mobile);
 	});
 
 	//Check if Mobile
