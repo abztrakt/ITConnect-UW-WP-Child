@@ -63,7 +63,7 @@
                         <?php if ($divcount > 1): ?>
                         <ul id='spotlight_paginator'>
                             <?php for ($looper = 1; $looper <= $divcount; $looper++): ?>
-                            <li id='number<?php echo $looper; ?>'><div><div></div></div></li>
+                            <li target='number<?php echo $looper; ?>'><div><div></div></div></li>
                             <?php endfor; ?>
                         </ul>
                         <?php endif ?>

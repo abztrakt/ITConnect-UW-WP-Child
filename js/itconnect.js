@@ -55,6 +55,7 @@
             $(paginators[0]).addClass('active');
         }
         if (spotlighted.length > 1 ){
+            setUpPagination(paginators);
             var rotation = setInterval(function(){ rotate(spotlighted, paginators) }, 10000);
             $('#home_spotlight').hover(function(){
                 rotation = clearInterval(rotation);
@@ -87,6 +88,29 @@
                 $(spotlighted[activeindex]).removeClass('active');
             });
         });
+    }
+
+    //sets up the click event handlers for the spotlight box pagination
+    function setUpPagination(paginators) {
+        var paginator_target;
+        var old_active_spotlight;
+        for (var count = 0; count < paginators.length; count++) {
+            $(paginators[count]).click(function () {
+                paginator_target = $(this).attr('target');
+                if (!$(this).hasClass('active')){
+                    old_active_spotlight = $('#home_spotlight').find('.spotlight.active');
+                    new_active_spotlight = $('#' + paginator_target);
+                    $('#spotlight_paginator').find('li.active').removeClass('active');
+                    $(this).addClass('active');
+                    old_active_spotlight.fadeOut(function () {
+                        new_active_spotlight.fadeIn(function () {
+                            new_active_spotlight.addClass('active');
+                            old_active_spotlight.removeClass('active');
+                        });
+                    });
+                }
+            });
+        }
     }
 
 	//Check if Mobile
