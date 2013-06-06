@@ -18,7 +18,8 @@
 		<a class="patch hidden-phone" href="http://www.uw.edu" title="University of Washington"></a>
 		<a class="wordmark hidden-phone" <?php custom_wordmark(); ?> href="<?php echo site_url(); ?>">IT Connect</a>
 		<a class="wordmark visible-phone" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">University of Washington</a>
-		<a title="Show search" role="button" href="#searchicon-wrapper" id="searchicon-wrapper" aria-haspopup="true">Search</a>
+        <p id="header_description" class="hidden-phone">Information technology tools and resources at the UW</p>
+        <a title="Show search" role="button" href="#searchicon-wrapper" id="searchicon-wrapper" aria-haspopup="true">Search</a>
 
       <?php get_template_part('uw-search'); ?>
 
