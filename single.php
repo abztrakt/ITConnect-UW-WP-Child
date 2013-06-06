@@ -8,15 +8,23 @@
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                     <div id="sidebar">
-					    <?php dynamic_sidebar('sidebar'); ?>
+					    <?php dynamic_sidebar('news-sidebar'); ?>
                     </div>
                 </div>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a>All</p>
+
+				<?php while ( have_posts() ) : the_post(); ?>
+				
+                <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
+                    <span id='overlay'></span>
+                    <span class='category'>
+                    <?php $categories = get_the_category();
+                    echo $categories[0]->cat_name;
+                    ?>
+                    </span>
+                </p>
+                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All News</span></p>
 				<div id='tertiary' class="span9">
 					<span id="arrow-mark"></span>
-						
-					<?php while ( have_posts() ) : the_post(); ?>
-				
 						
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 

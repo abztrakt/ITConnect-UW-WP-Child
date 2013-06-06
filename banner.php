@@ -7,8 +7,9 @@
 <?php else: ?>
 <header id="branding" role="banner" <?php banner_class(); ?>>
 <?php endif; ?>
-
-<div id="banner-image" class="it_container hidden-phone">&nbsp;</div>
+<div id='banner-container' class='hidden-phone'>
+    <div id="banner-image" class='it_container'></div>
+</div>
 
 <div id="header" class="it_container">
 		<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to primary content', 'twentyeleven' ); ?></a></div>
@@ -18,7 +19,6 @@
 		<a class="wordmark hidden-phone" <?php custom_wordmark(); ?> href="<?php echo site_url(); ?>">IT Connect</a>
 		<a class="wordmark visible-phone" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">University of Washington</a>
 		<a title="Show search" role="button" href="#searchicon-wrapper" id="searchicon-wrapper" aria-haspopup="true">Search</a>
-        <a title='Need Help' id='header-help' class='hidden-phone' href='<?php echo site_url(); ?>/help'>Need Help?</a>
 
       <?php get_template_part('uw-search'); ?>
 
@@ -35,8 +35,8 @@
 			<li><a href="http://www.lib.washington.edu/">Libraries</a></li>
 			<li><a href="http://www.washington.edu/maps">Maps</a></li>
 			<li><a href="http://myuw.washington.edu/">My UW</a></li>
-            <li class="hidden-desktop hidden-tablet hidden-phone"><a href="http://www.bothell.washington.edu/">UW Bothell</a></li>
-            <li class="hidden-desktop hidden-tablet hidden-phone"><a href="http://www.tacoma.uw.edu/">UW Tacoma</a></li>
+            <li class="visible-desktop"><a href="http://www.bothell.washington.edu/">UW Bothell</a></li>
+            <li class="visible-desktop"><a href="http://www.tacoma.uw.edu/">UW Tacoma</a></li>
 			<li class="visible-phone"><a href="http://www.uw.edu/news">News</a></li>
 			<li class="visible-phone"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
 		</ul>
