@@ -1683,6 +1683,8 @@ h5.home_date {
 
     .navbar.mobile .nav-collapse { display: none; background: #82b4de; }
 
+    .navbar.mobile .nav-collapse.open { display: block; background: #82b4de; }
+
     .navbar.mobile .nav-collapse li {
         border-bottom: solid 1px #fff;
         background: transparent;
