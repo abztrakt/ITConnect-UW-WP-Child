@@ -53,7 +53,7 @@
                                 setup_postdata($post); ?>
                                 <div class='spotlight_post'>
                                     <h5 class='home_date'><?php echo get_the_date(); ?></h5>
-                                    <h5><a href=<?php echo get_permalink(); ?>><?php the_title();?></a></h5>
+                                    <p class='post_title'><a href=<?php echo get_permalink(); ?>><?php the_title();?></a></p>
                                 </div>
                             <?php if ($counter == 3): $counter = 0;?>
                             </div><?php endif;

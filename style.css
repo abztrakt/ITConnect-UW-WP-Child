@@ -1745,12 +1745,14 @@ h5.home_date {
     }
 
     div.spotlight_post {
-        padding: 20px 20px 0px;
+        padding: 20px;
         border-bottom: 1px solid LightGray;
     }
 
-    div.spotlight h5 {
-        margin-top: 0px;
+    div.spotlight_post p.post_title {
+        margin: 0px;
+        font-weight: bold;
+        font-size: 16px;
     }
 
     #home_secondary {
