@@ -33,13 +33,41 @@
             			     <p><?php comments_template( '', true ); ?></p>
         			     </div>
 
-        			<?php endwhile; // end of the loop. ?>
+        			<?php endwhile; // end of the loop.
 
+                    $args = array(
+                        'numberposts' => 12,
+                        'order' => 'DESC',
+                        'orderby' => 'post_date',
+                    );
+                    $postslist = get_posts( $args );
+                    ?>
 
-        			 <div id="home_spotlight" class="hidden-phone">
-        			     <h6>SPOTLIGHT</h6>
-        			     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a ipsum lorem, in pulvinar risus. Suspendisse id pretium diam. Praesent suscipit mauris eget dolor laoreet hendrerit. In sit amet lacus in orci interdum gravida. Integer vitae massa massa. In pellentesque faucibus imperdiet. Phasellus justo urna, sagittis non pulvinar ac, sollicitudin at massa. Fusce nec massa dolor, eget blandit ipsum.</div>
-        			 </div>
+        			<div id="home_spotlight" class="hidden-phone">
+                        <?php
+                        $counter = 0;
+                        $divcount = 0;
+                        foreach ($postslist as $post):
+                            if ($counter == 0): 
+                            $divcount++;?>
+                            <div class='spotlight' id='number<? echo $divcount; ?>'><?php endif;    
+                                $counter++;
+                                setup_postdata($post); ?>
+                                <div class='spotlight_post'>
+                                    <h5 class='home_date'><?php echo get_the_date(); ?></h5>
+                                    <p class='post_title'><a href=<?php echo get_permalink(); ?>><?php the_title();?></a></p>
+                                </div>
+                            <?php if ($counter == 3): $counter = 0;?>
+                            </div><?php endif;
+                        endforeach; ?>
+                        <?php if ($divcount > 1): ?>
+                        <ul id='spotlight_paginator'>
+                            <?php for ($looper = 1; $looper <= $divcount; $looper++): ?>
+                            <li target='number<?php echo $looper; ?>'><div><div></div></div></li>
+                            <?php endfor; ?>
+                        </ul>
+                        <?php endif ?>
+        			</div>
 
 				</div>
 
@@ -50,25 +78,13 @@
                       </div>
 				</div>
 
-				<div id="home_tertiary" class="span9" style="background-color:#fff;">
-                <?php
-                /* from http://codex.wordpress.org/Template_Tags/get_posts */
-                $args = array ( 'numberposts' => 3, 'order' => 'ASC', 'orderby' => 'post_date');
-                $postslist = get_posts( $args ); ?>
-    			     <h2>News</h2>
-                <?php foreach ($postslist as $post) : setup_postdata($post); ?>
-    			     <div class="media">
-                        <?php if ( has_post_thumbnail() ) : ?>
-                        <a class="pull-left" href="#">
-                            <?php the_post_thumbnail(); ?>
-                        </a>
-                        <?php endif; ?>
-                        <div class="media-body">
-                            <h5 class="home_date"><?php echo get_the_date(); ?></h5>
-                            <h3><?php the_title(); ?></h3>
-                            <?php the_excerpt(); ?>
-                        </div>
-                     </div>
+				<div id="home_tertiary" class="span9 visible-phone" style="background-color:#fff;">
+    			    <h2>News</h2>
+                    <?php foreach ($postslist as $post) : setup_postdata($post); ?>
+    			    <div class="media">
+                        <h5 class="home_date"><?php echo get_the_date(); ?></h5>
+                        <h3><a href=<?php echo get_permalink(); ?>><?php the_title();?></a></h3>
+                    </div>
                 <?php endforeach; ?>
    			    </div>
 
