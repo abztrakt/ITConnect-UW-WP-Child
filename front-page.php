@@ -36,7 +36,7 @@
         			<?php endwhile; // end of the loop.
 
                     $args = array(
-                        'numberposts' => 3,
+                        'numberposts' => 12,
                         'order' => 'ASC',
                         'orderby' => 'post_date',
                     );
@@ -45,13 +45,19 @@
 
         			<div id="home_spotlight" class="hidden-phone">
                         <?php
+                        $counter = 0;
                         foreach ($postslist as $post):
-                            setup_postdata($post); ?>
-        			        <div class='spotlight'>
-                                <h5><a href=<?php echo get_permalink(); ?>><?php the_title();?></a></h5>
-                                <p><?php echo get_the_content(); ?></p>
-                            </div>
-                        <?php endforeach; ?>
+                            if ($counter == 0): ?>
+                            <div class='spotlight'><?php endif;    
+                                $counter++;
+                                setup_postdata($post); ?>
+                                <div class='spotlight_post'>
+                                    <h5 class='home_date'><?php echo get_the_date(); ?></h5>
+                                    <h5><a href=<?php echo get_permalink(); ?>><?php the_title();?></a></h5>
+                                </div>
+                            <?php if ($counter == 3): $counter = 0;?>
+                            </div><?php endif;
+                        endforeach; ?>
         			</div>
 
 				</div>
