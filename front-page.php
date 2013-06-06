@@ -46,9 +46,11 @@
         			<div id="home_spotlight" class="hidden-phone">
                         <?php
                         $counter = 0;
+                        $divcount = 0;
                         foreach ($postslist as $post):
-                            if ($counter == 0): ?>
-                            <div class='spotlight'><?php endif;    
+                            if ($counter == 0): 
+                            $divcount++;?>
+                            <div class='spotlight' id='number<? echo $divcount; ?>'><?php endif;    
                                 $counter++;
                                 setup_postdata($post); ?>
                                 <div class='spotlight_post'>
@@ -58,6 +60,13 @@
                             <?php if ($counter == 3): $counter = 0;?>
                             </div><?php endif;
                         endforeach; ?>
+                        <?php if ($divcount > 1): ?>
+                        <ul id='spotlight_paginator'>
+                            <?php for ($looper = 1; $looper <= $divcount; $looper++): ?>
+                            <li id='number<?php echo $looper; ?>'><div><div></div></div></li>
+                            <?php endfor; ?>
+                        </ul>
+                        <?php endif ?>
         			</div>
 
 				</div>
