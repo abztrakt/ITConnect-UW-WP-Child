@@ -139,6 +139,13 @@ body { background: #f5f7f6; }
     display: block;
 }
 
+#header_description {
+    font-size: 11pt;
+    color: white;
+    padding-left: 165px;
+    padding-top: 62px;
+}
+
 #listicon-wrapper, #searchicon-wrapper {
     background: url("img/mobile-header/dropdowns1x.png") no-repeat -29px 0px transparent;
     position: absolute;
