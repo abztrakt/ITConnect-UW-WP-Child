@@ -18,6 +18,10 @@ Template: UW-Wordpress-Theme
 
 /*** Typography ***********/
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 /*** Heading *********/
 
 .four-oh-four h3 {
