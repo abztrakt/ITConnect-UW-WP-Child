@@ -37,7 +37,7 @@
 
                     $args = array(
                         'numberposts' => 12,
-                        'order' => 'ASC',
+                        'order' => 'DESC',
                         'orderby' => 'post_date',
                     );
                     $postslist = get_posts( $args );
