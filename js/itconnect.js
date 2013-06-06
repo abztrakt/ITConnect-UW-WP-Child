@@ -16,6 +16,7 @@
 		}
         else {
             growTertiary();
+            checkFrontPage();
         }
         fixDropdownOverrun();
         resetOffcanvasScroll();

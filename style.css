@@ -1726,22 +1726,27 @@ h5.home_date {
 
     #home_spotlight { 
         background-color: rgb(255,255,255);
-        opacity: .85;
-        width: 400px;
+        opacity: .95;
+        width: 300px;
         position: absolute;
         bottom: 30px;
-        right: 0;
-        padding: 30px;
+        right: 10px;
+        outline: 5px solid rgba(0,0,0,.5);
     }
 
     div.spotlight {
         display: none;
-        max-height: 210px;
+        max-height: 310px;
         overflow: hidden;
     }
 
     div.spotlight.active {
         display: block;
+    }
+
+    div.spotlight_post {
+        padding: 20px 20px 0px;
+        border-bottom: 1px solid LightGray;
     }
 
     div.spotlight h5 {
