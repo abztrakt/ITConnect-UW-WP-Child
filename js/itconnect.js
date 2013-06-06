@@ -36,6 +36,9 @@
                 removeOpenDropdowns();
             }
             else {
+                if ($('#home_spotlight .spotlight.active').length == 0) {
+                    checkFrontPage();
+                }
                 growTertiary();
             }
             setImageWindowHeight();
