@@ -82,17 +82,9 @@
     			    <h2>News</h2>
                     <?php foreach ($postslist as $post) : setup_postdata($post); ?>
     			    <div class="media">
-                        <?php if ( has_post_thumbnail() ) : ?>
-                        <a class="pull-left" href="#">
-                            <?php the_post_thumbnail(); ?>
-                        </a>
-                        <?php endif; ?>
-                        <div class="media-body">
-                            <h5 class="home_date"><?php echo get_the_date(); ?></h5>
-                            <h3><?php the_title(); ?></h3>
-                            <?php the_excerpt(); ?>
-                        </div>
-                     </div>
+                        <h5 class="home_date"><?php echo get_the_date(); ?></h5>
+                        <h3><a href=<?php echo get_permalink(); ?>><?php the_title();?></a></h3>
+                    </div>
                 <?php endforeach; ?>
    			    </div>
 
