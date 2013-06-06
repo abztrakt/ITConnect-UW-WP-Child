@@ -49,21 +49,23 @@
     //Checks to see if we're on the front page and starts the spotlight rotation if yes
     function checkFrontPage() {
         var spotlighted = $('#home_spotlight').children('.spotlight');
+        var paginators = $('#spotlight_paginator').children('li');
         if (spotlighted.length) {
             $(spotlighted[0]).addClass('active');
+            $(paginators[0]).addClass('active');
         }
         if (spotlighted.length > 1 ){
-            var rotation = setInterval(function(){ rotate(spotlighted) }, 10000);
+            var rotation = setInterval(function(){ rotate(spotlighted, paginators) }, 10000);
             $('#home_spotlight').hover(function(){
                 rotation = clearInterval(rotation);
             }, function() {
-                rotation = setInterval(function (){ rotate(spotlighted) }, 10000);
+                rotation = setInterval(function (){ rotate(spotlighted, paginators) }, 10000);
             });
         }
     }
 
     //rotates to the next spotlighted item in the home_spotlight
-    function rotate(spotlighted) {
+    function rotate(spotlighted, paginators) {
         var activeindex;
         for (var index = 0; index < spotlighted.length; index++) {
             if ($(spotlighted[index]).hasClass('active')) {
@@ -77,10 +79,12 @@
         else {
             nextindex = activeindex + 1;
         }
+        $(paginators[nextindex]).addClass('active');
+        $(paginators[activeindex]).removeClass('active');
         $(spotlighted[activeindex]).fadeOut(function(){
             $(spotlighted[nextindex]).fadeIn(function(){
                 $(spotlighted[nextindex]).addClass('active');
-                $(spotlighted[activeindex]).removeClass('active')
+                $(spotlighted[activeindex]).removeClass('active');
             });
         });
     }
