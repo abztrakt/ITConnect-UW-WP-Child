@@ -1683,6 +1683,10 @@ h5.home_date {
 
     .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(98, 138, 197, 0.7); }
 
+    .nav-collapse b.caret {
+        border: none;
+    }
+
     .nav-collapse li:last-child { margin-right: 0; }
 
     .dropdown-toggle {
@@ -1990,14 +1994,6 @@ h5.home_date {
         text-align: left;
     }
 }
-
-
-@media screen and (min-width: 769px) {
-    b.caret {
-        visibility: visible;
-    }
-}
-
 
 @media screen and (min-width: 1200px) {
     .it_container {
