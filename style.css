@@ -1787,9 +1787,9 @@ h5.home_date {
     }
 
     .dropdown-menu.open li {
-        width: 220px;
+        width: 210px;
         background: transparent;
-        padding: 5px 10px;
+        padding: 5px 15px;
     }
 
     .dropdown-menu.open li:hover, .dropdown-menu.open li:focus {
