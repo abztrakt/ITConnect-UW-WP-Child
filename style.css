@@ -1691,7 +1691,7 @@ h5.home_date {
     }
 
     .nav-collapse li:hover {
-        background: rgba(213, 229, 244, .5);
+        background: rgba(213, 229, 244, .25);
     }
 
     .nav-collapse b.caret {
