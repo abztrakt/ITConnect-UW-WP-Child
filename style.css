@@ -1830,13 +1830,10 @@ h5.home_date {
         height: 58px;
     }
 
-    #spotlight_paginator_holder {
+    #spotlight_paginator {
         position: absolute;
         bottom: 0px;
         width: 100%;
-    }
-
-    #spotlight_paginator {
         text-align: center;
         margin: 0px;
         padding-top: 5px;
