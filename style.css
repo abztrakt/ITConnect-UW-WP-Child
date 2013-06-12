@@ -1768,6 +1768,7 @@ h5.home_date {
     div.spotlight_post {
         padding: 20px;
         border-bottom: 1px solid LightGray;
+        height: 58px;
     }
 
     #spotlight_paginator {
