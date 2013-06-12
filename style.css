@@ -1764,7 +1764,10 @@ h5.home_date {
         height: auto;
         width:241px;
         text-transform: none;
-        background: rgba(98, 138, 197, 0.9);
+        background: #F5F5F7;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        box-shadow: 1px 1px 1px Gray;
     }
 
     .nav-collapse .dropdown-menu.open.twocolumn {
@@ -1784,17 +1787,23 @@ h5.home_date {
     }
 
     .dropdown-menu.open li {
-        width: 240px;
+        width: 220px;
         background: transparent;
+        padding: 5px 10px;
     }
 
+    .dropdown-menu.open li:hover, .dropdown-menu.open li:focus {
+        background: #D5E5F4;
+    }
     .dropdown-menu.open li:last-child {
         margin-right: 1px;
     }
 
     .nav-collapse .dropdown-menu.open li a {
-        padding-left: 10px;
-        padding-right: 10px;
+        color: #4a81bc;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0px;
         background: transparent !important;
     }
 
