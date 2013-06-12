@@ -55,7 +55,6 @@
         var spotlighted = $('#home_spotlight').children('.spotlight');
         var paginators = $('#spotlight_paginator').children('li');
         if (spotlighted.length) {
-            executing_rotation = false;
             $(spotlighted[0]).addClass('active');
             $(paginators[0]).addClass('active');
         }
@@ -120,6 +119,9 @@
                             executing_rotation = false;
                         });
                     });
+                }
+                else {
+                    executing_rotation = false;
                 }
             });
         }
