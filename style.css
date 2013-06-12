@@ -15,7 +15,7 @@ Template: UW-Wordpress-Theme
 }
 
 
-/*** Push down footer ***/
+/*** Push down footer ***  Pushing too far at the moment *
 html, body {
     height: 100%;
 }
@@ -30,6 +30,7 @@ html, body {
 .push {
     height: 185px;
 }
+/***/
 
 /*** Color ********/
 
@@ -1123,6 +1124,10 @@ h5.home_date {
 }
 
 /* --- IE main menu --- */
+#ie8 .navbar, #ie9 .navbar {
+    background: rgb(98, 138, 197);
+}
+
 #ie8 .nav-collapse .dropdown-menu.open, #ie7 .nav-collapse .dropdown-menu.open {
     background: rgb(98, 138, 197);
 }
@@ -1675,13 +1680,24 @@ h5.home_date {
 
     /*** Navigation Menu ********/
 
-    nav, .navbar {  background: rgba(98, 138, 197, 0.30); }
+    nav, .navbar {  background: rgba(98, 138, 197, 0.50); }
 
     .navbar .nav { float: right; }
 
     .nav-collapse { display: block; }
 
-    .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(98, 138, 197, 0.7); }
+    .nav-collapse li {
+        border-bottom: none;
+        border-right: none;
+    }
+
+    .nav-collapse li:hover {
+        background: rgba(213, 229, 244, .25);
+    }
+
+    .nav-collapse b.caret {
+        border: none;
+    }
 
     .nav-collapse li:last-child { margin-right: 0; }
 
@@ -1749,7 +1765,10 @@ h5.home_date {
         height: auto;
         width:241px;
         text-transform: none;
-        background: rgba(98, 138, 197, 0.9);
+        background: #F5F5F7;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+        box-shadow: 1px 1px 1px Gray;
     }
 
     .nav-collapse .dropdown-menu.open.twocolumn {
@@ -1769,17 +1788,23 @@ h5.home_date {
     }
 
     .dropdown-menu.open li {
-        width: 240px;
+        width: 210px;
         background: transparent;
+        padding: 5px 15px;
     }
 
+    .dropdown-menu.open li:hover, .dropdown-menu.open li:focus {
+        background: #D5E5F4;
+    }
     .dropdown-menu.open li:last-child {
         margin-right: 1px;
     }
 
     .nav-collapse .dropdown-menu.open li a {
-        padding-left: 10px;
-        padding-right: 10px;
+        color: #4a81bc;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0px;
         background: transparent !important;
     }
 
@@ -1802,7 +1827,8 @@ h5.home_date {
 
     #home_main article .entry-content { width: 75%; }
 
-    #home_spotlight { 
+    #home_spotlight {
+        height: 331px;
         background-color: rgb(255,255,255);
         opacity: .92;
         width: 360px;
@@ -1810,6 +1836,7 @@ h5.home_date {
         bottom: 30px;
         right: 10px;
         outline: 5px solid rgba(0,0,0,.5);
+        overflow: hidden;
     }
 
     div.spotlight {
@@ -1825,9 +1852,13 @@ h5.home_date {
     div.spotlight_post {
         padding: 20px;
         border-bottom: 1px solid LightGray;
+        height: 58px;
     }
 
     #spotlight_paginator {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
         text-align: center;
         margin: 0px;
         padding-top: 5px;
@@ -1984,14 +2015,6 @@ h5.home_date {
         text-align: left;
     }
 }
-
-
-@media screen and (min-width: 769px) {
-    b.caret {
-        visibility: visible;
-    }
-}
-
 
 @media screen and (min-width: 1200px) {
     .it_container {
