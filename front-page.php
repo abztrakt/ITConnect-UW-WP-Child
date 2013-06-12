@@ -70,6 +70,7 @@
         			</div>
 
 				</div>
+            </div>
 
 				<div id="home_secondary" class="span3" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>
