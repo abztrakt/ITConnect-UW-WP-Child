@@ -6,6 +6,7 @@
         breakpoint = 768,
         speed = 800,
         mobile = true;
+        executing_rotation = false;
 
 
 	$(document).ready(function() {
@@ -54,6 +55,7 @@
         var spotlighted = $('#home_spotlight').children('.spotlight');
         var paginators = $('#spotlight_paginator').children('li');
         if (spotlighted.length) {
+            executing_rotation = false;
             $(spotlighted[0]).addClass('active');
             $(paginators[0]).addClass('active');
         }
@@ -70,6 +72,7 @@
 
     //rotates to the next spotlighted item in the home_spotlight
     function rotate(spotlighted, paginators) {
+        executing_rotation = true;
         var activeindex;
         for (var index = 0; index < spotlighted.length; index++) {
             if ($(spotlighted[index]).hasClass('active')) {
@@ -89,6 +92,7 @@
             $(spotlighted[nextindex]).fadeIn(function(){
                 $(spotlighted[nextindex]).addClass('active');
                 $(spotlighted[activeindex]).removeClass('active');
+                executing_rotation = false;
             });
         });
     }
@@ -99,6 +103,10 @@
         var old_active_spotlight;
         for (var count = 0; count < paginators.length; count++) {
             $(paginators[count]).click(function () {
+                if (window.executing_rotation) {
+                    return;
+                }
+                executing_rotation = true;
                 paginator_target = $(this).attr('target');
                 if (!$(this).hasClass('active')){
                     old_active_spotlight = $('#home_spotlight').find('.spotlight.active');
@@ -109,6 +117,7 @@
                         new_active_spotlight.fadeIn(function () {
                             new_active_spotlight.addClass('active');
                             old_active_spotlight.removeClass('active');
+                            executing_rotation = false;
                         });
                     });
                 }
