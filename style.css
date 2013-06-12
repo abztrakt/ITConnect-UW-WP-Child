@@ -1675,13 +1675,20 @@ h5.home_date {
 
     /*** Navigation Menu ********/
 
-    nav, .navbar {  background: rgba(98, 138, 197, 0.30); }
+    nav, .navbar {  background: rgba(98, 138, 197, 0.50); }
 
     .navbar .nav { float: right; }
 
     .nav-collapse { display: block; }
 
-    .nav-collapse li { border-bottom: none; border-right: none; margin-right: 1px; background: rgba(98, 138, 197, 0.7); }
+    .nav-collapse li {
+        border-bottom: none;
+        border-right: none;
+    }
+
+    .nav-collapse li:hover {
+        background: rgba(213, 229, 244, .5);
+    }
 
     .nav-collapse b.caret {
         border: none;
