@@ -891,8 +891,12 @@ h5.home_date {
     padding: 0px;
 }
 
-#footer_links_right{
+#footer_links_right {
     margin-top: 20px;
+}
+
+#footer_links_right td {
+    text-align: center;
 }
 
 #footer-main {
@@ -1675,7 +1679,11 @@ h5.home_date {
     #footer_links_left td:first-child, #footer_links_mid td:first-child {
         text-align: right;
     }
-
+    
+    #footer_links_right td {
+        text-align: left;
+    }   
+    
     .span6 {
         width: 33.333%;
     }

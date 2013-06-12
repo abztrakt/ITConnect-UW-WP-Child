@@ -15,7 +15,7 @@
                 <div id='footer_links_left' class='span6'>
                     <table>
                         <tr>
-                            <td>Online</td><td><a href='#'>Contact form</a></td>
+                            <td>Online</td><td><a href='http://itconnect01.s.uw.edu/itconnect/help/'>Contact form</a></td>
                         </tr>
                         <tr>
                             <td>Email</td><td><a href='mailto:help@uw.edu'>help@uw.edu</a></td>
@@ -35,10 +35,10 @@
                 <div id='footer_links_right' class='span6'>
                     <table>
                         <tr>
-                            <td><a href='/uwtscat'>Service catalog</a></td>
+                            <td><a href='http://depts.washington.edu/uwtscat/'>Service catalog</a></td>
                         </tr>
                         <tr>
-                            <td><a href='#'>UW-IT Service Contact list</a></td>
+                            <td><a href='http://depts.washington.edu/uwtscat/views/contactlist'>UW-IT Service Contact list</a></td>
                         </tr>
                     </table>
                 </div>
