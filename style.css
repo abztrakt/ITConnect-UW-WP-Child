@@ -15,7 +15,7 @@ Template: UW-Wordpress-Theme
 }
 
 
-/*** Push down footer ***/
+/*** Push down footer ***  Pushing too far at the moment *
 html, body {
     height: 100%;
 }
@@ -30,6 +30,7 @@ html, body {
 .push {
     height: 185px;
 }
+/***/
 
 /*** Color ********/
 
