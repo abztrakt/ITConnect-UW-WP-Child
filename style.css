@@ -1802,7 +1802,8 @@ h5.home_date {
 
     #home_main article .entry-content { width: 75%; }
 
-    #home_spotlight { 
+    #home_spotlight {
+        height: 331px;
         background-color: rgb(255,255,255);
         opacity: .92;
         width: 360px;
@@ -1826,6 +1827,12 @@ h5.home_date {
         padding: 20px;
         border-bottom: 1px solid LightGray;
         height: 58px;
+    }
+
+    #spotlight_paginator_holder {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
     }
 
     #spotlight_paginator {

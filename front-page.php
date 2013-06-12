@@ -62,11 +62,13 @@
                             if (($counter == 3) || ($last_item)): $counter = 0;?></div><?php endif;
                         endforeach; ?>
                         <?php if ($divcount > 1): ?>
-                        <ul id='spotlight_paginator'>
-                            <?php for ($looper = 1; $looper <= $divcount; $looper++): ?>
-                            <li target='number<?php echo $looper; ?>'><div><div></div></div></li>
-                            <?php endfor; ?>
-                        </ul>
+                        <div id='spotlight_paginator_holder'>
+                            <ul id='spotlight_paginator'>
+                                <?php for ($looper = 1; $looper <= $divcount; $looper++): ?>
+                                <li target='number<?php echo $looper; ?>'><div><div></div></div></li>
+                                <?php endfor; ?>
+                            </ul>
+                        </div>
                         <?php endif ?>
         			</div>
 
