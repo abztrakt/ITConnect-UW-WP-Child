@@ -1811,6 +1811,7 @@ h5.home_date {
         bottom: 30px;
         right: 10px;
         outline: 5px solid rgba(0,0,0,.5);
+        overflow: hidden;
     }
 
     div.spotlight {
