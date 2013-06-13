@@ -493,7 +493,7 @@ ul.breadcrumbs-list li.current:after {
 
 p.pull-left.visible-phone {
     width: 100%;
-    background: #ddd;
+    background: #F5F5F7;
     margin: 0px;
 }
 
@@ -531,7 +531,7 @@ a.btn-offcanvas.active {
 /*** Regular Sidebar ***/
 
 #secondary {
-    background-color: #e6e7e9;
+    background-color: #F5F5F7;
 }
 
 #secondary ul {
@@ -577,7 +577,7 @@ a.btn-offcanvas.active {
 }
 
 #sidebar.home_sidebar {
-    background-color: #e6e7e9;
+    background-color: #F5F5F7;
     padding-top: 12px;
     padding-bottom: 24px;
 }
@@ -622,7 +622,7 @@ a.btn-offcanvas.active {
 
 #content {
     overflow-x: hidden;
-    background-color: rgb(230, 231, 233);
+    background-color: #F5F5F7;
 }
 
 /*** Content and comments ***/
