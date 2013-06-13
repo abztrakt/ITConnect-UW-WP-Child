@@ -14,6 +14,9 @@ Template: UW-Wordpress-Theme
     margin-right: auto;
 }
 
+#primary {
+    background: #FAFAFA;
+}
 
 /*** Push down footer ***  Pushing too far at the moment *
 html, body {
