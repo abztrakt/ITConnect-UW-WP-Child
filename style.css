@@ -564,8 +564,8 @@ a.btn-offcanvas.active {
 
 #sidebar.home_sidebar {
     background-color: #e6e7e9;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    padding-top: 12px;
+    padding-bottom: 24px;
 }
 
 #sidebar.home_sidebar ul {
