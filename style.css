@@ -564,6 +564,7 @@ a.btn-offcanvas.active {
 
 #sidebar.home_sidebar {
     background-color: #e6e7e9;
+    padding-top: 10px;
     padding-bottom: 30px;
 }
 
@@ -594,14 +595,15 @@ a.btn-offcanvas.active {
 }
 
 #sidebar.home_sidebar h2.widgettitle {
-    height: 1.4em;
     margin: 0px;
     padding-left: 10%;
+    height: 40px;
 }
 
 #sidebar.home_sidebar h2 a {
     color: #606060;
     font-size: 13px;
+    text-decoration: none;
 }
 
 #content {
