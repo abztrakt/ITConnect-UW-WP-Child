@@ -537,10 +537,12 @@ a.btn-offcanvas.active {
 #secondary ul {
     list-style-type: none;
     margin-left: 0px;
+    margin-bottom: 20px;
 }
 
 #secondary ul li {
-    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 #secondary ul li.current_page_item a {
@@ -553,9 +555,14 @@ a.btn-offcanvas.active {
     font-weight: normal;
     margin-bottom: 0px;
     line-height: 30px;
+    margin-top: 10px;
 }
 
-#secondary div {
+#sidebar {
+    padding-left: 15px;
+}
+
+#sidebar div.indent {
     padding-left: 15px;
 }
 
