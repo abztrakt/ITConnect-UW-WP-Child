@@ -2022,4 +2022,14 @@ h5.home_date {
     .navbar .nav li a { 
         padding: 8px 15px;
     }
+
+    /*** big desktop homepage sidebar ***/
+
+    #sidebar.home_sidebar ul {
+        padding-left: 15%;
+    }
+
+    #sidebar.home_sidebar h2.widgettitle {
+        padding-left: 15%;
+    }
 }
