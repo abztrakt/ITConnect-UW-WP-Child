@@ -1047,8 +1047,22 @@ h5.home_date {
     padding: 0px;
 }
 
-#footer_links_right{
+#footer_links_right, #footer_logo_container {
     margin-top: 20px;
+}
+
+#it_footer_logo {
+    background: url('img/uwit_logo_mobile.png') no-repeat;
+    height: 39px;
+    width: 100%;
+    display: block;
+}
+
+#footer_logo_container > div.wrapper {
+    width: 246px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #footer-main {
@@ -1310,13 +1324,10 @@ h5.home_date {
     }
     
     #footer_logo_wrapper {
-        max-width: 250px;
-        margin: auto;
+        float:left;
     }
 
     #it_footer_logo {
-        width: 200px;
-        height: 76px;
         display: block;
         margin-top: 15px;
     }
