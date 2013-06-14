@@ -1,14 +1,6 @@
-<?php
-  // Check to see if the header image has been removed
-  $header_image = get_header_image();
-  if ( ! empty( $header_image ) ) :
-?>
-<header style="background-image:url(<?php echo apply_filters('remove_cms', $header_image); ?>); <?php header_background_color(); ?>" id="branding" role="banner" <?php banner_class(); ?>>
-<?php else: ?>
 <header id="branding" role="banner" <?php banner_class(); ?>>
-<?php endif; ?>
 <div id='banner-container' class='hidden-phone'>
-    <div id="banner-image" class='it_container'></div>
+    <div id="banner-image" class='it_container' style='background-image:url(<?php header_image(); ?>);'></div>
 </div>
 
 <div id="header" class="it_container">

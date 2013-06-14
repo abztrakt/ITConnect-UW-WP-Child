@@ -14,6 +14,9 @@ Template: UW-Wordpress-Theme
     margin-right: auto;
 }
 
+#primary {
+    background: #FAFAFA;
+}
 
 /*** Push down footer ***  Pushing too far at the moment *
 html, body {
@@ -493,7 +496,7 @@ ul.breadcrumbs-list li.current:after {
 
 p.pull-left.visible-phone {
     width: 100%;
-    background: #ddd;
+    background: #F5F5F7;
     margin: 0px;
 }
 
@@ -531,24 +534,38 @@ a.btn-offcanvas.active {
 /*** Regular Sidebar ***/
 
 #secondary {
-    background-color: #e6e7e9;
+    background-color: #F5F5F7;
 }
 
 #secondary ul {
     list-style-type: none;
     margin-left: 0px;
+    margin-bottom: 20px;
+}
+
+#secondary ul li {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#secondary ul li.current_page_item a {
+    color: #606060;
 }
 
 #secondary h2 {
-    font-size: 12px;
-    text-transform: uppercase;
+    font-size: 13px;
     color: #606060;
     font-weight: normal;
     margin-bottom: 0px;
     line-height: 30px;
+    margin-top: 10px;
 }
 
-#secondary div {
+#sidebar {
+    padding-left: 15px;
+}
+
+#sidebar div.indent {
     padding-left: 15px;
 }
 
@@ -563,54 +580,53 @@ a.btn-offcanvas.active {
 }
 
 #sidebar.home_sidebar {
-    background-color: #e6e7e9;
-    padding-bottom: 30px;
+    background-color: #F5F5F7;
+    padding-top: 12px;
+    padding-bottom: 24px;
+    padding-left: 0px;
 }
 
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
-    padding-right: 25%;
-    padding-left: 7%;
+    padding-right: 10%;
+    padding-left: 10%;
 }
 
 #sidebar.home_sidebar li {
-    background-color: #628ac5;
-    opacity: .9;
-    padding-left: 1em;
-    margin-bottom: .25em;
+    color: #4A81BC;
     height: 35px;
-    line-height: 36px;
+    line-height: 34px;
 }
 
 #sidebar.home_sidebar li a span {
-    background: url('img/right-arrow.png');
+    background: url('img/right-arrow-grey.png');
+    background-size: cover;
     height: 35px;
-    width: 37px;
-    float: right;
+    width: 15px;
+    float: left;
 }
 
 #sidebar.home_sidebar li a {
-    color: white;
     font-size: 16px;
+    padding-left: 10px;
 }
 
 #sidebar.home_sidebar h2.widgettitle {
-    height: 1.4em;
     margin: 0px;
-    padding-left: 7%;
+    padding-left: 10%;
+    height: 40px;
 }
 
 #sidebar.home_sidebar h2 a {
-    padding-left: 1.2em;
-    text-transform: uppercase;
     color: #606060;
-    font-size: 12px;
+    font-size: 13px;
+    text-decoration: none;
 }
 
 #content {
     overflow-x: hidden;
-    background-color: rgb(230, 231, 233);
+    background-color: #F5F5F7;
 }
 
 /*** Content and comments ***/
@@ -1838,7 +1854,7 @@ h5.home_date {
         width: 360px;
         position: absolute;
         bottom: 30px;
-        right: 10px;
+        right: 30px;
         outline: 5px solid rgba(0,0,0,.5);
         overflow: hidden;
     }
@@ -1948,11 +1964,23 @@ h5.home_date {
 
     #sidebar.home_sidebar ul {
         padding-right: 0px;
-        padding-left: 0px;
     }
 
-    #sidebar.home_sidebar h2.widgettitle {
-        padding-left: 0px;
+    #secondary div {
+        padding: 0px;
+    }
+
+    #secondary ul li.current_page_item a {
+        font-weight: normal;
+        color: #428bca;
+    }
+
+    #secondary li, #secondary h2 {
+        padding-left: 10%
+    }
+
+    #secondary ul li.current_page_item {
+        background: rgba(213, 229, 244, .5);
     }
 
     h1.news-title {
@@ -2035,5 +2063,15 @@ h5.home_date {
     }
     .navbar .nav li a { 
         padding: 8px 15px;
+    }
+
+    /*** big desktop homepage sidebar ***/
+
+    #sidebar.home_sidebar ul {
+        padding-left: 15%;
+    }
+
+    #sidebar.home_sidebar h2.widgettitle {
+        padding-left: 15%;
     }
 }
