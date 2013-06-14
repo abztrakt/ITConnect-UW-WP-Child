@@ -1,6 +1,6 @@
 <header id="branding" role="banner" <?php banner_class(); ?>>
 <div id='banner-container' class='hidden-phone'>
-    <div id="banner-image" class='it_container' style='background:<?php header_image(); ?>;'></div>
+    <div id="banner-image" class='it_container' style='background-image:url(<?php header_image(); ?>);'></div>
 </div>
 
 <div id="header" class="it_container">
