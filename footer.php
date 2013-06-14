@@ -35,10 +35,10 @@
                 <div id='footer_links_right' class='span6'>
                     <table>
                         <tr>
-                            <td><a href='/uwtscat'>Service catalog</a></td>
+                            <td><a href='/uwtscat'>Service Catalog</a></td>
                         </tr>
                         <tr>
-                            <td><a href='#'>UW-IT Service Contact list</a></td>
+                            <td><a href='#'>UW-IT Service Contact List</a></td>
                         </tr>
                     </table>
                 </div>
