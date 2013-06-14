@@ -6,11 +6,6 @@
         <div class="it_container">
         <div class='row'>
         <!--<?php uw_footer_menu(); ?>  Will want to use this, but for styling purposes, making flat HTML -->
-            <div class='hidden-phone span3'>
-                <div id='footer_logo_wrapper'>
-                    <a id='it_footer_logo' href='/itconnect'><img src='<?php echo get_bloginfo('stylesheet_directory');?>/img/UW-IT_stacked.png' alt='UW-IT'></a>
-                </div>
-            </div>
             <div id='footer_links' class='row span9'>
                 <div id='footer_links_left' class='span6'>
                     <table>
@@ -41,6 +36,11 @@
                             <td><a href='#'>UW-IT Service Contact List</a></td>
                         </tr>
                     </table>
+                </div>
+            </div>
+            <div id='footer_logo_container' class='span3'>
+                <div class='wrapper'>
+                    <a id='it_footer_logo' href='/itconnect'></a>
                 </div>
             </div>
         </div>
