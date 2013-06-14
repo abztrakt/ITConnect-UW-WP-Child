@@ -21,9 +21,14 @@ if ( ! function_exists( 'uw_setup' ) ):
     define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyeleven_header_image_width', 1280 ) );
     define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyeleven_header_image_height', 215 ) );
     
-      add_theme_support( 'custom-header', array( 'random-default' => true ) );
-      //add_custom_image_header( 'uw_header_style', 'uw_admin_header_style', 'uw_admin_header_image' );
-    
+    $args = array(
+            'width'         => 1170,
+            'height'        => 100,
+            'default-image' => get_stylesheet_directory_uri() . '/img/itconnect-banner2.png',
+            'uploads'       => true,
+    );
+
+    add_theme_support( 'custom-header', $args);
   }
 
 endif;
