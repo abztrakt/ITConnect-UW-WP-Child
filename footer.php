@@ -6,8 +6,8 @@
         <div class="it_container">
         <div class='row'>
         <!--<?php uw_footer_menu(); ?>  Will want to use this, but for styling purposes, making flat HTML -->
-            <div id='footer_links' class='row span9'>
-                <div id='footer_links_left' class='span6'>
+            <div id='footer_links' class='span9'>
+                <div id='footer_links_left' class='span4'>
                     <table>
                         <tr>
                             <td>Online</td><td><a href='#'>Contact form</a></td>
@@ -17,7 +17,7 @@
                         </tr>
                     </table>
                 </div>
-                <div id='footer_links_mid' class='span6'>
+                <div id='footer_links_mid' class='span4'>
                     <table>
                         <tr>
                             <td>Phone</td><td>206-221-5000</td>
@@ -27,7 +27,7 @@
                         </tr>
                     </table>
                 </div>
-                <div id='footer_links_right' class='span6'>
+                <div id='footer_links_right' class='span4'>
                     <table>
                         <tr>
                             <td><a href='/uwtscat'>Service Catalog</a></td>
