@@ -1041,10 +1041,23 @@ h5.home_date {
 #footer td:first-child {
     color: #CCCCCC;
     width: 40%;
+    padding-right: 20px;
 }
 
 #footer_links_left, #footer_links_mid, #footer_links_right {
     padding: 0px;
+}
+
+#footer_links_left td:first-child, #footer_links_mid td:first-child {
+    text-align: right;
+}
+
+#footer_links_right p a {
+    color: #70AEFA;
+}
+
+#footer_links_right p {
+    text-align: center;
 }
 
 #footer_links_right, #footer_logo_container {
@@ -2023,12 +2036,7 @@ h5.home_date {
     }
 
     #footer td {
-        padding-right: 20px;
         padding-bottom: 10px;
-    }
-
-    #footer_links_left td:first-child, #footer_links_mid td:first-child {
-        text-align: right;
     }
 
     .span6 {
@@ -2050,6 +2058,10 @@ h5.home_date {
     #footer-left {
         padding: 0px;
         text-align: left;
+    }
+
+    #it_footer_logo {
+        margin-top: 10px;
     }
 }
 

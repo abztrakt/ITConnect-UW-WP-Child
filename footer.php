@@ -28,14 +28,8 @@
                     </table>
                 </div>
                 <div id='footer_links_right' class='span4'>
-                    <table>
-                        <tr>
-                            <td><a href='/uwtscat'>Service Catalog</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href='#'>UW-IT Service Contact List</a></td>
-                        </tr>
-                    </table>
+                    <p><a href='/uwtscat'>Service Catalog</a></p>
+                    <p><a href='#'>UW-IT Service Contact List</a></p>
                 </div>
             </div>
             <div id='footer_logo_container' class='span3'>
