@@ -6,13 +6,8 @@
         <div class="it_container">
         <div class='row'>
         <!--<?php uw_footer_menu(); ?>  Will want to use this, but for styling purposes, making flat HTML -->
-            <div class='hidden-phone span3'>
-                <div id='footer_logo_wrapper'>
-                    <a id='it_footer_logo' href='/itconnect'><img src='<?php echo get_bloginfo('stylesheet_directory');?>/img/UW-IT_stacked.png' alt='UW-IT'></a>
-                </div>
-            </div>
-            <div id='footer_links' class='row span9'>
-                <div id='footer_links_left' class='span6'>
+            <div id='footer_links' class='span9'>
+                <div id='footer_links_left' class='span4'>
                     <table>
                         <tr>
                             <td>Online</td><td><a href='http://itconnect01.s.uw.edu/itconnect/help/'>Contact form</a></td>
@@ -22,7 +17,7 @@
                         </tr>
                     </table>
                 </div>
-                <div id='footer_links_mid' class='span6'>
+                <div id='footer_links_mid' class='span4'>
                     <table>
                         <tr>
                             <td>Phone</td><td>206-221-5000</td>
@@ -32,15 +27,14 @@
                         </tr>
                     </table>
                 </div>
-                <div id='footer_links_right' class='span6'>
-                    <table>
-                        <tr>
-                            <td><a href='http://depts.washington.edu/uwtscat/'>Service catalog</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href='http://depts.washington.edu/uwtscat/views/contactlist'>UW-IT Service Contact list</a></td>
-                        </tr>
-                    </table>
+                <div id='footer_links_right' class='span4'>
+                    <p><a href='http://depts.washington.edu/uwtscat'>Service Catalog</a></p>
+                    <p><a href='http://depts.washington.edu/uwtscat/views/contactlist'>UW-IT Service Contact List</a></p>
+                </div>
+            </div>
+            <div id='footer_logo_container' class='span3'>
+                <div class='wrapper'>
+                    <a id='it_footer_logo' href='/itconnect'></a>
                 </div>
             </div>
         </div>
