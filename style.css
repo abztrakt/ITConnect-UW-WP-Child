@@ -377,6 +377,10 @@ body { background: #f5f7f6; }
     color: #fff;
 }
 
+#menu-main .main-menu-home {
+    display: none;
+}
+
 .navbar #menu-main li.current-menu-item a.dropdown-toggle { 
     background-color: #2F5783;
     color: white;
@@ -1743,6 +1747,10 @@ h5.home_date {
 
     .dropdown-toggle {
         font-size: 12px;
+    }
+
+    #menu-main .main-menu-home {
+        display: inherit;
     }
 
     #menu-main .main-menu-home a {
