@@ -1745,6 +1745,12 @@ h5.home_date {
         font-size: 12px;
     }
 
+    #menu-main .main-menu-home a {
+        background: url('img/home_icon.png') no-repeat 48% 48%;
+        width: 16px;
+        font-size: 0px;
+    }
+
 
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
