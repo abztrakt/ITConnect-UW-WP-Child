@@ -169,4 +169,12 @@ if ( ! function_exists( 'custom_main_image' ) ):
   }
 endif;
 
+require('outages_options.php');
+
+if ( ! function_exists( 'outages_active' ) ):
+  function outages_active() {
+    return (get_option('outages') == 'yes');
+  }
+endif;
+
 ?>
