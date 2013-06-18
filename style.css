@@ -70,11 +70,11 @@ body {
 #outages {
     width: 100%;
     text-align: center;
-    background-color: #FFFF7F;
+    background-color: #FCFD80;
 }
 
 #outages a {
-    color: #B80000;
+    color: #9D1111;
 }
 
 #outages p {
