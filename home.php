@@ -15,6 +15,7 @@
                         <span id='overlay'></span>
                         <span class='category'>News</span>
                     </p>
+                    <?php include('outages.php'); ?>
                     <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>
 				    <div id='tertiary' class="span9">
                         <?php uw_breadcrumbs(); ?>
