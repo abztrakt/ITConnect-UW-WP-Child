@@ -71,6 +71,9 @@ body {
     width: 100%;
     text-align: center;
     background-color: #FFFF7F;
+}
+
+#outages a {
     color: #B80000;
 }
 
@@ -1338,6 +1341,15 @@ h5.home_date {
 
     .logged-in #alert-mini {
         top: 28px;
+    }
+
+    /*** Outages  ****/
+    #outage_wrapper {
+        background-color: #FFF;
+    }
+
+    #outages {
+        width: 40%;
     }
 
     /*** Branding ****/
