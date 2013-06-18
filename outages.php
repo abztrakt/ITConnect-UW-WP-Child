@@ -1,6 +1,8 @@
-<a href='http://www.washington.edu/cac/outages/index.php'>
+<div id='outage_wrapper'>
     <div id='outages'>
-        <span attr='alert'>!</span>
-        <p>Outages</p>
+        <a href='http://www.washington.edu/cac/outages/index.php'>
+            <span attr='alert'>!</span>
+            <p>Outages</p>
+        </a>
     </div>
-</a>
+</div>
