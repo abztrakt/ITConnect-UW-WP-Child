@@ -66,6 +66,31 @@ body {
   margin: -1px; padding: 0; border: 0;
 }
 
+/*** Outages  ****/
+#outages {
+    width: 100%;
+    text-align: center;
+    background-color: #FFFF7F;
+    color: #B80000;
+}
+
+#outages p {
+    display: inline-block;
+    margin-bottom: 0px;
+    height: 24px;
+    line-height: 22px;
+    padding-left: 3px;
+}
+
+#outages span {
+    position: relative;
+    top: 3px;
+    height: 24px;
+    font-size: 24px;
+    font-style: oblique;
+    font-weight: 900;
+}
+
 /*** Content Div ***/
 
 article .entry-content {
