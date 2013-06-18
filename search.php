@@ -20,32 +20,23 @@
 					<span id="arrow-mark"></span>
 					
                     <h1 class='hidden-phone news-title'>Search results for "<?php the_search_query(); ?>"</h1>
-					
-                    <?php if (have_posts() ): while ( have_posts() ) : the_post(); ?>
-
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                        <header class="entry-header">
-                            <h2 class="entry-title"><a href="<?php the_permalink()?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                        </header><!-- .entry-header -->
-            
-                        <div class="entry-content">
-                            <?php the_excerpt(); ?>
-                            <?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
-                        </div><!-- .entry-content -->
-                        <footer class="entry-meta">
-                            <?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
-                        </footer><!-- .entry-meta -->
-                    </article><!-- #post-<?php the_ID(); ?> -->
-
-                    <?php comments_template( '', true ); ?>
-
-                    <?php endwhile; else : ?>
-
-                    No results found.
-              
-                    <?php endif; ?>
-
-                    <?php uw_prev_next_links(); ?>
+                    <article>					
+                    <div class="entry-content">
+                        <script>
+                            (function() {
+                                var cx = '010209504661841798438:ftxszmyvenc';
+                                var gcse = document.createElement('script');
+                                gcse.type = 'text/javascript';
+                                gcse.async = true;
+                                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+                                var s = document.getElementsByTagName('script')[0];
+                                s.parentNode.insertBefore(gcse, s);
+                            })();
+                        </script>
+                        <gcse:search></gcse:search>    
+                 
+                    </div><!-- .entry-content -->
+                    <article>
 
 				</div>
 			</div><!-- #content -->
