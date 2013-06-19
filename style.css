@@ -1345,6 +1345,11 @@ h5.home_date {
     }
 
     /*** Outages  ****/
+
+    body.home #content {
+        position: relative
+    }
+
     #outage_wrapper {
         height: 0px;
         position: relative;
@@ -1354,9 +1359,8 @@ h5.home_date {
         position: absolute;
         top: 0px;
         left: 25%;
-        width: 180px;
+        width: 150px;
         height: 27px;
-        z-index: 1;
     }
 
     /*** Branding ****/
@@ -1914,7 +1918,7 @@ h5.home_date {
 
     /*** Homepage ***/
 
-    #home_main { float: right; background: url('./img/itconnect-home-hero1.png') no-repeat 0 0; min-height: 500px; max-height: 600px; overflow: hidden; }
+    #home_main { position: static; float: right; background: url('./img/itconnect-home-hero1.png') no-repeat 0 0; min-height: 500px; max-height: 600px; overflow: hidden; }
     
     #home_main article { padding: 30px; }
     
