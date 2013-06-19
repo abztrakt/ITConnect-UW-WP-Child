@@ -5,6 +5,7 @@
 
 			<div class="row">
 
+                <?php include('outages.php'); ?>
 				<div id="home_main" class="span9" <?php custom_main_image();?>>
                     <span id='overlay' class='visible-phone'></span>
         			<?php while ( have_posts() ) : the_post(); ?>
