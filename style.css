@@ -1346,11 +1346,17 @@ h5.home_date {
 
     /*** Outages  ****/
     #outage_wrapper {
-        background-color: #FFF;
+        height: 0px;
+        position: relative;
     }
 
     #outages {
-        width: 40%;
+        position: absolute;
+        top: 0px;
+        left: 25%;
+        width: 180px;
+        height: 27px;
+        z-index: 1;
     }
 
     /*** Branding ****/
