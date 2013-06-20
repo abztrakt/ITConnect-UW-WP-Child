@@ -628,21 +628,17 @@ a.btn-offcanvas.active {
 
 #sidebar.home_sidebar li {
     color: #4A81BC;
-    height: 35px;
-    line-height: 34px;
-}
-
-#sidebar.home_sidebar li a span {
-    background: url('img/right-arrow-grey.png');
-    background-size: cover;
-    height: 35px;
-    width: 15px;
-    float: left;
+    min-height: 28px;
+    padding-top: 7px;
 }
 
 #sidebar.home_sidebar li a {
+    background: url('img/right-arrow-grey.png') no-repeat;
+    background-size: 15px 35px;
+    background-position: 0px -7px;
     font-size: 16px;
-    padding-left: 10px;
+    padding-left: 25px;
+    display: block;
 }
 
 #sidebar.home_sidebar h2.widgettitle {
