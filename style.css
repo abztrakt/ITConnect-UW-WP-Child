@@ -1204,10 +1204,6 @@ h5.home_date {
     background: rgb(98, 138, 197);
 }
 
-#ie8 .nav-collapse .dropdown-menu.open, #ie7 .nav-collapse .dropdown-menu.open {
-    background: rgb(98, 138, 197);
-}
-
 #ie7 .nav-collapse .dropdown-menu .menu-block li{
     float: left;
 }
