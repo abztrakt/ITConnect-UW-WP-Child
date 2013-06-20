@@ -1801,8 +1801,8 @@ h5.home_date {
         background: url('img/home_icon.png') no-repeat 48% 48%;
         width: 16px;
         height: 16px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 7px;
+        padding-bottom: 7px;
         font-size: 0px;
     }
 
@@ -2145,6 +2145,11 @@ h5.home_date {
     }
     .navbar .nav li a { 
         padding: 8px 15px;
+    }
+
+    #menu-main .main-menu-home a {
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     /*** big desktop homepage sidebar ***/
