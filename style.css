@@ -1804,6 +1804,9 @@ h5.home_date {
     #menu-main .main-menu-home a {
         background: url('img/home_icon.png') no-repeat 48% 48%;
         width: 16px;
+        height: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         font-size: 0px;
     }
 
