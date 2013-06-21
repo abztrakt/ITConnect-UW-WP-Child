@@ -180,14 +180,17 @@
     }
 
     function fixDropdownOverrun() {
-        $('#menu-main > li').hover(function() {
-            var dropdown = $(this).children('ul');
+        var fixCurrentOverrun = function() {
+            var theli = $(this).parent('li');
+            var dropdown = theli.children('ul');
             var container = $('#menu-main');
             if (dropdown.length != 0) {     //menu items might not have dropdowns
-                if ((dropdown.outerWidth() + $(this).position().left + dropdown.position().left) > (container.outerWidth() + container.position().left)){
+                if ((dropdown.outerWidth() + theli.position().left + dropdown.position().left) > (container.outerWidth() + container.position().left)){
+                    console.log(dropdown);
                     dropdown.css('left',  ($(this).outerWidth() - dropdown.outerWidth()) + 'px');
                 }
             }
-        });
+        }
+        $('#menu-main > li').children('a').hover(fixCurrentOverrun).focus(fixCurrentOverrun);
     }
 })(this);
