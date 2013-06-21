@@ -292,6 +292,7 @@ jQuery(window).load(function() {
           , $ul     = $this.children('.dropdown-menu')
 
           $ul.addClass('open').attr('aria-hidden','false')
+          $ul.parent('li').addClass('child_open');          //by Jon: add psuedo hover class
             //.height($ul.data('height'))  unnecessary reset to 'height'
 
         $('span.navbar-caret').css('left', $this.position().left + 20 ).hide().fadeIn(100);
@@ -307,6 +308,7 @@ jQuery(window).load(function() {
           , $ul     = $this.children('.dropdown-menu')
 
           $ul.removeClass('open').attr('aria-hidden','true')
+          $ul.parent('li').removeClass('child_open');       //by Jon: remove psuedo hover class
             //.height(0) no need to set height back to 0, removing open should do it.
 
         $('span.navbar-caret').stop().hide()
@@ -327,7 +329,9 @@ jQuery(window).load(function() {
         } else {
           window.scrollTo(0,0)
             $('.dropdown-menu').removeClass('open')//.height(0) another unnecessary reset to 0
+            $('#menu-main > li').removeClass('child_open');     //by Jon: remove psuedo hover class
             $ul.addClass('open').attr('aria-hidden','false')
+            $ul.parent('li').addClass('child_open');            //by Jon: add psuedo hover class
               //.height(height) unnecessary
         }
 
@@ -348,6 +352,7 @@ jQuery(window).load(function() {
         , $anchors = $this.closest('ul').find('a')
         , clearMenus = function() { 
           $('.dropdown-menu').removeClass('open').attr('aria-hidden','true');
+          $('#menu-main > li').removeClass('child_open');     //by Jon: remove psuedo hover class
           $('span.navbar-caret').hide();
         }
 
@@ -410,6 +415,7 @@ jQuery(window).load(function() {
         , $anchors = $('a.dropdown-toggle')
         , clearMenus = function() { 
           $('.dropdown-menu').removeClass('open').attr('aria-hidden','true');
+          $('#menu-main > li').removeClass('child_open');     //by Jon: remove psuedo hover class
           $('span.navbar-caret').hide();
         }
 
@@ -417,6 +423,7 @@ jQuery(window).load(function() {
         case keys.enter:
           $ul.addClass('open').attr('aria-hidden','false')
               .find('a').first().focus()
+          $ul.parent('li').addClass('child_open');            //by Jon: add psuedo hover class to parent
           $('span.navbar-caret').css('left', $this.parent().position().left + 20 ).show();
           return true;
 
