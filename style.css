@@ -1775,8 +1775,9 @@ h5.home_date {
         border-right: none;
     }
 
-    .nav-collapse li:hover {
-        background: rgba(213, 229, 244, .25);
+    #menu-main > li:hover, #menu-main > li > a:focus, #menu-main > li.child_open {
+        color: white;
+        background-color: rgba(213, 229, 244, .25);
     }
 
     .nav-collapse b.caret {
@@ -1794,7 +1795,9 @@ h5.home_date {
     }
 
     #menu-main .main-menu-home a {
-        background: url('img/home_icon.png') no-repeat 48% 48%;
+        background-image: url('img/home_icon.png');
+        background-repeat: no-repeat;
+        background-position: 48% 48%;
         width: 16px;
         height: 16px;
         padding-top: 7px;
@@ -1890,7 +1893,7 @@ h5.home_date {
         padding: 5px 15px;
     }
 
-    .dropdown-menu.open li:hover, .dropdown-menu.open li:focus {
+    .dropdown-menu.open li:hover {
         background: #D5E5F4;
     }
     .dropdown-menu.open li:last-child {
