@@ -27,6 +27,7 @@
                     }?>
                     </span>
                 </p>
+                <?php include('outages.php'); ?>
                 <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php if(!$is_top) { echo get_the_title(); }?></span></p>
 				<div id='tertiary' class="span9">
 

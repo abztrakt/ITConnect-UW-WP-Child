@@ -3,6 +3,7 @@
     <div id="primary">
 	    <div id="content" role="main" class="it_container clearfix">
 
+            <?php include('outages.php'); ?>
 			<div class="row">
 
 				<div id="home_main" class="span9" <?php custom_main_image();?>>

@@ -15,6 +15,7 @@
                         <span id='overlay'></span>
                         <span class='category'>News Archives</span>
                     </p>
+                    <?php include('outages.php'); ?>
                     <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); single_cat_title(); ?></span></p>
 				<div id='tertiary' class="span9">
                     <?php uw_breadcrumbs(); ?>

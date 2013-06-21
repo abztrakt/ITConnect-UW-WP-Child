@@ -347,7 +347,7 @@ jQuery(window).load(function() {
         , $this    = $(this)
         , $anchors = $this.closest('ul').find('a')
         , clearMenus = function() { 
-          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true').height(0);
+          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true');
           $('span.navbar-caret').hide();
         }
 
@@ -409,13 +409,13 @@ jQuery(window).load(function() {
         , $ul   = $this.siblings('ul')
         , $anchors = $('a.dropdown-toggle')
         , clearMenus = function() { 
-          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true').height(0);
+          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true');
           $('span.navbar-caret').hide();
         }
 
       switch(e.keyCode) {
         case keys.enter:
-          $ul.addClass('open').attr('aria-hidden','false').height($ul.data('height'))
+          $ul.addClass('open').attr('aria-hidden','false')
               .find('a').first().focus()
           $('span.navbar-caret').css('left', $this.parent().position().left + 20 ).show();
           return true;
