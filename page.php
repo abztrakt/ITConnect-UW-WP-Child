@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-
-		<div id="primary">
+    <div id="wrap">
+        <div id="primary">
 			<div id="content" role="main" class="it_container">
 
 
@@ -27,6 +27,7 @@
                     }?>
                     </span>
                 </p>
+                <?php include('outages.php'); ?>
                 <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php if(!$is_top) { echo get_the_title(); }?></span></p>
 				<div id='tertiary' class="span9">
 
@@ -46,8 +47,10 @@
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
-			</article><!-- #post-<?php the_ID(); ?> -->
-
+			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
+            </article><!-- #post-<?php the_ID(); ?> -->
+          
+                
 
 			<?php endwhile; // end of the loop. ?>
 
@@ -55,5 +58,6 @@
  			 </div>
 			</div><!-- #content -->
 		</div><!-- #primary -->
-
+        <div class="push"></div>
+   </div><!-- #wrap -->
 <?php get_footer(); ?>

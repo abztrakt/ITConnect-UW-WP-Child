@@ -76,7 +76,7 @@ jQuery(document).ready(function($){
 
     /**
      * Header weather widget
-     */
+     
       var data = {
         q:'http://www.atmos.washington.edu/rss/home.rss',
         v:'2.0'
@@ -98,6 +98,9 @@ jQuery(document).ready(function($){
           $('#thin-strip').find('ul').append(html)
         }
       });
+    */
+
+
 
   var lip = $('#lip'),
       linkRotator = $('#linkRotator'),
@@ -202,7 +205,7 @@ jQuery(window).load(function() {
    * Header Strip
    */
   var $thin    = $('#thin-strip')
-      , strip  = $thin.clone().removeAttr('style').addClass('thin-fixed')
+      , strip  = $thin.clone().removeAttr('style').addClass('thin-fixed').removeClass('top-fixed')
       , search = $('#search form')
       , win    = $(window)
       , bod    = $('body')
@@ -344,7 +347,7 @@ jQuery(window).load(function() {
         , $this    = $(this)
         , $anchors = $this.closest('ul').find('a')
         , clearMenus = function() { 
-          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true').height(0);
+          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true');
           $('span.navbar-caret').hide();
         }
 
@@ -406,13 +409,13 @@ jQuery(window).load(function() {
         , $ul   = $this.siblings('ul')
         , $anchors = $('a.dropdown-toggle')
         , clearMenus = function() { 
-          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true').height(0);
+          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true');
           $('span.navbar-caret').hide();
         }
 
       switch(e.keyCode) {
         case keys.enter:
-          $ul.addClass('open').attr('aria-hidden','false').height($ul.data('height'))
+          $ul.addClass('open').attr('aria-hidden','false')
               .find('a').first().focus()
           $('span.navbar-caret').css('left', $this.parent().position().left + 20 ).show();
           return true;
@@ -456,13 +459,9 @@ jQuery(window).load(function() {
       var $this   = $(this)
         , $target = $($this.data('target'))
 
-      // initial click hack
-      if ( !$target.attr('style') )
-        $target.hide()
+      $target.stop().slideToggle().toggleClass('open');
 
-      $target.stop().css({'visibility':'visible','height':'auto'}).slideToggle()
       return false;
-
     })
 
     /*

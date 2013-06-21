@@ -1,4 +1,38 @@
 <?
+
+if ( ! function_exists( 'uw_setup' ) ):  
+
+  function uw_setup() 
+  {
+
+      add_theme_support( 'automatic-feed-links' );
+      add_theme_support( 'post-thumbnails' );
+
+    add_image_size( 'Thimble', 50, 50, true );
+    add_image_size( 'Sidebar', 250, 9999, false );
+    add_image_size( 'Body Image', 300, 9999, false );
+    add_image_size( 'Full Width', 620, 9999, false );
+
+    add_image_size( 'thumbnail-large', 300, 300, true );
+
+      register_nav_menu( 'primary', __( 'Primary Menu', 'uw' ) );
+      register_nav_menu( 'footer', __( 'Footer Menu', 'uw' ) );
+
+    define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyeleven_header_image_width', 1280 ) );
+    define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyeleven_header_image_height', 215 ) );
+    
+    $args = array(
+            'width'         => 1170,
+            'height'        => 100,
+            'default-image' => get_stylesheet_directory_uri() . '/img/itconnect-banner2.png',
+            'uploads'       => true,
+    );
+
+    add_theme_support( 'custom-header', $args);
+  }
+
+endif;
+
 if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
 /**
  * This is where all the CSS files are registered
@@ -87,6 +121,16 @@ if (! function_exists ( 'it_widgets_init' )):
     );
 
     register_sidebar($args);
+
+    $args2 = array(
+      'name' => 'Search Sidebar',
+      'id' => 'search-sidebar',
+      'description' => 'Widgets for the left column of the search page on ITConnect',
+      'before_widget' => '<div id="%1$s class="widget %2$s">',
+      'after_widget' => '</div>'
+    );
+
+    register_sidebar($args2);
   }
 endif;
 
@@ -122,6 +166,14 @@ if ( ! function_exists( 'custom_main_image' ) ):
     if ( isset($main_image['custom'] )) {
       echo ' style="background:url('.$main_image['custom']['url'].') no-repeat; background-size:cover;" ' ;
     }   
+  }
+endif;
+
+require('outages_options.php');
+
+if ( ! function_exists( 'outages_active' ) ):
+  function outages_active() {
+    return (get_option('outages') == 'yes');
   }
 endif;
 

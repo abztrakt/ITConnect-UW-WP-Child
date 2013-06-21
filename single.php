@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+    <div id="wrap"> 
 		<div id="primary">
 			<div id="content" role="main" class="it_container">
 			
@@ -22,6 +22,7 @@
                     ?>
                     </span>
                 </p>
+                <?php include('outages.php'); ?>
                 <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All News</span></p>
 				<div id='tertiary' class="span9">
 					<span id="arrow-mark"></span>
@@ -59,6 +60,6 @@
  			 </div>
 			</div><!-- #content -->
 		</div><!-- #primary -->
-
-
+        <div class="push"></div>
+    </div><!-- #wrap -->
 <?php get_footer(); ?>
