@@ -1372,10 +1372,10 @@ h5.home_date {
     }
 
     #banner-image {
-        background: #404042 url('./img/itconnect-banner2.png');
+        background: #404042 url('./img/itconnect-banner3.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: 50% 50%;
+        background-position: 50% 90%;
         z-index: -1;
         height: 100%;
     }
