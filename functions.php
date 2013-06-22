@@ -24,7 +24,7 @@ if ( ! function_exists( 'uw_setup' ) ):
     $args = array(
             'width'         => 1170,
             'height'        => 100,
-            'default-image' => get_stylesheet_directory_uri() . '/img/itconnect-banner2.png',
+            'default-image' => get_stylesheet_directory_uri() . '/img/itconnect-banner3.png',
             'uploads'       => true,
     );
 
