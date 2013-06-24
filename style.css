@@ -2111,27 +2111,32 @@ h5.home_date {
     
     .span6 {
         width: 33.333%;
+    }   
+    
+    #it_footer_logo {
+        margin-top: 10px;
     }
+}
 
+@media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
     #footer-main {
         height: 25px;
-    }
+    }    
+    
     #footer-left, #footer-right {
         position: absolute;
         top: 5px;
         left: 30px;
     }
+    
     #footer-right {
         right: 30px;
         left: auto;
     }
+    
     #footer-left {
         padding: 0px;
         text-align: left;
-    }
-
-    #it_footer_logo {
-        margin-top: 10px;
     }
 }
 
