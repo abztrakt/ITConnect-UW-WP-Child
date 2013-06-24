@@ -1892,24 +1892,27 @@ h5.home_date {
     }
 
     .dropdown-menu.open li {
-        width: 210px;
         background: transparent;
-        padding: 5px 15px;
     }
 
-    .dropdown-menu.open li:hover {
-        background: #D5E5F4;
-    }
     .dropdown-menu.open li:last-child {
         margin-right: 1px;
     }
 
-    .nav-collapse .dropdown-menu.open li a {
+    .dropdown-menu.open li a {
+        display: block;
+        width: 210px;
+        padding: 5px 15px;
         color: #4a81bc;
         text-decoration: none;
         font-weight: 600;
-        padding: 0px;
         background: transparent !important;
+    }
+
+    .dropdown-menu.open li a:hover, .dropdown-menu.open li a:focus {
+        background: #D5E5F4 !important;
+        color: #4a81bc;
+
     }
 
     /*** content ***/
@@ -2146,7 +2149,7 @@ h5.home_date {
         margin-left: 0px;
         margin-right: 0px;
     }
-    .navbar .nav li a { 
+    #menu-main > li > a { 
         padding: 8px 15px;
     }
 
