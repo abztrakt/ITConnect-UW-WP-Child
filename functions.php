@@ -177,4 +177,22 @@ if ( ! function_exists( 'outages_active' ) ):
   }
 endif;
 
+function in_comment_blacklisted_words($string, $array) { 
+    foreach($array as $ref) { if(strstr($string, $ref)) { return true; } } 
+    return false;
+}
+
+function drop_bad_comments() {
+    if (!empty($_POST['comment'])) {
+        $post_comment_content = $_POST['comment'];
+        $lower_case_comment = strtolower($_POST['comment']);
+        $comment_blacklist_words = array(
+            '<script>'
+        );
+        if (in_comment_blacklisted_words($lower_case_comment, $comment_blacklist_words)) {
+            wp_die( __('JavaScript is not allowed in comments.  Please resubmit comment without embedded JavaScript.') );
+        }
+    }
+}
+add_action('init', 'drop_bad_comments');
 ?>
