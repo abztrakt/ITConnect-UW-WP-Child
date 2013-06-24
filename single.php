@@ -22,6 +22,7 @@
                     ?>
                     </span>
                 </p>
+                <?php include('outages.php'); ?>
                 <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All News</span></p>
 				<div id='tertiary' class="span9">
 					<span id="arrow-mark"></span>

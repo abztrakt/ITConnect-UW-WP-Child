@@ -66,6 +66,34 @@ body {
   margin: -1px; padding: 0; border: 0;
 }
 
+/*** Outages  ****/
+#outages {
+    width: 100%;
+    text-align: center;
+    background-color: #FCFD80;
+}
+
+#outages a {
+    color: #9D1111;
+}
+
+#outages p {
+    display: inline-block;
+    margin-bottom: 0px;
+    height: 24px;
+    line-height: 22px;
+    padding-left: 3px;
+}
+
+#outages span {
+    position: relative;
+    top: 3px;
+    height: 24px;
+    font-size: 24px;
+    font-style: oblique;
+    font-weight: 900;
+}
+
 /*** Content Div ***/
 
 article .entry-content {
@@ -382,6 +410,10 @@ body { background: #f5f7f6; }
     color: #fff;
 }
 
+#menu-main .main-menu-home {
+    display: none;
+}
+
 .navbar #menu-main li.current-menu-item a.dropdown-toggle { 
     background-color: #2F5783;
     color: white;
@@ -506,8 +538,8 @@ p.pull-left.visible-phone {
 }
 
 p.pull-left.visible-phone span {
-    position: absolute;
-    top: 106px;
+    position: relative;
+    top: 2px;
 }
 
 a.btn-offcanvas {
@@ -527,6 +559,7 @@ a.btn-offcanvas.active {
     background: #ddd;
     overflow-y: auto;
     overflow-x: hidden;
+    min-height: 30px;
     max-height: 100%;
     /*-webkit-box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);
     box-shadow: inset -6px 0 8px -4px rgba(50, 50, 50, .55);            not in mockup*/
@@ -600,21 +633,17 @@ a.btn-offcanvas.active {
 
 #sidebar.home_sidebar li {
     color: #4A81BC;
-    height: 35px;
-    line-height: 34px;
-}
-
-#sidebar.home_sidebar li a span {
-    background: url('img/right-arrow-grey.png');
-    background-size: cover;
-    height: 35px;
-    width: 15px;
-    float: left;
+    min-height: 28px;
+    padding-top: 7px;
 }
 
 #sidebar.home_sidebar li a {
+    background: url('img/right-arrow-grey.png') no-repeat;
+    background-size: 15px 35px;
+    background-position: 0px -7px;
     font-size: 16px;
-    padding-left: 10px;
+    padding-left: 25px;
+    display: block;
 }
 
 #sidebar.home_sidebar h2.widgettitle {
@@ -1176,10 +1205,6 @@ h5.home_date {
     background: rgb(98, 138, 197);
 }
 
-#ie8 .nav-collapse .dropdown-menu.open, #ie7 .nav-collapse .dropdown-menu.open {
-    background: rgb(98, 138, 197);
-}
-
 #ie7 .nav-collapse .dropdown-menu .menu-block li{
     float: left;
 }
@@ -1314,6 +1339,25 @@ h5.home_date {
 
     .logged-in #alert-mini {
         top: 28px;
+    }
+
+    /*** Outages  ****/
+
+    body.home #content {
+        position: relative
+    }
+
+    #outage_wrapper {
+        height: 0px;
+        position: relative;
+    }
+
+    #outages {
+        position: absolute;
+        top: 0px;
+        left: 25%;
+        width: 150px;
+        height: 27px;
     }
 
     /*** Branding ****/
@@ -1750,6 +1794,19 @@ h5.home_date {
         font-size: 12px;
     }
 
+    #menu-main .main-menu-home {
+        display: inherit;
+    }
+
+    #menu-main .main-menu-home a {
+        background: url('img/home_icon.png') no-repeat 48% 48%;
+        width: 16px;
+        height: 16px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        font-size: 0px;
+    }
+
 
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
@@ -1861,7 +1918,7 @@ h5.home_date {
 
     /*** Homepage ***/
 
-    #home_main { float: right; background: url('./img/itconnect-home-hero1.png') no-repeat 0 0; min-height: 500px; max-height: 600px; overflow: hidden; }
+    #home_main { position: static; float: right; background: url('./img/itconnect-home-hero1.png') no-repeat 0 0; min-height: 500px; max-height: 600px; overflow: hidden; }
     
     #home_main article { padding: 30px; }
     
@@ -2005,7 +2062,7 @@ h5.home_date {
     }
 
     #secondary ul li.current_page_item {
-        background: rgba(213, 229, 244, .5);
+        background: #D5E5F4;
     }
 
     h1.news-title {
@@ -2089,6 +2146,11 @@ h5.home_date {
     }
     .navbar .nav li a { 
         padding: 8px 15px;
+    }
+
+    #menu-main .main-menu-home a {
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     /*** big desktop homepage sidebar ***/

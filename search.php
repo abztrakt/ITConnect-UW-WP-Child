@@ -15,6 +15,7 @@
                     <span id='overlay'></span>
                     <span class='category'>Search</span>
                 </p>
+                <?php include('outages.php'); ?>
                 <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>Results for "<?php the_search_query(); ?>"</span></p>
 				<div id='tertiary' class="span9 search">
 					<span id="arrow-mark"></span>
