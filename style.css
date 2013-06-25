@@ -127,6 +127,11 @@ article .entry-content {
     width: 42px;
 }
 
+img.gcsc-branding-img-noclear {
+    max-width: inherit;
+    vertical-align: top;
+}
+
 /*** Photo Handling ***/
 
 .alignleft {
