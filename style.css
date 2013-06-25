@@ -1033,6 +1033,7 @@ article div.entry-content blockquote p {
 
 
 #tertiary div.media a.pull-left {
+    padding-top: 5px;
     float: left;
 }
 
