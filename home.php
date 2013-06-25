@@ -32,7 +32,9 @@
                                     <?php the_post_thumbnail(); ?>
                                 </a>
                                 <?php endif; ?>
-                                <?php the_content(); ?>
+                                <div class='media-body'>
+                                    <?php the_content(); ?>
+                                </div>
                             </div>
 				
 				            <footer class="entry-meta">

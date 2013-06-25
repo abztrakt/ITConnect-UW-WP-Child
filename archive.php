@@ -32,6 +32,7 @@
                                 <?php the_post_thumbnail(); ?>
                             </a>
                             <?php endif; ?>
+                                <div class='media-body'>
                             <?php the_content(); ?>
                         </div>
             
