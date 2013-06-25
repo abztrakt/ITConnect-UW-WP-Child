@@ -530,26 +530,34 @@ $(document).ready(function() {
     , ie = $.browser.msie //$('[id^=ie]')
 
   $inputs.removeAttr('checked').first().attr('checked', true)
+  
+  $q.addClass('gcsb');
+
+  $q.change(function() {
+    if ( $q.val() == "" ) {
+        if ( $inputs.filter(':checked').val() != "directory" ) {
+            $q.addClass('gcsb');
+        }
+    } else {
+        $q.removeClass('gcsb');
+    }
+  });
 
   $inputs.change(function() {
     var str = 'Search ' + $(this).data('placeholder')
     if ( $(this).data('placeholder') == 'the Directory' ) {
         $q.prop('placeholder', str).attr('placeholder', str);
-        $q.css('background', 'none');
+        $q.removeClass('gcsb');
     } else {
         $q.prop('placeholder', '');
-        $q.css('background', 'url("http://www.google.com/cse/intl/en-US/images/google_custom_search_watermark.gif") no-repeat scroll 5px center rgb(255, 255, 255)');
+        if ( $q.val() == "" ) {
+            $q.addClass('gcsb');
+        }
     }
-    if ( $q.is(":focus") ) {
-        $q.css('background', 'none');
-    }
+
     if ( ie ) $q.val(str)
     if ( typeof _gaq !== 'undefined' ) _gaq.push(['_trackEvent', 'Enhanced Search', 'Options',  str ]);
   })
-
-  if ( $q.is(":focus") ) {
-    $q.css('background', 'none');
-  }
 
   $toggle.click(function() {
     if ( typeof _gaq !== 'undefined' ) _gaq.push(['_trackEvent', 'Enhanced Search', 'Toggle',  soptions.is(':hidden') ? 'Open' : 'Close' ]);
