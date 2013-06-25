@@ -43,6 +43,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+a, a:hover {
+    color: #2a71bc;
+}
+
 /*** Heading *********/
 
 .four-oh-four h3 {
@@ -433,12 +437,12 @@ body { background: #f5f7f6; }
 }
 
 .navbar #menu-main li.current-menu-item a.dropdown-toggle { 
-    background-color: #2F5783;
+    background-color: #204B7B;
     color: white;
 }
 
 .navbar #menu-main li.current-menu-ancestor a.dropdown-toggle { 
-    background-color: #2F5783;
+    background-color: #204B7B;
 }
 
 .navbar #menu-main li a.dropdown-toggle b.caret {
@@ -1391,10 +1395,10 @@ h5.home_date {
     }
 
     #banner-image {
-        background: #404042 url('./img/itconnect-banner2.png');
+        background: #404042 url('./img/itconnect-banner3.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: 50% 50%;
+        background-position: 50% 90%;
         z-index: -1;
         height: 100%;
     }
@@ -1787,7 +1791,7 @@ h5.home_date {
 
     /*** Navigation Menu ********/
 
-    nav, .navbar {  background: rgba(98, 138, 197, 0.50); }
+    nav, .navbar {  background: rgba(1, 87, 179, 0.50); }
 
     .navbar .nav { float: right; }
 
@@ -1798,8 +1802,9 @@ h5.home_date {
         border-right: none;
     }
 
-    .nav-collapse li:hover {
-        background: rgba(213, 229, 244, .25);
+    #menu-main > li:hover, #menu-main > li > a:focus, #menu-main > li.child_open {
+        color: white;
+        background-color: rgba(213, 229, 244, .25);
     }
 
     .nav-collapse b.caret {
@@ -1817,7 +1822,9 @@ h5.home_date {
     }
 
     #menu-main .main-menu-home a {
-        background: url('img/home_icon.png') no-repeat 48% 48%;
+        background-image: url('img/home_icon.png');
+        background-repeat: no-repeat;
+        background-position: 48% 48%;
         width: 16px;
         height: 16px;
         padding-top: 7px;
@@ -1908,24 +1915,27 @@ h5.home_date {
     }
 
     .dropdown-menu.open li {
-        width: 210px;
         background: transparent;
-        padding: 5px 15px;
     }
 
-    .dropdown-menu.open li:hover, .dropdown-menu.open li:focus {
-        background: #D5E5F4;
-    }
     .dropdown-menu.open li:last-child {
         margin-right: 1px;
     }
 
-    .nav-collapse .dropdown-menu.open li a {
+    .dropdown-menu.open li a {
+        display: block;
+        width: 210px;
+        padding: 5px 15px;
         color: #4a81bc;
         text-decoration: none;
         font-weight: 600;
-        padding: 0px;
         background: transparent !important;
+    }
+
+    .dropdown-menu.open li a:hover, .dropdown-menu.open li a:focus {
+        background: #D5E5F4 !important;
+        color: #4a81bc;
+
     }
 
     /*** content ***/
@@ -2014,7 +2024,6 @@ h5.home_date {
 
     div.spotlight_post p.post_title {
         margin: 0px;
-        font-weight: bold;
         font-size: 16px;
     }
 
@@ -2091,7 +2100,7 @@ h5.home_date {
 
     /*** Footer ***/
     #footer-band {
-        background: none repeat scroll 0 0 #465670;
+        background: none repeat scroll 0 0 #204b7b;
         height: 10px;
         position: relative;
     }
@@ -2162,7 +2171,7 @@ h5.home_date {
         margin-left: 0px;
         margin-right: 0px;
     }
-    .navbar .nav li a { 
+    #menu-main > li > a { 
         padding: 8px 15px;
     }
 

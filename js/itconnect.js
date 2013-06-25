@@ -186,7 +186,6 @@
             var container = $('#menu-main');
             if (dropdown.length != 0) {     //menu items might not have dropdowns
                 if ((dropdown.outerWidth() + theli.position().left + dropdown.position().left) > (container.outerWidth() + container.position().left)){
-                    console.log(dropdown);
                     dropdown.css('left',  ($(this).outerWidth() - dropdown.outerWidth()) + 'px');
                 }
             }
