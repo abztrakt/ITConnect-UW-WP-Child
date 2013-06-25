@@ -676,7 +676,8 @@ a.btn-offcanvas.active {
 #sidebar.home_sidebar h2.widgettitle {
     margin: 0px;
     padding-left: 10%;
-    height: 40px;
+    max-height: 40px;
+    min-height: 10px;
 }
 
 #sidebar.home_sidebar h2 a {
