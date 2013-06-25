@@ -2036,6 +2036,10 @@ h5.home_date {
         font-size: 16px;
     }
 
+    div.spotlight_post p.post_title.oneline {
+        padding-top: 10px;
+    }
+
     #home_secondary {
         float: left;
         padding: 0px;
