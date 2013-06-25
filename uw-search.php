@@ -4,8 +4,8 @@
         <input value="008816504494047979142:bpbdkw8tbqc" name="cx" type="hidden">
         <input value="FORID:0" name="cof" type="hidden">
         <label for="q" class="hide">Search the UW</label>
-        <input id="q" class="wTextInput" placeholder="Search ITConnect" title="Search ITConnect" name="q" type="text" autocomplete="off">
-          <input value="Go" name="sa" class="formbutton" type="submit">
+        <input id="q" class="wTextInput" title="Search ITConnect" name="q" type="text" autocomplete="off">
+          
         </span>
     </form>	
 

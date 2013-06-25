@@ -368,10 +368,10 @@ body { background: #f5f7f6; }
 .wfield input {
     -webkit-appearance: none;
     height: 25px;
-    padding: 3px 0 5px 15px;
+    padding: 3px 0 5px 5px;
     border: none;
     width: 100%;
-    background: none;
+   /* background: none;*/
     font-size: 15px;
     color: #484848
 }
@@ -446,7 +446,7 @@ body { background: #f5f7f6; }
     color: white;
 }
 
-.navbar #menu-main li.current-menu-ancestor a.dropdown-toggle { 
+.navbar #menu-main li.current-page-ancestor a.dropdown-toggle {
     background-color: #204B7B;
 }
 
@@ -1621,11 +1621,16 @@ h5.home_date {
         height: 0px;
     }
 
+    .gcsb {  /*google custom search branding image*/
+        outline: medium none;
+        background: url('http://www.google.com/cse/intl/en-US/images/google_custom_search_watermark.gif') no-repeat scroll 5px center rgb(255, 255, 255);
+    }
+
+/*
     input[type="submit"].formbutton {
         position: absolute;
         left: 6px;
         top: 6px;
-        background: url(img/header/header-sprite.png) no-repeat -103px 2px transparent;
         box-shadow: none;
         border: none;
         display: block;
@@ -1635,20 +1640,19 @@ h5.home_date {
         height: 28px;
         width: 32px;
     }
-
+*/
     input[type="text"].wTextInput {
-        padding: 8px 0 10px 38px;
         width: 190px;
         color: #999;
         border: none;
         -webkit-transition-duration: 400ms;
-        -webkit-transition-property: width, background;
+        -webkit-transition-property: width;
         -webkit-transition-timing-function: ease;
         -moz-transition-duration: 400ms;
-        -moz-transition-property: width, background;
+        -moz-transition-property: width;
         -moz-transition-timing-function: ease;
         -o-transition-duration: 400ms;
-        -o-transition-property: width, background;
+        -o-transition-property: width;
         -o-transition-timing-function: ease;
         float: right;
     }
@@ -1657,6 +1661,10 @@ h5.home_date {
         width: 225px;
     }
 
+    #q:focus {
+        background: none;
+    }
+    
     .wfield {
         background: white;
         float:right;
@@ -2143,27 +2151,32 @@ h5.home_date {
     
     .span6 {
         width: 33.333%;
+    }   
+    
+    #it_footer_logo {
+        margin-top: 10px;
     }
+}
 
+@media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
     #footer-main {
         height: 25px;
-    }
+    }    
+    
     #footer-left, #footer-right {
         position: absolute;
         top: 5px;
         left: 30px;
     }
+    
     #footer-right {
         right: 30px;
         left: auto;
     }
+    
     #footer-left {
         padding: 0px;
         text-align: left;
-    }
-
-    #it_footer_logo {
-        margin-top: 10px;
     }
 }
 
