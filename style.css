@@ -70,6 +70,30 @@ a, a:hover {
   margin: -1px; padding: 0; border: 0;
 }
 
+#help-button {
+    text-transform: capitalize;
+    background-color: #5d7caa;
+    border-color: #5d7caa;
+    display: inline;
+    float: right;
+    position: absolute;
+    margin-top: 15px;
+    right: 70px;
+    padding: 1.5px 3px;
+}
+
+
+#help-button-desktop {
+    text-transform: capitalize;
+    background-color: #5d7caa;
+    border-color: #628ac5;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-top: 0.5%;
+    padding: 1px 4px;
+}
+
 /*** Outages  ****/
 #outages {
     width: 100%;
@@ -129,6 +153,11 @@ article .entry-content {
 .pagination-centered ul > li {
     display: inline-block;
     width: 42px;
+}
+
+img.gcsc-branding-img-noclear {
+    max-width: inherit;
+    vertical-align: top;
 }
 
 /*** Photo Handling ***/
@@ -306,7 +335,6 @@ body { background: #f5f7f6; }
     -moz-transition: height .5s; /* Firefox 4 */
     -webkit-transition: height .52s; /* Safari and Chrome */
     -o-transition: height .5s; /* Opera */
-    -webkit-transform:translate3d(0,0,0);
 }
 
 .main-search.activate, #thin-strip.activate {
