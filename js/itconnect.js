@@ -21,7 +21,6 @@
         }
         fixDropdownOverrun();
         resetOffcanvasScroll();
-        setImageWindowHeight();
         checkNavbarWrap(mobile);
 	});
 
@@ -42,7 +41,6 @@
                 }
                 growTertiary();
             }
-            setImageWindowHeight();
             if (navbar_width != $('.navbar').width()) {
                 navbar_width = $('.navbar').width(),
                 checkNavbarWrap(mobile);
@@ -157,21 +155,6 @@
         $('#tertiary').css("min-height", containerHeight);
     }
 
-    function setImageWindowHeight() {
-        
-        //retooled to work with featured images, wherever they may be
-        var imgdiv;
-        if ($('.media').find('.pull-left').width()) {
-            imgdiv = $('.media').find('.pull-left');
-        }
-        else {
-            imgdiv = $('.featured_container').find('.featured_image');
-        }
-
-        var width = imgdiv.width();
-        imgdiv.css({"max-height": width * 3 / 4 + 'px'});
-    }
-    
     function checkNavbarWrap() {
         $('.navbar.mobile').removeClass('mobile');
         if (($('.navbar').height() > 50 ) && (!mobile)) {
