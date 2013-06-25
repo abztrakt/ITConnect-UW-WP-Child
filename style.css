@@ -1013,18 +1013,13 @@ article div.entry-content blockquote p {
     height: 70px;
 }
 
-#tertiary div.media-body {
-    float: right;
-    width: 70%;
-}
-
-#tertiary div.media-body h3 {
+#tertiary div.media h3 {
     font-size: 16px;
     font-weight: bold;
     color: #628ac5;
     line-height: 20px;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 h5.home_date {
