@@ -55,6 +55,7 @@
         if (spotlighted.length) {
             $(spotlighted[0]).addClass('active');
             $(paginators[0]).addClass('active');
+            fixOnelineSpotlightPosts();
         }
         if (spotlighted.length > 1 ){
             setUpPagination(paginators);
@@ -86,9 +87,12 @@
         $(paginators[nextindex]).addClass('active');
         $(paginators[activeindex]).removeClass('active');
         $(spotlighted[activeindex]).fadeOut(function(){
+            $(spotlighted[activeindex]).removeClass('active');
+            $(spotlighted[nextindex]).addClass('active');
+            fixOnelineSpotlightPosts();
+            $(spotlighted[nextindex]).removeClass('active');
             $(spotlighted[nextindex]).fadeIn(function(){
                 $(spotlighted[nextindex]).addClass('active');
-                $(spotlighted[activeindex]).removeClass('active');
                 executing_rotation = false;
             });
         });
@@ -111,9 +115,12 @@
                     $('#spotlight_paginator').find('li.active').removeClass('active');
                     $(this).addClass('active');
                     old_active_spotlight.fadeOut(function () {
+                        old_active_spotlight.removeClass('active');
+                        new_active_spotlight.addClass('active');
+                        fixOnelineSpotlightPosts();
+                        new_active_spotlight.removeClass('active');
                         new_active_spotlight.fadeIn(function () {
                             new_active_spotlight.addClass('active');
-                            old_active_spotlight.removeClass('active');
                             executing_rotation = false;
                         });
                     });
@@ -174,5 +181,14 @@
             }
         }
         $('#menu-main > li').children('a').hover(fixCurrentOverrun).focus(fixCurrentOverrun);
+    }
+
+    function fixOnelineSpotlightPosts() {
+        var posts = $('#home_spotlight .spotlight.active').find('.post_title');
+        for (var index = 0, length = posts.length; index < length; index++) {
+            if ($(posts[index]).height() == 20){
+                $(posts[index]).addClass('oneline');
+            }
+        }
     }
 })(this);
