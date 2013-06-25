@@ -1003,9 +1003,14 @@ article div.entry-content blockquote p {
     margin-bottom: 10px;
 }
 
-#tertiary div.media .pull-left {
-    width: 25%;
-    overflow: hidden;
+
+#tertiary div.media a.pull-left {
+    float: left;
+}
+
+#tertiary div.media a.pull-left img {
+    width: 70px;
+    height: 70px;
 }
 
 #tertiary div.media-body {
@@ -1023,6 +1028,7 @@ article div.entry-content blockquote p {
 }
 
 h5.home_date {
+    width: 100%;
     margin-top: 0px;
     margin-bottom: 6px;
     color: rgb(96, 96, 96);
@@ -2008,13 +2014,6 @@ h5.home_date {
         float: left;
         padding: 0px;
     }
-    #home_tertiary { float: right; }
-
-    #home_tertiary div.media .pull-left {
-        width: 17%;
-        max-height: 86px;
-        overflow: hidden;
-    }
 
     #home_tertiary div.media-body {
         width: 80%;
@@ -2032,15 +2031,6 @@ h5.home_date {
     }
     #tertiary {
         float: right;
-    }
-
-    #tertiary div.media .pull-left {
-        width: 17%;
-        overflow: hidden;
-    }
-
-    #tertiary div.media-body {
-        width: 80%;
     }
 
     /*** Sidebar desktop ***/
