@@ -1,0 +1,47 @@
+/****** Print Styles ******/
+@media print {
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: #FFF;
+    }
+    
+    #branding, #secondary, #home-main .hide, #home_spotlight, #home-main span, #tertiary span, .breadcrumbs-list, .fbox .button a[href]:after, #footer-right, #footer_logo_container, .btn, .pull-left span, .pull-left a, #overlay, #footer_logo_container  {
+	    display: none;
+    }
+
+    #tertiary {
+        float: none !important;
+    }
+
+    #tertiary div.media-body {
+        float: none !important;
+        width: 100%;
+    }
+
+    article {
+        width: 100%;
+        margin: 30px 0 0 0;
+        padding: 0;
+    }
+
+    @page {
+        margin: 2cm;
+    }
+
+    h2, h3, h4, h5 {
+        page-break-after: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    ul, img, p {
+        page-break-inside: avoid;
+    }
+
+    #footerBG {
+        page-break-before: auto;
+    }
+}
