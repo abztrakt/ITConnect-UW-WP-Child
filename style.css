@@ -1238,6 +1238,12 @@ h5.home_date {
     float: left;
 }
 
+/* --- IE retina icons fallback --- */
+
+#ie8 #sidebar.home_sidebar li a {
+    background: url('img/right-arrow-grey-fallback.png') no-repeat;
+}
+
 /**** UW Alerts ****/
 
 .alert-steel div, .alert-orange div, .alert-red div, .alert-blue divs {
