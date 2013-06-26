@@ -191,7 +191,7 @@ body { background: #f5f7f6; }
 }
 
 #header  {
-    background: url("http://www.washington.edu/static/mobile/image/top_bg_z.jpg") repeat-x scroll center top white;
+    background: #666;
     position: relative;
 }
 
