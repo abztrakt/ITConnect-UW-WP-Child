@@ -122,6 +122,26 @@ a, a:hover {
     font-weight: 900;
 }
 
+
+/*** Braille Embossing Service Request Form ***/
+
+#box-number {
+    width: auto;
+}
+
+span.wpcf7-list-item:first-child {
+    display: block;
+}
+
+span.wpcf7-list-item:last-child {
+    margin-right: 15px;
+}
+
+.wpcf7-form-control.wpcf7-submit {
+    float: right;
+}
+
+
 /*** Content Div ***/
 
 article .entry-content {
