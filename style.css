@@ -1230,8 +1230,12 @@ h5.home_date {
 }
 
 /* --- IE main menu --- */
-#ie8 .navbar, #ie9 .navbar {
-    background: rgb(98, 138, 197);
+#ie8 .navbar, #ie7 .navbar {
+    background: rgb(1, 87, 179);
+}
+
+#ie8 #access, #ie7 #access {
+    background: rgb(32, 75, 123);
 }
 
 #ie7 .nav-collapse .dropdown-menu .menu-block li{
