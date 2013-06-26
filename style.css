@@ -1531,6 +1531,7 @@ h5.home_date {
         margin-top: -8px;
     }
 
+    /*** not necessary and only cause problems at the moment ***
     .tan-band #thin-strip {
         background-color: #F3F2E9;
     }
@@ -1560,6 +1561,8 @@ h5.home_date {
         background-position: 0 -197px;
     }
     
+    ***/
+
     .patch.hidden-phone {
         margin-left: 40px;
     }
