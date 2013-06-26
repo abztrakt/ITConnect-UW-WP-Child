@@ -1130,8 +1130,6 @@ h5.home_date {
 }
 
 #it_footer_logo {
-    background: url('img/uwit_logo_mobile.png') no-repeat;
-    background-size: contain;
     height: 39px;
     display: block;
     margin: 0px;
