@@ -191,7 +191,7 @@ body { background: #f5f7f6; }
 }
 
 #header  {
-    background: url("http://www.washington.edu/static/mobile/image/top_bg_z.jpg") repeat-x scroll center top white;
+    background: #666;
     position: relative;
 }
 
@@ -569,13 +569,18 @@ p.pull-left.visible-phone span {
     top: 2px;
 }
 
-a.btn-offcanvas {
+a.btn-offcanvas.btn-primary {
     background: url('img/sub-menu.png');
     padding: 0px;
     margin-right: 20px;
     height: 39px;
     width: 39px;
     border-radius: 0px;
+    border-color: rgb(98, 138, 197);
+}
+
+a.btn-offcanvas.btn-primary:active {
+    border-color: rgb(130, 180, 222);
 }
 
 a.btn-offcanvas.active {
@@ -1531,6 +1536,7 @@ h5.home_date {
         margin-top: -8px;
     }
 
+    /*** not necessary and only cause problems at the moment ***
     .tan-band #thin-strip {
         background-color: #F3F2E9;
     }
@@ -1560,6 +1566,8 @@ h5.home_date {
         background-position: 0 -197px;
     }
     
+    ***/
+
     .patch.hidden-phone {
         margin-left: 40px;
     }
