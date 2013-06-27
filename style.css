@@ -569,13 +569,18 @@ p.pull-left.visible-phone span {
     top: 2px;
 }
 
-a.btn-offcanvas {
+a.btn-offcanvas.btn-primary {
     background: url('img/sub-menu.png');
     padding: 0px;
     margin-right: 20px;
     height: 39px;
     width: 39px;
     border-radius: 0px;
+    border-color: rgb(98, 138, 197);
+}
+
+a.btn-offcanvas.btn-primary:active {
+    border-color: rgb(130, 180, 222);
 }
 
 a.btn-offcanvas.active {
