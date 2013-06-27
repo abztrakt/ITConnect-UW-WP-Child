@@ -176,7 +176,7 @@ jQuery(document).ready(function($){
 
     // if search is clicked
     if ( !ismenu && search.data('open')) {
-      search.find('input.wTextInput').focus()
+     // search.find('input.wTextInput').focus()
       window.scrollTo(0,0)
     }
 
