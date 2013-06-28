@@ -2156,6 +2156,12 @@ h5.home_date {
         margin-bottom: 10px;
     }
 
+    #ie8 #secondary h2, #ie7 #secondary h2 {
+        font-size: 13px;
+        line-height: 30px;
+        margin-bottom: 0px;
+    }
+
     #ie7 div#search {
         width: 200px;
     }
