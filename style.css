@@ -2217,6 +2217,12 @@ h5.home_date {
         background-color: rgb(130, 180, 222);
     }
 
+    /* --- IE footer --- */
+
+    #ie7 #footer-left {
+        width: 300px;
+    }
+
     /* --- IE retina icons fallback --- */
 
     #ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
