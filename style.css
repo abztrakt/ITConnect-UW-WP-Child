@@ -2172,6 +2172,10 @@ h5.home_date {
         width: 30%;
     }
 
+    #ie7 #banner-image {
+        height: 130px;
+    }
+
     #ie7 #footer .span3, #ie7 #footer .span9 {
         padding: 0px;
     }
