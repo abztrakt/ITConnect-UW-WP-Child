@@ -1220,43 +1220,6 @@ h5.home_date {
     list-style: none outside none;
 }
 
-/*** IE styles ***/ 
-
-/* --- IE Cascading Bug Fix --- */
-#ie8 body h1, #ie7 body h1 {
-	margin: 10px 0 33px;
-	font-size: 35px;
-	font-weight: 600; 
-}
-#ie8 body h2, #ie7 body h2 {
-    font-size: 21px;
-    line-height: 26px;
-    margin-bottom: 10px;
-}
-
-/* --- IE main menu --- */
-#ie8 .navbar, #ie7 .navbar {
-    background: rgb(1, 87, 179);
-}
-
-#ie8 #access, #ie7 #access {
-    background: rgb(32, 75, 123);
-}
-
-#ie7 .nav-collapse .dropdown-menu .menu-block li{
-    float: left;
-}
-
-#ie8 #menu-main > li:hover, #ie8 #menu-main > li > a:focus, #ie8 #menu-main > li.child_open,
-#ie7 #menu-main > li:hover, #ie7 #menu-main > li > a:focus, #ie7 #menu-main > li.child_open {
-    background-color: rgb(130, 180, 222);
-}
-
-/* --- IE retina icons fallback --- */
-
-#ie8 #sidebar.home_sidebar li a {
-    background: url('img/right-arrow-grey-fallback.png') no-repeat;
-}
 
 /**** UW Alerts ****/
 
@@ -2177,6 +2140,64 @@ h5.home_date {
 
     #it_footer_logo {
         margin-top: 10px;
+    }
+
+    /*** IE styles ***/ 
+
+    /* --- IE Cascading Bug Fix --- */
+    #ie8 body h1, #ie7 body h1 {
+        margin: 10px 0 33px;
+        font-size: 35px;
+        font-weight: 600; 
+    }
+    #ie8 body h2, #ie7 body h2 {
+        font-size: 21px;
+        line-height: 26px;
+        margin-bottom: 10px;
+    }
+
+    #ie7 div#search {
+        width: 200px;
+    }
+
+    #ie7 .span3 {
+        width: 24%;
+    }
+
+    #ie7 .span9 {
+        width: 74%;
+    }
+
+    #ie7 .span4 {
+        width: 30%;
+    }
+
+    #ie7 #footer .span3, #ie7 #footer .span9 {
+        padding: 0px;
+    }
+
+    /* --- IE main menu --- */
+    #ie8 .navbar, #ie7 .navbar {
+        background: rgb(1, 87, 179);
+    }
+
+    #ie8 #access, #ie7 #access {
+        background: rgb(32, 75, 123);
+    }
+
+    #ie7 .nav-collapse .dropdown-menu .menu-block li{
+        float: left;
+    }
+
+    #ie8 #menu-main > li:hover, #ie8 #menu-main > li > a:focus, #ie8 #menu-main > li.child_open,
+    #ie7 #menu-main > li:hover, #ie7 #menu-main > li > a:focus, #ie7 #menu-main > li.child_open {
+        background-color: rgb(130, 180, 222);
+    }
+
+    /* --- IE retina icons fallback --- */
+
+    #ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
+        background: url('img/right-arrow-grey-fallback.png') no-repeat;
     }
 }
 
