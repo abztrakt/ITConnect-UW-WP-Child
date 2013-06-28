@@ -2180,6 +2180,15 @@ h5.home_date {
         padding: 0px;
     }
 
+    #ie7 #spotlight_paginator {
+        padding-bottom: 10px;
+        padding-left: 40%;
+    }
+
+    #ie7 #spotlight_paginator li {
+        float:left;
+    }
+
     /* --- IE main menu --- */
     #ie8 .navbar, #ie7 #menu-main > li {
         background: rgb(1, 87, 179);
