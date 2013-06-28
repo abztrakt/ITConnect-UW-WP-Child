@@ -2177,8 +2177,12 @@ h5.home_date {
     }
 
     /* --- IE main menu --- */
-    #ie8 .navbar, #ie7 .navbar {
+    #ie8 .navbar, #ie7 #menu-main > li {
         background: rgb(1, 87, 179);
+    }
+
+    #ie7 #menu-main .main-menu-home {
+        display: block;
     }
 
     #ie8 #access, #ie7 #access {
