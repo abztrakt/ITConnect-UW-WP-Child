@@ -537,10 +537,31 @@ $(document).ready(function() {
     , ie = $.browser.msie //$('[id^=ie]')
 
   $inputs.removeAttr('checked').first().attr('checked', true)
+  
+  $q.addClass('gcsb');
+
+  $q.change(function() {
+    if ( $q.val() == "" ) {
+        if ( $inputs.filter(':checked').val() != "directory" ) {
+            $q.addClass('gcsb');
+        }
+    } else {
+        $q.removeClass('gcsb');
+    }
+  });
 
   $inputs.change(function() {
     var str = 'Search ' + $(this).data('placeholder')
-    $q.prop('placeholder', str).attr('placeholder', str);
+    if ( $(this).data('placeholder') == 'the Directory' ) {
+        $q.prop('placeholder', str).attr('placeholder', str);
+        $q.removeClass('gcsb');
+    } else {
+        $q.prop('placeholder', '');
+        if ( $q.val() == "" ) {
+            $q.addClass('gcsb');
+        }
+    }
+
     if ( ie ) $q.val(str)
     if ( typeof _gaq !== 'undefined' ) _gaq.push(['_trackEvent', 'Enhanced Search', 'Options',  str ]);
   })
