@@ -1851,7 +1851,14 @@ h5.home_date {
 
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
-    .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
+    .navbar.mobile {
+        padding: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        text-transform: uppercase;
+        background: rgb(1, 87, 179);
+    }
 
     .navbar.mobile .nav {
         margin: 0; 
@@ -1863,6 +1870,12 @@ h5.home_date {
     }
 
     .navbar.mobile .nav li a { padding: 5px 10px; color: #fff; font-weight: normal; font-size: .85em; }
+
+    .navbar.mobile #menu-main li.main-menu-home a{
+        background-image: none;
+        width: 100%;
+        font-size: 12px;
+    }
 
     .navbar.mobile h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
 
