@@ -682,7 +682,7 @@ a.btn-offcanvas.active {
     margin: 0px;
     padding-left: 10%;
     max-height: 40px;
-    min-height: 10px;
+    min-height: 20px;
 }
 
 #sidebar.home_sidebar h2 a {
@@ -1220,43 +1220,6 @@ h5.home_date {
     list-style: none outside none;
 }
 
-/*** IE styles ***/ 
-
-/* --- IE Cascading Bug Fix --- */
-#ie8 body h1, #ie7 body h1 {
-	margin: 10px 0 33px;
-	font-size: 35px;
-	font-weight: 600; 
-}
-#ie8 body h2, #ie7 body h2 {
-    font-size: 21px;
-    line-height: 26px;
-    margin-bottom: 10px;
-}
-
-/* --- IE main menu --- */
-#ie8 .navbar, #ie7 .navbar {
-    background: rgb(1, 87, 179);
-}
-
-#ie8 #access, #ie7 #access {
-    background: rgb(32, 75, 123);
-}
-
-#ie7 .nav-collapse .dropdown-menu .menu-block li{
-    float: left;
-}
-
-#ie8 #menu-main > li:hover, #ie8 #menu-main > li > a:focus, #ie8 #menu-main > li.child_open,
-#ie7 #menu-main > li:hover, #ie7 #menu-main > li > a:focus, #ie7 #menu-main > li.child_open {
-    background-color: rgb(130, 180, 222);
-}
-
-/* --- IE retina icons fallback --- */
-
-#ie8 #sidebar.home_sidebar li a {
-    background: url('img/right-arrow-grey-fallback.png') no-repeat;
-}
 
 /**** UW Alerts ****/
 
@@ -1350,6 +1313,21 @@ h5.home_date {
 #alert-mini.uwalert-orange {
     background: url('https://www.washington.edu/static/alert_logo_orange.jpg') no-repeat 16% 14% #ec7330;
     background-size: 18%;
+}
+
+/* --- IE mobile fixes --- */
+
+#ie7 .visible-phone {
+    display: block !important;
+}
+
+#ie7 .sidebar-offcanvas {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#ie7 #access .it_container .navbar .navbar-inner h3 {
+    height: 50px;
 }
 
 /**** LARGE SCREENS **********************************/
@@ -1873,7 +1851,14 @@ h5.home_date {
 
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
-    .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
+    .navbar.mobile {
+        padding: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        text-transform: uppercase;
+        background: rgb(1, 87, 179);
+    }
 
     .navbar.mobile .nav {
         margin: 0; 
@@ -1885,6 +1870,12 @@ h5.home_date {
     }
 
     .navbar.mobile .nav li a { padding: 5px 10px; color: #fff; font-weight: normal; font-size: .85em; }
+
+    .navbar.mobile #menu-main li.main-menu-home a{
+        background-image: none;
+        width: 100%;
+        font-size: 12px;
+    }
 
     .navbar.mobile h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
 
@@ -2168,6 +2159,101 @@ h5.home_date {
     
     #it_footer_logo {
         margin-top: 10px;
+    }
+
+    /*** IE styles ***/ 
+
+    #ie7 .visible-phone {
+        display: none !important;
+    }
+
+    /* --- IE Cascading Bug Fix --- */
+    #ie8 body h1, #ie7 body h1 {
+        margin: 10px 0 33px;
+        font-size: 35px;
+        font-weight: 600; 
+    }
+    #ie8 body h2, #ie7 body h2 {
+        font-size: 21px;
+        line-height: 26px;
+        margin-bottom: 10px;
+    }
+
+    #ie8 #secondary h2, #ie7 #secondary h2 {
+        font-size: 13px;
+        line-height: 30px;
+        margin-bottom: 0px;
+    }
+
+    #ie7 div#search {
+        width: 200px;
+    }
+
+    #ie7 .span3 {
+        width: 24%;
+    }
+
+    #ie7 .span9 {
+        width: 74%;
+    }
+
+    #ie7 .span4 {
+        width: 30%;
+    }
+
+    #ie7 #banner-image {
+        height: 130px;
+    }
+
+    #ie7 #footer .span3, #ie7 #footer .span9 {
+        padding: 0px;
+    }
+
+    #ie7 #spotlight_paginator {
+        padding-bottom: 10px;
+        padding-left: 40%;
+    }
+
+    #ie7 #spotlight_paginator li {
+        float:left;
+    }
+
+    /* --- IE main menu --- */
+    #ie8 .navbar, #ie7 #menu-main > li {
+        background: rgb(1, 87, 179);
+    }
+
+    #ie7 #menu-main .main-menu-home {
+        display: block;
+    }
+
+    #ie8 #access, #ie7 #access {
+        background: rgb(32, 75, 123);
+    }
+
+    #ie7 .nav-collapse .dropdown-menu .menu-block li{
+        float: left;
+    }
+
+    #ie8 #menu-main > li:hover, #ie8 #menu-main > li > a:focus, #ie8 #menu-main > li.child_open,
+    #ie7 #menu-main > li:hover, #ie7 #menu-main > li > a:focus, #ie7 #menu-main > li.child_open {
+        background-color: rgb(130, 180, 222);
+    }
+
+    /* --- IE footer --- */
+
+    #ie7 #footer-left {
+        width: 300px;
+    }
+
+    #ie7 #footer-right > ul > li {
+        margin-left: 10px;
+    }
+
+    /* --- IE retina icons fallback --- */
+
+    #ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
+        background: url('img/right-arrow-grey-fallback.png') no-repeat;
     }
 }
 

@@ -14,6 +14,7 @@
         mobile = checkMobile();
 		if (mobile) { //mobile mode
             removeOpenDropdowns();
+            ie7Oddities();
 		}
         else {
             growTertiary();
@@ -34,6 +35,7 @@
             mobile = checkMobile();
             if (mobile) { //mobile mode
                 removeOpenDropdowns();
+                ie7Oddities();
             }
             else {
                 if ($('#home_spotlight .spotlight.active').length == 0) {
@@ -190,5 +192,13 @@
                 $(posts[index]).addClass('oneline');
             }
         }
+    }
+
+    function ie7Oddities() {
+        $('#ie7 .btn-offcanvas').click( function() {
+        //offcanvas works, but all text disappears until another animation occurs
+        //this kills the sidebar on mobile IE7 so users can't break the site
+            return false;
+        });
     }
 })(this);
