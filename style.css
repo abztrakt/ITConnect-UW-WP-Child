@@ -1315,6 +1315,21 @@ h5.home_date {
     background-size: 18%;
 }
 
+/* --- IE mobile fixes --- */
+
+#ie7 .visible-phone {
+    display: block !important;
+}
+
+#ie7 .sidebar-offcanvas {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#ie7 #access .it_container .navbar .navbar-inner h3 {
+    height: 50px;
+}
+
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
 
@@ -2134,6 +2149,10 @@ h5.home_date {
     }
 
     /*** IE styles ***/ 
+
+    #ie7 .visible-phone {
+        display: none !important;
+    }
 
     /* --- IE Cascading Bug Fix --- */
     #ie8 body h1, #ie7 body h1 {
