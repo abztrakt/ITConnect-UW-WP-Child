@@ -153,6 +153,9 @@ jQuery(document).ready(function($){
       if ($('#search').css('height') == '0px'){
         $('#search').css('height', 'auto');
       }
+      else {                                        // else statement added by Jon S
+        $('#ie7 #search').css('height', '0px');     // fixes IE7 mobile search bar height
+      }
     }
 
     search.find('input.wTextInput').blur()

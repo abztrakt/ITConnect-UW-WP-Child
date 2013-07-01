@@ -232,7 +232,7 @@ body { background: #f5f7f6; }
 }
 
 #header  {
-    background: url("http://www.washington.edu/static/mobile/image/top_bg_z.jpg") repeat-x scroll center top white;
+    background: #666;
     position: relative;
 }
 
@@ -461,7 +461,7 @@ body { background: #f5f7f6; }
 
 /*** Navigation Menu ********/
 
-.navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
+.navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: rgb(1, 87, 179); }
 
 .navbar .nav { margin: 0; }
 
@@ -501,7 +501,7 @@ b.caret {
 }
 
 a.btn.btn-navbar.navbar-toggle {
-    background: #628ac5;
+    background: rgb(1, 87, 179);
     margin-top: 0;
 }
 
@@ -610,13 +610,18 @@ p.pull-left.visible-phone span {
     top: 2px;
 }
 
-a.btn-offcanvas {
+a.btn-offcanvas.btn-primary {
     background: url('img/sub-menu.png');
     padding: 0px;
     margin-right: 20px;
     height: 39px;
     width: 39px;
     border-radius: 0px;
+    border-color: rgb(98, 138, 197);
+}
+
+a.btn-offcanvas.btn-primary:active {
+    border-color: rgb(130, 180, 222);
 }
 
 a.btn-offcanvas.active {
@@ -717,7 +722,8 @@ a.btn-offcanvas.active {
 #sidebar.home_sidebar h2.widgettitle {
     margin: 0px;
     padding-left: 10%;
-    height: 40px;
+    max-height: 40px;
+    min-height: 20px;
 }
 
 #sidebar.home_sidebar h2 a {
@@ -1072,26 +1078,29 @@ article div.entry-content blockquote p {
     margin-bottom: 10px;
 }
 
-#tertiary div.media .pull-left {
-    width: 25%;
-    overflow: hidden;
+
+#tertiary div.media a.pull-left {
+    padding-top: 5px;
+    width: 70px;
+    float: left;
 }
 
-#tertiary div.media-body {
-    float: right;
-    width: 70%;
+#tertiary div.media a.pull-left img {
+    width: 70px;
+    height: 70px;
 }
 
-#tertiary div.media-body h3 {
+#tertiary div.media h3 {
     font-size: 16px;
     font-weight: bold;
     color: #628ac5;
     line-height: 20px;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 h5.home_date {
+    width: 100%;
     margin-top: 0px;
     margin-bottom: 6px;
     color: rgb(96, 96, 96);
@@ -1167,8 +1176,6 @@ h5.home_date {
 }
 
 #it_footer_logo {
-    background: url('img/uwit_logo_mobile.png') no-repeat;
-    background-size: contain;
     height: 39px;
     display: block;
     margin: 0px;
@@ -1254,28 +1261,6 @@ h5.home_date {
     list-style: none outside none;
 }
 
-/*** IE styles ***/ 
-
-/* --- IE Cascading Bug Fix --- */
-#ie8 body h1, #ie7 body h1 {
-	margin: 10px 0 33px;
-	font-size: 35px;
-	font-weight: 600; 
-}
-#ie8 body h2, #ie7 body h2 {
-    font-size: 21px;
-    line-height: 26px;
-    margin-bottom: 10px;
-}
-
-/* --- IE main menu --- */
-#ie8 .navbar, #ie9 .navbar {
-    background: rgb(98, 138, 197);
-}
-
-#ie7 .nav-collapse .dropdown-menu .menu-block li{
-    float: left;
-}
 
 /**** UW Alerts ****/
 
@@ -1369,6 +1354,21 @@ h5.home_date {
 #alert-mini.uwalert-orange {
     background: url('https://www.washington.edu/static/alert_logo_orange.jpg') no-repeat 16% 14% #ec7330;
     background-size: 18%;
+}
+
+/* --- IE mobile fixes --- */
+
+#ie7 .visible-phone {
+    display: block !important;
+}
+
+#ie7 .sidebar-offcanvas {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#ie7 #access .it_container .navbar .navbar-inner h3 {
+    height: 50px;
 }
 
 /**** LARGE SCREENS **********************************/
@@ -1555,6 +1555,7 @@ h5.home_date {
         margin-top: -8px;
     }
 
+    /*** not necessary and only cause problems at the moment ***
     .tan-band #thin-strip {
         background-color: #F3F2E9;
     }
@@ -1584,6 +1585,8 @@ h5.home_date {
         background-position: 0 -197px;
     }
     
+    ***/
+
     .patch.hidden-phone {
         margin-left: 40px;
     }
@@ -1887,7 +1890,14 @@ h5.home_date {
 
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
-    .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
+    .navbar.mobile {
+        padding: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        text-transform: uppercase;
+        background: rgb(1, 87, 179);
+    }
 
     .navbar.mobile .nav {
         margin: 0; 
@@ -1899,6 +1909,12 @@ h5.home_date {
     }
 
     .navbar.mobile .nav li a { padding: 5px 10px; color: #fff; font-weight: normal; font-size: .85em; }
+
+    .navbar.mobile #menu-main li.main-menu-home a{
+        background-image: none;
+        width: 100%;
+        font-size: 12px;
+    }
 
     .navbar.mobile h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
 
@@ -2079,16 +2095,13 @@ h5.home_date {
         font-size: 16px;
     }
 
+    div.spotlight_post p.post_title.oneline {
+        padding-top: 10px;
+    }
+
     #home_secondary {
         float: left;
         padding: 0px;
-    }
-    #home_tertiary { float: right; }
-
-    #home_tertiary div.media .pull-left {
-        width: 17%;
-        max-height: 86px;
-        overflow: hidden;
     }
 
     #home_tertiary div.media-body {
@@ -2109,15 +2122,6 @@ h5.home_date {
         float: right;
     }
 
-    #tertiary div.media .pull-left {
-        width: 17%;
-        overflow: hidden;
-    }
-
-    #tertiary div.media-body {
-        width: 80%;
-    }
-
     /*** Sidebar desktop ***/
     #sidebar.home_sidebar {
         padding-bottom: 0px;
@@ -2133,7 +2137,7 @@ h5.home_date {
 
     #secondary ul li.current_page_item a {
         font-weight: normal;
-        color: #428bca;
+        color: #2a71bc;;
     }
 
     #secondary li, #secondary h2 {
@@ -2194,6 +2198,101 @@ h5.home_date {
     
     #it_footer_logo {
         margin-top: 10px;
+    }
+
+    /*** IE styles ***/ 
+
+    #ie7 .visible-phone {
+        display: none !important;
+    }
+
+    /* --- IE Cascading Bug Fix --- */
+    #ie8 body h1, #ie7 body h1 {
+        margin: 10px 0 33px;
+        font-size: 35px;
+        font-weight: 600; 
+    }
+    #ie8 body h2, #ie7 body h2 {
+        font-size: 21px;
+        line-height: 26px;
+        margin-bottom: 10px;
+    }
+
+    #ie8 #secondary h2, #ie7 #secondary h2 {
+        font-size: 13px;
+        line-height: 30px;
+        margin-bottom: 0px;
+    }
+
+    #ie7 div#search {
+        width: 200px;
+    }
+
+    #ie7 .span3 {
+        width: 24%;
+    }
+
+    #ie7 .span9 {
+        width: 74%;
+    }
+
+    #ie7 .span4 {
+        width: 30%;
+    }
+
+    #ie7 #banner-image {
+        height: 130px;
+    }
+
+    #ie7 #footer .span3, #ie7 #footer .span9 {
+        padding: 0px;
+    }
+
+    #ie7 #spotlight_paginator {
+        padding-bottom: 10px;
+        padding-left: 40%;
+    }
+
+    #ie7 #spotlight_paginator li {
+        float:left;
+    }
+
+    /* --- IE main menu --- */
+    #ie8 .navbar, #ie7 #menu-main > li {
+        background: rgb(1, 87, 179);
+    }
+
+    #ie7 #menu-main .main-menu-home {
+        display: block;
+    }
+
+    #ie8 #access, #ie7 #access {
+        background: rgb(32, 75, 123);
+    }
+
+    #ie7 .nav-collapse .dropdown-menu .menu-block li{
+        float: left;
+    }
+
+    #ie8 #menu-main > li:hover, #ie8 #menu-main > li > a:focus, #ie8 #menu-main > li.child_open,
+    #ie7 #menu-main > li:hover, #ie7 #menu-main > li > a:focus, #ie7 #menu-main > li.child_open {
+        background-color: rgb(130, 180, 222);
+    }
+
+    /* --- IE footer --- */
+
+    #ie7 #footer-left {
+        width: 300px;
+    }
+
+    #ie7 #footer-right > ul > li {
+        margin-left: 10px;
+    }
+
+    /* --- IE retina icons fallback --- */
+
+    #ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
+        background: url('img/right-arrow-grey-fallback.png') no-repeat;
     }
 }
 
