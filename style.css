@@ -682,7 +682,7 @@ a.btn-offcanvas.active {
     margin: 0px;
     padding-left: 10%;
     max-height: 40px;
-    min-height: 10px;
+    min-height: 20px;
 }
 
 #sidebar.home_sidebar h2 a {
