@@ -1330,6 +1330,12 @@ h5.home_date {
     height: 50px;
 }
 
+/* --- IE retina icons fallback --- */
+
+#ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
+    background: url('img/right-arrow-grey-fallback.png') no-repeat;
+}
+
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
 
@@ -2248,12 +2254,6 @@ h5.home_date {
 
     #ie7 #footer-right > ul > li {
         margin-left: 10px;
-    }
-
-    /* --- IE retina icons fallback --- */
-
-    #ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
-        background: url('img/right-arrow-grey-fallback.png') no-repeat;
     }
 }
 
