@@ -1447,6 +1447,7 @@ h5.home_date {
     #thin-strip.thin-fixed {
         position: fixed;
         top: 0px;
+        background-color: rgb(57, 39, 91);
     }
 
     .logged-in #thin-strip.thin-fixed {
