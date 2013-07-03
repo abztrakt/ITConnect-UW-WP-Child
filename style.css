@@ -1330,6 +1330,12 @@ h5.home_date {
     height: 50px;
 }
 
+/* --- IE retina icons fallback --- */
+
+#ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
+    background: url('img/right-arrow-grey-fallback.png') no-repeat;
+}
+
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
 
@@ -1430,7 +1436,7 @@ h5.home_date {
         top:0;
         left: 0;
         right: 0;
-        background-color: #666;
+        background-color: #F3F2E9;
         z-index: 1;
         box-shadow: 0 0px 6px #333;
         -moz-box-shadow: 0 0px 6px #333;
@@ -1441,6 +1447,7 @@ h5.home_date {
     #thin-strip.thin-fixed {
         position: fixed;
         top: 0px;
+        background-color: rgb(57, 39, 91);
     }
 
     .logged-in #thin-strip.thin-fixed {
@@ -1452,7 +1459,7 @@ h5.home_date {
     }
     
     .top-fixed div {
-        background: url("img/mobile-header/logo1x-nopatch.png") no-repeat 145px -5px;
+        background: url("img/mobile-header/logo1x-nopatch-invert.png") no-repeat 145px -5px;
     }
 
     #thin-strip div {
@@ -1504,10 +1511,14 @@ h5.home_date {
 
     #thin-strip li a {
         background-image: none;
-        color: #fff;
+        color: #333;
         font-size: 79%;
         text-transform: uppercase;
         font-weight: normal;
+    }
+
+    #thin-strip.thin-fixed li a {
+        color: #FFF;
     }
 
     #thin-strip img {
@@ -2248,12 +2259,6 @@ h5.home_date {
 
     #ie7 #footer-right > ul > li {
         margin-left: 10px;
-    }
-
-    /* --- IE retina icons fallback --- */
-
-    #ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
-        background: url('img/right-arrow-grey-fallback.png') no-repeat;
     }
 }
 
