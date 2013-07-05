@@ -33,20 +33,19 @@
 
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_title(); ?></h1>
-						    <p></p>
                         </header><!-- .entry-header -->
 					
-						<div class="entry-content">
+						<div class="media">
                             <?php if ( has_post_thumbnail() ) : ?>
-                                <div class='featured_container'>
-                                    <div class='featured_image'>
-                                        <?php the_post_thumbnail(); ?>
-                                    </div>
-                                </div>
+                            <a class='pull-left'>
+                                <?php the_post_thumbnail(); ?>
+                            </a>
                             <?php endif ?>
-							<?php the_content(); ?>
+                            <div class='media-body'>
+							    <?php the_content(); ?>
+                            </div>
+                        </div>
 							<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
-						</div><!-- .entry-content -->
 						<footer class="entry-meta">
               <?php the_tags('This article was posted under: ', ', ', '<br />'); ?> 
 							<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link pull-right">', '</span>' ); ?>

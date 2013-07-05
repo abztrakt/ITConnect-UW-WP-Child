@@ -43,6 +43,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+a, a:hover {
+    color: #2a71bc;
+}
+
 /*** Heading *********/
 
 .four-oh-four h3 {
@@ -146,6 +150,11 @@ article .entry-content {
     width: 42px;
 }
 
+img.gcsc-branding-img-noclear {
+    max-width: inherit;
+    vertical-align: top;
+}
+
 /*** Photo Handling ***/
 
 .alignleft {
@@ -177,7 +186,7 @@ body { background: #f5f7f6; }
 }
 
 #header  {
-    background: url("http://www.washington.edu/static/mobile/image/top_bg_z.jpg") repeat-x scroll center top white;
+    background: #666;
     position: relative;
 }
 
@@ -354,10 +363,10 @@ body { background: #f5f7f6; }
 .wfield input {
     -webkit-appearance: none;
     height: 25px;
-    padding: 3px 0 5px 15px;
+    padding: 3px 0 5px 5px;
     border: none;
     width: 100%;
-    background: none;
+   /* background: none;*/
     font-size: 15px;
     color: #484848
 }
@@ -406,7 +415,7 @@ body { background: #f5f7f6; }
 
 /*** Navigation Menu ********/
 
-.navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
+.navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: rgb(1, 87, 179); }
 
 .navbar .nav { margin: 0; }
 
@@ -428,12 +437,12 @@ body { background: #f5f7f6; }
 }
 
 .navbar #menu-main li.current-menu-item a.dropdown-toggle { 
-    background-color: #2F5783;
+    background-color: #204B7B;
     color: white;
 }
 
-.navbar #menu-main li.current-menu-ancestor a.dropdown-toggle { 
-    background-color: #2F5783;
+.navbar #menu-main li.current-page-ancestor a.dropdown-toggle {
+    background-color: #204B7B;
 }
 
 .navbar #menu-main li a.dropdown-toggle b.caret {
@@ -446,7 +455,7 @@ b.caret {
 }
 
 a.btn.btn-navbar.navbar-toggle {
-    background: #628ac5;
+    background: rgb(1, 87, 179);
     margin-top: 0;
 }
 
@@ -555,13 +564,18 @@ p.pull-left.visible-phone span {
     top: 2px;
 }
 
-a.btn-offcanvas {
+a.btn-offcanvas.btn-primary {
     background: url('img/sub-menu.png');
     padding: 0px;
     margin-right: 20px;
     height: 39px;
     width: 39px;
     border-radius: 0px;
+    border-color: rgb(98, 138, 197);
+}
+
+a.btn-offcanvas.btn-primary:active {
+    border-color: rgb(130, 180, 222);
 }
 
 a.btn-offcanvas.active {
@@ -662,7 +676,8 @@ a.btn-offcanvas.active {
 #sidebar.home_sidebar h2.widgettitle {
     margin: 0px;
     padding-left: 10%;
-    height: 40px;
+    max-height: 40px;
+    min-height: 20px;
 }
 
 #sidebar.home_sidebar h2 a {
@@ -1017,26 +1032,29 @@ article div.entry-content blockquote p {
     margin-bottom: 10px;
 }
 
-#tertiary div.media .pull-left {
-    width: 25%;
-    overflow: hidden;
+
+#tertiary div.media a.pull-left {
+    padding-top: 5px;
+    width: 70px;
+    float: left;
 }
 
-#tertiary div.media-body {
-    float: right;
-    width: 70%;
+#tertiary div.media a.pull-left img {
+    width: 70px;
+    height: 70px;
 }
 
-#tertiary div.media-body h3 {
+#tertiary div.media h3 {
     font-size: 16px;
     font-weight: bold;
     color: #628ac5;
     line-height: 20px;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 h5.home_date {
+    width: 100%;
     margin-top: 0px;
     margin-bottom: 6px;
     color: rgb(96, 96, 96);
@@ -1112,8 +1130,6 @@ h5.home_date {
 }
 
 #it_footer_logo {
-    background: url('img/uwit_logo_mobile.png') no-repeat;
-    background-size: contain;
     height: 39px;
     display: block;
     margin: 0px;
@@ -1199,27 +1215,6 @@ h5.home_date {
     list-style: none outside none;
 }
 
-/*** IE styles ***/ 
-
-/* --- IE Cascading Bug Fix --- */
-#ie8 body h1, #ie7 body h1 {
-	margin: 10px 0 33px;
-	font-size: 35px;
-	font-weight: 600; 
-}
-    font-size: 21px;
-    line-height: 26px;
-    margin-bottom: 10px;
-}
-
-/* --- IE main menu --- */
-#ie8 .navbar, #ie9 .navbar {
-    background: rgb(98, 138, 197);
-}
-
-#ie7 .nav-collapse .dropdown-menu .menu-block li{
-    float: left;
-}
 
 /**** UW Alerts ****/
 
@@ -1315,6 +1310,21 @@ h5.home_date {
     background-size: 18%;
 }
 
+/* --- IE mobile fixes --- */
+
+#ie7 .visible-phone {
+    display: block !important;
+}
+
+#ie7 .sidebar-offcanvas {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#ie7 #access .it_container .navbar .navbar-inner h3 {
+    height: 50px;
+}
+
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
 
@@ -1335,26 +1345,17 @@ h5.home_date {
     }
 
     #help-button {
-        /*text-transform: capitalize;
-        border-color: #628ac5;
-        display: inline;
-        margin-left: 2%;
-        margin-top: 0.5%;
-        padding: 1px 4px;*/
-        background-color: #5d7caa;
-        border-color: #5d7caa;
-        line-height: 15px;
+        background-color: #3377C2;
+        line-height: 12px;
         margin-left: 24px;
         position: static;
-        margin-top: 7px;
-        height: 15px;
-        margin-bottom: 0.25;
         margin-right: 1%;
+        margin-top: 5px;
         display: inline;
         float: left;
         width: 40px;
-        padding-top: 0px;
-        padding-bottom: 1px;
+        padding-top: 3px;
+        padding-bottom: 5px;
         padding-left: 8px;
         padding-right: 8px;
         border-radius:0;
@@ -1424,10 +1425,10 @@ h5.home_date {
     }
 
     #banner-image {
-        background: #404042 url('./img/itconnect-banner2.png');
+        background: #404042 url('./img/itconnect-banner3.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: 50% 50%;
+        background-position: 50% 90%;
         z-index: -1;
         height: 100%;
     }
@@ -1538,6 +1539,7 @@ h5.home_date {
         margin-top: -8px;
     }
 
+    /*** not necessary and only cause problems at the moment ***
     .tan-band #thin-strip {
         background-color: #F3F2E9;
     }
@@ -1567,6 +1569,8 @@ h5.home_date {
         background-position: 0 -197px;
     }
     
+    ***/
+
     .patch.hidden-phone {
         margin-left: 40px;
     }
@@ -1645,11 +1649,16 @@ h5.home_date {
         height: 0px;
     }
 
+    .gcsb {  /*google custom search branding image*/
+        outline: medium none;
+        background: url('http://www.google.com/cse/intl/en-US/images/google_custom_search_watermark.gif') no-repeat scroll 5px center rgb(255, 255, 255);
+    }
+
+/*
     input[type="submit"].formbutton {
         position: absolute;
         left: 6px;
         top: 6px;
-        background: url(img/header/header-sprite.png) no-repeat -103px 2px transparent;
         box-shadow: none;
         border: none;
         display: block;
@@ -1659,20 +1668,19 @@ h5.home_date {
         height: 28px;
         width: 32px;
     }
-
+*/
     input[type="text"].wTextInput {
-        padding: 8px 0 10px 38px;
         width: 190px;
         color: #999;
         border: none;
         -webkit-transition-duration: 400ms;
-        -webkit-transition-property: width, background;
+        -webkit-transition-property: width;
         -webkit-transition-timing-function: ease;
         -moz-transition-duration: 400ms;
-        -moz-transition-property: width, background;
+        -moz-transition-property: width;
         -moz-transition-timing-function: ease;
         -o-transition-duration: 400ms;
-        -o-transition-property: width, background;
+        -o-transition-property: width;
         -o-transition-timing-function: ease;
         float: right;
     }
@@ -1681,6 +1689,10 @@ h5.home_date {
         width: 225px;
     }
 
+    #q:focus {
+        background: none;
+    }
+    
     .wfield {
         background: white;
         float:right;
@@ -1820,7 +1832,7 @@ h5.home_date {
 
     /*** Navigation Menu ********/
 
-    nav, .navbar {  background: rgba(98, 138, 197, 0.50); }
+    nav, .navbar {  background: rgba(1, 87, 179, 0.50); }
 
     .navbar .nav { float: right; }
 
@@ -1831,8 +1843,9 @@ h5.home_date {
         border-right: none;
     }
 
-    .nav-collapse li:hover {
-        background: rgba(213, 229, 244, .25);
+    #menu-main > li:hover, #menu-main > li > a:focus, #menu-main > li.child_open {
+        color: white;
+        background-color: rgba(213, 229, 244, .25);
     }
 
     .nav-collapse b.caret {
@@ -1850,7 +1863,9 @@ h5.home_date {
     }
 
     #menu-main .main-menu-home a {
-        background: url('img/home_icon.png') no-repeat 48% 48%;
+        background-image: url('img/home_icon.png');
+        background-repeat: no-repeat;
+        background-position: 48% 48%;
         width: 16px;
         height: 16px;
         padding-top: 7px;
@@ -1861,7 +1876,14 @@ h5.home_date {
 
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
-    .navbar.mobile { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: #628ac5; }
+    .navbar.mobile {
+        padding: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        text-transform: uppercase;
+        background: rgb(1, 87, 179);
+    }
 
     .navbar.mobile .nav {
         margin: 0; 
@@ -1873,6 +1895,12 @@ h5.home_date {
     }
 
     .navbar.mobile .nav li a { padding: 5px 10px; color: #fff; font-weight: normal; font-size: .85em; }
+
+    .navbar.mobile #menu-main li.main-menu-home a{
+        background-image: none;
+        width: 100%;
+        font-size: 12px;
+    }
 
     .navbar.mobile h3 { margin: 0; font-weight: normal; font-size: 16px; padding-left: 15px; line-height: 50px; }
 
@@ -1941,24 +1969,27 @@ h5.home_date {
     }
 
     .dropdown-menu.open li {
-        width: 210px;
         background: transparent;
-        padding: 5px 15px;
     }
 
-    .dropdown-menu.open li:hover, .dropdown-menu.open li:focus {
-        background: #D5E5F4;
-    }
     .dropdown-menu.open li:last-child {
         margin-right: 1px;
     }
 
-    .nav-collapse .dropdown-menu.open li a {
+    .dropdown-menu.open li a {
+        display: block;
+        width: 210px;
+        padding: 5px 15px;
         color: #4a81bc;
         text-decoration: none;
         font-weight: 600;
-        padding: 0px;
         background: transparent !important;
+    }
+
+    .dropdown-menu.open li a:hover, .dropdown-menu.open li a:focus {
+        background: #D5E5F4 !important;
+        color: #4a81bc;
+
     }
 
     /*** content ***/
@@ -2047,20 +2078,16 @@ h5.home_date {
 
     div.spotlight_post p.post_title {
         margin: 0px;
-        font-weight: bold;
         font-size: 16px;
+    }
+
+    div.spotlight_post p.post_title.oneline {
+        padding-top: 10px;
     }
 
     #home_secondary {
         float: left;
         padding: 0px;
-    }
-    #home_tertiary { float: right; }
-
-    #home_tertiary div.media .pull-left {
-        width: 17%;
-        max-height: 86px;
-        overflow: hidden;
     }
 
     #home_tertiary div.media-body {
@@ -2081,15 +2108,6 @@ h5.home_date {
         float: right;
     }
 
-    #tertiary div.media .pull-left {
-        width: 17%;
-        overflow: hidden;
-    }
-
-    #tertiary div.media-body {
-        width: 80%;
-    }
-
     /*** Sidebar desktop ***/
     #sidebar.home_sidebar {
         padding-bottom: 0px;
@@ -2105,7 +2123,7 @@ h5.home_date {
 
     #secondary ul li.current_page_item a {
         font-weight: normal;
-        color: #428bca;
+        color: #2a71bc;;
     }
 
     #secondary li, #secondary h2 {
@@ -2124,7 +2142,7 @@ h5.home_date {
 
     /*** Footer ***/
     #footer-band {
-        background: none repeat scroll 0 0 #465670;
+        background: none repeat scroll 0 0 #204b7b;
         height: 10px;
         position: relative;
     }
@@ -2162,35 +2180,136 @@ h5.home_date {
     
     .span6 {
         width: 33.333%;
+    }   
+    
+    #it_footer_logo {
+        margin-top: 10px;
     }
 
+    /*** IE styles ***/ 
+
+    #ie7 .visible-phone {
+        display: none !important;
+    }
+
+    /* --- IE Cascading Bug Fix --- */
+    #ie8 body h1, #ie7 body h1 {
+        margin: 10px 0 33px;
+        font-size: 35px;
+        font-weight: 600; 
+    }
+    #ie8 body h2, #ie7 body h2 {
+        font-size: 21px;
+        line-height: 26px;
+        margin-bottom: 10px;
+    }
+
+    #ie8 #secondary h2, #ie7 #secondary h2 {
+        font-size: 13px;
+        line-height: 30px;
+        margin-bottom: 0px;
+    }
+
+    #ie7 div#search {
+        width: 200px;
+    }
+
+    #ie7 .span3 {
+        width: 24%;
+    }
+
+    #ie7 .span9 {
+        width: 74%;
+    }
+
+    #ie7 .span4 {
+        width: 30%;
+    }
+
+    #ie7 #banner-image {
+        height: 130px;
+    }
+
+    #ie7 #footer .span3, #ie7 #footer .span9 {
+        padding: 0px;
+    }
+
+    #ie7 #spotlight_paginator {
+        padding-bottom: 10px;
+        padding-left: 40%;
+    }
+
+    #ie7 #spotlight_paginator li {
+        float:left;
+    }
+
+    /* --- IE main menu --- */
+    #ie8 .navbar, #ie7 #menu-main > li {
+        background: rgb(1, 87, 179);
+    }
+
+    #ie7 #menu-main .main-menu-home {
+        display: block;
+    }
+
+    #ie8 #access, #ie7 #access {
+        background: rgb(32, 75, 123);
+    }
+
+    #ie7 .nav-collapse .dropdown-menu .menu-block li{
+        float: left;
+    }
+
+    #ie8 #menu-main > li:hover, #ie8 #menu-main > li > a:focus, #ie8 #menu-main > li.child_open,
+    #ie7 #menu-main > li:hover, #ie7 #menu-main > li > a:focus, #ie7 #menu-main > li.child_open {
+        background-color: rgb(130, 180, 222);
+    }
+
+    /* --- IE footer --- */
+
+    #ie7 #footer-left {
+        width: 300px;
+    }
+
+    #ie7 #footer-right > ul > li {
+        margin-left: 10px;
+    }
+
+    /* --- IE retina icons fallback --- */
+
+    #ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
+        background: url('img/right-arrow-grey-fallback.png') no-repeat;
+    }
+}
+
+@media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
     #footer-main {
         height: 25px;
-    }
+    }    
+    
     #footer-left, #footer-right {
         position: absolute;
         top: 5px;
         left: 30px;
     }
+    
     #footer-right {
         right: 30px;
         left: auto;
     }
+    
     #footer-left {
         padding: 0px;
         text-align: left;
-    }
-
-    #it_footer_logo {
-        margin-top: 10px;
     }
 }
 
 @media screen and (min-width: 1200px) {
 
     #help-button {
-        margin-top: 9px;
+        margin-top: 8.5px;
     }
+
     .it_container {
         max-width: 1170px;
     }
@@ -2199,7 +2318,7 @@ h5.home_date {
         margin-left: 0px;
         margin-right: 0px;
     }
-    .navbar .nav li a { 
+    #menu-main > li > a { 
         padding: 8px 15px;
     }
 
