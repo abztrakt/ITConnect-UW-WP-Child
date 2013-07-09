@@ -1356,11 +1356,11 @@ h5.home_date {
         margin-left: 24px;
         position: static;
         margin-right: 1%;
-        margin-top: 5px;
+        margin-top: 4px;
         display: inline;
         float: left;
         width: 40px;
-        padding-top: 3px;
+        padding-top: 5px;
         padding-bottom: 5px;
         padding-left: 8px;
         padding-right: 8px;
@@ -2312,7 +2312,9 @@ h5.home_date {
 @media screen and (min-width: 1200px) {
 
     #help-button {
-        margin-top: 8.5px;
+        margin-top: 6px;
+        padding-top: 6px;
+        padding-bottom: 6px;
     }
 
     .it_container {
