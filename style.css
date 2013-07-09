@@ -70,28 +70,23 @@ a, a:hover {
   margin: -1px; padding: 0; border: 0;
 }
 
-#help-button {
+
+#help-button{
+    background-color: transparent;
+    border: transparent;
     text-transform: capitalize;
-    background-color: #5d7caa;
-    border-color: #5d7caa;
     display: inline;
     float: right;
     position: absolute;
     margin-top: 15px;
     right: 70px;
-    padding: 1.5px 3px;
+    padding: 1.5px 4px;
+    border-radius: 0;
 }
 
-
-#help-button-desktop {
-    text-transform: capitalize;
-    background-color: #5d7caa;
-    border-color: #628ac5;
-    display: inline;
-    float: left;
-    margin-left: 2%;
-    margin-top: 0.5%;
-    padding: 1px 4px;
+#help-button img{
+    position: relative;
+    top: -1px;
 }
 
 /*** Outages  ****/
@@ -1342,6 +1337,36 @@ h5.home_date {
 
 @media screen and (min-width: 768px) {
 
+
+    .mobile #help-button {
+        text-transform: capitalize;
+        background-color: transparent;
+        border-color: transparent;
+        display: inline;
+        float: right;
+        position: absolute;
+        margin-top: 13.5px;
+        right: 70px;
+        padding: 3px 5px;
+    }
+
+    #help-button {
+        background-color: #3377C2;
+        line-height: 12px;
+        margin-left: 24px;
+        position: static;
+        margin-right: 1%;
+        margin-top: 5px;
+        display: inline;
+        float: left;
+        width: 40px;
+        padding-top: 3px;
+        padding-bottom: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius:0;
+    }
+
     body {  }
 
     /**** UW Alerts ****/
@@ -2285,6 +2310,11 @@ h5.home_date {
 }
 
 @media screen and (min-width: 1200px) {
+
+    #help-button {
+        margin-top: 8.5px;
+    }
+
     .it_container {
         max-width: 1170px;
     }
