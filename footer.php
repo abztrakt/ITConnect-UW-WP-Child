@@ -10,7 +10,7 @@
                 <div id='footer_links_left' class='span4'>
                     <table>
                         <tr>
-                            <td>Online</td><td><a href='http://itconnect01.s.uw.edu/itconnect/help/'>Contact form</a></td>
+                            <td>Online</td><td><a href='<?php get_site_url();?>help/'>Contact form</a></td>
                         </tr>
                         <tr>
                             <td>Email</td><td><a href='mailto:help@uw.edu'>help@uw.edu</a></td>
@@ -34,7 +34,7 @@
             </div>
             <div id='footer_logo_container' class='span3'>
                 <div class='wrapper'>
-                    <a id='it_footer_logo' href='/itconnect'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/uwit_logo_mobile.png'></a>
+                    <a id='it_footer_logo' href='<?php get_site_url(); ?>'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/uwit_logo_mobile.png'></a>
                 </div>
             </div>
         </div>

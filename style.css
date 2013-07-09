@@ -70,28 +70,23 @@ a, a:hover {
   margin: -1px; padding: 0; border: 0;
 }
 
-#help-button {
+
+#help-button{
+    background-color: transparent;
+    border: transparent;
     text-transform: capitalize;
-    background-color: #5d7caa;
-    border-color: #5d7caa;
     display: inline;
     float: right;
     position: absolute;
     margin-top: 15px;
     right: 70px;
-    padding: 1.5px 3px;
+    padding: 1.5px 4px;
+    border-radius: 0;
 }
 
-
-#help-button-desktop {
-    text-transform: capitalize;
-    background-color: #5d7caa;
-    border-color: #628ac5;
-    display: inline;
-    float: left;
-    margin-left: 2%;
-    margin-top: 0.5%;
-    padding: 1px 4px;
+#help-button img{
+    position: relative;
+    top: -1px;
 }
 
 /*** Top Search Box ***/
@@ -1371,11 +1366,47 @@ h5.home_date {
     height: 50px;
 }
 
+/* --- IE retina icons fallback --- */
+
+#ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
+    background: url('img/right-arrow-grey-fallback.png') no-repeat;
+}
+
 /**** LARGE SCREENS **********************************/
 /*****************************************************/
 
 
 @media screen and (min-width: 768px) {
+
+
+    .mobile #help-button {
+        text-transform: capitalize;
+        background-color: transparent;
+        border-color: transparent;
+        display: inline;
+        float: right;
+        position: absolute;
+        margin-top: 13.5px;
+        right: 70px;
+        padding: 3px 5px;
+    }
+
+    #help-button {
+        background-color: #3377C2;
+        line-height: 12px;
+        margin-left: 24px;
+        position: static;
+        margin-right: 1%;
+        margin-top: 4px;
+        display: inline;
+        float: left;
+        width: 56px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius:0;
+    }
 
     body {  }
 
@@ -1471,7 +1502,7 @@ h5.home_date {
         top:0;
         left: 0;
         right: 0;
-        background-color: #666;
+        background-color: #F3F2E9;
         z-index: 1;
         box-shadow: 0 0px 6px #333;
         -moz-box-shadow: 0 0px 6px #333;
@@ -1482,6 +1513,7 @@ h5.home_date {
     #thin-strip.thin-fixed {
         position: fixed;
         top: 0px;
+        background-color: rgb(57, 39, 91);
     }
 
     .logged-in #thin-strip.thin-fixed {
@@ -1493,7 +1525,7 @@ h5.home_date {
     }
     
     .top-fixed div {
-        background: url("img/mobile-header/logo1x-nopatch.png") no-repeat 145px -5px;
+        background: url("img/mobile-header/logo1x-nopatch-invert.png") no-repeat 145px -5px;
     }
 
     #thin-strip div {
@@ -1545,10 +1577,14 @@ h5.home_date {
 
     #thin-strip li a {
         background-image: none;
-        color: #fff;
+        color: #333;
         font-size: 79%;
         text-transform: uppercase;
         font-weight: normal;
+    }
+
+    #thin-strip.thin-fixed li a {
+        color: #FFF;
     }
 
     #thin-strip img {
@@ -2288,12 +2324,6 @@ h5.home_date {
     #ie7 #footer-right > ul > li {
         margin-left: 10px;
     }
-
-    /* --- IE retina icons fallback --- */
-
-    #ie8 #sidebar.home_sidebar li a, #ie7 #sidebar.home_sidebar li a {
-        background: url('img/right-arrow-grey-fallback.png') no-repeat;
-    }
 }
 
 @media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
@@ -2319,6 +2349,13 @@ h5.home_date {
 }
 
 @media screen and (min-width: 1200px) {
+
+    #help-button {
+        margin-top: 6px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
     .it_container {
         max-width: 1170px;
     }
