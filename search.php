@@ -25,7 +25,7 @@
                     <div class="entry-content">
                         <script>
                             (function() {
-                                var cx = '010209504661841798438:ftxszmyvenc';
+                                var cx = '004007733420592466615:by7zltintro';
                                 var gcse = document.createElement('script');
                                 gcse.type = 'text/javascript';
                                 gcse.async = true;
@@ -34,8 +34,7 @@
                                 s.parentNode.insertBefore(gcse, s);
                             })();
                         </script>
-                        <gcse:search></gcse:search>    
-                 
+                        <gcse:search queryParameterName="s" enableAutoComplete="true"></gcse:search>      
                     </div><!-- .entry-content -->
                     <article>
 
