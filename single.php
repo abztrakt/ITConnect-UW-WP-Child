@@ -37,9 +37,9 @@
 					
 						<div class="media">
                             <?php if ( has_post_thumbnail() ) : ?>
-                            <a class='pull-left'>
+                            <span class='pull-left'>
                                 <?php the_post_thumbnail(); ?>
-                            </a>
+                            </span>
                             <?php endif ?>
                             <div class='media-body'>
 							    <?php the_content(); ?>
