@@ -1074,13 +1074,13 @@ article div.entry-content blockquote p {
 }
 
 
-#tertiary div.media a.pull-left {
+#tertiary div.media span.pull-left {
     padding-top: 5px;
     width: 70px;
     float: left;
 }
 
-#tertiary div.media a.pull-left img {
+#tertiary div.media span.pull-left img {
     width: 70px;
     height: 70px;
 }
