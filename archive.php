@@ -28,9 +28,9 @@
                             <h5 class="home_date"><?php echo get_the_date(); ?></h5>
                             <h3><a href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h3>
                             <?php if ( has_post_thumbnail() ) : ?>
-                            <a class="pull-left" href="#">
+                            <span class="pull-left" href="#">
                                 <?php the_post_thumbnail(); ?>
-                            </a>
+                            </span>
                             <?php endif; ?>
                                 <div class='media-body'>
                             <?php the_content(); ?>
