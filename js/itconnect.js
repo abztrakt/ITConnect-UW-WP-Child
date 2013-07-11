@@ -23,6 +23,7 @@
         fixDropdownOverrun();
         resetOffcanvasScroll();
         checkNavbarWrap(mobile);
+        checkEmptyWidgets();
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
@@ -190,6 +191,19 @@
         for (var index = 0, length = posts.length; index < length; index++) {
             if ($(posts[index]).height() == 20){
                 $(posts[index]).addClass('oneline');
+            }
+        }
+    }
+
+    function checkEmptyWidgets() {
+        var widgets = $('#sidebar .widget'), text_widget;
+        for (var count = 0, length = widgets.length; count < length; count++){
+            text_widget = $(widgets[count]).find('div');
+            if (text_widget.hasClass('textwidget')) {
+                lists = $(text_widget).find('ul');
+                if (lists.length == 0) {
+                    $(widgets[count]).find('h2.widgettitle').hide();
+                }
             }
         }
     }
