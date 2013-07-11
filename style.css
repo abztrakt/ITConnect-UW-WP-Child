@@ -2057,6 +2057,7 @@ h5.home_date {
         text-align: center;
         margin: 0px;
         padding-top: 5px;
+        cursor: default;
     }
 
     #spotlight_paginator > li {
@@ -2066,6 +2067,8 @@ h5.home_date {
         margin: 5px 2px;
         border-radius: 50%;
         padding: 1px;
+        cursor: hand;
+        cursor: pointer;
     }
 
     #spotlight_paginator > li.active {
