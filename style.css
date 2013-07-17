@@ -227,17 +227,22 @@ body { background: #f5f7f6; }
 }
 
 #header  {
-    background: #666;
+    background: #39275b;
     position: relative;
 }
 
 .wordmark {
-    background: url("img/mobile-header/logo1x.png") no-repeat 0 0 transparent;
+    background: url("img/mobile-header/mobile_branding.png") no-repeat 0 0 transparent;
+    background-size: contain;
     width: 263px;
     height: 40px;
     text-indent: -9999px;
     overflow: hidden;
     display: block;
+}
+
+#ie8 .wordmark, #ie7 .wordmark {
+    background: url("img/mobile-header/mobile_branding_ie.png") no-repeat 0px 2px transparent;
 }
 
 #header_description {
@@ -1684,7 +1689,11 @@ h5.home_date {
         line-height: 36px;
         text-transform: uppercase;
     }
-    
+
+    #ie8 .wordmark, #ie7 .wordmark {
+        background: none;
+    }
+        
     .wordmark.visible-phone {
         left: 50px;
     }
