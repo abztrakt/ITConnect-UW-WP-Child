@@ -835,6 +835,17 @@ ol.commentlist {
     margin-left: 0;
 }
 
+#tertiary article h2:before, #tertiary article h3:before, #tertiary article h4:before {
+    display: block;
+    content: "";
+    height: 30px;
+    margin: -30px 0 0; 
+}
+
+.logged-in #tertiary article h2:before, .logged-in #tertiary article h3:before, .logged-in #tertiary article h4:before {
+    height: 50px;
+    margin: -50px 0 0; 
+}
 /* Page table of contents */
 
 article div.entry-content ul.ptoc {
@@ -854,11 +865,6 @@ article div.entry-content  ul.ptoc li.onthispage {
 }
 
 /* Procedures */
-
-    article div.entry-content h2 {
-        margin-top: 0;
-        padding-top: 25px;
-    }
 
 article div.entry-content  ol.procedure {
     border:solid #ccc 1px;
