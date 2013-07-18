@@ -14,6 +14,10 @@ Template: UW-Wordpress-Theme
     margin-right: auto;
 }
 
+.row {
+    width: 100%;
+}
+
 #primary {
     background: #FAFAFA;
 }
@@ -1388,7 +1392,6 @@ h5.home_date {
 
 
 @media screen and (min-width: 768px) {
-
 
     .mobile #help-button {
         text-transform: capitalize;
