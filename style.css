@@ -2329,6 +2329,11 @@ h5.home_date {
         background: rgb(32, 75, 123);
     }
 
+    #ie7 #navbar-menu {
+        background-color: rgb(1, 87, 179);
+        min-height: 30px;
+    }
+
     #ie7 .nav-collapse .dropdown-menu .menu-block li{
         float: left;
     }
@@ -2404,5 +2409,10 @@ h5.home_date {
 
     #sidebar.home_sidebar h2.widgettitle {
         padding-left: 15%;
+    }
+
+    #ie7 #navbar-menu {
+        background-color: rgb(1, 87, 179);
+        min-height: 36px;
     }
 }
