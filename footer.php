@@ -34,7 +34,7 @@
             </div>
             <div id='footer_logo_container' class='span3'>
                 <div class='wrapper'>
-                    <a id='it_footer_logo' href='<?php echo get_site_url(); ?>'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/uwit_logo_mobile.png'></a>
+                    <a id='it_footer_logo' href='<?php echo get_site_url(); ?>'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/uwit_logo_la.png'></a>
                 </div>
             </div>
         </div>
