@@ -23,6 +23,7 @@
         fixDropdownOverrun();
         resetOffcanvasScroll();
         checkNavbarWrap(mobile);
+        $("#wireless-location").tablesorter();
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize
