@@ -5,7 +5,7 @@
         <input value="FORID:0" name="cof" type="hidden">
         <label for="q" class="hide">Search the UW</label>
         <input id="q" class="wTextInput" title="Search ITConnect" name="q" type="text" autocomplete="off">
-          
+        <input id="search-go" value="Go" name="sa" class="formbutton" type="submit">  
         </span>
     </form>	
 

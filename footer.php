@@ -10,7 +10,7 @@
                 <div id='footer_links_left' class='span4'>
                     <table>
                         <tr>
-                            <td>Online</td><td><a href='<?php echo get_site_url();?>/help'>Contact form</a></td>
+                            <td>Online</td><td><a href='<?php echo get_site_url();?>/it-connect-home/question'>Contact form</a></td>
                         </tr>
                         <tr>
                             <td>Email</td><td><a href='mailto:help@uw.edu'>help@uw.edu</a></td>
@@ -23,7 +23,7 @@
                             <td>Phone</td><td>206-221-5000</td>
                         </tr>
                         <tr>
-                            <td>In-Person</td><td>UW Tower, C-3000<br /> M-F 8-8, Sun 1-8</td>
+                            <td>In-Person</td><td><a href='http://www.washington.edu/maps/?l=UWTC'>UW Tower, C-3000</a><br /> M-F 8-8, Sun 1-8</td>
                         </tr>
                     </table>
                 </div>
