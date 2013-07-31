@@ -162,7 +162,7 @@ span.wpcf7-list-item:last-child {
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
     background-color: #e6EEEE;
     border: 1px solid #FFF;
-    font-size: 10pt;
+    font-size: 9pt;
 }
 table.tablesorter thead tr .header {
     background-image: url("img/tablesorter/bg.gif");  
