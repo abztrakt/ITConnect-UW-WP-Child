@@ -64,6 +64,13 @@ a, a:hover {
     line-height: 26px;
 }
 
+/*** tables ***/
+
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
 /*** Helpers ********/
 
 .assistive-text, .visuallyhidden {
@@ -798,7 +805,7 @@ div.featured_container div.featured_image {
 h1.entry-title {
     font-weight: bold;
     font-size: 24px;
-    line-height: 24px;
+    line-height: 28px;
     margin-top: 0px;
 }
 
