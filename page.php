@@ -42,7 +42,12 @@
 
 				<div class="entry-content">
 					<?php the_content(); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) );
+                    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+                    // prompt the user to log in and leave feedback if appropriate
+                    if (is_plugin_active('document-feedback/document-feedback.php') && !is_user_logged_in()): ?>
+                    <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() )); ?></p>
+                    <?php endif;?>
 				</div><!-- .entry-content -->
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
@@ -53,7 +58,7 @@
                 
 
 			<?php endwhile; // end of the loop. ?>
-
+            
 				</div>
  			 </div>
 			</div><!-- #content -->

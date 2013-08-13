@@ -830,6 +830,12 @@ h5.date {
     font-size: 18px;
 }
 
+#feedback_prompt {
+    font-weight: bold;
+    border-top: solid #EEE 1px;
+    padding-top: 10px;
+}
+
 #comments {
     font-size: 18px;
     padding: 3%;
