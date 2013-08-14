@@ -46,7 +46,7 @@
                     include_once(ABSPATH . 'wp-admin/includes/plugin.php');
                     // prompt the user to log in and leave feedback if appropriate
                     if (is_plugin_active('document-feedback/document-feedback.php') && !is_user_logged_in()): ?>
-                    <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() )); ?></p>
+                    <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
 				<footer class="entry-meta">
