@@ -1041,6 +1041,10 @@ article div.entry-content blockquote p {
     padding: 10px;
 }
 
+#home_main #document-feedback {
+    display: none;
+}
+
 #home_tertiary h2 {
     font-weight: bold;
     font-size: 22px;
