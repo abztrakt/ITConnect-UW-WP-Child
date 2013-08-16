@@ -24,6 +24,7 @@
         resetOffcanvasScroll();
         checkNavbarWrap(mobile);
         checkEmptyWidgets();
+        $("#wireless-location").tablesorter();
 	});
 
 	$(w).resize(function(){ //Update dimensions on resize

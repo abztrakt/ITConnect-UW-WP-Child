@@ -113,13 +113,12 @@ a, a:hover {
     -webkit-border-radius: 20px;
     border-radius: 20px;
     overflow: hidden;
-    min-height: 30px;
+    min-height: 30px; 
 }
 
 #q:focus {
     background: none;
 }
-
 
 /*** Outages  ****/
 #outages {
@@ -166,6 +165,29 @@ span.wpcf7-list-item:last-child {
 
 .wpcf7-form-control.wpcf7-submit {
     float: right;
+}
+
+/*** Table Sorter ***/
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+    background-color: #e6EEEE;
+    border: 1px solid #FFF;
+    font-size: 9pt;
+}
+table.tablesorter thead tr .header {
+    background-image: url("img/tablesorter/bg.gif");  
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp {
+    background-image: url("img/tablesorter/asc.gif");
+}
+table.tablesorter thead tr .headerSortDown {
+    background-image: url("img/tablesorter/desc.gif");
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+    background-color: #8dbdd8;
 }
 
 
@@ -1612,6 +1634,13 @@ h5.home_date {
         margin-top: -8px;
     }
 
+    /*** Google CSE branding ***/
+    .gcsb {  /*google custom search branding image*/
+        outline: medium none;
+        background: url('http://www.google.com/cse/intl/en-US/images/google_custom_search_watermark.gif') no-repeat scroll 30px center rgb(255, 255, 255);
+    }
+
+
     /*** not necessary and only cause problems at the moment ***
     .tan-band #thin-strip {
         background-color: #F3F2E9;
@@ -1741,8 +1770,23 @@ h5.home_date {
         width: 32px;
     }
 */
+    input[type="submit"].formbutton {
+        position: absolute;
+        left: 3px;
+        top: 6px;
+        background: url("img/header/header-sprite.png") no-repeat -103px 2px transparent;
+        box-shadow: none;
+        border: none;
+        display: block;
+        text-indent: -999px;
+        overflow: hidden;
+        padding: 5px 16px;
+        height: 28px;
+        width: 32px;
+    }
+
     input[type="text"].wTextInput {
-        width: 190px;
+        width: 200px;
         color: #999;
         border: none;
         -webkit-transition-duration: 400ms;
@@ -1785,6 +1829,7 @@ h5.home_date {
         border-radius: inherit;
         overflow: inherit;
         min-height: 34px;
+        padding-left: 30px; 
     }
 
     /* ---- Super Search ---- */
