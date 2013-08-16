@@ -49,12 +49,6 @@
   <script src="<?php bloginfo("template_directory"); ?>/js/html5shiv.js" type="text/javascript"></script>
   <script src="<?php bloginfo("template_directory"); ?>/js/respond.min.js" type="text/javascript"></script>
 <![endif]-->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#sort").tablesorter(); 
-        }
-     );
-</script>
 
 </head>
 
