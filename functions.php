@@ -197,4 +197,8 @@ function drop_bad_comments() {
     }
 }
 add_action('init', 'drop_bad_comments');
+
+$template_dir = get_stylesheet_directory();
+require( $template_dir . '/inc/documentation.php' );
+
 ?>
