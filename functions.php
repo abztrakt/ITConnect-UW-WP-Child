@@ -143,7 +143,7 @@ endif;
 if (! function_exists ( 'spud_func' )):
   function spud_func( $atts ) {
     extract( shortcode_atts( array(
-        'webname' => 'sea_uwit',
+        'webname' => 'sea_campus',
         'spudtype' => 'main',
     ), $atts ) );
 
