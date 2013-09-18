@@ -85,6 +85,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
 
     wp_register_script( 'widget-youtube-playlist', get_bloginfo('template_directory') . '/js/widget-youtube-playlist.js', array('jquery','swfobject','jquery.imagesloaded') );
     wp_register_script( 'uw-gallery', get_bloginfo('template_directory') . '/js/gallery.js', array('jquery','jquery.imagesloaded'), '1.1' );
+    wp_register_script( 'trumba', 'http://www.trumba.com/scripts/spuds.js' );
 
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'jquery.tablesorter' );
@@ -97,6 +98,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
     wp_enqueue_script( 'itconnect' );
 
     wp_enqueue_script('uw-gallery');
+    wp_enqueue_script( 'trumba' );
 
 
     if( is_404() ) {
@@ -134,6 +136,22 @@ if (! function_exists ( 'it_widgets_init' )):
 
     register_sidebar($args2);
   }
+endif;
+
+// Trumba spuds
+// [spud webname='foo' spudtype='bar']
+if (! function_exists ( 'spud_func' )):
+  function spud_func( $atts ) {
+    extract( shortcode_atts( array(
+        'webname' => 'sea_uwit',
+        'spudtype' => 'main',
+    ), $atts ) );
+
+    $spud = "<script type='text/javascript'>\$Trumba.addSpud({webName: '{$webname}', spudType: '{$spudtype}'});</script>";
+
+    return $spud;
+  }
+  add_shortcode( 'spud', 'spud_func' );
 endif;
 
 add_action( 'widgets_init', 'it_widgets_init' );
