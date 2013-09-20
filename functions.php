@@ -85,7 +85,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
 
     wp_register_script( 'widget-youtube-playlist', get_bloginfo('template_directory') . '/js/widget-youtube-playlist.js', array('jquery','swfobject','jquery.imagesloaded') );
     wp_register_script( 'uw-gallery', get_bloginfo('template_directory') . '/js/gallery.js', array('jquery','jquery.imagesloaded'), '1.1' );
-    wp_register_script( 'trumba', 'http://www.trumba.com/scripts/spuds.js' );
+    wp_register_script( 'trumba', '//www.trumba.com/scripts/spuds.js' );
 
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'jquery.tablesorter' );
