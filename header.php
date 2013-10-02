@@ -61,11 +61,12 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
    $(function() {
-     $.get('wp-content/themes/ITConnect-UW-WP-Child/tags.txt', function(data) {
+     $.get('wp-content/themes/ITConnect-UW-WP-Child/keywords.txt', function(data) {
         var availableTags = data.split('\n');
      
         $( "#q" ).autocomplete({
-            source: availableTags
+            source: availableTags,
+            minLength: 4
         });
      });
    });
