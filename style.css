@@ -120,6 +120,12 @@ a, a:hover {
     background: none;
 }
 
+.ui-autocomplete {
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 /*** Outages  ****/
 #outages {
     width: 100%;
@@ -1763,6 +1769,10 @@ h5.home_date {
         top: 20px;
         right: 45px;
         height: 0px;
+    }
+
+    .ui-autocomplete {
+        width: 250px !important;
     }
 
 /*

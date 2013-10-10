@@ -66,7 +66,7 @@
      
         $( "#q" ).autocomplete({
             source: availableTags,
-            minLength: 4
+            minLength: 1
         });
      });
    });
