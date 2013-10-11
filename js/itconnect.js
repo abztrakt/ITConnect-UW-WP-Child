@@ -190,7 +190,7 @@
     function fixOnelineSpotlightPosts() {
         var posts = $('#home_spotlight .spotlight.active').find('.post_title');
         for (var index = 0, length = posts.length; index < length; index++) {
-            if ($(posts[index]).height() == 20){
+            if ($(posts[index]).height() == 21){
                 $(posts[index]).addClass('oneline');
             }
         }
