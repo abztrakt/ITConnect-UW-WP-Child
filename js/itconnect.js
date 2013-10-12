@@ -27,6 +27,12 @@
         $(".sort").tablesorter();
 	});
 
+    $(function() {
+        $('#secondary div.textwidget a').tooltip({ 
+            position: { my: "left top", at: "left bottom" },  
+        }); 
+    }); 
+
 	$(w).resize(function(){ //Update dimensions on resize
         var width_resize = (sw != $(window).width());
         var height_resize = (sh != $(window).height());
