@@ -61,7 +61,8 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
    $(function() {
-     $.get('wp-content/themes/ITConnect-UW-WP-Child/keywords.txt', function(data) {
+     var path = "<?php bloginfo('stylesheet_directory'); ?>/keywords.txt";
+     $.get(path, function(data) {
         var availableTags = data.split('\n');
      
         $( "#q" ).autocomplete({
