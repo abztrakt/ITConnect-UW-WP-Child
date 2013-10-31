@@ -28,7 +28,7 @@
 	});
 
     $(function() {
-        $('#secondary div.textwidget a').tooltip({ 
+        $('#atom').tooltip({ 
             position: { my: "left top", at: "left bottom" },  
         }); 
     }); 
