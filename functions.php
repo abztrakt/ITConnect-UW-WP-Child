@@ -1,5 +1,10 @@
 <?
 
+remove_filter( 'the_title', 'wptexturize' );
+remove_filter( 'the_content', 'wptexturize' );
+remove_filter( 'the_excerpt', 'wptexturize' );
+remove_filter( 'comment_text', 'wptexturize' );
+
 if ( ! function_exists( 'uw_setup' ) ):  
 
   function uw_setup() 
