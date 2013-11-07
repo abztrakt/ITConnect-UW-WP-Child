@@ -48,6 +48,30 @@
   <script src="<?php bloginfo("template_directory"); ?>/js/html5shiv.js" type="text/javascript"></script>
   <script src="<?php bloginfo("template_directory"); ?>/js/respond.min.js" type="text/javascript"></script>
 <![endif]-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#sort").tablesorter(); 
+        }
+     );
+</script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+<!--
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>  -->
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+   $(function() {
+     var path = "<?php bloginfo('stylesheet_directory'); ?>/keywords.txt";
+     $.get(path, function(data) {
+        var availableTags = data.split('\n');
+     
+        $( "#q" ).autocomplete({
+            source: availableTags,
+            minLength: 1
+        });
+     });
+   });
+</script>
 
 </head>
 

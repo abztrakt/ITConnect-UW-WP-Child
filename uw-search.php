@@ -9,6 +9,7 @@
         </span>
     </form>	
 
+
     <span class="search-toggle"></span>
     <div class="search-options">
       <?php if ( strpos( home_url(),'search') == false ): ?>
