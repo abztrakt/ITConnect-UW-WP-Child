@@ -7,7 +7,14 @@
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                         <div id="sidebar">
-                        <?php dynamic_sidebar('news-sidebar'); ?>
+                            
+                            <h2 class="widgettitle">
+                                <span>Resources</span>
+                            </h2>
+                            <ul>
+                                <li><a href="http://myuw.washington.edu/">MyUW</a></li>
+                                <li><a href="http://www.lib.washington.edu/">University Libraries</a></li>
+                            </ul>
                         </div>
 				    </div>
                     <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
