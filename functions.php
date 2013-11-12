@@ -140,6 +140,16 @@ if (! function_exists ( 'it_widgets_init' )):
     );
 
     register_sidebar($args2);
+  
+    $args3 = array(
+      'name' => 'HuskyBytes Sidebar',
+      'id' => 'huskybytes-sidebar',
+      'description' => 'Widgets for the left column of the HuskyBytes page on ITConnect',
+      'before_widget' => '<div id="%1$s class="widget %2$s">',
+      'after_widget' => '</div>'
+    );
+
+    register_sidebar($args3);
   }
 endif;
 
