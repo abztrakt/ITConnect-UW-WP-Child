@@ -143,6 +143,21 @@ if (! function_exists ( 'it_widgets_init' )):
   }
 endif;
 
+// Tegrity embed code
+// [tegrity url='https://tegr.it/y/XXXXX']
+if (! function_exists ( 'tegrity_func' )):
+  function tegrity_func( $atts ) {
+    extract( shortcode_atts( array(
+        'url' => '',
+    ), $atts ) );
+
+    $tegrity = "<script type='text/javascript' src='{$url}'></script>";
+
+    return $tegrity;
+  }
+  add_shortcode( 'tegrity', 'tegrity_func' );
+endif;
+
 // Trumba spuds
 // [spud webname='foo' spudtype='bar']
 if (! function_exists ( 'spud_func' )):
