@@ -19,6 +19,11 @@ if ( have_comments() ) : ?>
 		<div class="alignleft"><?php previous_comments_link() ?></div>
 		<div class="alignright"><?php next_comments_link() ?></div>
 	</div>
+
+	<?php if ( !comments_open() ): ?> <!-- if there are comments, but comments are closed -->
+	<p class="nocomments"><?php _e('Comments are closed.'); ?></p>
+	<?php endif; ?>
+
  <?php else : // this is displayed if there are no comments so far ?>
 
 	<?php if ( comments_open() ) : ?>
