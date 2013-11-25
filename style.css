@@ -725,11 +725,17 @@ a.btn-offcanvas.active {
 }
 
 #atom {
-    padding-left: 0px;
+    display: inline-block;
+    max-width: 14px;
+   /* padding-left: 0px;
     float: right;
     position: absolute;
     margin-top: -25px;
-    margin-left: 150px;
+    margin-left: 150px; 
+	
+    If atom feed implementation
+    needs to be reversed.	
+  */
 }
 
 /*** Homepage Sidebar ***/
