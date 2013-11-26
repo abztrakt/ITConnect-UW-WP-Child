@@ -53,11 +53,13 @@ function outages_options_html() {
 		<div id="icon-themes" class="icon32"></div>
 		<h2>Outages Alert Display</h2>
 		<?php
-        $settings_message = settings_errors();
-        if($settings_message = "Settings saved.") {
-            wp_cache_clear_cache();
-        } else {
-            settings_errors();
+        if ( function_exists( 'wp_cache_clear_cache' ) ) {
+            $settings_message = settings_errors();
+            if($settings_message = "Settings saved.") {
+                wp_cache_clear_cache();
+            } else {
+                settings_errors();
+            }
         }
         ?>
 
