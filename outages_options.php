@@ -57,10 +57,9 @@ function outages_options_html() {
             $settings_message = settings_errors();
             if($settings_message = "Settings saved.") {
                 wp_cache_clear_cache();
-            } else {
-                settings_errors();
             }
         }
+        settings_errors();
         ?>
 
         <p>The outages alert simply links to the outages page at this time. It should not be displayed unless there are outages in effect</p>
