@@ -902,7 +902,6 @@ ol.commentlist {
 
 #tertiary article h2:before, #tertiary article h3:before, #tertiary article h4:before {
     display: block;
-    content: "";
     height: 30px;
     margin: -30px 0 0; 
 }
