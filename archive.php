@@ -1,13 +1,13 @@
 <?php get_header(); ?>
 
 		<div id="primary">
-			<div id="content" role="main" class="it_container">
+			<div id="content" class="it_container">
 			
 						
 			<div class="row row-offcanvas row-offcanvas-left">
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
-                        <div id="sidebar">
+                        <div id="sidebar" role="navigation" aria-label="Sidebar Menu">
                         <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
 				    </div>
@@ -19,10 +19,11 @@
                     <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); single_cat_title(); ?></span></p>
 				<div id='tertiary' class="span9">
                     <?php uw_breadcrumbs(); ?>
+                    <div id="main_content" role="main">
                     <h1 class='news-title hidden-phone'><?php single_month_title(' '); single_cat_title(); ?>
 		<?php                               
-                         $current_category = single_cat_title('', false);
-                         $rsslink = home_url('category/') . $current_category . '/feed/atom';
+                         $current_category = get_query_var('cat');
+                         $rsslink = get_category_link($current_category) . 'feed/atom';
                 ?>
 		<div id="atom" >
                         <a title="Atom Feed" href="<?= $rsslink ?>">
@@ -57,6 +58,7 @@
                     <?php uw_prev_next_links(); ?>
 
 				</div>
+                </div>
  			 </div>
 			</div><!-- #content -->
 		</div><!-- #primary -->
