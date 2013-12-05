@@ -1,13 +1,13 @@
 <?php get_header(); ?>
     <div id="wrap">
         <div id="primary">
-			<div id="content" role="main" class="it_container">
+			<div id="content" class="it_container">
 
 
 			<div class="row row-offcanvas row-offcanvas-left">
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>
-                      <div class="" id="sidebar">
+                      <div class="" id="sidebar" role="navigation" aria-label="Sidebar Menu">
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
 				</div>
@@ -34,7 +34,7 @@
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 
       <?php uw_breadcrumbs(); ?>
-
+            <div id="main_content" role="main">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<h1 class="entry-title hidden-phone"><?php apply_filters('italics', get_the_title()); ?></h1>
@@ -54,7 +54,7 @@
 				</footer><!-- .entry-meta -->
 			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
             </article><!-- #post-<?php the_ID(); ?> -->
-          
+          </div>
                 
 
 			<?php endwhile; // end of the loop. ?>

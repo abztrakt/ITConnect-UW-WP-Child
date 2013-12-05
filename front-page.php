@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
     <div id="primary">
-	    <div id="content" role="main" class="it_container clearfix">
+	    <div id="content" class="it_container clearfix">
 
             <?php include('outages.php'); ?>
 			<div class="row">
@@ -43,7 +43,7 @@
                     );
                     $postslist = get_posts( $args );
                     ?>
-
+                    <div id="main_content" role="main">
         			<div id="home_spotlight" class="hidden-phone">
                         <?php
                         $counter = 0;
@@ -72,10 +72,11 @@
         			</div>
 
 				</div>
+                </div>
 
                 <div id="home_secondary" class="span3" role="complementary">
                     <div class="stripe-top"></div><div class="stripe-bottom"></div>
-                      <div class="home_sidebar" id="sidebar">
+                      <div class="home_sidebar" id="sidebar" role="navigation" aria-label="Sidebar Menu">
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
                 </div>

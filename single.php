@@ -1,13 +1,13 @@
 <?php get_header(); ?>
     <div id="wrap"> 
 		<div id="primary">
-			<div id="content" role="main" class="it_container">
+			<div id="content" class="it_container">
 			
 						
 			<div class="row row-offcanvas row-offcanvas-left">
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
-                    <div id="sidebar">
+                    <div id="sidebar" role="navigation" aria-label="Sidebar Menu">
 					    <?php dynamic_sidebar('news-sidebar'); ?>
                     </div>
                 </div>
@@ -27,6 +27,7 @@
 				<div id='tertiary' class="span9">
 					<span id="arrow-mark"></span>
 						
+                    <div id="main_content" role="main">
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                         <h5 class="date"><?php echo get_the_date(); ?></h5>
@@ -51,6 +52,7 @@
 							<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link pull-right">', '</span>' ); ?>
 						</footer><!-- .entry-meta -->
 					</article><!-- #post-<?php the_ID(); ?> -->
+                    </div>
 				
 							<?php comments_template( '', true ); ?>
 				
