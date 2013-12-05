@@ -19,6 +19,7 @@
                     <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>
 				    <div id='tertiary' class="span9">
                         <?php uw_breadcrumbs(); ?>
+                        <div id="main_content" role="main">
                         <h1 class='hidden-phone news-title'>News</h1>
 				        <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
@@ -50,6 +51,7 @@
 
 				    </div>
  			    </div>
+                </div>
 			</div><!-- #content -->
 		</div><!-- #primary -->
 
