@@ -1,13 +1,12 @@
 <?php get_header(); ?>
-
 		<div id="primary">
-			<div id="content" role="main" class="it_container">
+			<div id="content" class="it_container">
 			
 						
 			<div class="row row-offcanvas row-offcanvas-left">
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
-                        <div id="sidebar">
+                        <div id="sidebar" role="navigation" aria-label="Sidebar Menu">
                         <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
 				    </div>
@@ -20,7 +19,21 @@
 				    <div id='tertiary' class="span9">
                         <?php uw_breadcrumbs(); ?>
                         <div id="main_content" role="main">
-                        <h1 class='hidden-phone news-title'>News</h1>
+                        <h1 class='hidden-phone news-title'>News
+                        <?php
+                        $current_page = get_query_var('paged');
+                        if ($current_page == 0) {
+                            $current_category = get_query_var('cat');
+                            $rsslink = get_category_link($current_category) . '    feed/atom'; ?>
+                        <div id="atom" >
+                             <a title="Atom Feed" href="<?= $rsslink ?>">
+                                <img alt="feed-icon" src="http://mozorg.cdn.mozilla.net/media/img/trademarks/feed-icon-14x14.png">
+                             </a>
+                         </div>
+                         <?php
+                            }
+                        ?>
+                        </h1>
 				        <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
 			            <?php while ( have_posts() ) : the_post(); ?>
