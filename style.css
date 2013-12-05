@@ -2106,12 +2106,12 @@ h5.home_date {
         box-shadow: 1px 1px 1px Gray;
     }
 
-    .nav-collapse .dropdown-menu.open.twocolumn {
+    .nav-collapse .dropdown-menu.twocolumn {
         width: 482px;
         left: -80px;
     }
     
-    .nav-collapse .dropdown-menu.open.threecolumn {
+    .nav-collapse .dropdown-menu.threecolumn {
         width: 723px;
         left: -160px;
     }
