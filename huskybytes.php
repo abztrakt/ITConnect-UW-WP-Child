@@ -15,13 +15,6 @@ Template Name Posts: HuskyBytes
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                     <div id="sidebar">
 					    <?php dynamic_sidebar('huskybytes-sidebar'); ?>
-                        <h2 class="widgettitle">
-                            <span>Resources</span>
-                        </h2>
-                        <ul>
-                            <li><a href="http://myuw.washington.edu/">MyUW</a></li>
-                            <li><a href="http://www.lib.washington.edu/">University Libraries</a></li>
-                        </ul>
                     </div>
                 </div>
 
