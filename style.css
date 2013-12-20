@@ -51,6 +51,12 @@ a, a:hover {
     color: #2a71bc;
 }
 
+/*** News Sidebar ***/
+
+.cat-item-36 {
+    display: none;
+}
+
 /*** Heading *********/
 
 .four-oh-four h3 {
