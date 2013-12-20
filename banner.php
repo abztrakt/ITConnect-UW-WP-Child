@@ -4,8 +4,9 @@
 </div>
 
 <div id="header" class="it_container">
-		<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to primary content', 'twentyeleven' ); ?></a></div>
-		<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to sidebar content', 'twentyeleven' ); ?>"><?php _e( 'Skip to sidebar content', 'twentyeleven' ); ?></a></div>
+		<div class="skip-link"><a class="assistive-text" href="#main_content" title="<?php esc_attr_e( 'Skip to primary content', 'twentyeleven' ); ?>"><?php _e( 'Skip to primary content', 'twentyeleven' ); ?></a></div>
+
+		<div class="skip-link"><a class="assistive-text" href="#sidebar" title="<?php esc_attr_e( 'Skip to sidebar content', 'twentyeleven' ); ?>"><?php _e( 'Skip to sidebar content', 'twentyeleven' ); ?></a></div>
 
 		<a class="patch hidden-phone" href="http://www.uw.edu" title="University of Washington"></a>
 		<a class="wordmark hidden-phone" <?php custom_wordmark(); ?> href="<?php echo site_url(); ?>">IT Connect</a>

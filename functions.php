@@ -52,7 +52,7 @@ if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
       /*wp_register_style( 'bootstrap-responsive', get_bloginfo('template_directory') . '/css/bootstrap-responsive.css', array('bootstrap'), '2.0.3' );*/
       wp_register_style( 'bootstrap-offcanvas',get_bloginfo('stylesheet_directory') . '/css/bootstrap-offcanvas.css', array(), '1.0.0' );
 
-      wp_register_style( 'google-font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300' );
+      wp_register_style( 'google-font-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300' );
       wp_register_style( 'itconnect-master', get_bloginfo('stylesheet_directory') . '/style.css', array(), '1.0' );
       wp_enqueue_style( 'bootstrap' );
       wp_enqueue_style( 'bootstrap-offcanvas' );
@@ -73,7 +73,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
   function uw_enqueue_default_scripts() {
     wp_deregister_script('jquery'); //we use googles CDN below
     wp_deregister_script('header'); //we use our own below
-    wp_register_script( 'jquery','https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array(), '1.7.2' );
+    wp_register_script( 'jquery','//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array(), '1.7.2' );
     wp_register_script( 'header', get_bloginfo('stylesheet_directory') . '/js/header.js', array('jquery'), '1.3' );
     wp_register_script( 'jquery.firenze', get_bloginfo('template_directory') . '/js/jquery.firenze.js', array('jquery'), '1.0.1' );
     wp_register_script( 'jquery.weather', get_bloginfo('template_directory') . '/js/jquery.weather.js', array('jquery'), '1.1' );
@@ -151,6 +151,21 @@ if (! function_exists ( 'it_widgets_init' )):
 
     register_sidebar($args3);
   }
+endif;
+
+// Tegrity embed code
+// [tegrity url='https://tegr.it/y/XXXXX']
+if (! function_exists ( 'tegrity_func' )):
+  function tegrity_func( $atts ) {
+    extract( shortcode_atts( array(
+        'url' => '',
+    ), $atts ) );
+
+    $tegrity = "<script type='text/javascript' src='{$url}'></script>";
+
+    return $tegrity;
+  }
+  add_shortcode( 'tegrity', 'tegrity_func' );
 endif;
 
 // Trumba spuds
