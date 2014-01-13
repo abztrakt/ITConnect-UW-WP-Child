@@ -9,7 +9,7 @@
         executing_rotation = false;
 
 
-	$(document).ready(function() {
+	$(document).ready(function() { 
         navbar_width = $('.navbar').width(),
         mobile = checkMobile();
 		if (mobile) { //mobile mode
@@ -34,11 +34,11 @@
     }); 
 
 	$(w).resize(function(){ //Update dimensions on resize
-        var width_resize = (sw != $(window).width());
-        var height_resize = (sh != $(window).height());
-        if (width_resize || height_resize){
-            sw = $(window).width();
-            sh = $(window).height();
+       var width_resize = (sw != $(window).width());
+       var height_resize = (sh != $(window).height());
+       if (width_resize || height_resize){
+           sw = $(window).width();
+           sh = $(window).height();
             clearTertiaryStyles();
             mobile = checkMobile();
             if (mobile) { //mobile mode
@@ -144,7 +144,14 @@
 
 	//Check if Mobile
 	function checkMobile() {
-		return (sw >= breakpoint) ? false : true;
+    //Fix for differences in media query and javascript widths in browsers
+    //Checks for IE8 lower that does not support matchMedia
+      if ($.support.leadingWhitespace && window.matchMedia) {
+        mq = window.matchMedia("(min-width: 768px)");
+        return !mq.matches;
+      } else {
+        return (sw >= breakpoint) ? false : true;
+      }
 	}
 
     function resetOffcanvasScroll() {
