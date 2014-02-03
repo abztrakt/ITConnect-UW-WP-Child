@@ -864,6 +864,10 @@ h5.date {
     margin: 10px 0 0;
 }
 
+#post-395 #last-modified-date {
+    display: none;
+}
+
 #tertiary {
     padding: 48px 0px 0px 10px;
     background: white;
