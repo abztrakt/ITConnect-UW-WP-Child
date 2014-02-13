@@ -106,7 +106,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
     wp_enqueue_script( 'trumba' );
 
 
-    if( is_404() ) {
+    if( is_404() || $_REQUEST['status'] == 401) {
 
       wp_enqueue_script( 'jquery.imagesloaded' );
       wp_enqueue_script( 'jquery.parallax' );
@@ -238,5 +238,30 @@ add_action('init', 'drop_bad_comments');
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
+
+function custom_error_pages() {
+    global $wp_query;
+    if (isset($_REQUEST['status']) && $_REQUEST['status'] == 401) {
+        $wp_query->is_404 = FALSE;
+        $wp_query->is_page = TRUE;
+        $wp_query->is_singular = TRUE;
+        $wp_query->is_single = FALSE;
+        $wp_query->is_home = FALSE;
+        $wp_query->is_archive = FALSE;
+        $wp_query->is_category = FALSE;
+        add_filter('wp_title', 'custom_error_titles', 65000, 2);
+        status_header(401);
+        get_template_part('401');
+        exit;
+    }
+}
+
+function custom_error_titles() {
+    if (isset($_REQUEST['status']) && $_REQUEST['status'] == 401) {
+        return "Unauthorized User.";
+    }
+}
+
+add_action('wp', 'custom_error_pages');
 
 ?>
