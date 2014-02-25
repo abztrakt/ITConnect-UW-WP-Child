@@ -40,8 +40,18 @@
                     <?php while ( have_posts() ) : the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <div class="media">
-                            <h5 class="home_date"><?php echo get_the_date(); ?></h5>
-                            <h3><a href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h3>
+                            <h5 class="home_date"><?php echo get_the_date(); ?>
+                            <?php if( has_category('huskybytes')) { ?>
+                           <a href="<?php
+                                $category = get_category_by_slug('huskybytes');
+                                $the_id = $category -> cat_ID;
+                                echo get_category_link($the_id);
+                            ?>"> <span class="huskybytes">HuskyBytes</span></a>
+                            <?php } ?>
+ 
+                            </h5>
+                            <h3><a href='<?php the_permalink(); ?>'><?php the_title(); ?></a>
+                            </h3>
                             <?php if ( has_post_thumbnail() ) : ?>
                             <span class="pull-left" href="#">
                                 <?php the_post_thumbnail(); ?>

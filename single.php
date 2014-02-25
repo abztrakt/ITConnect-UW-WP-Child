@@ -30,7 +30,15 @@
                     <div id="main_content" role="main">
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                        <h5 class="date"><?php echo get_the_date(); ?></h5>
+                        <h5 class="date"><?php echo get_the_date(); ?>
+                              <?php if( has_category('huskybytes')) { ?>
+                           <a href="<?php
+                                $category = get_category_by_slug('huskybytes');
+                                $the_id = $category -> cat_ID;
+                                echo get_category_link($the_id);
+                            ?>"> <span class="huskybytes">HuskyBytes</span></a>
+                            <?php } ?>
+                        </h5>
 
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_title(); ?></h1>
