@@ -140,6 +140,16 @@ if (! function_exists ( 'it_widgets_init' )):
     );
 
     register_sidebar($args2);
+  
+    $args3 = array(
+      'name' => 'HuskyBytes Sidebar',
+      'id' => 'huskybytes-sidebar',
+      'description' => 'Widgets for the left column of the HuskyBytes page on ITConnect',
+      'before_widget' => '<div id="%1$s class="widget %2$s">',
+      'after_widget' => '</div>'
+    );
+
+    register_sidebar($args3);
   }
 endif;
 
@@ -235,6 +245,41 @@ function drop_bad_comments() {
     }
 }
 add_action('init', 'drop_bad_comments');
+
+if ( ! function_exists( 'custom_prev_next_links') ) : 
+  function custom_prev_next_links( $nav_id='prev-next' ) { 
+    global $query;
+
+    if ( $query->max_num_pages > 1 ) : 
+
+        $big = 999999999; // need an unlikely integer
+        $current = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $links = paginate_links( array(
+          'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+          'format' => '?paged=%#%',
+          'type' => 'array',
+          'current' => max( 1, get_query_var('paged') ),
+          'total' => $query->max_num_pages
+        ) );  
+
+      echo '<div class="pagination pagination-centered"><ul>';
+
+      foreach ($links as $index=>$link) :
+
+        $link = str_replace('span', 'a', $link);
+        if ( strip_tags($link) == $current ) 
+          echo "<li class=\"disabled\"><a href='javascript:void(0);'>$current</a></li>";
+        else
+          echo "<li>$link</li>";
+
+      endforeach;
+
+      echo '</ul></div>';
+
+   endif;
+  }
+endif;
+
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );

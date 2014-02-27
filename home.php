@@ -9,6 +9,7 @@
                         <div id="sidebar" role="navigation" aria-label="Sidebar Menu">
                         <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
+
 				    </div>
                     <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
                         <span id='overlay'></span>
@@ -36,7 +37,23 @@
                         </h1>
 				        <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
-			            <?php while ( have_posts() ) : the_post(); ?>
+                        <?php 
+                        $categories = get_categories('exclude=36'); 
+                        $cat_ids = array();
+                        foreach ($categories as $category) {
+                            $cat_ids[] = $category->cat_ID;
+                        }
+                        
+                        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                        $args = array(
+                            'posts_per_page' => 10,
+                            'paged' => $paged,
+                            'category__in' => $cat_ids
+                        );
+                        $query = new WP_Query ( $args );
+
+                        while ( $query->have_posts() ) : $query->the_post(); ?>
+                       
 			            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     			            <div class="media">
                                 <h5 class="home_date"><?php echo get_the_date(); ?></h5>
@@ -55,12 +72,14 @@
 					        <?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				            </footer><!-- .entry-meta -->
 			            </article><!-- #post-<?php the_ID(); ?> -->
-
+                        
 					    <?php comments_template( '', true ); ?>
 
 			            <?php endwhile; // end of the loop. ?>
 
-                        <?php uw_prev_next_links(); ?>
+                        <?php custom_prev_next_links(); ?>
+
+                        <?php wp_reset_postdata(); ?>
 
 				    </div>
  			    </div>

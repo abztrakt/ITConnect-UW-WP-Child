@@ -56,6 +56,12 @@ a, a:hover {
     color: #2a71bc;
 }
 
+/*** News Sidebar ***/
+
+.cat-item-36 {
+    display: none;
+}
+
 /*** Heading *********/
 
 .four-oh-four h3 {
@@ -258,7 +264,6 @@ img.gcsc-branding-img-noclear {
     margin: 10px auto 10px auto;
     display: block;
 }
-
 
 /**** SMALL SCREENS **********************************/
 /*****************************************************/
@@ -896,6 +901,16 @@ ol.commentlist {
 
 .comment-author.vcard {
     height: 32px;
+}
+
+.huskybytes {
+    color: white;
+    background-color: #3b185a;
+    font-size: 9px;
+    margin-left: 1em;
+    font-weight: bold;
+    padding: 0 0.6em 0 0.6em;
+    border-radius: 2px;
 }
 
 /* ITC Specific Styles */
