@@ -36,7 +36,8 @@
 
         			<?php endwhile; // end of the loop.
 
-                    $categories = get_categories('exclude=36');
+                    $cat_id = get_cat_ID('HuskyBytes');
+                    $categories = get_categories('exclude=' . $cat_id);
                     $cat_ids = array();
                     foreach($categories as $category) {
                         $cat_ids[] = $category->cat_ID;
