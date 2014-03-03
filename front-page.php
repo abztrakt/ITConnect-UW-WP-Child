@@ -36,12 +36,22 @@
 
         			<?php endwhile; // end of the loop.
 
+                    $categories = get_categories('exclude=36');
+                    $cat_ids = array();
+                    foreach($categories as $category) {
+                        $cat_ids[] = $category->cat_ID;
+                    }
+
                     $args = array(
                         'numberposts' => 12,
                         'order' => 'DESC',
                         'orderby' => 'post_date',
+                        'category__in' => $cat_ids
                     );
-                    $postslist = get_posts( $args );
+
+                    $query = new WP_Query( $args );
+                    $postslist = $query->posts;
+
                     ?>
                     <div id="main_content" role="main">
         			<div id="home_spotlight" class="hidden-phone">
