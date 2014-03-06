@@ -523,6 +523,10 @@ body { background: #f5f7f6; }
     font-size: .85em;
 }
 
+#menu-item-1196 > a {
+    background: none;
+}
+
 .navbar .nav li a:hover {
     color: #fff;
 }
