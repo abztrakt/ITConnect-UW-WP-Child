@@ -2369,6 +2369,17 @@ h5.home_date {
         margin-top: 10px;
     }
 
+    /*** Catalyst Web Tools Page ***/
+
+    #catalyst {
+        width: inherit;
+    }
+
+    #catalyst .span3 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
     /*** IE styles ***/ 
 
     #ie7 .visible-phone {
