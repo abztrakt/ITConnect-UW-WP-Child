@@ -1,14 +1,20 @@
+<?php
+/*
+Template Name Posts: HuskyBytes
+*/
+?>
+
 <?php get_header(); ?>
     <div id="wrap"> 
 		<div id="primary">
-			<div id="content" class="it_container">
+			<div id="content" role="main" class="it_container">
 			
 						
 			<div class="row row-offcanvas row-offcanvas-left">
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
-                    <div id="sidebar" role="navigation" aria-label="Sidebar Menu">
-					    <?php dynamic_sidebar('news-sidebar'); ?>
+                    <div id="sidebar">
+					    <?php dynamic_sidebar('huskybytes-sidebar'); ?>
                     </div>
                 </div>
 
@@ -27,19 +33,18 @@
 				<div id='tertiary' class="span9">
 					<span id="arrow-mark"></span>
 						
-                    <div id="main_content" role="main">
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                         <h5 class="date"><?php echo get_the_date(); ?>
-                              <?php if( has_category('huskybytes')) { ?>
+                        <?php if( has_category('huskybytes')) { ?>
                            <a href="<?php
                                 $category = get_category_by_slug('huskybytes');
                                 $the_id = $category -> cat_ID;
                                 echo get_category_link($the_id);
                             ?>"> <span class="huskybytes">HuskyBytes</span></a>
                             <?php } ?>
+  
                         </h5>
-
 						<header class="entry-header">
 							<h1 class="entry-title"><?php the_title(); ?></h1>
                         </header><!-- .entry-header -->
@@ -56,11 +61,7 @@
                         </div>
 							<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 						<footer class="entry-meta">
-              <?php the_tags('This article was posted under: ', ', ', '<br />'); ?> 
-							<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link pull-right">', '</span>' ); ?>
-						</footer><!-- .entry-meta -->
 					</article><!-- #post-<?php the_ID(); ?> -->
-                    </div>
 				
 							<?php comments_template( '', true ); ?>
 				
