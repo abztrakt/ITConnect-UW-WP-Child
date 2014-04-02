@@ -24,8 +24,10 @@
 		<?php
                      $current_page = get_query_var('paged');
                      if ($current_page == 0) {
-                         $current_category = get_query_var('cat');
-                         $rsslink = get_category_link($current_category) . 'feed/atom';
+                        $current_category = get_query_var('cat');
+                        $huskyCat = get_category_by_slug('huskybytes');
+                        $huskyCatID = $huskyCat->term_id;
+                        $rsslink = get_category_link($current_category) . 'feed/atom' . '?cat=-' . $huskyCatID;
                 ?>
 		<div id="atom" >
                         <a title="Atom Feed" href="<?= $rsslink ?>">
