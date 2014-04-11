@@ -18,7 +18,17 @@
                     <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); ?></span></p>
 				<div id='tertiary' class="span9">
                     <?php uw_breadcrumbs(); ?>
-                    <h1 class='news-title hidden-phone'>HuskyBytes News</h1>
+                    <h1 class='news-title hidden-phone'>HuskyBytes News
+                    <?php 
+                        $huskyCatID = get_cat_ID('HuskyBytes');
+                        $rsslink = get_category_link($huskyCatID) . 'feed/atom';
+                    ?>
+                    <div id="atom">
+                        <a title="Atom Feed" href="<?= $rsslink ?>">
+                            <img alt="feed-icon" src="http://mozorg.cdn.mozilla.net/media/img/trademarks/feed-icon-14x14.png" />
+                        </a>
+                    </div>
+                    </h1>
                     <h1 class='news-title hidden-phone'><?php single_month_title(' '); ?></h1>
 				    <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
