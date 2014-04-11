@@ -22,10 +22,21 @@
                         <div id="main_content" role="main">
                         <h1 class='hidden-phone news-title'>News
                         <?php
-                        $current_page = get_query_var('paged');
-                        if ($current_page == 0) {
-                            $current_category = get_query_var('cat');
-                            $rsslink = get_category_link($current_category) . '    feed/atom'; ?>
+                            $cat_id = get_cat_ID('HuskyBytes');
+                            $categories = get_categories('exclude=' . $cat_id);
+                            $cat_ids = array();
+                            $allcatsxhus = $categories[1]->cat_ID;
+                            foreach ($categories as $category) {
+                                $cat_ids[] = $category->cat_ID;
+                                if ($category != $categories[1]) {
+                                    $allcatsxhus = $allcatsxhus . ',' . $category->cat_ID;
+                                }
+                            }
+                            $current_page = get_query_var('paged');
+                            if ($current_page == 0) {
+                                $current_category = get_query_var('cat');
+                                $rsslink = get_category_link($current_category) . 'feed/atom?cat=' . $allcatsxhus;
+                        ?>
                         <div id="atom" >
                              <a title="Atom Feed" href="<?= $rsslink ?>">
                                 <img alt="feed-icon" src="http://mozorg.cdn.mozilla.net/media/img/trademarks/feed-icon-14x14.png">
@@ -37,14 +48,7 @@
                         </h1>
 				        <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
-                        <?php 
-                        $cat_id = get_cat_ID('HuskyBytes');
-                        $categories = get_categories('exclude=' . $cat_id);
-                        $cat_ids = array();
-                        foreach ($categories as $category) {
-                            $cat_ids[] = $category->cat_ID;
-                        }
-                        
+                        <?php
                         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
                         $args = array(
                             'posts_per_page' => 10,
