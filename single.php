@@ -31,7 +31,8 @@
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                         <h5 class="date"><?php echo get_the_date(); ?>
-                              <?php if( has_category('huskybytes')) { ?>
+                              <?php 
+                              if( has_category('huskybytes') && count($categories) < 2) { ?>
                            <a href="<?php
                                 $category = get_category_by_slug('huskybytes');
                                 $the_id = $category -> cat_ID;
