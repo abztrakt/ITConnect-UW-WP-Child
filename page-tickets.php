@@ -50,6 +50,40 @@
                     <?php endif;?>
 				</div><!-- .entry-content -->
                 <p><?php echo $_SERVER['REMOTE_USER']; ?></p>
+                <?php
+                    //$response = wp_remote_get( 'https://uweval.service-now.com/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=charlon' );
+                    $response = wp_remote_get( 'http://kitkat.cac.washington.edu/sn/ajalfred_req.json' );
+                    $body = wp_remote_retrieve_body( $response );
+                    $JSON = json_decode( $body );
+                ?>
+
+                <ul>
+                <?php
+                foreach ( $JSON->records as $record ) {
+                    echo "<li>$record->number</li>";
+                }
+                ?>
+                </ul>
+
+                <?php
+                /*
+                    echo "DEBUG:</br>";
+                    echo "response type: ";
+                    echo gettype( $response );
+                    echo "<hr />";
+                    echo "<br />body type: ";
+                    echo gettype( $body );
+                    echo "<br />body: ";
+                    echo $body;
+                    echo "<hr />";
+                    echo "<br />decoded JSON type: ";
+                    echo gettype( $JSON );
+                    echo "<br />decoded JSON: ";
+                    print_r( $JSON );
+                    echo "END DEBUG<br/>";
+
+                */
+                ?></p>
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
