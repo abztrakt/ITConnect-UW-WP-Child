@@ -61,6 +61,8 @@
                 <?php
                 foreach ( $JSON->records as $record ) {
                     echo "<li>$record->number</li>";
+                    echo "<li>$record->description</li>";
+                    echo "<li>$record->__status</li>";
                 }
                 ?>
                 </ul>
