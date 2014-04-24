@@ -51,62 +51,48 @@
 				</div><!-- .entry-content -->
                 <p><?php echo $_SERVER['REMOTE_USER']; ?></p>
                 <?php
+                    // Only do this work if we have everything we need to get to ServiceNow.
+                    if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
                     //$response = wp_remote_get( 'https://uweval.service-now.com/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=charlon' );
                     $response = wp_remote_get( 'http://kitkat.cac.washington.edu/sn/ajalfred_req.json' );
                     $body = wp_remote_retrieve_body( $response );
                     $JSON = json_decode( $body );
                 ?>
 
-                <table>
-                    <tr>
-                        <td>Number</td>
-                        <td>Description</td>
-                        <td>Status</td>
-                    </tr>
-                <?php
-                foreach ( $JSON->records as $record ) {
-                ?>
-                    <tr>
-                        <td>
-                            <?php
-                            echo "$record->number";
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo "$record->description";
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                            echo "$record->__status";
-                            ?>
-                        </td>
-                    </tr>
-                <?php
-                }
-                ?>
-                </table>
-                <?php
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td>Description</td>
+                            <td>Status</td>
+                        </tr>
+                    <?php
+                    foreach ( $JSON->records as $record ) {
+                    ?>
+                        <tr>
+                            <td>
+                                <?php
+                                echo "$record->number";
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo "$record->description";
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo "$record->__status";
+                                ?>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                    </table>
+                <?php } else {?>
+                    <p>Whoops! Something went wrong, if this persists, please contact the Administrator.</p>
+                <?php } ?>
 
-                /*
-                    echo "DEBUG:</br>";
-                    echo "response type: ";
-                    echo gettype( $response );
-                    echo "<hr />";
-                    echo "<br />body type: ";
-                    echo gettype( $body );
-                    echo "<br />body: ";
-                    echo $body;
-                    echo "<hr />";
-                    echo "<br />decoded JSON type: ";
-                    echo gettype( $JSON );
-                    echo "<br />decoded JSON: ";
-                    print_r( $JSON );
-                    echo "END DEBUG<br/>";
-
-                */
-                ?></p>
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
