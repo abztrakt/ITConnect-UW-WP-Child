@@ -244,7 +244,8 @@ jQuery(window).load(function() {
           $mini.slideDown()
       }
     });
-  
+
+
 /*
  * Dropdowns
  */
