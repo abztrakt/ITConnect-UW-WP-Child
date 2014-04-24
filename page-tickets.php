@@ -53,10 +53,17 @@
                 <?php
                     // Only do this work if we have everything we need to get to ServiceNow.
                     if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
-                    //$response = wp_remote_get( 'https://uweval.service-now.com/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=charlon' );
-                    $response = wp_remote_get( 'http://kitkat.cac.washington.edu/sn/ajalfred_req.json' );
-                    $body = wp_remote_retrieve_body( $response );
-                    $JSON = json_decode( $body );
+                        $args = array(
+                            'headers' => array(
+                                'Authorization' => 'Basic ' . base64_encode( SN_USER . ':' . SN_PASS ),
+                            )
+                        );
+                        //TODO: is there a better API call we can make for all user tickets?
+                        $url = SN_URL . '/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
+                        $response = wp_remote_get( $url, $args );
+                        //$response = wp_remote_get( 'https://uweval.service-now.com/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=joby', $args );
+                        $body = wp_remote_retrieve_body( $response );
+                        $JSON = json_decode( $body );
                 ?>
 
                     <table>
