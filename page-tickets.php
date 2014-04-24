@@ -57,17 +57,38 @@
                     $JSON = json_decode( $body );
                 ?>
 
-                <ul>
+                <table>
+                    <tr>
+                        <td>Number</td>
+                        <td>Description</td>
+                        <td>Status</td>
+                    </tr>
                 <?php
                 foreach ( $JSON->records as $record ) {
-                    echo "<li>$record->number</li>";
-                    echo "<li>$record->description</li>";
-                    echo "<li>$record->__status</li>";
+                ?>
+                    <tr>
+                        <td>
+                            <?php
+                            echo "$record->number";
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            echo "$record->description";
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            echo "$record->__status";
+                            ?>
+                        </td>
+                    </tr>
+                <?php
                 }
                 ?>
-                </ul>
-
+                </table>
                 <?php
+
                 /*
                     echo "DEBUG:</br>";
                     echo "response type: ";
