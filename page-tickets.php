@@ -58,10 +58,49 @@
                                 'Authorization' => 'Basic ' . base64_encode( SN_USER . ':' . SN_PASS ),
                             )
                         );
-                        //TODO: is there a better API call we can make for all user tickets?
+                // Requests
+                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&sysparm_query=state!=14^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
+                        $response = wp_remote_get( $url, $args );
+                        $body = wp_remote_retrieve_body( $response );
+                        $JSON = json_decode( $body );
+                ?>
+                    <h2>Requests</h2>
+                    <table>
+                        <tr>
+                            <td>Number</td>
+                            <td>Description</td>
+                            <td>Status</td>
+                        </tr>
+                    <?php
+                    foreach ( $JSON->records as $record ) {
+                    ?>
+                        <tr>
+                            <td>
+                                <?php
+                                echo "$record->number";
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo "$record->description";
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo "$record->__status";
+                                ?>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                    </table>
+
+                <?php
+
+                // Incidents
                         $url = SN_URL . '/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
-                        //$response = wp_remote_get( 'https://uweval.service-now.com/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=joby', $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
