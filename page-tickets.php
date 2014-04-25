@@ -65,7 +65,7 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
-
+                    <h2>Incidents</h2>
                     <table>
                         <tr>
                             <td>Number</td>
