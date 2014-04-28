@@ -34,7 +34,7 @@
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 
       <?php uw_breadcrumbs(); ?>
-            <div id="main_content" role="main">
+            <div id="main_content" role="main" style="position:relative;">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<h1 class="entry-title hidden-phone"><?php apply_filters('italics', get_the_title()); ?></h1>
@@ -49,7 +49,7 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-                <p><?php echo $_SERVER['REMOTE_USER']; ?></p>
+                <div style="position:absolute; top:10px; right:15px; color:red;"><?php echo $_SERVER['REMOTE_USER']; ?></div>
                 <?php
                     // Only do this work if we have everything we need to get to ServiceNow.
                     if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
@@ -65,12 +65,15 @@
                         $JSON = json_decode( $body );
                 ?>
                     <h2>Requests</h2>
-                    <table>
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <td>Number</td>
-                            <td>Description</td>
-                            <td>Status</td>
+                            <th>Number</th>
+                            <th>Description</th>
+                            <th>Status</th>
                         </tr>
+                        </thead>
+                        <tbody>
                     <?php
                     foreach ( $JSON->records as $record ) {
                     ?>
@@ -94,6 +97,7 @@
                     <?php
                     }
                     ?>
+                        </tbody>
                     </table>
 
                 <?php
@@ -105,12 +109,15 @@
                         $JSON = json_decode( $body );
                 ?>
                     <h2>Incidents</h2>
-                    <table>
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <td>Number</td>
-                            <td>Description</td>
-                            <td>Status</td>
+                            <th>Number</th>
+                            <th>Description</th>
+                            <th>Status</th>
                         </tr>
+                        </thead>
+                        <tbody>
                     <?php
                     foreach ( $JSON->records as $record ) {
                     ?>
@@ -134,6 +141,7 @@
                     <?php
                     }
                     ?>
+                        </tbody>
                     </table>
                 <?php } else {?>
                     <p>Whoops! Something went wrong, if this persists, please contact the Administrator.</p>
