@@ -64,13 +64,13 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
-                    <h2>Requests</h2>
+                    <h2>My Requested Items</h2>
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Number</th>
+                            <th style="width:150px;">Number</th>
                             <th>Description</th>
-                            <th>Status</th>
+                            <th style="width:100px;">Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -85,12 +85,12 @@
                             </td>
                             <td>
                                 <?php
-                                echo "$record->description";
+                                echo "$record->short_description";
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                echo "$record->__status";
+                                echo "$record->state";
                                 ?>
                             </td>
                         </tr>
@@ -108,13 +108,13 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
-                    <h2>Incidents</h2>
+                    <h2>My Open Incidents</h2>
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>Number</th>
+                            <th style="width:150px;">Number</th>
                             <th>Description</th>
-                            <th>Status</th>
+                            <th style="width:100px;">Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -129,12 +129,12 @@
                             </td>
                             <td>
                                 <?php
-                                echo "$record->description";
+                                echo "$record->short_description";
                                 ?>
                             </td>
                             <td>
                                 <?php
-                                echo "$record->__status";
+                                echo "$record->state";
                                 ?>
                             </td>
                         </tr>
