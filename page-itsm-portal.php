@@ -68,6 +68,17 @@
                 <h2>Service Status</h2>
                 <p>Fancy key of icons goes here</p>
                 <h3>Service</h3>
+                    <?php
+                        $incidents = array();
+                        foreach( $JSON->records as $record ) {
+                            if( isset( $incidents[$record->cmdb_ci] ) ) {
+                                $incidents[$record->cmdb_ci] = array();
+                            }
+                            $incidents[$record->cmdb_ci] = $record;
+                        }
+                        var_dump($incidents);
+                    ?>
+                <h3>All (placeholder while Craig reworks the logic)</h3>
                     <ul>
                 <?php
                     
