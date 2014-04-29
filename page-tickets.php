@@ -64,7 +64,7 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
-                    <h2>My Requested Items</h2>
+                    <h2>My Requests</h2>
                     <table class="table">
                         <thead>
                         <tr>
@@ -90,7 +90,7 @@
                             </td>
                             <td>
                                 <?php
-                                echo "$record->state";
+                                echo "<span class='label label-success'>$record->state</span>";
                                 ?>
                             </td>
                         </tr>
@@ -108,7 +108,7 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
-                    <h2>My Open Incidents</h2>
+                    <h2>My Incidents</h2>
                     <table class="table">
                         <thead>
                         <tr>
@@ -134,7 +134,7 @@
                             </td>
                             <td>
                                 <?php
-                                echo "$record->state";
+                                echo "<span class='label label-success'>$record->state</span>";
                                 ?>
                             </td>
                         </tr>
