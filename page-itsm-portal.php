@@ -59,7 +59,8 @@
                             )
                         );
                 // Medium and High Impacted Incidents
-                        $url = SN_URL . '/incident_list.do?JSONv2&sysparm_query=impact%3D2%5EORimpact%3D1&displayvalue=true';
+                        $url = SN_URL . '/incident_list.do?JSONv2&sysparm_query=impact%3D2%5EORimpact%3D1%5EORDERBYcmdb_ci&displayvalue=true';
+                        
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
