@@ -34,7 +34,7 @@
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 
       <?php uw_breadcrumbs(); ?>
-            <div id="main_content" role="main" style="position:relative;">
+            <div id="main_content" role="main">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<h1 class="entry-title hidden-phone"><?php apply_filters('italics', get_the_title()); ?></h1>
@@ -49,7 +49,7 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-                <div style="position:absolute; top:10px; right:15px; color:red;"><?php echo $_SERVER['REMOTE_USER']; ?></div>
+                <div style="color:red; text-align:right;">Welcome to the gateway... <?php echo $_SERVER['REMOTE_USER']; ?>&nbsp;<span class="glyphicon glyphicon-user"></span></div>
                 <?php
                     // Only do this work if we have everything we need to get to ServiceNow.
                     if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
@@ -64,13 +64,14 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
-                    <h2>My Requests</h2>
+                    <h2 style="margin-top:0;">My Requests</h2>
                     <table class="table">
                         <thead>
                         <tr>
-                            <th style="width:150px;">Number</th>
+                            <th style="width:80px;">Number</th>
+                            <th style="width:160px;">Service</th>
                             <th>Description</th>
-                            <th style="width:100px;">Status</th>
+                            <th style="width:80px;">Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -80,7 +81,12 @@
                         <tr>
                             <td>
                                 <?php
-                                echo "$record->number";
+                                echo "<a href='asdklf'>$record->number</a>";
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                echo "$record->cmdb_ci";
                                 ?>
                             </td>
                             <td>
@@ -90,7 +96,13 @@
                             </td>
                             <td>
                                 <?php
-                                echo "<span class='label label-success'>$record->state</span>";
+                                    if ( $record->state == "Closed") {
+                                        echo "<span class='label label-default'>$record->state</span>";
+                                    }
+                                    else {
+                                        echo "<span class='label label-success'>$record->state</span>";
+                                    }
+                                
                                 ?>
                             </td>
                         </tr>
@@ -112,9 +124,10 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th style="width:150px;">Number</th>
+                            <th style="width:80px;">Number</th>
+                            <th style="width:160px;">Service</th>
                             <th>Description</th>
-                            <th style="width:100px;">Status</th>
+                            <th style="width:80px;">Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -124,9 +137,15 @@
                         <tr>
                             <td>
                                 <?php
-                                echo "$record->number";
+                                echo "<a href='asdklf'>$record->number</a>";
                                 ?>
                             </td>
+                            <td>
+                                <?php
+                                echo "$record->cmdb_ci";
+                                ?>
+                            </td>
+
                             <td>
                                 <?php
                                 echo "$record->short_description";
@@ -134,7 +153,13 @@
                             </td>
                             <td>
                                 <?php
-                                echo "<span class='label label-success'>$record->state</span>";
+                                    if ( $record->state == "Resolved") {
+                                        echo "<span class='label label-default'>$record->state</span>";
+                                    }
+                                    else {
+                                        echo "<span class='label label-success'>$record->state</span>";
+                                    }
+                                
                                 ?>
                             </td>
                         </tr>
