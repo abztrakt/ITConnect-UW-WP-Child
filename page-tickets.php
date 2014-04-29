@@ -59,7 +59,7 @@
                             )
                         );
                 // Requests
-                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&sysparm_query=state!=14^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
+                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
@@ -103,7 +103,7 @@
                 <?php
 
                 // Incidents
-                        $url = SN_URL . '/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
+                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );

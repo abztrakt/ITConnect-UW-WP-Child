@@ -70,6 +70,9 @@
                 <h3>Service</h3>
                     <ul>
                 <?php
+                    
+                    // we will want to group all incidents by the "cmdb_ci" 
+                
                     foreach( $JSON->records as $record ) {
                         echo "<li><strong>$record->cmdb_ci</strong><br/>
                         <span style='color:#aaa;'>$record->number - $record->short_description</span> <span class='label label-danger'>$record->impact</span></li>";
