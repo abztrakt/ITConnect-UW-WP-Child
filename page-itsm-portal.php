@@ -70,7 +70,8 @@
                     <ul>
                 <?php
                     foreach( $JSON->records as $record ) {
-                        echo "<li>$record->cmdb_ci</li>";
+                        echo "<li><strong>$record->cmdb_ci</strong><br/>
+                        <span style='color:#aaa;'>$record->number - $record->short_description</span> <span class='label label-danger'>$record->impact</span></li>";
                     }
                 }?>
                     </ul>
