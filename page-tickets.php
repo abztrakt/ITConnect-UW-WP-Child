@@ -65,7 +65,8 @@
                         $JSON = json_decode( $body );
                 ?>
                     <h2 style="margin-top:0;">My Requests</h2>
-                    <table class="table">
+                    
+                    <table class="table" style="font-size:.95em;">
                         <thead>
                         <tr>
                             <th style="width:80px;">Number</th>
@@ -121,7 +122,8 @@
                         $JSON = json_decode( $body );
                 ?>
                     <h2>My Incidents</h2>
-                    <table class="table">
+                    
+                    <table class="table" style="font-size:.95em;">
                         <thead>
                         <tr>
                             <th style="width:80px;">Number</th>
