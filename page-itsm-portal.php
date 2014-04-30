@@ -69,15 +69,27 @@
                 <p>Fancy key of icons goes here</p>
                 <h3>Service</h3>
                     <?php
-                        $incidents = array();
+                        $sn_data = array();
                         foreach( $JSON->records as $record ) {
-                            if( isset( $incidents[$record->cmdb_ci] ) ) {
-                                $incidents[$record->cmdb_ci] = array();
+                            if( !isset( $sn_data[$record->cmdb_ci] ) ) {
+                                $sn_data[$record->cmdb_ci] = array();
                             }
-                            $incidents[$record->cmdb_ci] = $record;
+                            $sn_data[$record->cmdb_ci][] = $record;
                         }
-                        var_dump($incidents);
                     ?>
+
+                    <?php
+                        foreach( $sn_data as $ci) {
+                            echo "<hr />";
+                            $service = array_search($ci, $sn_data);
+                            echo "<h4>$service</h4>";
+                        }
+                        echo "DEBUG: ";
+                        echo "<pre>";
+                        var_dump($sn_data);
+                        echo "</pre>";
+                    ?>
+
                 <h3>All (placeholder while Craig reworks the logic)</h3>
                     <ul>
                 <?php
