@@ -83,6 +83,11 @@
                             echo "<hr />";
                             $service = array_search($ci, $sn_data);
                             echo "<h4>$service</h4>";
+                            echo "<ol>";
+                            foreach( $ci as $incident ){
+                                echo "<li>$incident->short_description</li>";
+                            }
+                            echo "</ol>";
                         }
                         echo "DEBUG: ";
                         echo "<pre>";
