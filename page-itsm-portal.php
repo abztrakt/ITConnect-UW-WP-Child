@@ -76,8 +76,7 @@
                     <span class="label label-warning" style="display:inline-block; line-height:15px;">Medium</span> Whoa! Something bad happened.
                     <span class="label label-danger"  style="display:inline-block; line-height:15px;">High</span> Yikes! Major problem.
                 </div>
-                
-                <h3>Service</h3>
+
                     <?php
                         $sn_data = array();
                         foreach( $JSON->records as $record ) {

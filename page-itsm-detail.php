@@ -64,10 +64,10 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
-
-                        echo "<h2>$record->short_description</h2>";
-
-
+                        
+    
+                        echo "<h2>$record->number : $record->short_description</h2>";
+                                    
                         echo "DEBUG: ";
                         echo "<pre>";
                         var_dump($record);
