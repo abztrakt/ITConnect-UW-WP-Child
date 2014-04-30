@@ -72,7 +72,7 @@
                 
                 <h2>Service Status</h2>
                 
-                <div style="font-size:.95em; color:#aaa;">
+                <div style="font-size:.95em; color:#aaa;margin-bottom:2em;">
                     <span class="label label-warning" style="display:inline-block; line-height:15px;">Medium</span> Whoa! Something bad happened.
                     <span class="label label-danger"  style="display:inline-block; line-height:15px;">High</span> Yikes! Major problem.
                 </div>
@@ -89,7 +89,7 @@
 
                     <?php
                         foreach( $sn_data as $ci) {
-                            echo "<hr />";
+                            
                             $service = array_search($ci, $sn_data);
                             
                             // handle the case of blank services
@@ -97,8 +97,8 @@
                                 $service = "UNDEFINED!";
                             }  
                             
-                            echo "<h4 style='font-weight:bold;'>$service</h4>";
-                            echo "<ol class='list-group' style='list-style:none; margin:0; padding:0; color:#aaa; font-size:.95em;'>";
+                            echo "<h4 style='font-weight:bold;border-bottom:solid 1px #eee;'>$service</h4>";
+                            echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#999; font-size:.95em;'>";
                             foreach( $ci as $incident ){
                                 
                                 if ($incident->impact == '2 - Medium' ) {
