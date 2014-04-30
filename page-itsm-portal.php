@@ -65,9 +65,60 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
+                
+                <div class="alert alert-warning" style="margin-top:2em;">
+                  <strong>Warning!</strong> One or more UW-IT services have reported an incident that you should be aware of.
+                </div>
+                
                 <h2>Service Status</h2>
-                <p>Fancy key of icons goes here</p>
+                
+                <div style="font-size:.95em; color:#aaa;">
+                    <span class="label label-warning" style="display:inline-block; line-height:15px;">Medium</span> Whoa! Something bad happened.
+                    <span class="label label-danger"  style="display:inline-block; line-height:15px;">High</span> Yikes! Major problem.
+                </div>
+                
                 <h3>Service</h3>
+                    <?php
+                        $sn_data = array();
+                        foreach( $JSON->records as $record ) {
+                            if( !isset( $sn_data[$record->cmdb_ci] ) ) {
+                                $sn_data[$record->cmdb_ci] = array();
+                            }
+                            $sn_data[$record->cmdb_ci][] = $record;
+                        }
+                    ?>
+
+                    <?php
+                        foreach( $sn_data as $ci) {
+                            echo "<hr />";
+                            $service = array_search($ci, $sn_data);
+                            
+                            // handle the case of blank services
+                            if ($service == '' ) {
+                                $service = "UNDEFINED!";
+                            }  
+                            
+                            echo "<h4 style='font-weight:bold;'>$service</h4>";
+                            echo "<ol class='list-group' style='list-style:none; margin:0; padding:0; color:#aaa; font-size:.95em;'>";
+                            foreach( $ci as $incident ){
+                                
+                                if ($incident->impact == '2 - Medium' ) {
+                                    echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;'>$incident->impact</span></li>";
+                                }
+                                else {
+                                    echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;'>$incident->impact</span></li>";
+                                }                                
+                            }
+                            echo "</ol>";
+                        }
+                        
+                        //echo "DEBUG: ";
+                        //echo "<pre>";
+                        //var_dump($sn_data);
+                        //echo "</pre>";
+                    ?>
+
+                <!--<h3>All (placeholder while Craig reworks the logic)</h3>
                     <ul>
                 <?php
                     
@@ -79,6 +130,7 @@
                     }
                 }?>
                     </ul>
+                -->
                 
                 <footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
