@@ -64,10 +64,11 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
-                        
-    
+
                         echo "<h2>$record->number : $record->short_description</h2>";
-                                    
+                        $idnum = get_query_var('ticketID');
+                        echo "Ticket ID number: " . $idnum;
+                        echo "<hr/>";
                         echo "DEBUG: ";
                         echo "<pre>";
                         var_dump($record);
