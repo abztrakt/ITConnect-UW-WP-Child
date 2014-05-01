@@ -76,7 +76,7 @@
                         $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
-                        $JSON = json_decode( $body );
+                        $req_json = json_decode( $body );
                         $ticketID = '5558958';
                         $paramurl = get_site_url() . "/itsm-detail";
                 ?>
@@ -94,7 +94,7 @@
                         </thead>
                         <tbody>
                     <?php
-                    foreach ( $JSON->records as $record ) {
+                    foreach ( $req_json->records as $record ) {
                             
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<tr class='resolved_ticket'>";
@@ -140,7 +140,7 @@
                         $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
-                        $JSON = json_decode( $body );
+                        $inc_json = json_decode( $body );
                 ?>
                     <h2>My Incidents</h2>
                     
@@ -155,7 +155,7 @@
                         </thead>
                         <tbody>
                     <?php
-                    foreach ( $JSON->records as $record ) {
+                    foreach ( $inc_json->records as $record ) {
                         
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<tr class='resolved_ticket'>";
