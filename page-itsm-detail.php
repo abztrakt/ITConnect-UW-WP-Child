@@ -80,13 +80,12 @@
                         
                         echo "<li>opened on: $record->opened_at</li>";
                         echo "<li>last updated: $record->sys_updated_on</li>";
-                        
-                        echo "<li>comments (customer visible only)</li>";
-                        echo "<li>$record->comments</li>";
+                
                         echo "</ul>";
                         
                         echo "<h2>Updates to your item <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
                         echo "
+                        <div>$record->comments</div>
                         <div class='media' style='font-size:,95em;'>
                                 <img class='media-object pull-left' src='http://placehold.it/50x50'>
                               <div class='media-body'>
