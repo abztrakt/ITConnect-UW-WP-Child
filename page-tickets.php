@@ -77,22 +77,6 @@
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
-<<<<<<< HEAD
-                        $have_tickets = TRUE;
-                        if (!empty($JSON->records)) {
-                        ?>
-                            <h2 style="margin-top:0;">My Requests</h2>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th style="width:80px;">Number</th>
-                                        <th style="width:160px;">Service</th>
-                                        <th>Description</th>
-                                        <th style="width:80px;">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-=======
                 ?>
                     <h2 style="margin-top:0;">My Requests</h2>
                     
@@ -126,47 +110,9 @@
                                 ?>
                             </td>
                             <td>
->>>>>>> 5ede16913e2727b706d0ac7aa4bd57f5e6a1fcba
                                 <?php
-                                    foreach ( $JSON->records as $record ) {
+                                echo "$record->short_description";
                                 ?>
-<<<<<<< HEAD
-                                        <tr>
-                                            <td>
-                                            <?php
-                                                echo "<a href='asdklf'>$record->number</a>";
-                                            ?>
-                                            </td>
-                                            <td>
-                                            <?php
-                                                echo "$record->cmdb_ci";
-                                            ?>
-                                            </td>
-                                            <td>
-                                            <?php
-                                                echo "$record->short_description";
-                                            ?>
-                                            </td>
-                                            <td>
-                                            <?php
-                                                if ( $record->state == "Closed") {
-                                                    echo "<span class='label label-default'>$record->state</span>";
-                                                }
-                                                else {
-                                                    echo "<span class='label label-success'>$record->state</span>";
-                                                }
-                                                ?>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    }
-                        ?>
-                                </tbody>
-                            </table>
-                            <?php
-                            $have_tickets = TRUE;
-                        }
-=======
                             </td>
                             <td class="request_status">
                                 <?php
@@ -186,14 +132,12 @@
                     </table>
 
                 <?php
->>>>>>> 5ede16913e2727b706d0ac7aa4bd57f5e6a1fcba
 
                 // Incidents
                         $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
-                        if(!empty($JSON->records)) {
                 ?>
                     <h2>My Incidents</h2>
                     
@@ -248,14 +192,7 @@
                     ?>
                         </tbody>
                     </table>
-                <?php
-                        $have_tickets = TRUE;
-                    }
-
-                    if ($have_tickets = FALSE) {
-                        echo ("You do not have any tickets.");
-                    }
-                } else {?>
+                <?php } else {?>
                     <p>Whoops! Something went wrong, if this persists, please contact the Administrator.</p>
                 <?php } ?>
 
