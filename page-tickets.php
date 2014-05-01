@@ -97,7 +97,9 @@
                 ?>
                     <a href="http://reeses.cac.washington.edu/itconnect/index.php?pagename=itsm-detail&ticketID=54893">Ticket Time</a>
 
+                    <?php if( $has_req || $has_inc ) { ?>
                     <h2 style="margin-top:0;">My Requests</h2>
+                    <?php } ?>
                     
                     <?php if( $has_req ) { ?>
                     <table class="table" style="font-size:.95em;">
@@ -150,14 +152,16 @@
                     ?>
                         </tbody>
                     </table>
-                    <?php } else { ?>
+                    <?php } else if( $has_inc ) { ?>
                         <p>I'm sorry, you don't have any requests.</p>
                     <?php } ?>
 
                 <?php
 
                 ?>
+                    <?php if( $has_req || $has_inc ) { ?>
                     <h2>My Incidents</h2>
+                    <?php } ?>
                     
                     <?php if( $has_inc ) { ?>
                     <table class="table" style="font-size:.95em;">
@@ -211,7 +215,7 @@
                     ?>
                         </tbody>
                     </table>
-                    <?php } else { ?>
+                    <?php } else if( $has_req ) { ?>
                         <p>I'm sorry, you don't have any incidents.</p>
                     <?php } ?>
 
