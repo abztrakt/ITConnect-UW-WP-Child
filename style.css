@@ -1455,7 +1455,7 @@ h5.home_date {
 }   
 
 .incident_status span, .request_status span {
-    font-size: 14px;
+    
 }
 
 /* --- IE mobile fixes --- */

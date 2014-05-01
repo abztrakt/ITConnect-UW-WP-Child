@@ -49,7 +49,7 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-
+                
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
                     if( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
@@ -59,15 +59,69 @@
                             )
                         );
 
-                        $url = 'https://uweval.service-now.com/u_simple_requests_list.do?JSONv2&sysparm_query=number=REQ0001836';
+                        $url = 'https://uweval.service-now.com/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=REQ0001836';
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
                         
     
-                        echo "<h2>$record->number : $record->short_description</h2>";
-                                    
+                        echo "<h2>$record->number : $record->short_description <span class='label label-success'>$record->state</span></h2>";
+                                            
+                        echo "<ul>";
+                        echo "<li>type: request (REQ) or incident (INC)</li>";
+                        echo "<li>service: $record->cmdb_ci</li>";
+                        echo "<li>short desc: $record->short_description</li>";
+                        echo "<li>desc: $record->description</li>";
+                        
+                        echo "<li>opened on: $record->opened_at</li>";
+                        echo "<li>last updated: $record->sys_updated_on</li>";
+                        
+                        echo "<li></li>";
+                        echo "<li></li>";
+                        echo "</ul>";
+                        
+                        echo "<h2>Updates to your item <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
+                        echo "
+                        <div class='media' style='font-size:,95em;'>
+                                <img class='media-object pull-left' src='http://placehold.it/50x50'>
+                              <div class='media-body'>
+                                <p><strong>You</strong><br/>
+                                i need help with my ticket</p>
+                              </div>
+                          </div>
+                          <div class='media'>
+                                <img class='media-object pull-left' src='http://placehold.it/50x50'>
+                              <div class='media-body'>
+                                <p><strong>Bob Bobberson</strong><br/>
+                                we are on it!</p>
+                              </div>
+                          </div>
+                          <div class='media'>
+                                <img class='media-object pull-left' src='http://placehold.it/50x50'>
+                              <div class='media-body'>
+                                <p><strong>You</strong><br/>
+                                what is the status? this is taking so long!</p>
+                              </div>
+                          </div>
+                          <div class='media'>
+                                <img class='media-object pull-left' src='http://placehold.it/50x50'>
+                              <div class='media-body'>
+                                <p><strong>Tom Blankerson</strong><br/>
+                                there is currently a broader issue. We expect things to be fixed within the hour!</p>
+                              </div>
+                          </div>
+                          <form role='form'>
+                            <div class='form-group' style='margin-bottom:1em;'>
+                            <label for='exampleInputPassword1'>Comments</label>
+                            <textarea class='form-control' rows='3'></textarea>
+                            </div>
+                          <button type='submit' class='btn btn-default'>Submit</button>
+                          </form>
+                              ";
+                        
+                        echo "<br/><br/><br/>";
+                                                            
                         echo "DEBUG: ";
                         echo "<pre>";
                         var_dump($record);
