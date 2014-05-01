@@ -1448,6 +1448,16 @@ h5.home_date {
     background-size: 18%;
 }
 
+/* --- Service Now Ticketing --- */
+
+.resolved_ticket {
+    color: grey;
+}   
+
+.incident_status span, .request_status span {
+    font-size: 14px;
+}
+
 /* --- IE mobile fixes --- */
 
 #ie7 .visible-phone {
