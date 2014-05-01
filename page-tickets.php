@@ -72,24 +72,34 @@
                             "Closed" => 'class="label label-default"',
                         );
                         
-                // Requests
+                        // Requests
                         $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $req_json = json_decode( $body );
+                        $has_req = FALSE;
+                        if( !empty( $req_json->records ) ) {
+                            $has_req = TRUE;
+                        }
 
-
+                        // Incidents
                         $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $inc_json = json_decode( $body );
+                        $has_inc = FALSE;
+                        if( !empty( $req_json->records ) ) {
+                            $has_inc = TRUE;
+                        }
 
                         $ticketID = '5558958';
                         $paramurl = get_site_url() . "/itsm-detail";
                 ?>
                     <a href="http://reeses.cac.washington.edu/itconnect/index.php?pagename=itsm-detail&ticketID=54893">Ticket Time</a>
+
                     <h2 style="margin-top:0;">My Requests</h2>
                     
+                    <?php if( $has_req ) { ?>
                     <table class="table" style="font-size:.95em;">
                         <thead>
                         <tr>
@@ -140,13 +150,16 @@
                     ?>
                         </tbody>
                     </table>
+                    <?php } else { ?>
+                        <p>I'm sorry, you don't have any requests.</p>
+                    <?php } ?>
 
                 <?php
 
-                // Incidents
                 ?>
                     <h2>My Incidents</h2>
                     
+                    <?php if( $has_inc ) { ?>
                     <table class="table" style="font-size:.95em;">
                         <thead>
                         <tr>
@@ -198,6 +211,10 @@
                     ?>
                         </tbody>
                     </table>
+                    <?php } else { ?>
+                        <p>I'm sorry, you don't have any incidents.</p>
+                    <?php } ?>
+
                 <?php } else {?>
                     <p>Whoops! Something went wrong, if this persists, please contact the Administrator.</p>
                 <?php } ?>
