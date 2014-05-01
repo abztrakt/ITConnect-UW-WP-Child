@@ -77,6 +77,13 @@
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $req_json = json_decode( $body );
+
+
+                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
+                        $response = wp_remote_get( $url, $args );
+                        $body = wp_remote_retrieve_body( $response );
+                        $inc_json = json_decode( $body );
+
                         $ticketID = '5558958';
                         $paramurl = get_site_url() . "/itsm-detail";
                 ?>
@@ -137,10 +144,6 @@
                 <?php
 
                 // Incidents
-                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
-                        $response = wp_remote_get( $url, $args );
-                        $body = wp_remote_retrieve_body( $response );
-                        $inc_json = json_decode( $body );
                 ?>
                     <h2>My Incidents</h2>
                     
