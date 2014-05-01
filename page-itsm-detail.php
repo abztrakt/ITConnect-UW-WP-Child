@@ -72,6 +72,7 @@
                         echo "<h2>$record->number : $record->short_description <span class='label label-success'>$record->state</span></h2>";
                                             
                         echo "<ul>";
+                        echo "<li>caller: $record->caller_id</li>";
                         echo "<li>type: request (REQ) or incident (INC)</li>";
                         echo "<li>service: $record->cmdb_ci</li>";
                         echo "<li>short desc: $record->short_description</li>";
@@ -80,8 +81,8 @@
                         echo "<li>opened on: $record->opened_at</li>";
                         echo "<li>last updated: $record->sys_updated_on</li>";
                         
-                        echo "<li></li>";
-                        echo "<li></li>";
+                        echo "<li>comments and worknotes (make sure we dont expose worknotes back to the caller!!!</li>";
+                        echo "<li>$record->comments_and_work_notes</li>";
                         echo "</ul>";
                         
                         echo "<h2>Updates to your item <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
