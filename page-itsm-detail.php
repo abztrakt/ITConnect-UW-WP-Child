@@ -65,6 +65,8 @@
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
                         
+                        $idnum = get_query_var('ticketID');
+                        echo "Ticket ID number: " . $idnum;
     
                         echo "<h2>$record->number : $record->short_description <span class='label label-success'>$record->state</span></h2>";
                                             
@@ -121,7 +123,7 @@
                               ";
                         
                         echo "<br/><br/><br/>";
-                                                            
+                  
                         echo "DEBUG: ";
                         echo "<pre>";
                         var_dump($record);

@@ -280,6 +280,20 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
   }
 endif;
 
+function add_query_vars($qvars) {
+    $qvars[] = "ticketID";
+    return $qvars;
+}
+add_filter('query_vars', 'add_query_vars');
+
+function add_rewrite_rules($aRules) {
+    $aNewRules = array('itsm-detail/([^/]+)/?$' => 'index.php?pagename=itsm-detail&ticketID=$matches[1]');
+    $aRules = $aNewRules + $aRules;
+    return $aRules;
+}
+add_filter('rewrite_rules_array', 'add_rewrite_rules');
+
+
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );

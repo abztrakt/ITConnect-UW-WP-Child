@@ -77,7 +77,10 @@
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
+                        $ticketID = '5558958';
+                        $paramurl = get_site_url() . "/itsm-detail";
                 ?>
+                    <a href="http://reeses.cac.washington.edu/itconnect/index.php?pagename=itsm-detail&ticketID=54893">Ticket Time</a>
                     <h2 style="margin-top:0;">My Requests</h2>
                     
                     <table class="table" style="font-size:.95em;">
