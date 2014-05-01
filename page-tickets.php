@@ -58,6 +58,20 @@
                                 'Authorization' => 'Basic ' . base64_encode( SN_USER . ':' . SN_PASS ),
                             )
                         );
+
+                        $states = array(
+                            "New" => 'class="label label-success"',
+                            "Active" => 'class="label label-success"',
+                            "Awaiting User Info" => 'class="label label-success"',
+                            "Awaiting Tier 2 Info" => 'class="label label-success"',
+                            "Awaiting Vendor Info" => 'class="label label-success"',
+                            "Internal Review" => 'class="label label-success"',
+                            "Stalled" => 'class="label label-success"',
+                            "Delivered" => 'class="label label-success"',
+                            "Resolved" => 'class="label label-default"',
+                            "Closed" => 'class="label label-default"',
+                        );
+                        
                 // Requests
                         $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
@@ -78,8 +92,13 @@
                         <tbody>
                     <?php
                     foreach ( $JSON->records as $record ) {
+                            
+                            if ($record->state == "Resolved" || $record->state == "Closed") {
+                                echo "<tr class='resolved_ticket'>";
+                            } else {
+                                echo "<tr>";
+                            }
                     ?>
-                        <tr>
                             <td>
                                 <?php
                                 echo "<a href='asdklf'>$record->number</a>";
@@ -95,15 +114,14 @@
                                 echo "$record->short_description";
                                 ?>
                             </td>
-                            <td>
+                            <td class="request_status">
                                 <?php
-                                    if ( $record->state == "Closed") {
-                                        echo "<span class='label label-default'>$record->state</span>";
+                                    if (array_key_exists($record->state, $states)) {
+                                        $class = $states[$record->state];
+                                        echo "<span $class>$record->state</span>";
+                                    } else {
+                                        echo "<span>$record->state</span>";
                                     }
-                                    else {
-                                        echo "<span class='label label-success'>$record->state</span>";
-                                    }
-                                
                                 ?>
                             </td>
                         </tr>
@@ -135,8 +153,13 @@
                         <tbody>
                     <?php
                     foreach ( $JSON->records as $record ) {
+                        
+                            if ($record->state == "Resolved" || $record->state == "Closed") {
+                                echo "<tr class='resolved_ticket'>";
+                            } else {
+                                echo "<tr>";
+                            }
                     ?>
-                        <tr>
                             <td>
                                 <?php
                                 echo "<a href='asdklf'>$record->number</a>";
@@ -153,15 +176,14 @@
                                 echo "$record->short_description";
                                 ?>
                             </td>
-                            <td>
+                            <td class="incident_status">
                                 <?php
-                                    if ( $record->state == "Resolved") {
-                                        echo "<span class='label label-default'>$record->state</span>";
+                                    if (array_key_exists($record->state, $states)) {
+                                        $class = $states[$record->state];
+                                        echo "<span $class>$record->state</span>";
+                                    } else {
+                                        echo "<span>$record->state</span>";
                                     }
-                                    else {
-                                        echo "<span class='label label-success'>$record->state</span>";
-                                    }
-                                
                                 ?>
                             </td>
                         </tr>
