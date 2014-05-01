@@ -59,16 +59,14 @@
                             )
                         );
 
-                        $url = 'https://uweval.service-now.com/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=REQ0001836';
-                        $url = 'https://uwdev.service-now.com/incident.do?JSONv2&displayvalue=true&sysparm_query=number=INC0010980';
+                        $sn_num = get_query_var('ticketID');
+                        //$url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num;
+                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num;
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
                         
-                        $idnum = get_query_var('ticketID');
-                        echo "Ticket ID number: " . $idnum;
-    
                         echo "<h2>$record->number : $record->short_description <span class='label label-success'>$record->state</span></h2>";
                                             
                         echo "<ul>";

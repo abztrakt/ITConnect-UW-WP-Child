@@ -91,11 +91,7 @@
                         if( !empty( $req_json->records ) ) {
                             $has_inc = TRUE;
                         }
-
-                        $ticketID = '5558958';
-                        $paramurl = get_site_url() . "/itsm-detail";
                 ?>
-                    <a href="http://reeses.cac.washington.edu/itconnect/index.php?pagename=itsm-detail&ticketID=54893">Ticket Time</a>
 
                     <?php if( $has_req || $has_inc ) { ?>
                     <h2 style="margin-top:0;">My Requests</h2>
@@ -123,7 +119,8 @@
                     ?>
                             <td>
                                 <?php
-                                echo "<a href='asdklf'>$record->number</a>";
+                                $detail_url = site_url() . '/itsm-detail/' . $record->number;
+                                echo "<a href='$detail_url'>$record->number</a>";
                                 ?>
                             </td>
                             <td>
@@ -185,7 +182,8 @@
                     ?>
                             <td>
                                 <?php
-                                echo "<a href='asdklf'>$record->number</a>";
+                                $detail_url = site_url() . '/itsm-detail/' . $record->number;
+                                echo "<a href='$detail_url'>$record->number</a>";
                                 ?>
                             </td>
                             <td>
