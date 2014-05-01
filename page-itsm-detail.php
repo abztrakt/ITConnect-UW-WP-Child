@@ -60,6 +60,7 @@
                         );
 
                         $url = 'https://uweval.service-now.com/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=REQ0001836';
+                        $url = 'https://uwdev.service-now.com/incident.do?JSONv2&displayvalue=true&sysparm_query=number=INC0010980';
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
