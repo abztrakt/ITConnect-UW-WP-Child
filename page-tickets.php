@@ -215,6 +215,10 @@
                         <p>I'm sorry, you don't have any incidents.</p>
                     <?php } ?>
 
+                    <?php if( !$has_req && !$has_inc ) { ?>
+                        <p>I'm sorry, you don't have any requests or incidents in the system.</p>
+                    <?php } ?>
+
                 <?php } else {?>
                     <p>Whoops! Something went wrong, if this persists, please contact the Administrator.</p>
                 <?php } ?>
