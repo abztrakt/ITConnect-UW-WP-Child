@@ -60,8 +60,16 @@
                         );
 
                         $sn_num = get_query_var('ticketID');
-                        //$url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num;
-                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num;
+                        $sn_type = substr($sn_num, 0, 3);
+                        if( $sn_type == 'REQ' ) {
+                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num;
+                            $sn_type = 'request (REQ)';
+                        } else if( $sn_type == 'INC' ) {
+                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num;
+                            $sn_type = 'incident (INC)';
+                        } else {
+                            echo "Unrecognized type";
+                        }
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
@@ -70,8 +78,15 @@
                         echo "<h2>$record->number : $record->short_description <span class='label label-success'>$record->state</span></h2>";
                                             
                         echo "<ul>";
-                        echo "<li>caller: $record->caller_id</li>";
-                        echo "<li>type: request (REQ) or incident (INC)</li>";
+                        if( !empty( $record->caller_id ) ) {
+                            $caller = $record->caller_id;
+                        } else if( !empty( $record->u_caller ) ) {
+                            $caller = $record->u_caller;
+                        } else {
+                            $caller = 'UNKNOWN';
+                        }
+                        echo "<li>caller: $caller</li>";
+                        echo "<li>type: $sn_type";
                         echo "<li>service: $record->cmdb_ci</li>";
                         echo "<li>short desc: $record->short_description</li>";
                         echo "<li>desc: $record->description</li>";
