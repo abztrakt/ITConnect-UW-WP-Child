@@ -71,7 +71,7 @@
                             "Resolved" => 'class="label label-default"',
                             "Closed" => 'class="label label-default"',
                         );
-                        
+
                         // Requests
                         $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
                         $response = wp_remote_get( $url, $args );
@@ -88,7 +88,7 @@
                         $body = wp_remote_retrieve_body( $response );
                         $inc_json = json_decode( $body );
                         $has_inc = FALSE;
-                        if( !empty( $req_json->records ) ) {
+                        if( !empty( $inc_json->records ) ) {
                             $has_inc = TRUE;
                         }
                 ?>
@@ -96,7 +96,7 @@
                     <?php if( $has_req || $has_inc ) { ?>
                     <h2 style="margin-top:0;">My Requests</h2>
                     <?php } ?>
-                    
+
                     <?php if( $has_req ) { ?>
                     <table class="table" style="font-size:.95em;">
                         <thead>
@@ -110,7 +110,7 @@
                         <tbody>
                     <?php
                     foreach ( $req_json->records as $record ) {
-                            
+
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<tr class='resolved_ticket'>";
                             } else {
@@ -159,7 +159,7 @@
                     <?php if( $has_req || $has_inc ) { ?>
                     <h2>My Incidents</h2>
                     <?php } ?>
-                    
+
                     <?php if( $has_inc ) { ?>
                     <table class="table" style="font-size:.95em;">
                         <thead>
@@ -173,7 +173,7 @@
                         <tbody>
                     <?php
                     foreach ( $inc_json->records as $record ) {
-                        
+
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<tr class='resolved_ticket'>";
                             } else {
