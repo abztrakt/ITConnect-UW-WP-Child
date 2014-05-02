@@ -1454,8 +1454,16 @@ h5.home_date {
     color: grey;
 }   
 
-.incident_status span, .request_status span {
-    
+th.sn_number, th.sn_status {
+    width: 16.666666666666664%;
+}
+
+th.sn_service {
+    width: 25%;
+}
+
+th.sn_desc {
+    width: 41.66666666666667%;
 }
 
 /* --- IE mobile fixes --- */
