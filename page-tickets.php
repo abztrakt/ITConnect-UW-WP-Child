@@ -101,10 +101,10 @@
                     <table class="table" style="font-size:.95em;">
                         <thead>
                         <tr>
-                            <th style="width:80px;">Number</th>
-                            <th style="width:160px;">Service</th>
-                            <th>Description</th>
-                            <th style="width:80px;">Status</th>
+                            <th class="span2">Number</th>
+                            <th class="span3">Service</th>
+                            <th class="span5">Description</th>
+                            <th class="span2">Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -164,10 +164,10 @@
                     <table class="table" style="font-size:.95em;">
                         <thead>
                         <tr>
-                            <th style="width:80px;">Number</th>
-                            <th style="width:160px;">Service</th>
-                            <th>Description</th>
-                            <th style="width:80px;">Status</th>
+                            <th class="span2">Number</th>
+                            <th class="span3">Service</th>
+                            <th class="span5">Description</th>
+                            <th class="span2">Status</th>
                         </tr>
                         </thead>
                         <tbody>
