@@ -62,10 +62,10 @@
                         $sn_num = get_query_var('ticketID');
                         $sn_type = substr($sn_num, 0, 3);
                         if( $sn_type == 'REQ' ) {
-                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num;
+                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
                             $sn_type = 'request (REQ)';
                         } else if( $sn_type == 'INC' ) {
-                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num;
+                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
                             $sn_type = 'incident (INC)';
                         } else {
                             echo "Unrecognized type";
