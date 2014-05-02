@@ -106,7 +106,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
     wp_enqueue_script( 'trumba' );
 
 
-    if( is_404() || $_REQUEST['status'] == 401) {
+    if( is_404() || (isset($_REQUEST['status']) && $_REQUEST['status'] == 401)) {
 
       wp_enqueue_script( 'jquery.imagesloaded' );
       wp_enqueue_script( 'jquery.parallax' );
