@@ -49,7 +49,6 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-                
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
                     if( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
@@ -74,9 +73,10 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
-                        
+                        if ($sn_num !== $record->number) {
+                            echo "I'm sorry this is not one of your $sn_type<br><br>";
+                        } else  {
                         echo "<h2>$record->number : $record->short_description <span class='label label-success'>$record->state</span></h2>";
-                                            
                         echo "<ul>";
                         if( !empty( $record->caller_id ) ) {
                             $caller = $record->caller_id;
@@ -90,12 +90,9 @@
                         echo "<li>service: $record->cmdb_ci</li>";
                         echo "<li>short desc: $record->short_description</li>";
                         echo "<li>desc: $record->description</li>";
-                        
                         echo "<li>opened on: $record->opened_at</li>";
                         echo "<li>last updated: $record->sys_updated_on</li>";
-                
                         echo "</ul>";
-                        
                         echo "<h2>Updates to your item <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
                         echo "
                         <div>$record->comments</div>
@@ -135,9 +132,8 @@
                           <button type='submit' class='btn btn-default'>Submit</button>
                           </form>
                               ";
-                        
                         echo "<br/><br/><br/>";
-                  
+                        } //end if else to see if incident/request number doesn't match
                         echo "DEBUG: ";
                         echo "<pre>";
                         var_dump($record);
@@ -151,10 +147,8 @@
 			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
             </article><!-- #post-<?php the_ID(); ?> -->
           </div>
-                
 
 			<?php endwhile; // end of the loop. ?>
-            
 				</div>
  			 </div>
 			</div><!-- #content -->
