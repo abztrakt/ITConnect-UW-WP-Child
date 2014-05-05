@@ -67,14 +67,16 @@
                 ?>
                 
                 <div class="alert alert-warning" style="margin-top:2em;">
-                  <strong>Warning!</strong> One or more UW-IT services have reported an incident that you should be aware of.
+                  <strong>Attention!</strong> One or more UW-IT services have reported incidents which is currently causing some impact.
                 </div>
                 
-                <h2>Service Status</h2>
+                <h2>Service Impact</h2>
                 
                 <div style="font-size:.95em; color:#aaa;margin-bottom:2em;">
-                    <span class="label label-warning" style="display:inline-block; line-height:15px;">Medium</span> Whoa! Something bad happened.
-                    <span class="label label-danger"  style="display:inline-block; line-height:15px;">High</span> Yikes! Major problem.
+                    <span class="label label-danger"  style="display:inline-block; line-height:15px;">High</span> Widespread impact to UW-IT service, 
+network, telephony, application, or power outage.<br/>
+                    <span class="label label-warning" style="display:inline-block; line-height:15px;">Medium</span> Service, telephony, Network, or 
+application failure affecting multiple customers.
                 </div>
 
                     <?php
@@ -102,10 +104,10 @@
                             foreach( $ci as $incident ){
                                 
                                 if ($incident->impact == '2 - Medium' ) {
-                                    echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;'>$incident->impact</span></li>";
+                                    echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;'>Medium</span></li>";
                                 }
                                 else {
-                                    echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;'>$incident->impact</span></li>";
+                                    echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;'>High</span></li>";
                                 }                                
                             }
                             echo "</ol>";
