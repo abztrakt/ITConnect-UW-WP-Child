@@ -228,7 +228,6 @@
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
-			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
             </article><!-- #post-<?php the_ID(); ?> -->
           </div>
                 
