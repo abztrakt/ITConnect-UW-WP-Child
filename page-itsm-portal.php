@@ -60,18 +60,22 @@
                         );
                 // Medium and High Impacted Incidents
                         $url = SN_URL . '/incident_list.do?JSONv2&sysparm_query=impact%3D2%5EORimpact%3D1%5EORDERBYcmdb_ci&displayvalue=true';
-                        
+
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
-                
+
                 <div class="alert alert-warning" style="margin-top:2em;">
-                  <strong>Attention!</strong> One or more UW-IT services have reported incidents which is currently causing some impact.
+                    <?php if(!empty($JSON->records)) { ?>
+                    <strong>Attention!</strong> One or more UW-IT services have reported incidents which is currently causing some impact.
+                   <?php } else {
+                        echo "There are no current reported incidents.";
+                    } ?>
                 </div>
-                
+
                 <h2>Service Impact</h2>
-                
+
                 <div style="font-size:.95em; color:#aaa;margin-bottom:2em;">
                     <span class="label label-danger"  style="display:inline-block; line-height:15px;">High</span> Widespread impact to UW-IT service, 
 network, telephony, application, or power outage.<br/>
@@ -91,28 +95,23 @@ application failure affecting multiple customers.
 
                     <?php
                         foreach( $sn_data as $ci) {
-                            
                             $service = array_search($ci, $sn_data);
-                            
                             // handle the case of blank services
                             if ($service == '' ) {
                                 $service = "UNDEFINED!";
-                            }  
-                            
+                            }
                             echo "<h4 style='font-weight:bold;border-bottom:solid 1px #eee;'>$service</h4>";
                             echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#ccc; font-size:.95em;'>";
                             foreach( $ci as $incident ){
-                                
                                 if ($incident->impact == '2 - Medium' ) {
                                     echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;'>Medium</span></li>";
                                 }
                                 else {
                                     echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;'>High</span></li>";
-                                }                                
+                                }
                             }
                             echo "</ol>";
                         }
-                        
                         //echo "DEBUG: ";
                         //echo "<pre>";
                         //var_dump($sn_data);
@@ -122,9 +121,7 @@ application failure affecting multiple customers.
                 <!--<h3>All (placeholder while Craig reworks the logic)</h3>
                     <ul>
                 <?php
-                    
-                    // we will want to group all incidents by the "cmdb_ci" 
-                
+                    // we will want to group all incidents by the "cmdb_ci"
                     foreach( $JSON->records as $record ) {
                         echo "<li><strong>$record->cmdb_ci</strong><br/>
                         <span style='color:#aaa;'>$record->number - $record->short_description</span> <span class='label label-danger'>$record->impact</span></li>";
@@ -132,17 +129,13 @@ application failure affecting multiple customers.
                 }?>
                     </ul>
                 -->
-                
                 <footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
-			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
             </article><!-- #post-<?php the_ID(); ?> -->
           </div>
-                
 
 			<?php endwhile; // end of the loop. ?>
-            
 				</div>
  			 </div>
 			</div><!-- #content -->
