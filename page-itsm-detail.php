@@ -161,23 +161,20 @@ to be sure we're safe and sound.</pre>
                               </div>
                           </div>
                           
-                          <form role='form'>
-                            <div class='form-group' style='margin-bottom:1em;'>
-                            <label for='exampleInputPassword1'>Comments</label>
-                            <textarea class='form-control' rows='3'></textarea>
-                            </div>
-                          <button type='submit' class='btn btn-default'>Submit</button>
-                          </form>
                               ";
                         echo "<br/><br/><br/>";
                         } //end if else to see if incident/request number doesn't match
-                        echo "DEBUG: ";
-                        echo "<pre>";
-                        var_dump($record);
-                        echo "</pre>";
                     }
                 ?>
 
+                  <form role='form'>
+                    <div class='form-group' style='margin-bottom:1em;'>
+                    <label for='exampleInputPassword1'>Comments</label>
+                    <textarea class='form-control' rows='3'></textarea>
+                    </div>
+                  <button type='submit' class='btn btn-default'>Submit</button>
+
+                  </form>
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
