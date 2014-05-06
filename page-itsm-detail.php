@@ -93,7 +93,7 @@
                         echo "<li>opened on: $record->opened_at</li>";
                         echo "<li>last updated: $record->sys_updated_on</li>";
                         echo "</ul>";
-                        echo "<h2>Updates to your item <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
+                        echo "<h2>Updates to your $sn_type <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
                         echo "
                         <div>$record->comments</div>
                         <div class='media' style='font-size:,95em;'>
@@ -175,7 +175,6 @@ to be sure we're safe and sound.</pre>
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
-			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
             </article><!-- #post-<?php the_ID(); ?> -->
           </div>
 
