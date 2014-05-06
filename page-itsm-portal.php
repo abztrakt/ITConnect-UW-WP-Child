@@ -100,7 +100,7 @@ application failure affecting multiple customers.
                             }  
                             
                             echo "<h4 style='font-weight:bold;border-bottom:solid 1px #eee;'>$service</h4>";
-                            echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#999; font-size:.95em;'>";
+                            echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#ccc; font-size:.95em;'>";
                             foreach( $ci as $incident ){
                                 
                                 if ($incident->impact == '2 - Medium' ) {
