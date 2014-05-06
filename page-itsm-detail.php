@@ -1,3 +1,10 @@
+<?php
+    $sn_num = get_query_var('ticketID');
+    if( $sn_num == '' ) {
+        $new_url = site_url() . '/tickets/';
+        wp_redirect( $new_url );
+    }
+?>
 <?php get_header(); ?>
     <div id="wrap">
         <div id="primary">
@@ -58,7 +65,6 @@
                             )
                         );
 
-                        $sn_num = get_query_var('ticketID');
                         $sn_type = substr($sn_num, 0, 3);
                         if( $sn_type == 'REQ' ) {
                             $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
