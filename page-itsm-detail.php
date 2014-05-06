@@ -5,7 +5,14 @@
         wp_redirect( $new_url );
     }
 ?>
+<?php
+    if( isset( $_POST['submitted'] ) ) {
+        $comments = $_POST['comments'];
+    }
+
+?>
 <?php get_header(); ?>
+    <pre><?php echo $comments; ?></pre>
     <div id="wrap">
         <div id="primary">
 			<div id="content" class="it_container">
@@ -167,14 +174,16 @@ to be sure we're safe and sound.</pre>
                     }
                 ?>
 
-                  <form role='form'>
+                <?php $submit_url = site_url() . '/itsm-detail/' . $sn_num . '/'; ?>
+                  <form role='form' action="<?php $submit_url; ?>" method='post'>
                     <div class='form-group' style='margin-bottom:1em;'>
                     <label for='exampleInputPassword1'>Comments</label>
-                    <textarea class='form-control' rows='3'></textarea>
+                    <textarea name='comments' class='form-control' rows='3'></textarea>
                     </div>
-                  <button type='submit' class='btn btn-default'>Submit</button>
-
+                    <button type='submit' class='btn btn-default'>Submit</button>
+                    <input type="hidden" name="submitted" id="submitted" value="true" />
                   </form>
+
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
