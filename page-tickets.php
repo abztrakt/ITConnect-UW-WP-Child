@@ -8,7 +8,7 @@
 				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>
                       <div class="" id="sidebar" role="navigation" aria-label="Sidebar Menu">
-                      <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
+                      <?php dynamic_sidebar('servicenow-sidebar'); ?>
                       </div>
 				</div>
 			    <?php while ( have_posts() ) : the_post(); ?>
