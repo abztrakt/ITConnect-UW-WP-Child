@@ -38,6 +38,10 @@ if ( ! function_exists( 'uw_setup' ) ):
 
 endif;
 
+function sortByDateTime($a, $b) {
+    return $a->sys_updated_on < $b->sys_updated_on;
+}
+
 if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
 /**
  * This is where all the CSS files are registered
