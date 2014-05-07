@@ -82,11 +82,13 @@
 				</div><!-- .entry-content -->
 
                 <?php
-                $status = json_decode($response['body'], true);
-                if( $status['Error']['Status'] !== '200' ) {
-                    echo '<div class="alert alert-warning" style="margin-top:2em;">';
-                    echo 'Attention! Your comment could not be posted: ' . $status['Error']['Text'] . ' (' . $status['Error']['Status'] . ')';
-                    echo '</div>';
+                if( isset( $response ) ) {
+                    $status = json_decode($response['body'], true);
+                    if( $status['Error']['Status'] !== '200' ) {
+                        echo '<div class="alert alert-warning" style="margin-top:2em;">';
+                        echo 'Attention! Your comment could not be posted: ' . $status['Error']['Text'] . ' (' . $status['Error']['Status'] . ')';
+                        echo '</div>';
+                    }
                 }
                 ?>
 
