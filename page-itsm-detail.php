@@ -108,7 +108,7 @@
                             echo "I'm sorry this is not one of your $sn_type<br><br>";
                         } else  {
                         echo "<h2>$record->number : $record->short_description <span class='label label-success'>$record->state</span></h2>";
-                        echo "<ul>";
+                        echo "<table class='table table-striped table-bordered'>";
                         if( !empty( $record->caller_id ) ) {
                             $caller = $record->caller_id;
                         } else if( !empty( $record->u_caller ) ) {
@@ -116,14 +116,14 @@
                         } else {
                             $caller = 'UNKNOWN';
                         }
-                        echo "<li>caller: $caller</li>";
-                        echo "<li>type: $sn_type";
-                        echo "<li>service: $record->cmdb_ci</li>";
-                        echo "<li>short desc: $record->short_description</li>";
-                        echo "<li>desc: $record->description</li>";
-                        echo "<li>opened on: $record->opened_at</li>";
-                        echo "<li>last updated: $record->sys_updated_on</li>";
-                        echo "</ul>";
+                        echo "<tr><td>Caller:</td> <td>$caller</td></tr>";
+                        echo "<tr><td>Type:</td> <td>$sn_type</td></tr>";
+                        echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
+                        echo "<tr><td>Short Description:</td> <td>$record->short_description</td></tr>";
+                        echo "<tr><td>Description:</td> <td>$record->description</td></tr>";
+                        echo "<tr><td>Opened on:</td> <td>$record->opened_at</td></tr>";
+                        echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
+                        echo "</table>";
                         echo "<h2>Updates to your $sn_type <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
                         echo "
                         <div>$record->comments</div>
