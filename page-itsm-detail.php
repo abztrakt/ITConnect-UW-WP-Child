@@ -80,6 +80,18 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
+
+                <?php
+                if( isset( $response ) ) {
+                    $status = json_decode($response['body'], true);
+                    if( $status['Error']['Status'] !== '200' ) {
+                        echo '<div class="alert alert-warning" style="margin-top:2em;">';
+                        echo 'Attention! Your comment could not be posted: ' . $status['Error']['Text'] . ' (' . $status['Error']['Status'] . ')';
+                        echo '</div>';
+                    }
+                }
+                ?>
+
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
                     //TODO: this work is repeated above, this should be refactored so we don't do that
