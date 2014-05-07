@@ -4,15 +4,32 @@
         $new_url = site_url() . '/tickets/';
         wp_redirect( $new_url );
     }
-?>
-<?php
-    if( isset( $_POST['submitted'] ) ) {
-        $comments = $_POST['comments'];
-    }
 
+    if( isset( $_POST['submitted'] ) && isset( $_POST['comments'] ) ) {
+        $comments = $_POST['comments'];
+        $comments_json = array(
+            'actor' => $_SERVER['REMOTE_USER'],
+            'record' => $sn_num,
+            'comment' => $comments,
+        );
+        $comments_json = json_encode( $comments_json );
+        $comments_url = SN_URL . '/comment.do';
+
+        // If a POST and have comments - create a comment in SN
+        if( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
+            $args = array(
+                'headers' => array(
+                    'Authorization' => 'Basic ' . base64_encode( SN_USER . ':' . SN_PASS ),
+                ),
+                'body' => $comments_json,
+            );
+        }
+
+        $response = wp_remote_post( $comments_url, $args );
+    }
 ?>
+
 <?php get_header(); ?>
-    <pre><?php echo $comments; ?></pre>
     <div id="wrap">
         <div id="primary">
 			<div id="content" class="it_container">
@@ -65,6 +82,7 @@
 				</div><!-- .entry-content -->
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
+                    //TODO: this work is repeated above, this should be refactored so we don't do that
                     if( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
                         $args = array(
                             'headers' => array(
