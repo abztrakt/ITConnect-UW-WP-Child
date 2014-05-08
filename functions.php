@@ -311,8 +311,8 @@ function sortByUpdatedOnDesc($a, $b) {
 }
 
 // Takes two datetime objects and sorts descending by sys_created_on
-function sortByCreatedOnDesc($a, $b) {
-    return $a->sys_created_on < $b->sys_created_on;
+function sortByCreatedOnAsc($a, $b) {
+    return $a->sys_created_on > $b->sys_created_on;
 }
 
 $template_dir = get_stylesheet_directory();

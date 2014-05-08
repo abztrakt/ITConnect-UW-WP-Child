@@ -146,7 +146,7 @@
                         echo "</table>";
                         echo "<h2>Updates to your $sn_type <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
 
-                        usort( $comments, 'sortByCreatedOnDesc' );
+                        usort( $comments, 'sortByCreatedOnAsc' );
                         foreach( $comments as $comment ) {
                             echo "<div class='media'>";
                             echo "<div class='media-body'>";
