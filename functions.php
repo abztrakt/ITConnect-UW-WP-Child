@@ -306,7 +306,7 @@ function add_rewrite_rules($aRules) {
 add_filter('rewrite_rules_array', 'add_rewrite_rules');
 
 // Takes two datetime objects and sorts descending
-function sortByDateTime($a, $b) {
+function sortByUpdatedOnDesc($a, $b) {
     return $a->sys_updated_on < $b->sys_updated_on;
 }
 

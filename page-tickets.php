@@ -109,7 +109,7 @@
                         </thead>
                         <tbody>
                     <?php
-                    usort($req_json->records, 'sortByDateTime');
+                    usort($req_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $req_json->records as $record ) {
 
                             if ($record->state == "Resolved" || $record->state == "Closed") {
@@ -173,7 +173,7 @@
                         </thead>
                         <tbody>
                     <?php
-                    usort($inc_json->records, 'sortByDateTime');
+                    usort($inc_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $inc_json->records as $record ) {
 
                             if ($record->state == "Resolved" || $record->state == "Closed") {
