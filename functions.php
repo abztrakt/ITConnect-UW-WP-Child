@@ -38,10 +38,6 @@ if ( ! function_exists( 'uw_setup' ) ):
 
 endif;
 
-function sortByDateTime($a, $b) {
-    return $a->sys_updated_on < $b->sys_updated_on;
-}
-
 if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
 /**
  * This is where all the CSS files are registered
@@ -309,7 +305,10 @@ function add_rewrite_rules($aRules) {
 }
 add_filter('rewrite_rules_array', 'add_rewrite_rules');
 
-
+// Takes two datetime objects and sorts descending
+function sortByDateTime($a, $b) {
+    return $a->sys_updated_on < $b->sys_updated_on;
+}
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
