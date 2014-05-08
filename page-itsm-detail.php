@@ -116,6 +116,14 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
+
+                        // Get the comments
+                        $url = SN_URL . '/sys_journal_field.do?displayvalue=true&JSONv2&sysparm_cation=getRecords&sysparm_query=active=true^element=comments^element_id=' . $record->sys_id;
+                        $response = wp_remote_get( $url, $args );
+                        $body = wp_remote_retrieve_body( $response );
+                        $JSON = json_decode( $body );
+                        $comments = $JSON->records;
+
                         if ($sn_num !== $record->number) {
                             echo "I'm sorry this is not one of your $sn_type<br><br>";
                         } else  {
@@ -137,69 +145,20 @@
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
                         echo "</table>";
                         echo "<h2>Updates to your $sn_type <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
-                        echo "
-                        <div>$record->comments</div>
-                        <div class='media' style='font-size:,95em;'>
-                              <div class='media-body'>
-                                <p><strong>You</strong> 05-05-2014 16:26:48</p>
-                                <pre>i need help with my ticket</pre>
-                              </div>
-                          </div>
-                          <div class='media'>
-                              <div class='media-body'>
-                                <p><strong>Bob Bobberson</strong> 05-05-2014 16:26:48</p>
-                                <pre>we are on it!</pre>
-                              </div>
-                          </div>
-                          <div class='media'>
-                              <div class='media-body'>
-                                <p><strong>You</strong> 05-05-2014 16:26:48</p>
-                                <pre>what is the status? this is taking so long!</pre>
-                              </div>
-                          </div>
-                          <div class='media'>
-                              <div class='media-body'>
-                                <p><strong>Tom Blankerson</strong> 05-05-2014 16:26:48</p>
-                                <pre>Hi, I was chatting with Frank Fujimoto this morning about the OpenSSL 
-vulnerability revealed recently and it led us to check a couple of the 
-servers I'm responsible for. Certs and keys on these hosts do not appear 
-to have been regenerated. (They are rhel6, and the patched openssl does 
-appear to be installed.)
 
-chaos.s.uw.edu:
--rw-r--r-- 1 root root 1845 Sep 19 2012 chaos.s.uw.edu.cert
--r-------- 1 root root 1675 Sep 19 2012 chaos.s.uw.edu.key
--rw-r--r-- 1 root root 1671 Jul 1 2013 
-chaos.s.uw.edu-uwca.cert
--r--r----- 1 nobody chaos-admins 1675 Jul 1 2013 
-chaos.s.uw.edu-uwca.key
+                        foreach( $comments as $comment ) {
+                            echo "<div class='media'>";
+                            echo "<div class='media-body'>";
+                            echo "<p><strong>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
+                            echo "<pre>";
+                            echo $comment->value;
+                            echo "</pre>";
+                            echo "</div>";
+                            echo "</div>";
+                        }
 
-itconnect01-dev.s.uw.edu:
--rw-r--r-- 1 root root 1854 Jan 24 2013 itconnect-dev.s.uw.edu.cert
--r-------- 1 root root 1679 Jan 23 2013 itconnect-dev.s.uw.edu.key
-
-itconnect01.s.uw.edu:
--rw-r--r-- 1 root root 1838 Jan 24 2013 itconnect.uw.edu.cert
--r-------- 1 root root 1675 Jan 23 2013 itconnect.uw.edu.key
-
-Can you please either let me know next steps I need to take to get the 
-keys regenerated and certs reissued (I don't believe I have permission to 
-do so as they're owned by root,) assure me that they're in the queue to be 
-taken care of, or assure me that there's a reason no action is being taken 
-on these hosts? I believe the chance of someone using an extracted private 
-key for anything *too* devious on any of these is low, but I'd still like 
-to be sure we're safe and sound.</pre>
-                              </div>
-                          </div>
-                          <div class='media'>
-                              <div class='media-body'>
-                                <p><strong>You</strong> 05-05-2014 16:26:48</p>
-                                <pre>That's  awesome!</pre>
-                              </div>
-                          </div>
-                          
-                              ";
                         echo "<br/><br/><br/>";
+
                         } //end if else to see if incident/request number doesn't match
                     }
                 ?>
