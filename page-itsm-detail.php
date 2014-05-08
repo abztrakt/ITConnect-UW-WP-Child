@@ -140,7 +140,7 @@
                         echo "<tr><td>Type:</td> <td>$sn_type</td></tr>";
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
                         echo "<tr><td>Short Description:</td> <td>$record->short_description</td></tr>";
-                        echo "<tr><td>Description:</td> <td>$record->description</td></tr>";
+                        echo "<tr><td>Description:</td> <td><pre>$record->description</pre></td></tr>";
                         echo "<tr><td>Opened on:</td> <td>$record->opened_at</td></tr>";
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
                         echo "</table>";
