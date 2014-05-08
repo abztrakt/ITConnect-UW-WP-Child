@@ -97,20 +97,19 @@ application failure affecting multiple customers.
                         foreach( $sn_data as $ci) {
                             $service = array_search($ci, $sn_data);
                             // handle the case of blank services
-                            if ($service == '' ) {
-                                $service = "UNDEFINED!";
-                            }
-                            echo "<h4 style='font-weight:bold;border-bottom:solid 1px #eee;'>$service</h4>";
-                            echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#ccc; font-size:.95em;'>";
-                            foreach( $ci as $incident ){
-                                if ($incident->impact == '2 - Medium' ) {
-                                    echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;'>Medium</span></li>";
+                            if ($service !== '' ) {
+                                echo "<h4 style='font-weight:bold;border-bottom:solid 1px #eee;'>$service</h4>";
+                                echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#ccc; font-size:.95em;'>";
+                                foreach( $ci as $incident ){
+                                    if ($incident->impact == '2 - Medium' ) {
+                                        echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;'>Medium</span></li>";
+                                    }
+                                    else {
+                                        echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;'>High</span></li>";
+                                    }
                                 }
-                                else {
-                                    echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;'>High</span></li>";
-                                }
+                                echo "</ol>";
                             }
-                            echo "</ol>";
                         }
                         //echo "DEBUG: ";
                         //echo "<pre>";
