@@ -305,9 +305,14 @@ function add_rewrite_rules($aRules) {
 }
 add_filter('rewrite_rules_array', 'add_rewrite_rules');
 
-// Takes two datetime objects and sorts descending
+// Takes two datetime objects and sorts descending by sys_updated_on
 function sortByUpdatedOnDesc($a, $b) {
     return $a->sys_updated_on < $b->sys_updated_on;
+}
+
+// Takes two datetime objects and sorts descending by sys_created_on
+function sortByCreatedOnDesc($a, $b) {
+    return $a->sys_created_on < $b->sys_created_on;
 }
 
 $template_dir = get_stylesheet_directory();
