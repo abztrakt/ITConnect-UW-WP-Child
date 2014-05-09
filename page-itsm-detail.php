@@ -1,3 +1,4 @@
+<?php define( 'DONOTCACHEPAGE', True ); ?>
 <?php
     $sn_num = get_query_var('ticketID');
     if( $sn_num == '' ) {

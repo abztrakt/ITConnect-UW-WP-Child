@@ -1,3 +1,4 @@
+<?php define( 'DONOTCACHEPAGE', True ); ?>
 <?php get_header(); ?>
     <div id="wrap">
         <div id="primary">
