@@ -101,8 +101,8 @@
                     <table class="table" style="font-size:.95em;">
                         <thead>
                         <tr>
-                            <th class="sn_number">Number</th>
-                            <th class="sn_service">Service</th>
+                            <th class="hidden-phone sn_number">Number</th>
+                            <th class="hidden-phone sn_service">Service</th>
                             <th class="sn_desc">Description</th>
                             <th class="sn_status">Status</th>
                         </tr>
@@ -118,13 +118,13 @@
                                 echo "<tr>";
                             }
                     ?>
-                            <td>
+                            <td class="hidden-phone">
                                 <?php
                                 $detail_url = site_url() . '/itsm-detail/' . $record->number;
                                 echo "<a href='$detail_url'>$record->number</a>";
                                 ?>
                             </td>
-                            <td>
+                            <td class="hidden-phone">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
@@ -165,8 +165,8 @@
                     <table class="table" style="font-size:.95em;">
                         <thead>
                         <tr>
-                            <th class="sn_number">Number</th>
-                            <th class="sn_service">Service</th>
+                            <th class="hidden-phone sn_number">Number</th>
+                            <th class="hidden-phone sn_service">Service</th>
                             <th class="sn_desc">Description</th>
                             <th class="sn_status">Status</th>
                         </tr>
@@ -182,13 +182,13 @@
                                 echo "<tr>";
                             }
                     ?>
-                            <td>
+                            <td class="hidden-phone">
                                 <?php
                                 $detail_url = site_url() . '/itsm-detail/' . $record->number;
                                 echo "<a href='$detail_url'>$record->number</a>";
                                 ?>
                             </td>
-                            <td>
+                            <td class="hidden-phone">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
