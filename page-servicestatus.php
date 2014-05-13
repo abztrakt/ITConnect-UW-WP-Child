@@ -57,7 +57,8 @@
                         $args = array(
                             'headers' => array(
                                 'Authorization' => 'Basic ' . base64_encode( SN_USER . ':' . SN_PASS ),
-                            )
+                            ),
+                            'timeout' => 15,
                         );
                 // Medium and High Impacted Incidents
                         $url = SN_URL . '/incident_list.do?JSONv2&sysparm_query=impact%3D2%5EORimpact%3D1%5EORDERBYcmdb_ci&displayvalue=true';
