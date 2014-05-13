@@ -95,7 +95,7 @@
                 ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 style="margin-top:0;">My Requests</h2>
+                    <h2 style="margin-top:0;">Services</h2>
                     <?php } ?>
 
                     <?php if( $has_req ) { ?>
@@ -159,7 +159,7 @@
 
                 ?>
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2>My Incidents</h2>
+                    <h2>Incidents</h2>
                     <?php } ?>
 
                     <?php if( $has_inc ) { ?>
