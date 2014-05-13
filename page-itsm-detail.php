@@ -92,7 +92,9 @@
                     }
                 }
                 ?>
-
+                
+                <div style="text-align:right; color:#777;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
+                  
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
                     //TODO: this work is repeated above, this should be refactored so we don't do that
@@ -128,7 +130,7 @@
                         if ($sn_num !== $record->number) {
                             echo "<div class='alert alert-danger'>I'm sorry this is not one of your $sn_type</div>";
                         } else  {
-                        echo "<h2><span style='color:#999;'>$record->number:</span> $record->short_description </h2>";
+                        echo "<h2><span style='color:#999;'>$record->number</span>&nbsp;&nbsp;$record->short_description </h2>";
                         echo "<table class='table'>";
                         if( !empty( $record->caller_id ) ) {
                             $caller = $record->caller_id;

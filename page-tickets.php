@@ -50,7 +50,7 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-                <div style="color:red; text-align:right;">Welcome to the gateway... <?php echo $_SERVER['REMOTE_USER']; ?>&nbsp;<span class="glyphicon glyphicon-user"></span></div>
+                <div style="text-align:right; color:#777;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
                 <?php
                     // Only do this work if we have everything we need to get to ServiceNow.
                     if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
