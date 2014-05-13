@@ -2,7 +2,7 @@
 <?php
     $sn_num = get_query_var('ticketID');
     if( $sn_num == '' ) {
-        $new_url = site_url() . '/tickets/';
+        $new_url = site_url() . '/myrequests/';
         wp_redirect( $new_url );
     }
 
@@ -167,7 +167,7 @@
                     }
                 ?>
 
-                <?php $submit_url = site_url() . '/itsm-detail/' . $sn_num . '/'; ?>
+                <?php $submit_url = site_url() . '/myrequest/' . $sn_num . '/'; ?>
                   <form role='form' action="<?php $submit_url; ?>" method='post'>
                     <div class='form-group' style='margin-bottom:1em;'>
                     <label for='exampleInputPassword1'>Comments</label>

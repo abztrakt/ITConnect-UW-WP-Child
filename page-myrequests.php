@@ -121,7 +121,7 @@
                     ?>
                             <td class="hidden-phone">
                                 <?php
-                                $detail_url = site_url() . '/itsm-detail/' . $record->number;
+                                $detail_url = site_url() . '/myrequest/' . $record->number;
                                 echo "<a href='$detail_url'>$record->number</a>";
                                 ?>
                             </td>
@@ -185,7 +185,7 @@
                     ?>
                             <td class="hidden-phone">
                                 <?php
-                                $detail_url = site_url() . '/itsm-detail/' . $record->number;
+                                $detail_url = site_url() . '/myrequest/' . $record->number;
                                 echo "<a href='$detail_url'>$record->number</a>";
                                 ?>
                             </td>

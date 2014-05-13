@@ -299,7 +299,7 @@ function add_query_vars($qvars) {
 add_filter('query_vars', 'add_query_vars');
 
 function add_rewrite_rules($aRules) {
-    $aNewRules = array('itsm-detail/([^/]+)/?$' => 'index.php?pagename=itsm-detail&ticketID=$matches[1]');
+    $aNewRules = array('myrequest/([^/]+)/?$' => 'index.php?pagename=myrequest&ticketID=$matches[1]');
     $aRules = $aNewRules + $aRules;
     return $aRules;
 }
