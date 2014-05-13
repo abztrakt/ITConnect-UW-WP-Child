@@ -126,10 +126,10 @@
                         $comments = $JSON->records;
 
                         if ($sn_num !== $record->number) {
-                            echo "I'm sorry this is not one of your $sn_type<br><br>";
+                            echo "<div class='alert alert-danger'>I'm sorry this is not one of your $sn_type</div>";
                         } else  {
-                        echo "<h2>$record->number : $record->short_description <span class='label label-success'>$record->state</span></h2>";
-                        echo "<table class='table table-striped table-bordered'>";
+                        echo "<h2><span style='color:#999;'>$record->number:</span> $record->short_description </h2>";
+                        echo "<table class='table'>";
                         if( !empty( $record->caller_id ) ) {
                             $caller = $record->caller_id;
                         } else if( !empty( $record->u_caller ) ) {
@@ -137,15 +137,17 @@
                         } else {
                             $caller = 'UNKNOWN';
                         }
-                        echo "<tr><td>Caller:</td> <td>$caller</td></tr>";
+                        echo "<tr><td>Status:</td> <td><span class='label label-success'>$record->state</span></td></tr>";
                         echo "<tr><td>Type:</td> <td>$sn_type</td></tr>";
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
-                        echo "<tr><td>Short Description:</td> <td>$record->short_description</td></tr>";
-                        echo "<tr><td>Description:</td> <td><pre>" . stripslashes($record->description) . " </pre></td></tr>";
+                        
                         echo "<tr><td>Opened on:</td> <td>$record->opened_at</td></tr>";
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
                         echo "</table>";
-                        echo "<h2>Updates to your $sn_type <span style='font-size:12px;font-weight:normal;'>last updated: $record->sys_updated_on</span></h2>";
+                        
+                        echo "<h3>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
+                        
+                        echo "<h3>Updates to your $sn_type</h3>";
 
                         usort( $comments, 'sortByCreatedOnAsc' );
                         foreach( $comments as $comment ) {
@@ -159,8 +161,6 @@
                             echo "</div>";
                         }
 
-                        echo "<br/><br/><br/>";
-
                         } //end if else to see if incident/request number doesn't match
                     }
                 ?>
@@ -169,7 +169,7 @@
                   <form role='form' action="<?php $submit_url; ?>" method='post'>
                     <div class='form-group' style='margin-bottom:1em;'>
                     <label for='exampleInputPassword1'>Comments</label>
-                    <textarea name='comments' class='form-control' rows='3'></textarea>
+                    <textarea name='comments' class='form-control' rows='3' style='resize:vertical;'></textarea>
                     </div>
                     <button type='submit' class='btn btn-default'>Submit</button>
                     <input type="hidden" name="submitted" id="submitted" value="true" />
