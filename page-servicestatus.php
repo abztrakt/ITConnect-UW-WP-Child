@@ -67,24 +67,23 @@
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                 ?>
-
-                <div class="alert alert-warning" style="margin-top:2em;">
-                    <?php if(!empty($JSON->records)) { ?>
-                    <strong>Attention!</strong> One or more UW-IT services have reported incidents which is currently causing some impact.
-                   <?php } else {
-                        echo "There are no current reported incidents.";
-                    } ?>
-                </div>
+                    
+                    <div class="alert alert-info" style="margin-top:2em;">Experiencing problems not listed on this page? <a href="/itconnect/help">Get help.</a></div>
+                
+                    
 
                 <h2>Service Impact</h2>
 
-                <div style="font-size:.95em; color:#aaa;margin-bottom:2em;">
-                    <span class="label label-danger"  style="display:inline-block; line-height:15px;">High</span> Widespread impact to UW-IT service, 
-network, telephony, application, or power outage.<br/>
-                    <span class="label label-warning" style="display:inline-block; line-height:15px;">Medium</span> Service, telephony, Network, or 
-application failure affecting multiple customers.
-                </div>
-
+                <dl style="font-size:.95em; color:#777;margin-bottom:2em;margin-left:0;">
+                    <dt class="label label-danger" style="display:inline-block; line-height:15px;width:40px;">High</dt><dd style="display:inline;line-height:20px;">Impact affecting all customers.</dd><br/>
+                    <dt class="label label-warning" style="display:inline-block; line-height:15px;width:40px;">Medium</dt><dd style="display:inline;line-height:20px;">Impact affecting multiple customers.</dd>
+                </dl>
+                
+                <?php if(empty($JSON->records)) { 
+                    echo "<div class='alert alert-warning' style='margin-top:2em;'>There are no current reported incidents.</div>";
+                } ?>
+                
+                
                     <?php
                         $sn_data = array();
                         foreach( $JSON->records as $record ) {
@@ -96,23 +95,31 @@ application failure affecting multiple customers.
                     ?>
 
                     <?php
+                        
+                        # put the services into a single ordered list
+                        echo "<ol style='list-style:none; margin:0;'>";
+                    
                         foreach( $sn_data as $ci) {
                             $service = array_search($ci, $sn_data);
                             // handle the case of blank services
                             if ($service !== '' ) {
-                                echo "<h4 style='font-weight:bold;border-bottom:solid 1px #eee;'>$service</h4>";
-                                echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#ccc; font-size:.95em;'>";
+                                echo "<li>";
+                                echo "<h3 style='font-weight:bold;font-size:1.5rem;border-bottom:solid 1px #eee;'>$service</h3>";
+                                echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#777; font-size:.95em;'>";
                                 foreach( $ci as $incident ){
                                     if ($incident->impact == '2 - Medium' ) {
-                                        echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;'>Medium</span></li>";
+                                        echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;width:40px;'>Medium</span></li>";
                                     }
                                     else {
-                                        echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;'>High</span></li>";
+                                        echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;width:40px;'>High</span></li>";
                                     }
                                 }
                                 echo "</ol>";
                             }
+                             echo "</li>";
                         }
+                        echo "</ol>";
+                        
                         //echo "DEBUG: ";
                         //echo "<pre>";
                         //var_dump($sn_data);
