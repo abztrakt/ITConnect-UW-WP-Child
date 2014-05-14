@@ -1,5 +1,6 @@
 <?php define( 'DONOTCACHEPAGE', True ); ?>
 <?php
+    $error_flag = False;
     $sn_num = get_query_var('ticketID');
     if( $sn_num == '' ) {
         $new_url = site_url() . '/myrequests/';
@@ -89,6 +90,7 @@
                         echo '<div class="alert alert-warning" style="margin-top:2em;">';
                         echo 'Attention! Your comment could not be posted: ' . $status['Error']['Text'] . ' (' . $status['Error']['Status'] . ')';
                         echo '</div>';
+                        $error_flag = True;
                     }
                 }
                 ?>
@@ -114,6 +116,7 @@
                             $sn_type = 'incident (INC)';
                         } else {
                             echo "Unrecognized type";
+                            $error_flag = True;
                         }
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
@@ -129,6 +132,7 @@
 
                         if ($sn_num !== $record->number) {
                             echo "<div class='alert alert-danger'>I'm sorry this is not one of your $sn_type</div>";
+                            $error_flag = True;
                         } else  {
                         echo "<h2><span style='color:#999;'>$record->number</span>&nbsp;&nbsp;$record->short_description </h2>";
                         echo "<table class='table'>";
@@ -189,7 +193,8 @@
                     }
                 ?>
 
-                <?php $submit_url = site_url() . '/myrequest/' . $sn_num . '/'; ?>
+                <?php  if(!$error_flag) {
+                $submit_url = site_url() . '/myrequest/' . $sn_num . '/'; ?>
                   <form role='form' action="<?php $submit_url; ?>" method='post'>
                     <div class='form-group' style='margin-bottom:1em;'>
                     <label for='exampleInputPassword1'>Comments</label>
@@ -198,6 +203,7 @@
                     <button type='submit' class='btn btn-default'>Submit</button>
                     <input type="hidden" name="submitted" id="submitted" value="true" />
                   </form>
+                <?php } ?>
 
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
