@@ -100,7 +100,7 @@
 
                     <?php if( $has_req ) { ?>
                     <table class="table" style="font-size:.95em;">
-                        <thead>
+                        <thead style="font-size:90%; color:#999;">
                         <tr>
                             <th class="hidden-phone sn_number">Number</th>
                             <th class="hidden-phone sn_service">Service</th>
@@ -139,9 +139,9 @@
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span $class>$record->state</span>";
+                                        echo "<span $class style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
                                     } else {
-                                        echo "<span>$record->state</span>";
+                                        echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
                                     }
                                 ?>
                             </td>
@@ -164,7 +164,7 @@
 
                     <?php if( $has_inc ) { ?>
                     <table class="table" style="font-size:.95em;">
-                        <thead>
+                        <thead style="font-size:90%; color:#999;">
                         <tr>
                             <th class="hidden-phone sn_number">Number</th>
                             <th class="hidden-phone sn_service">Service</th>
@@ -204,9 +204,9 @@
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span $class>$record->state</span>";
+                                        echo "<span $class style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
                                     } else {
-                                        echo "<span>$record->state</span>";
+                                        echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
                                     }
                                 ?>
                             </td>
