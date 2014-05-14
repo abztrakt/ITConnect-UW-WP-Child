@@ -139,7 +139,29 @@
                         } else {
                             $caller = 'UNKNOWN';
                         }
-                        echo "<tr><td>Status:</td> <td><span class='label label-success'>$record->state</span></td></tr>";
+
+                        // Array of record states and their corresponding classes
+                        $states = array(
+                            "New" => 'class="label label-success"',
+                            "Active" => 'class="label label-success"',
+                            "Awaiting User Info" => 'class="label label-success"',
+                            "Awaiting Tier 2 Info" => 'class="label label-success"',
+                            "Awaiting Vendor Info" => 'class="label label-success"',
+                            "Internal Review" => 'class="label label-success"',
+                            "Stalled" => 'class="label label-success"',
+                            "Delivered" => 'class="label label-success"',
+                            "Resolved" => 'class="label label-default"',
+                            "Closed" => 'class="label label-default"',
+                        );
+
+                        echo "<tr><td>Status:</td><td class='request_status'>";
+                                if (array_key_exists($record->state, $states)) {
+                                    $class = $states[$record->state];
+                                    echo "<span $class>$record->state</span>";
+                                } else {
+                                    echo "<span>$record->state</span>";
+                                }
+                        echo "</td></tr>";
                         echo "<tr><td>Type:</td> <td>$sn_type</td></tr>";
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
                         
