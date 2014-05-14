@@ -134,7 +134,10 @@
                             echo "<div class='alert alert-danger'>I'm sorry this is not one of your $sn_type</div>";
                             $error_flag = True;
                         } else  {
-                        echo "<h2><span style='color:#999;'>$record->number</span>&nbsp;&nbsp;$record->short_description </h2>";
+                        echo "<h2>$record->short_description&nbsp;&nbsp;<span style='color:#999;'>($record->number)</span></h2>";
+                        
+                        echo "<h3 class='assistive-text'>Details:</h3>";
+                        
                         echo "<table class='table'>";
                         if( !empty( $record->caller_id ) ) {
                             $caller = $record->caller_id;
@@ -173,22 +176,27 @@
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
                         echo "</table>";
                         
-                        echo "<h3>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
+                        echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
                         
-                        echo "<h3>Updates to your $sn_type</h3>";
+                        echo "<h3 style='margin-top:2em;'>Additional comments:</h3>";
 
                         usort( $comments, 'sortByCreatedOnAsc' );
+                        
+                        echo "<ol style='margin-left:0;'>";
+                        
                         foreach( $comments as $comment ) {
-                            echo "<div class='media'>";
+                            echo "<li class='media'>";
                             echo "<div class='media-body'>";
                             echo "<p><strong>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
                             echo "<pre>";
                             echo stripslashes($comment->value);
                             echo "</pre>";
                             echo "</div>";
-                            echo "</div>";
+                            echo "</li>";
                         }
-
+                        
+                        echo "</ol>";
+                        
                         } //end if else to see if incident/request number doesn't match
                     }
                 ?>
