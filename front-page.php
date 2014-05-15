@@ -6,8 +6,8 @@
             <?php include('outages.php'); ?>
 			<div class="row">
 
-				<div id="home_main" class="span9" <?php custom_main_image();?>>
-                    <span id='overlay' class='visible-phone'></span>
+				<div id="home_main" class="col-xs-9" <?php custom_main_image();?>>
+                    <span id='overlay' class='visible-xs'></span>
         			<?php while ( have_posts() ) : the_post(); ?>
 
         			<span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
@@ -86,14 +86,14 @@
 				</div>
                 </div>
 
-                <div id="home_secondary" class="span3" role="complementary">
+                <div id="home_secondary" class="col-xs-3" role="complementary">
                     <div class="stripe-top"></div><div class="stripe-bottom"></div>
                       <div class="home_sidebar" id="sidebar" role="navigation" aria-label="Sidebar Menu">
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
                 </div>
 
-                <div id="home_tertiary" class="span9 visible-phone" style="background-color:#fff;">
+                <div id="home_tertiary" class="col-xs-9 visible-xs" style="background-color:#fff;">
                     <h2>News</h2>
                     <?php foreach ($postslist as $post) : setup_postdata($post); ?>
                     <div class="media">

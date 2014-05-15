@@ -6,8 +6,8 @@
         <div class="it_container">
         <div class='row'>
         <!--<?php uw_footer_menu(); ?>  Will want to use this, but for styling purposes, making flat HTML -->
-            <div id='footer_links' class='span9'>
-                <div id='footer_links_left' class='span4'>
+            <div id='footer_links' class='col-xs-9'>
+                <div id='footer_links_left' class='col-xs-4'>
                     <table>
                         <tr>
                             <td>Online</td><td><a href='<?php echo get_site_url();?>/it-connect-home/question'>Contact form</a></td>
@@ -17,7 +17,7 @@
                         </tr>
                     </table>
                 </div>
-                <div id='footer_links_mid' class='span4'>
+                <div id='footer_links_mid' class='col-xs-4'>
                     <table>
                         <tr>
                             <td>Phone</td><td>206-221-5000</td>
@@ -27,12 +27,12 @@
                         </tr>
                     </table>
                 </div>
-                <div id='footer_links_right' class='span4'>
+                <div id='footer_links_right' class='col-xs-4'>
                     <p><a href='http://depts.washington.edu/uwtscat'>Service Catalog</a></p>
                     <p><a href='http://depts.washington.edu/uwtscat/views/contactlist'>UW-IT Service Contact List</a></p>
                 </div>
             </div>
-            <div id='footer_logo_container' class='span3'>
+            <div id='footer_logo_container' class='col-xs-3'>
                 <div class='wrapper'>
                     <a id='it_footer_logo' href='<?php echo get_site_url(); ?>'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/uwit_logo_la.png'></a>
                 </div>
