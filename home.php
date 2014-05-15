@@ -11,13 +11,13 @@
                         </div>
 
 				    </div>
-                    <p id="mobile_image" class="col-xs-9 visible-xs" <?php custom_main_image();?>>
+                    <p id="mobile_image" class="col-sm-9 visible-sm" <?php custom_main_image();?>>
                         <span id='overlay'></span>
                         <span class='category'>News</span>
                     </p>
                     <?php include('outages.php'); ?>
-                    <p class="pull-left visible-xs"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>
-				    <div id='tertiary' class="col-xs-9">
+                    <p class="pull-left visible-sm"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>
+				    <div id='tertiary' class="col-sm-9">
                         <?php uw_breadcrumbs(); ?>
                         <div id="main_content" role="main">
                         <h1 class='hidden-phone news-title'>News

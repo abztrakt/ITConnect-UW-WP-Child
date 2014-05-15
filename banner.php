@@ -8,10 +8,10 @@
 
 		<div class="skip-link"><a class="assistive-text" href="#sidebar" title="<?php esc_attr_e( 'Skip to sidebar content', 'twentyeleven' ); ?>"><?php _e( 'Skip to sidebar content', 'twentyeleven' ); ?></a></div>
 
-		<a class="patch hidden-xs" href="http://www.uw.edu" title="University of Washington"></a>
-		<a class="wordmark hidden-xs" <?php custom_wordmark(); ?> href="<?php echo site_url(); ?>">IT Connect</a>
-		<a class="wordmark visible-xs" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">University of Washington</a>
-        <p id="header_description" class="hidden-xs">Information technology tools and resources at the UW</p>
+		<a class="patch hidden-sm" href="http://www.uw.edu" title="University of Washington"></a>
+		<a class="wordmark hidden-sm" <?php custom_wordmark(); ?> href="<?php echo site_url(); ?>">IT Connect</a>
+		<a class="wordmark visible-sm" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">University of Washington</a>
+        <p id="header_description" class="hidden-xs hidden-sm">Information technology tools and resources at the UW</p>
         <a title="Show search" role="button" href="#searchicon-wrapper" id="searchicon-wrapper" aria-haspopup="true">Search</a>
 
       <?php get_template_part('uw-search'); ?>
