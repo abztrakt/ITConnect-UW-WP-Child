@@ -679,13 +679,13 @@ ul.breadcrumbs-list li.current:after {
     background-color: white;
 }
 
-p.pull-left.visible-phone {
+p.pull-left.visible-xs {
     width: 100%;
     background: #F5F5F7;
     margin: 0px;
 }
 
-p.pull-left.visible-phone span {
+p.pull-left.visible-xs span {
     position: relative;
     top: 2px;
 }
@@ -1524,7 +1524,7 @@ h5.home_date {
 
 /* --- IE mobile fixes --- */
 
-#ie7 .visible-phone {
+#ie7 .visible-xs {
     display: block !important;
 }
 
@@ -1860,7 +1860,7 @@ h5.home_date {
         background: none;
     }
         
-    .wordmark.visible-phone {
+    .wordmark.visible-xs {
         left: 50px;
     }
 
@@ -2174,7 +2174,7 @@ h5.home_date {
         top: 8px;
     }
 
-    .navbar.mobile .visible-phone {
+    .navbar.mobile .visible-xs {
         display: block !important;
     }
 
@@ -2456,7 +2456,7 @@ h5.home_date {
 
     /*** IE styles ***/ 
 
-    #ie7 .visible-phone {
+    #ie7 .visible-xs {
         display: none !important;
     }
 
