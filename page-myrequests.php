@@ -152,7 +152,7 @@
                         </tbody>
                     </table>
                     <?php } else if( $has_inc ) { ?>
-                        <p>I'm sorry, you don't have any requests.</p>
+                        <p>I'm sorry, you have not requested any services.</p>
                     <?php } ?>
 
                 <?php
@@ -218,11 +218,11 @@
                         </tbody>
                     </table>
                     <?php } else if( $has_req ) { ?>
-                        <p>I'm sorry, you don't have any incidents.</p>
+                        <p>I'm sorry, you have not reported any incidents.</p>
                     <?php } ?>
 
                     <?php if( !$has_req && !$has_inc ) { ?>
-                        <p>I'm sorry, you don't have any requests or incidents in the system.</p>
+                        <p>I'm sorry, you don't have any service requests or incidents in the system.</p>
                     <?php } ?>
 
                 <?php } else {?>
