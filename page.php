@@ -5,14 +5,14 @@
 
 
 			<div class="row row-offcanvas row-offcanvas-left">
-				<div id="secondary" class="col-xs-3 sidebar-offcanvas" role="complementary">
+				<div id="secondary" class="col-sm-3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>
                       <div class="" id="sidebar" role="navigation" aria-label="Sidebar Menu">
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
 				</div>
 			    <?php while ( have_posts() ) : the_post(); ?>
-				<p id="mobile_image" class="col-xs-9 visible-xs" <?php custom_main_image();?>>
+				<p id="mobile_image" class="col-sm-9 visible-xs" <?php custom_main_image();?>>
                     <span id='overlay'></span>
                     <span class='category'>
                     <?php $ancestor_list = array_reverse(get_post_ancestors($post->ID));
@@ -29,7 +29,7 @@
                 </p>
                 <?php include('outages.php'); ?>
                 <p class="pull-left visible-xs"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php if(!$is_top) { echo get_the_title(); }?></span></p>
-				<div id='tertiary' class="col-xs-9">
+				<div id='tertiary' class="col-sm-9">
 
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 

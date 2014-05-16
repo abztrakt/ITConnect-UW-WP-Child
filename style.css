@@ -612,7 +612,6 @@ a.btn:hover {
 .formbutton {
     display: none;
 }
-
 /*** Mobile banner pic ***/
 
 #mobile_image { 
@@ -1800,7 +1799,7 @@ h5.home_date {
     
     ***/
 
-    .patch.hidden-sm {
+    .patch.hidden-xs {
         margin-left: 40px;
     }
 
@@ -1864,7 +1863,7 @@ h5.home_date {
         left: 50px;
     }
 
-    .wordmark.hidden-sm {
+    .wordmark.hidden-xs {
         left: 125px;
     }
 
