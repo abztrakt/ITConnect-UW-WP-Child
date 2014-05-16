@@ -11,16 +11,16 @@
                         <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
 				    </div>
-                    <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
+                    <p id="mobile_image" class="span9 visible-sm" <?php custom_main_image();?>>
                         <span id='overlay'></span>
                         <span class='category'><?= single_cat_title(); ?></span>
                     </p>
                     <?php include('outages.php'); ?>
-                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); single_cat_title(); ?></span></p>
+                    <p class="pull-left visible-sm"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); single_cat_title(); ?></span></p>
 				<div id='tertiary' class="span9">
                     <?php uw_breadcrumbs(); ?>
                     <div id="main_content" role="main">
-                    <h1 class='news-title hidden-phone'><?php single_month_title(' '); single_cat_title(); ?>
+                    <h1 class='news-title hidden-sm'><?php single_month_title(' '); single_cat_title(); ?>
 		<?php
                      $current_page = get_query_var('paged');
                      if ($current_page == 0) {

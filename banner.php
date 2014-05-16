@@ -1,5 +1,5 @@
 <header id="branding" role="banner">
-<div id='banner-container' class='hidden-phone'>
+<div id='banner-container' class='hidden-sm'>
     <div id="banner-image" class='it_container' style='background-image:url(<?php header_image(); ?>);'></div>
 </div>
 
@@ -31,8 +31,8 @@
 			<li><a href="http://myuw.washington.edu/">My UW</a></li>
          <!--   <li class="visible-desktop"><a href="http://www.bothell.washington.edu/">UW Bothell</a></li>
             <li class="visible-desktop"><a href="http://www.tacoma.uw.edu/">UW Tacoma</a></li>  -->
-            <li class="visible-phone"><a href="http://www.uw.edu/news">News</a></li>
-			<li class="visible-phone"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
+            <li class="visible-sm"><a href="http://www.uw.edu/news">News</a></li>
+			<li class="visible-sm"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
 		</ul>
 	</div>
 </div>
