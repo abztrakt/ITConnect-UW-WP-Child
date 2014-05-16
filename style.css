@@ -537,7 +537,7 @@ body { background: #f5f7f6; }
 
 /*** Navigation Menu ********/
 
-.navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: rgb(1, 87, 179); }
+.navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: rgb(1, 87, 179); margin-bottom: 0;}
 
 .navbar .nav { margin: 0; }
 
@@ -2083,7 +2083,9 @@ h5.home_date {
     /*** Navigation Menu ********/
 
     nav, .navbar {  background: rgba(1, 87, 179, 0.50); }
-
+    
+    .navbar { margin: 0; border: none !important; }
+    
     .navbar .nav { float: right; }
 
     .nav-collapse { display: block; }
