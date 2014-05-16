@@ -733,6 +733,7 @@ a.btn-offcanvas.active {
     list-style-type: none;
     margin-left: 0px;
     margin-bottom: 20px;
+    padding-left: 0;
 }
 
 #secondary ul li {
