@@ -183,11 +183,10 @@
         
         $('.navbar.mobile').removeClass('mobile');
         
-        /**** TODO: Fix this logic. It's tied to the height of the banner and this is not ideal
-        if (($('.navbar').height() > 50 ) && (!mobile)) {
+        /*if (($('.navbar').height() > 50 ) && (!mobile)) {
             $('.navbar').addClass('mobile');
-        }
-        ****/
+        }*/
+ 
     }
 
     function fixDropdownOverrun() {

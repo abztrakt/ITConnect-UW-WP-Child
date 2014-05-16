@@ -280,7 +280,6 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
   }
 endif;
 
-
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
 
