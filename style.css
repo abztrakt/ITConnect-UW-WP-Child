@@ -2305,12 +2305,13 @@ h5.home_date {
         margin: 0px;
         padding-top: 5px;
         cursor: default;
+        padding-left: 0;
     }
 
     #spotlight_paginator > li {
         display: inline-block;
-        height: 12px;
-        width: 12px;
+        height: 14px;
+        width: 14px;
         margin: 5px 2px;
         border-radius: 50%;
         padding: 1px;
@@ -2324,8 +2325,8 @@ h5.home_date {
 
     #spotlight_paginator > li > div {
         padding: 1px;
-        height: 10px;
-        width: 10px;
+        height: 12px;
+        width: 12px;
         border-radius: 50%;
         background-color: white;
     }
