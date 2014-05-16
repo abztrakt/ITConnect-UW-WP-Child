@@ -16,11 +16,11 @@
 
         			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-        				<header class="entry-header hidden-desktop hidden-tablet">
+        				<header class="entry-header hidden-lg hidden-md">
         					<h1 class="entry-title"><?php apply_filters('italics', get_the_title()); ?></h1>
         				</header><!-- .entry-header -->
 
-        				<div class="entry-content hidden-phone">
+        				<div class="entry-content hidden-xs">
         					<?php the_content(); ?>
         					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
         				</div><!-- .entry-content -->
@@ -56,7 +56,7 @@
 
                     ?>
                     <div id="main_content" role="main">
-        			<div id="home_spotlight" class="hidden-phone">
+        			<div id="home_spotlight" class="hidden-xs">
                         <?php
                         $counter = 0;
                         $divcount = 0;
@@ -93,7 +93,7 @@
                       </div>
                 </div>
 
-                <div id="home_tertiary" class="col-sm-9 visible-sm" style="background-color:#fff;">
+                <div id="home_tertiary" class="col-sm-9 visible-xs" style="background-color:#fff;">
                     <h2>News</h2>
                     <?php foreach ($postslist as $post) : setup_postdata($post); ?>
                     <div class="media">
