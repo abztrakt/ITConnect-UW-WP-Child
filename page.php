@@ -28,7 +28,9 @@
                     </span>
                 </p>
                 <?php include('outages.php'); ?>
-                <p class="pull-left visible-xs"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php if(!$is_top) { echo get_the_title(); }?></span></p>
+                
+                <div class="sidebar-menu visible-xs"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php if(!$is_top) { echo get_the_title(); }?></span></div>
+                
 				<div id='tertiary' class="col-sm-9">
 
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>

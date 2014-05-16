@@ -622,6 +622,8 @@ a.btn:hover {
 ul.breadcrumbs-list {
     list-style-type: none;
     margin-top: 20px;
+    margin-left: 25px;
+    padding-left: 0;
 }
 
 ul.breadcrumbs-list li {
@@ -653,7 +655,7 @@ ul.breadcrumbs-list li.current:after {
     background-color: white;
 }
 
-p.pull-left.visible-sm {
+.sidebar-menu {
     width: 100%;
     background: #F5F5F7;
     margin: 0px;
@@ -880,7 +882,7 @@ h5.date {
 }
 
 #tertiary {
-    padding: 48px 0px 0px 10px;
+    padding: 0 0px 0px 10px;
     background: white;
 }
 
@@ -939,6 +941,7 @@ ol.commentlist {
 
 article div.entry-content ul.ptoc {
     margin:1em 0 1.5em 2em;
+    padding-left: 0; 
 }
 
 article div.entry-content  ul.ptoc li.onthispage {
