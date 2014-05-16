@@ -541,6 +541,8 @@ body { background: #f5f7f6; }
 
 .navbar { padding: 0; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; text-transform: uppercase; background: rgb(1, 87, 179); margin-bottom: 0;}
 
+.navbar-default { border: none !important; }
+
 .navbar .nav { margin: 0; }
 
 .navbar .nav li {  }
@@ -584,7 +586,7 @@ b.caret {
 
 a.btn.btn-navbar.navbar-toggle {
     background: rgb(1, 87, 179);
-    margin-top: 0;
+    /*margin-top: 0;*/
 }
 
 a.btn:hover {
@@ -2177,7 +2179,7 @@ h5.home_date {
 
     .navbar.mobile .navbar-toggle {
         display: inline-block;
-        position: absolute;
+        /*position: absolute;*/
         top: 8px;
     }
 

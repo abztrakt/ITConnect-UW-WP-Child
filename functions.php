@@ -323,7 +323,6 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
   }
 endif;
 
-/*
 function add_query_vars($qvars) {
     $qvars[] = "ticketID";
     return $qvars;
@@ -355,7 +354,6 @@ function sortByCreatedOnDesc($a, $b) {
 function sortByNumberDesc($a, $b) {
     return $a->number < $b->number;
 }
-*/
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
