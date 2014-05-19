@@ -2575,7 +2575,7 @@ h5.home_date {
 
 @media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
     #footer-main {
-        height: 25px;
+        height: 29px;
     }    
     
     #footer-left, #footer-right {
