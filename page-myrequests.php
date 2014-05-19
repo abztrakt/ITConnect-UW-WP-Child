@@ -44,6 +44,7 @@
 				<div class="entry-content">
 					<?php the_content(); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) );
+          if(isset($_SERVER['REMOTE_USER'])) {
                     include_once(ABSPATH . 'wp-admin/includes/plugin.php');
                     // prompt the user to log in and leave feedback if appropriate
                     if (is_plugin_active('document-feedback/document-feedback.php') && !is_user_logged_in()): ?>
@@ -227,7 +228,13 @@
 
                 <?php } else {?>
                     <p>Whoops! Something went wrong, if this persists, please contact the Administrator.</p>
-                <?php } ?>
+                <?php } 
+                } else {
+                    echo "<h3>Status 403: Unauthorized</h3>";
+                    echo "<p>Please log into your UW NETID to view your list of Requests and Incidents</p>";
+                }
+                
+                ?>
 
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>

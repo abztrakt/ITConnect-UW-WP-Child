@@ -84,6 +84,7 @@
 				</div><!-- .entry-content -->
 
                 <?php
+            if(isset($_SERVER['REMOTE_USER'])) {
                 if( isset( $response ) ) {
                     $status = json_decode($response['body'], true);
                     if( $status['Error']['Status'] !== '200' ) {
@@ -211,7 +212,12 @@
                     <button type='submit' class='btn btn-default'>Submit</button>
                     <input type="hidden" name="submitted" id="submitted" value="true" />
                   </form>
-                <?php } ?>
+                <?php } 
+                } else {
+                    echo "<h3>Status 403: Unauthorized</h3>";
+                    echo "<p>Please log in to your UW NETID in order to view your Requests and Incidents</p>";
+                }
+                ?>
 
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
