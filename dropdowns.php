@@ -17,7 +17,7 @@
         
           <div class="navbar-inner">
             <span class="navbar-caret" style="position:absolute;"></span>
-            <h3 class="visible-xs visible-sm"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('title'); ?></a></h3>
+            <h3 class="visible-xs"><a href="<?php bloginfo('url'); ?>/"><?php bloginfo('title'); ?></a></h3>
             <?php uw_dropdowns(); ?>
           </div>
           
