@@ -96,7 +96,7 @@
                 ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 style="margin-top:0;">Services</h2>
+                    <h2 style="margin-top:0;">My Requests</h2>
                     <?php } ?>
 
                     <?php if( $has_req ) { ?>
@@ -153,14 +153,14 @@
                         </tbody>
                     </table>
                     <?php } else if( $has_inc ) { ?>
-                        <p>I'm sorry, you have not requested any services.</p>
+                        <p>I'm sorry, you do not have any requests.</p>
                     <?php } ?>
 
                 <?php
 
                 ?>
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2>Incidents</h2>
+                    <h2>My Incidents</h2>
                     <?php } ?>
 
                     <?php if( $has_inc ) { ?>
