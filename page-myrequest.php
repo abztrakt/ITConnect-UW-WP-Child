@@ -22,6 +22,7 @@
             $args = array(
                 'headers' => array(
                     'Authorization' => 'Basic ' . base64_encode( SN_USER . ':' . SN_PASS ),
+                    'Content-Type' => 'application/json',
                 ),
                 'body' => $comments_json,
             );
