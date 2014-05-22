@@ -153,8 +153,7 @@
                     ?>
                     </ol>
                         
-                    <?php } else if( $has_inc ) { ?>
-                        <p>I'm sorry, you do not have any requests.</p>
+
                     <?php } ?>
 
                 <?php
@@ -220,12 +219,10 @@
                     ?>
                     </ol>
                         
-                    <?php } else if( $has_req ) { ?>
-                        <p>I'm sorry, you have not reported any incidents.</p>
                     <?php } ?>
 
                     <?php if( !$has_req && !$has_inc ) { ?>
-                        <p>I'm sorry, you don't have any service requests or incidents in the system.</p>
+                        <p>You have no current requests with UW-IT.</p>
                     <?php } ?>
 
                 <?php } else {?>
