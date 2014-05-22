@@ -97,15 +97,70 @@
 
                     <?php if( $has_req || $has_inc ) { ?>
                     <h2 class="assistive-text">My Requests</h2>
-                    <?php } ?>
-
-                    <?php if( $has_req ) { ?>
                     <div class="row_underline">
                         <span class="span2 hidden-phone sn_number">Number</span>
                         <span class="span4 hidden-phone sn_service ">Service</span>
                         <span class="span5 sn_desc ">Description</span>
                         <span class="span1 sn_status ">Status</span>
                     </div>
+                    <?php } ?>
+
+                    <?php if( $has_inc ) { ?>
+                    <div class="assistive-text">
+                        <span class="hidden-phone sn_number">Number</span>
+                        <span class="hidden-phone sn_service">Service</span>
+                        <span class="sn_desc">Description</span>
+                        <span class="sn_status">Status</span>
+                    </div>
+                    <ol class="inner_request_list">
+                    <?php
+                    usort($inc_json->records, 'sortByUpdatedOnDesc');
+                    foreach ( $inc_json->records as $record ) {
+                        if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
+                            $record->state = "Active";
+                        }
+
+                            $detail_url = site_url() . '/myrequest/' . $record->number;
+                            if ($record->state == "Resolved" || $record->state == "Closed") {
+                                echo "<li class='row_underline inner_row_underline resolved_ticket'>";
+                            } else {
+                                echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
+                            }
+                    ?>
+                            <span class="span2 hidden-phone">
+                                <?php
+                                    echo "$record->number";
+                                ?>
+                            </span>
+                            <span class="span4 hidden-phone" id="request_service">
+                                <?php
+                                echo "$record->cmdb_ci";
+                                ?>
+                            </span>
+
+                            <span class="span5" id="request_desc">
+                                <?php
+                                echo "$record->short_description";
+                                ?>
+                            </span>
+                            <span class="span1 incident_status">
+                                <?php
+                                    if (array_key_exists($record->state, $states)) {
+                                        $class = $states[$record->state];
+                                        echo "<span class='$class' style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
+                                    } else {
+                                        echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
+                                    }
+                                ?>
+                            </span>
+                        </a></li>
+                    <?php
+                    }
+                    ?>
+                    </ol>
+                    <?php } ?>
+
+                    <?php if( $has_req ) { ?>
                     <ol class="inner_request_list">
                     <?php
                     echo "<style>
@@ -140,6 +195,25 @@
                             li {
                                 list-style-type:none;
                             }
+
+                            @media screen and (min-width: 768px) {
+                                #request_desc {
+                                    width: 38%;
+                                }
+                            }
+
+                            @media screen and (min-width: 920px) {
+                                #request_desc {
+                                    width:38.5%;
+                                }
+                            }
+
+                            @media screen and (min-width: 1200px) {
+                                #request_desc {
+                                    display: inline-block;
+                                    width: 40%;
+                                }
+                            }
                             </style>";
                     usort($req_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $req_json->records as $record ) {
@@ -148,7 +222,7 @@
                                 $record->state = "Active";
                             }
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<li class='resolved_ticket'>";
+                                echo "<li class='row_underline inner_row_underline resolved_ticket'>";
                             } else {
                                 $detail_url = site_url() . '/myrequest/' . $record->number;
                                 echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
@@ -191,70 +265,13 @@
                     <h2 class="assistive-text">My Incidents</h2>
                     <?php } ?>
 
-                    <?php if( $has_inc ) { ?>
-                    <div class="assistive-text">
-                        <span class="hidden-phone sn_number">Number</span>
-                        <span class="hidden-phone sn_service">Service</span>
-                        <span class="sn_desc">Description</span>
-                        <span class="sn_status">Status</span>
-                    </div> 
-                    <ol>
-                    <?php
-                    usort($inc_json->records, 'sortByUpdatedOnDesc');
-                    foreach ( $inc_json->records as $record ) {
-                        if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
-                            $record->state = "Active";
-                        }
-
-
-                            if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<li class='resolved_ticket'>";
-                            } else {
-                                echo "<li>";
-                            }
-                    ?>
-                            <span class="hidden-phone">
-                                <?php
-                                $detail_url = site_url() . '/myrequest/' . $record->number;
-                                echo "<a href='$detail_url'>$record->number</a>";
-                                ?>
-                            </span>
-                            <span class="hidden-phone">
-                                <?php
-                                echo "$record->cmdb_ci";
-                                ?>
-                            </span>
-
-                            <span>
-                                <?php
-                                echo "$record->short_description";
-                                ?>
-                            </span>
-                            <span class="incident_status">
-                                <?php
-                                    if (array_key_exists($record->state, $states)) {
-                                        $class = $states[$record->state];
-                                        echo "<span $class style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
-                                    } else {
-                                        echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
-                                    }
-                                ?>
-                            </span>
-                        </li>
-                    <?php
-
-                    }
-                    ?>
-                    </ol>
-                    <?php } ?>
-
                     <?php if( !$has_req && !$has_inc ) { ?>
                         <p>You have no current requests with UW-IT.</p>
                     <?php } ?>
 
                 <?php } else {?>
                     <p>Whoops! Something went wrong, if this persists, please contact the Administrator.</p>
-                <?php } 
+                <?php }
                 } else {
                     echo "<h3>Status 403: Unauthorized</h3>";
                     echo "<p>Please log into your UW NETID to view your list of Requests and Incidents</p>";
