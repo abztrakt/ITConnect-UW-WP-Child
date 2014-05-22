@@ -114,6 +114,9 @@
                     usort($req_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $req_json->records as $record ) {
 
+                            if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
+                                $record->state = "Active";
+                            }
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<tr class='resolved_ticket'>";
                             } else {
@@ -177,6 +180,10 @@
                     <?php
                     usort($inc_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $inc_json->records as $record ) {
+                        if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
+                            $record->state = "Active";
+                        }
+
 
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<tr class='resolved_ticket'>";
