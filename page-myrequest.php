@@ -163,6 +163,11 @@
                             "Closed" => 'class="label label-default"',
                         );
 
+                        if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
+                            $record->state = "Active";
+                        }
+
+
                         echo "<tr><td>Status:</td><td class='request_status'>";
                                 if (array_key_exists($record->state, $states)) {
                                     $class = $states[$record->state];
