@@ -171,7 +171,6 @@
                                     echo "<span>$record->state</span>";
                                 }
                         echo "</td></tr>";
-                        echo "<tr><td>Type:</td> <td>$sn_type</td></tr>";
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
                         
                         echo "<tr><td>Opened on:</td> <td>$record->opened_at</td></tr>";
