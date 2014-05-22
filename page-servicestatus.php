@@ -68,17 +68,7 @@
                         $JSON = json_decode( $body );
                 ?>
                     
-                    <div class="alert alert-info" style="margin-top:2em;">Experiencing problems not listed on this page? <a href="/itconnect/help">Get help.</a></div>
-                
-                    
-
-                <h2>Service Impact</h2>
-
-                <dl style="font-size:.95em; color:#777;margin-bottom:2em;margin-left:0;">
-                    <dt class="label label-danger" style="display:inline-block; line-height:15px;width:40px;">High</dt><dd style="display:inline;line-height:20px;">Impact affecting all customers.</dd><br/>
-                    <dt class="label label-warning" style="display:inline-block; line-height:15px;width:40px;">Medium</dt><dd style="display:inline;line-height:20px;">Impact affecting multiple customers.</dd>
-                </dl>
-                
+                            
                 <?php if(empty($JSON->records)) { 
                     echo "<div class='alert alert-warning' style='margin-top:2em;'>There are no current reported incidents.</div>";
                 } ?>
