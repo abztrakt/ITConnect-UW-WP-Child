@@ -62,16 +62,16 @@
                         );
 
                         $states = array(
-                            "New" => '"label label-success"',
-                            "Active" => '"label label-success"',
-                            "Awaiting User Info" => '"label label-success"',
-                            "Awaiting Tier 2 Info" => '"label label-success"',
-                            "Awaiting Vendor Info" => '"label label-success"',
-                            "Internal Review" => '"label label-success"',
-                            "Stalled" => '"label label-success"',
-                            "Delivered" => '"label label-success"',
-                            "Resolved" => '"label label-default"',
-                            "Closed" => '"label label-default"',
+                            "New" => 'label label-success',
+                            "Active" => 'label label-success',
+                            "Awaiting User Info" => 'label label-success',
+                            "Awaiting Tier 2 Info" => 'label label-success',
+                            "Awaiting Vendor Info" => 'label label-success',
+                            "Internal Review" => 'label label-success',
+                            "Stalled" => 'label label-success',
+                            "Delivered" => 'label label-success',
+                            "Resolved" => 'label label-default',
+                            "Closed" => 'label label-default',
                         );
 
                         // Requests
@@ -100,15 +100,47 @@
                     <?php } ?>
 
                     <?php if( $has_req ) { ?>
-                    <div>
-                        <span class="hidden-phone sn_number ">Number</span>
-                        <span class="hidden-phone sn_service ">Service</span>
-                        <span class="sn_desc ">Description</span>
-                        <span class="sn_status ">Status</span>
-                    </div>       
-                        
-                    <ol>   
+                    <div class="row_underline">
+                        <span class="span2 hidden-phone sn_number">Number</span>
+                        <span class="span4 hidden-phone sn_service ">Service</span>
+                        <span class="span5 sn_desc ">Description</span>
+                        <span class="span1 sn_status ">Status</span>
+                    </div>
+                    <ol class="inner_request_list">
                     <?php
+                    echo "<style>
+                            #request_desc{
+                                text-overflow:ellipsis;
+                                white-space:nowrap;
+                                overflow:hidden;
+                                width:40%;
+                            }
+
+                            #request_service {
+                                text-overflow:ellipsis;
+                                white-space:nowrap;
+                                overflow:hidden;
+                                width:33.4%%;
+                            }
+
+                            .row_underline {
+                                overflow: auto;
+                                border-bottom: 1px #777 solid;
+                            }
+
+                            .inner_row_underline {
+                                padding-bottom: 1em;
+                                padding-top: 1em;
+                            }
+
+                            .inner_request_list {
+                                margin: 0 0 10px 0px;
+                            }
+
+                            li {
+                                list-style-type:none;
+                            }
+                            </style>";
                     usort($req_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $req_json->records as $record ) {
 
@@ -118,47 +150,43 @@
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<li class='resolved_ticket'>";
                             } else {
-                                echo "<li>";
+                                $detail_url = site_url() . '/myrequest/' . $record->number;
+                                echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
                             }
                     ?>
-                            <span class="hidden-phone">
+                            <span class="span2 hidden-phone">
                                 <?php
-                                $detail_url = site_url() . '/myrequest/' . $record->number;
-                                echo "<a href='$detail_url'>$record->number</a>";
+                                echo "$record->number";
                                 ?>
                             </span>
-                            <span class="hidden-phone">
+                            <span class="span4 hidden-phone" id="request_service">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
-                            <span>
+                            <span class="span5" id="request_desc">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="request_status">
+                            <span class="span1 request_status">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span $class style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span class='$class' style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
                                     } else {
                                         echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
                                     }
                                 ?>
                             </span>
-                        </li>
+                        </a></li>
                     <?php
                     }
                     ?>
                     </ol>
-                        
 
                     <?php } ?>
 
-                <?php
-
-                ?>
                     <?php if( $has_req || $has_inc ) { ?>
                     <h2 class="assistive-text">My Incidents</h2>
                     <?php } ?>
@@ -218,7 +246,6 @@
                     }
                     ?>
                     </ol>
-                        
                     <?php } ?>
 
                     <?php if( !$has_req && !$has_inc ) { ?>
@@ -232,22 +259,17 @@
                     echo "<h3>Status 403: Unauthorized</h3>";
                     echo "<p>Please log into your UW NETID to view your list of Requests and Incidents</p>";
                 }
-                
                 ?>
-                
                 <div>
                     <p>Not seeing your request?  You may need to login as a different UW NetID.</p>
                 </div>
-                
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
             </article><!-- #post-<?php the_ID(); ?> -->
           </div>
-                
 
 			<?php endwhile; // end of the loop. ?>
-            
 				</div>
  			 </div>
 			</div><!-- #content -->
