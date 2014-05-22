@@ -96,20 +96,18 @@
                 ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 style="margin-top:0;">My Requests</h2>
+                    <h2 class="assistive-text">My Requests</h2>
                     <?php } ?>
 
                     <?php if( $has_req ) { ?>
-                    <table class="table" style="font-size:.95em;">
-                        <thead style="font-size:90%; color:#999;">
-                        <tr>
-                            <th class="hidden-phone sn_number">Number</th>
-                            <th class="hidden-phone sn_service">Service</th>
-                            <th class="sn_desc">Description</th>
-                            <th class="sn_status">Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <div>
+                        <span class="hidden-phone sn_number ">Number</span>
+                        <span class="hidden-phone sn_service ">Service</span>
+                        <span class="sn_desc ">Description</span>
+                        <span class="sn_status ">Status</span>
+                    </div>       
+                        
+                    <ol>   
                     <?php
                     usort($req_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $req_json->records as $record ) {
@@ -118,28 +116,28 @@
                                 $record->state = "Active";
                             }
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<tr class='resolved_ticket'>";
+                                echo "<li class='resolved_ticket'>";
                             } else {
-                                echo "<tr>";
+                                echo "<li>";
                             }
                     ?>
-                            <td class="hidden-phone">
+                            <span class="hidden-phone">
                                 <?php
                                 $detail_url = site_url() . '/myrequest/' . $record->number;
                                 echo "<a href='$detail_url'>$record->number</a>";
                                 ?>
-                            </td>
-                            <td class="hidden-phone">
+                            </span>
+                            <span class="hidden-phone">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
-                            </td>
-                            <td>
+                            </span>
+                            <span>
                                 <?php
                                 echo "$record->short_description";
                                 ?>
-                            </td>
-                            <td class="request_status">
+                            </span>
+                            <span class="request_status">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
@@ -148,13 +146,13 @@
                                         echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
                                     }
                                 ?>
-                            </td>
-                        </tr>
+                            </span>
+                        </li>
                     <?php
                     }
                     ?>
-                        </tbody>
-                    </table>
+                    </ol>
+                        
                     <?php } else if( $has_inc ) { ?>
                         <p>I'm sorry, you do not have any requests.</p>
                     <?php } ?>
@@ -163,20 +161,17 @@
 
                 ?>
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2>My Incidents</h2>
+                    <h2 class="assistive-text">My Incidents</h2>
                     <?php } ?>
 
                     <?php if( $has_inc ) { ?>
-                    <table class="table" style="font-size:.95em;">
-                        <thead style="font-size:90%; color:#999;">
-                        <tr>
-                            <th class="hidden-phone sn_number">Number</th>
-                            <th class="hidden-phone sn_service">Service</th>
-                            <th class="sn_desc">Description</th>
-                            <th class="sn_status">Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <div class="assistive-text">
+                        <span class="hidden-phone sn_number">Number</span>
+                        <span class="hidden-phone sn_service">Service</span>
+                        <span class="sn_desc">Description</span>
+                        <span class="sn_status">Status</span>
+                    </div> 
+                    <ol>
                     <?php
                     usort($inc_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $inc_json->records as $record ) {
@@ -186,29 +181,29 @@
 
 
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<tr class='resolved_ticket'>";
+                                echo "<li class='resolved_ticket'>";
                             } else {
-                                echo "<tr>";
+                                echo "<li>";
                             }
                     ?>
-                            <td class="hidden-phone">
+                            <span class="hidden-phone">
                                 <?php
                                 $detail_url = site_url() . '/myrequest/' . $record->number;
                                 echo "<a href='$detail_url'>$record->number</a>";
                                 ?>
-                            </td>
-                            <td class="hidden-phone">
+                            </span>
+                            <span class="hidden-phone">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
-                            </td>
+                            </span>
 
-                            <td>
+                            <span>
                                 <?php
                                 echo "$record->short_description";
                                 ?>
-                            </td>
-                            <td class="incident_status">
+                            </span>
+                            <span class="incident_status">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
@@ -217,14 +212,14 @@
                                         echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
                                     }
                                 ?>
-                            </td>
-                        </tr>
+                            </span>
+                        </li>
                     <?php
 
                     }
                     ?>
-                        </tbody>
-                    </table>
+                    </ol>
+                        
                     <?php } else if( $has_req ) { ?>
                         <p>I'm sorry, you have not reported any incidents.</p>
                     <?php } ?>
