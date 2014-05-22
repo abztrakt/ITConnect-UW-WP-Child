@@ -70,7 +70,7 @@
                     
                             
                 <?php if(empty($JSON->records)) { 
-                    echo "<div class='alert alert-warning' style='margin-top:2em;'>There are no current reported incidents.</div>";
+                    echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
                 } ?>
                 
                 
@@ -87,26 +87,14 @@
                     <?php
                         
                         # put the services into a single ordered list
-                        echo "<ol style='list-style:none; margin:0;'>";
+                        echo "<ol>";
                     
                         foreach( $sn_data as $ci) {
                             $service = array_search($ci, $sn_data);
                             // handle the case of blank services
                             if ($service !== '' ) {
-                                echo "<li>";
-                                echo "<h3 style='font-weight:bold;font-size:1.5rem;border-bottom:solid 1px #eee;'>$service</h3>";
-                                echo "<ol class='list-group' style='list-style:none; margin:0; margin-bottom:2em; padding:0; color:#777; font-size:.95em;'>";
-                                foreach( $ci as $incident ){
-                                    if ($incident->impact == '2 - Medium' ) {
-                                        echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-warning pull-right' style='display:inline-block;line-height:15px;width:40px;'>Medium</span></li>";
-                                    }
-                                    else {
-                                        echo "<li class='list-group-item clearfix'><span>$incident->short_description</span> <span class='label label-danger pull-right' style='display:inline-block;line-height:15px;width:40px;'>High</span></li>";
-                                    }
-                                }
-                                echo "</ol>";
+                                echo "<li>$service</li>";
                             }
-                             echo "</li>";
                         }
                         echo "</ol>";
                         
