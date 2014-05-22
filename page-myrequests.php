@@ -62,16 +62,16 @@
                         );
 
                         $states = array(
-                            "New" => 'class="label label-success"',
-                            "Active" => 'class="label label-success"',
-                            "Awaiting User Info" => 'class="label label-success"',
-                            "Awaiting Tier 2 Info" => 'class="label label-success"',
-                            "Awaiting Vendor Info" => 'class="label label-success"',
-                            "Internal Review" => 'class="label label-success"',
-                            "Stalled" => 'class="label label-success"',
-                            "Delivered" => 'class="label label-success"',
-                            "Resolved" => 'class="label label-default"',
-                            "Closed" => 'class="label label-default"',
+                            "New" => '"label label-success"',
+                            "Active" => '"label label-success"',
+                            "Awaiting User Info" => '"label label-success"',
+                            "Awaiting Tier 2 Info" => '"label label-success"',
+                            "Awaiting Vendor Info" => '"label label-success"',
+                            "Internal Review" => '"label label-success"',
+                            "Stalled" => '"label label-success"',
+                            "Delivered" => '"label label-success"',
+                            "Resolved" => '"label label-default"',
+                            "Closed" => '"label label-default"',
                         );
 
                         // Requests
