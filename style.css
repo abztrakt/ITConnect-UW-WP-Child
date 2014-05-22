@@ -1451,7 +1451,7 @@ h5.home_date {
 /* --- Service Now Ticketing --- */
 
 .resolved_ticket {
-    color: #ccc;
+    color: #999;
 }   
 
 th.sn_number, th.sn_status {
