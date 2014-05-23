@@ -163,76 +163,7 @@
                     <?php if( $has_req ) { ?>
                     <ol class="inner_request_list">
                     <?php
-                    echo "<style>
-                            #header_desc {
-                                width:41.5%;
-                                display:inline-block;
-                            }
-
-                            .whole_row_link {
-                                padding-bottom:1em;
-                                padding-top:1em;
-                            }
-
-                            .request_desc{
-                                text-overflow:ellipsis;
-                                white-space:nowrap;
-                                overflow:hidden;
-                                width:40%;
-                            }
-
-                            .request_service {
-                                text-overflow:ellipsis;
-                                white-space:nowrap;
-                                overflow:hidden;
-                            }
-
-                            .row_underline {
-                                overflow: auto;
-                                border-bottom: 1px #777 solid;
-                                margin:0;
-                            }
-
-                            .inner_request_list {
-                                margin: 0;
-                            }
-
-                            li {
-                                list-style-type:none;
-                            }
-
-                            @media screen and (min-width: 768px) {
-                                .request_desc {
-                                    width: 44%;
-                                }
-
-                                #header_desc {
-                                    width: 47%;
-                                }
-                            }
-
-                            @media screen and (min-width: 920px) {
-                                .request_desc {
-                                    width:46.5%;
-                                }
-
-                                #header_desc {
-                                    width:49%;
-                                }
-                            }
-
-                            @media screen and (min-width: 1200px) {
-                                .request_desc {
-                                    display: inline-block;
-                                    width: 48%;
-                                }
-
-                                #header_desc {
-                                    width:49.5%;
-                                }
-
-                            }
-                            </style>";
+                    
                     usort($req_json->records, 'sortByUpdatedOnDesc');
                     foreach ( $req_json->records as $record ) {
 
