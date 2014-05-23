@@ -45,6 +45,7 @@
 
                     $args = array(
                         'numberposts' => 12,
+                        'posts_per_page' => 12,
                         'order' => 'DESC',
                         'orderby' => 'post_date',
                         'category__in' => $cat_ids
