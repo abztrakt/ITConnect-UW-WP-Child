@@ -122,7 +122,7 @@
 
                             $detail_url = site_url() . '/myrequest/' . $record->number;
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<li class='row_underline inner_row_underline resolved_ticket'>";
+                                echo "<li class='row_underline inner_row_underline resolved_ticket'><a href='$detail_url'>";
                             } else {
                                 echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
                             }
@@ -171,7 +171,7 @@
                                 $record->state = "Active";
                             }
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<li class='row_underline inner_row_underline resolved_ticket'>";
+                                echo "<li class='row_underline inner_row_underline resolved_ticket'><a href='$detail_url'>";
                             } else {
                                 $detail_url = site_url() . '/myrequest/' . $record->number;
                                 echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";

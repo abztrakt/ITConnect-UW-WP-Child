@@ -1452,7 +1452,11 @@ h5.home_date {
 
 .resolved_ticket {
     color: #999;
-}   
+}
+
+.resolved_ticket a {
+    color: #999;
+}
 
  #header_desc {
     width:41.5%;
