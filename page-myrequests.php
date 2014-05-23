@@ -114,7 +114,7 @@
                     </div>
                     <ol class="inner_request_list">
                     <?php
-                    usort($inc_json->records, 'sortByUpdatedOnDesc');
+                    usort($inc_json->records, 'sortByNumberDesc');
                     foreach ( $inc_json->records as $record ) {
                         if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
                             $record->state = "Active";
@@ -164,7 +164,7 @@
                     <ol class="inner_request_list">
                     <?php
                     
-                    usort($req_json->records, 'sortByUpdatedOnDesc');
+                    usort($req_json->records, 'sortByNumberDesc');
                     foreach ( $req_json->records as $record ) {
 
                             if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {

@@ -315,6 +315,11 @@ function sortByCreatedOnAsc($a, $b) {
     return $a->sys_created_on > $b->sys_created_on;
 }
 
+// Takes two strings and sorts descending by number
+function sortByNumberDesc($a, $b) {
+    return $a->number < $b->number;
+}
+
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
 
