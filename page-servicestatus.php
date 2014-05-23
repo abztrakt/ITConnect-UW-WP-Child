@@ -86,10 +86,10 @@
 
                     <?php
                         
-                        echo "<h2 class='assistive-text'>Impacted Services</h2>";
+                        echo "<h2 class='assistive-text' id='impact_headeing'>Impacted Services</h2>";
                         
                         # put the services into a single ordered list
-                        echo "<ol style='list-style:none;padding-left:0;margin-left:0;'>";
+                        echo "<ol style='list-style:none;padding-left:0;margin-left:0;' aria-labelledby='impact_heading'>";
                     
                         foreach( $sn_data as $ci) {
                             $service = array_search($ci, $sn_data);
