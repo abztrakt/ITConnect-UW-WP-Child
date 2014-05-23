@@ -339,4 +339,6 @@ function custom_error_titles() {
 
 add_action('wp', 'custom_error_pages');
 
+remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+
 ?>
