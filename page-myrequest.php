@@ -96,9 +96,7 @@
                     }
                 }
                 ?>
-                
                 <div style="text-align:right; color:#777;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
-                  
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
                     //TODO: this work is repeated above, this should be refactored so we don't do that
@@ -137,9 +135,7 @@
                             $error_flag = True;
                         } else  {
                         echo "<h2>$record->short_description&nbsp;&nbsp;<span style='color:#999;'>($record->number)</span></h2>";
-                        
                         echo "<h3 class='assistive-text'>Details:</h3>";
-                        
                         echo "<table class='table'>";
                         if( !empty( $record->caller_id ) ) {
                             $caller = $record->caller_id;
@@ -177,32 +173,46 @@
                                 }
                         echo "</td></tr>";
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
-                        
                         echo "<tr><td>Opened on:</td> <td>$record->opened_at</td></tr>";
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
                         echo "</table>";
-                        
                         echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
-                        
                         echo "<h3 style='margin-top:2em;'>Additional comments:</h3>";
+                        echo "<style>
+                                .users_comments {
+                                    color: pink;
+                                }
+
+                                .it_comments {
+                                    color: blue;
+                                }
+
+                                .user_name {
+                                    color: #D6583C;
+                                }
+
+                                .it_name {
+                                    color: #758A48;
+                                }
+                                </style>";
 
                         usort( $comments, 'sortByCreatedOnAsc' );
-                        
                         echo "<ol style='margin-left:0;'>";
-                        
                         foreach( $comments as $comment ) {
                             echo "<li class='media'>";
                             echo "<div class='media-body'>";
-                            echo "<p><strong>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
+                            if ($comment->sys_created_by != "itconnect") {
+                                echo "<p><strong class='user_name'>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
+                            } else {
+                                echo "<p><strong class='it_name'>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
+                            }
                             echo "<pre>";
                             echo stripslashes($comment->value);
                             echo "</pre>";
                             echo "</div>";
                             echo "</li>";
                         }
-                        
                         echo "</ol>";
-                        
                         } //end if else to see if incident/request number doesn't match
                     }
                 ?>
