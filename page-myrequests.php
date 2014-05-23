@@ -51,7 +51,7 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-                <div style="text-align:right; color:#777;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
+                <div style="text-align:right; color:#777; margin-bottom:2em;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
                 <?php
                     // Only do this work if we have everything we need to get to ServiceNow.
                     if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
@@ -226,7 +226,7 @@
                     echo "<p>Please log into your UW NETID to view your list of Requests and Incidents</p>";
                 }
                 ?>
-                <div>
+                <div style="margin-top:2em;">
                     <p>Not seeing your request?  You may need to login as a different UW NetID.</p>
                 </div>
 				<footer class="entry-meta">

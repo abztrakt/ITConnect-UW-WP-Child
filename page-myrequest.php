@@ -96,7 +96,7 @@
                     }
                 }
                 ?>
-                <div style="text-align:right; color:#777;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
+                <div style="text-align:right; color:#777; margin-bottom:2em;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
                     //TODO: this work is repeated above, this should be refactored so we don't do that
@@ -134,7 +134,7 @@
                             echo "<div class='alert alert-danger'>I'm sorry this is not one of your $sn_type</div>";
                             $error_flag = True;
                         } else  {
-                        echo "<h2>$record->short_description&nbsp;&nbsp;<span style='color:#999;'>($record->number)</span></h2>";
+                        echo "<h2 style='margin-top:0;'>$record->short_description&nbsp;&nbsp;<span style='color:#999;'>($record->number)</span></h2>";
                         echo "<h3 class='assistive-text'>Details:</h3>";
                         echo "<table class='table'>";
                         if( !empty( $record->caller_id ) ) {
