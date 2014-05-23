@@ -99,9 +99,9 @@
                     <h2 class="assistive-text">My Requests</h2>
                     <div class="row_underline">
                         <span class="span2 hidden-phone sn_number">Number</span>
-                        <span class="span4 hidden-phone sn_service ">Service</span>
-                        <span class="span5 sn_desc ">Description</span>
-                        <span class="span1 sn_status ">Status</span>
+                        <span class="span3 hidden-phone sn_service ">Service</span>
+                        <span class="span6 sn_desc" id="header_desc">Description</span>
+                        <span class="span1 sn_status">Status</span>
                     </div>
                     <?php } ?>
 
@@ -127,23 +127,23 @@
                                 echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
                             }
                     ?>
-                            <span class="span2 hidden-phone">
+                            <span class="span2 hidden-phone whole_row_link">
                                 <?php
                                     echo "$record->number";
                                 ?>
                             </span>
-                            <span class="span4 hidden-phone" id="request_service">
+                            <span class="span3 hidden-phone request_service whole_row_link">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
 
-                            <span class="span5" id="request_desc">
+                            <span class="span6 request_desc whole_row_link">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="span1 incident_status">
+                            <span class="span1 incident_status whole_row_link">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
@@ -164,32 +164,37 @@
                     <ol class="inner_request_list">
                     <?php
                     echo "<style>
-                            #request_desc{
+                            #header_desc {
+                                width:41.5%;
+                                display:inline-block;
+                            }
+
+                            .whole_row_link {
+                                padding-bottom:1em;
+                                padding-top:1em;
+                            }
+
+                            .request_desc{
                                 text-overflow:ellipsis;
                                 white-space:nowrap;
                                 overflow:hidden;
                                 width:40%;
                             }
 
-                            #request_service {
+                            .request_service {
                                 text-overflow:ellipsis;
                                 white-space:nowrap;
                                 overflow:hidden;
-                                width:33.4%%;
                             }
 
                             .row_underline {
                                 overflow: auto;
                                 border-bottom: 1px #777 solid;
-                            }
-
-                            .inner_row_underline {
-                                padding-bottom: 1em;
-                                padding-top: 1em;
+                                margin:0;
                             }
 
                             .inner_request_list {
-                                margin: 0 0 10px 0px;
+                                margin: 0;
                             }
 
                             li {
@@ -197,22 +202,35 @@
                             }
 
                             @media screen and (min-width: 768px) {
-                                #request_desc {
-                                    width: 38%;
+                                .request_desc {
+                                    width: 44%;
+                                }
+
+                                #header_desc {
+                                    width: 47%;
                                 }
                             }
 
                             @media screen and (min-width: 920px) {
-                                #request_desc {
-                                    width:38.5%;
+                                .request_desc {
+                                    width:46.5%;
+                                }
+
+                                #header_desc {
+                                    width:49%;
                                 }
                             }
 
                             @media screen and (min-width: 1200px) {
-                                #request_desc {
+                                .request_desc {
                                     display: inline-block;
-                                    width: 40%;
+                                    width: 48%;
                                 }
+
+                                #header_desc {
+                                    width:49.5%;
+                                }
+
                             }
                             </style>";
                     usort($req_json->records, 'sortByUpdatedOnDesc');
@@ -228,22 +246,22 @@
                                 echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
                             }
                     ?>
-                            <span class="span2 hidden-phone">
+                            <span class="span2 hidden-phone whole_row_link">
                                 <?php
                                 echo "$record->number";
                                 ?>
                             </span>
-                            <span class="span4 hidden-phone" id="request_service">
+                            <span class="span3 hidden-phone request_service whole_row_link">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
-                            <span class="span5" id="request_desc">
+                            <span class="span6 request_desc whole_row_link">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="span1 request_status">
+                            <span class="span1 request_status whole_row_link">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
