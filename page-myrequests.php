@@ -99,9 +99,9 @@
                     <h2 class="assistive-text">My Requests</h2>
                     <div class="row_underline">
                         <span class="span2 hidden-phone sn_number">Number</span>
-                        <span class="span3 hidden-phone sn_service ">Service</span>
-                        <span class="span6 sn_desc" id="header_desc">Description</span>
-                        <span class="span1 sn_status">Status</span>
+                        <span class="span2 hidden-phone sn_service ">Service</span>
+                        <span class="span3 sn_desc" id="header_desc">Description</span>
+                        <span class="span2 sn_status">Status</span>
                     </div>
                     <?php } ?>
 
@@ -132,24 +132,24 @@
                                     echo "$record->number";
                                 ?>
                             </span>
-                            <span class="span3 hidden-phone request_service whole_row_link">
+                            <span class="span2 hidden-phone request_service whole_row_link">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
 
-                            <span class="span6 request_desc whole_row_link">
+                            <span class="span3 request_desc whole_row_link">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="span1 incident_status whole_row_link">
+                            <span class="span2 incident_status whole_row_link">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span class='$class' style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span class='$class' style='width:auto;display:inline-block;line-height:15px;'>$record->state</span>";
                                     } else {
-                                        echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span style='width:auto;display:inline-block;line-height:15px;'>$record->state</span>";
                                     }
                                 ?>
                             </span>
@@ -182,23 +182,23 @@
                                 echo "$record->number";
                                 ?>
                             </span>
-                            <span class="span3 hidden-phone request_service whole_row_link">
+                            <span class="span2 hidden-phone request_service whole_row_link">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
-                            <span class="span6 request_desc whole_row_link">
+                            <span class="span3 request_desc whole_row_link">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="span1 request_status whole_row_link">
+                            <span class="span2 request_status whole_row_link">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span class='$class' style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span class='$class' style='width:auto;display:inline-block;line-height:15px;'>$record->state</span>";
                                     } else {
-                                        echo "<span style='width:50px;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span style='width:auto;display:inline-block;line-height:15px;'>$record->state</span>";
                                     }
                                 ?>
                             </span>
