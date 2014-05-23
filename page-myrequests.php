@@ -227,7 +227,7 @@
                 }
                 ?>
                 <div style="margin-top:2em;">
-                    <p>Not seeing your request?  You may need to login as a different UW NetID.</p>
+                    <p class="alert alert-info">Not seeing your request?  You may need to login as a different UW NetID.</p>
                 </div>
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
