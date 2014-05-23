@@ -224,7 +224,7 @@
                     <label for='exampleInputPassword1'>Comments</label>
                     <textarea name='comments' class='form-control' rows='3' style='resize:vertical;'></textarea>
                     </div>
-                    <button type='submit' class='btn btn-default'>Submit</button>
+                    <button type='submit' class='btn btn-primary'>Submit</button>
                     <input type="hidden" name="submitted" id="submitted" value="true" />
                   </form>
                 <?php } 
