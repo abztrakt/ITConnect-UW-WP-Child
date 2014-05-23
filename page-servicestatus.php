@@ -100,6 +100,8 @@
                         }
                         echo "</ol>";
                         
+                        echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing problems not listed on this page? <a href='/itconnect/help'>Get help.</a></p>";
+                        
                         //echo "DEBUG: ";
                         //echo "<pre>";
                         //var_dump($sn_data);
