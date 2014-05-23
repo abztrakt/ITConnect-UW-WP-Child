@@ -96,7 +96,7 @@
                 ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 class="assistive-text">My Requests</h2>
+                    <h2 class="assistive-text">Requests</h2>
                     <div class="row_underline">
                         <span class="span2 hidden-phone sn_number">Number</span>
                         <span class="span2 hidden-phone sn_service ">Service</span>
@@ -211,7 +211,7 @@
                     <?php } ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 class="assistive-text">My Incidents</h2>
+                    <h2 class="assistive-text">Incidents</h2>
                     <?php } ?>
 
                     <?php if( !$has_req && !$has_inc ) { ?>
