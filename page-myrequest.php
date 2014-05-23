@@ -221,7 +221,7 @@
                 $submit_url = site_url() . '/myrequest/' . $sn_num . '/'; ?>
                   <form role='form' action="<?php $submit_url; ?>" method='post'>
                     <div class='form-group' style='margin-bottom:1em;'>
-                    <label for='exampleInputPassword1'>Comments</label>
+                    <label for='exampleInputPassword1'>Respond to UW-IT:</label>
                     <textarea name='comments' class='form-control' rows='3' style='resize:vertical;'></textarea>
                     </div>
                     <button type='submit' class='btn btn-primary'>Submit</button>
