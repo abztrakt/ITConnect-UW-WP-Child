@@ -106,12 +106,6 @@
                     <?php } ?>
 
                     <?php if( $has_inc ) { ?>
-                    <div class="assistive-text">
-                        <span class="hidden-phone sn_number">Number</span>
-                        <span class="hidden-phone sn_service">Service</span>
-                        <span class="sn_desc">Description</span>
-                        <span class="sn_status">Status</span>
-                    </div>
                     <ol class="inner_request_list">
                     <?php
                     usort($inc_json->records, 'sortByNumberDesc');
