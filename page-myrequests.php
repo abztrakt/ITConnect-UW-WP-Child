@@ -96,7 +96,7 @@
                 ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 class="assistive-text">My Requests</h2>
+                    <h2 class="assistive-text">Requests</h2>
                     <div class="row_underline">
                         <span class="span2 hidden-phone sn_number">Number</span>
                         <span class="span2 hidden-phone sn_service ">Service</span>
@@ -114,7 +114,7 @@
                     </div>
                     <ol class="inner_request_list">
                     <?php
-                    usort($inc_json->records, 'sortByUpdatedOnDesc');
+                    usort($inc_json->records, 'sortByNumberDesc');
                     foreach ( $inc_json->records as $record ) {
                         if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
                             $record->state = "Active";
@@ -122,7 +122,7 @@
 
                             $detail_url = site_url() . '/myrequest/' . $record->number;
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<li class='row_underline inner_row_underline resolved_ticket'>";
+                                echo "<li class='row_underline inner_row_underline resolved_ticket'><a href='$detail_url'>";
                             } else {
                                 echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
                             }
@@ -164,14 +164,14 @@
                     <ol class="inner_request_list">
                     <?php
                     
-                    usort($req_json->records, 'sortByUpdatedOnDesc');
+                    usort($req_json->records, 'sortByNumberDesc');
                     foreach ( $req_json->records as $record ) {
 
                             if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
                                 $record->state = "Active";
                             }
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<li class='row_underline inner_row_underline resolved_ticket'>";
+                                echo "<li class='row_underline inner_row_underline resolved_ticket'><a href='$detail_url'>";
                             } else {
                                 $detail_url = site_url() . '/myrequest/' . $record->number;
                                 echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
@@ -211,7 +211,7 @@
                     <?php } ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 class="assistive-text">My Incidents</h2>
+                    <h2 class="assistive-text">Incidents</h2>
                     <?php } ?>
 
                     <?php if( !$has_req && !$has_inc ) { ?>
