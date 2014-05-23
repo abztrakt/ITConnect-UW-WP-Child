@@ -1491,12 +1491,13 @@ li {
     list-style-type:none;
 }
 
+.caller-comments, .caller-comments pre {
+    color: #000;
+}
 
-
-
-
-
-
+.support-comments , .support-comments pre {
+    color: #888;
+}
 
 /* --- IE mobile fixes --- */
 

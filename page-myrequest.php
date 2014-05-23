@@ -178,34 +178,22 @@
                         echo "</table>";
                         echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
                         echo "<h3 style='margin-top:2em;'>Additional comments:</h3>";
-                        echo "<style>
-                                .users_comments {
-                                    color: pink;
-                                }
-
-                                .it_comments {
-                                    color: blue;
-                                }
-
-                                .user_name {
-                                    color: #D6583C;
-                                }
-
-                                .it_name {
-                                    color: #758A48;
-                                }
-                                </style>";
-
+                       
                         usort( $comments, 'sortByCreatedOnAsc' );
                         echo "<ol style='margin-left:0;'>";
+                        
+                        $logged_in = $_SERVER['REMOTE_USER'];
+                        
                         foreach( $comments as $comment ) {
                             echo "<li class='media'>";
-                            echo "<div class='media-body'>";
-                            if ($comment->sys_created_by != "itconnect") {
-                                echo "<p><strong class='user_name'>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
+                                                                                
+                            if ($comment->sys_created_by == $logged_in ) {
+                                echo "<div class='media-body caller-comments'>";
                             } else {
-                                echo "<p><strong class='it_name'>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
+                                echo "<div class='media-body support-comments'>";
                             }
+                            
+                            echo "<p><strong class='user_name'>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
                             echo "<pre>";
                             echo stripslashes($comment->value);
                             echo "</pre>";
