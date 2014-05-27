@@ -97,16 +97,20 @@
 
                     <?php if( $has_req || $has_inc ) { ?>
                     <h2 class="assistive-text">Incidents</h2>
-                    <div class="row_underline">
-                        <span class="span2 hidden-phone sn_number">Number</span>
-                        <span class="span2 hidden-phone sn_service ">Service</span>
-                        <span class="span3 sn_desc" id="header_desc">Description</span>
-                        <span class="span2 sn_status">Status</span>
+                    
+                    <div class="request-list request-list-header">
+                        <span class="request-list-number hidden-phone">Number</span>
+                        <span class="request-list-service hidden-phone request_service ">Service</span>
+                        <span class="request-list-description" id="header_desc">Description</span>
+                        <span class="request-list-status">Status</span>
                     </div>
+                    
+                    
                     <?php } ?>
 
                     <?php if( $has_inc ) { ?>
-                    <ol class="inner_request_list">
+                    <ol class="request-list">
+                    
                     <?php
                     usort($inc_json->records, 'sortByNumberDesc');
                     foreach ( $inc_json->records as $record ) {
@@ -116,28 +120,28 @@
 
                             $detail_url = site_url() . '/myrequest/' . $record->number;
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<li class='row_underline inner_row_underline resolved_ticket'><a href='$detail_url'>";
+                                echo "<li class='resolved_ticket'><a href='$detail_url'>";
                             } else {
-                                echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
+                                echo "<li class=''><a href='$detail_url'>";
                             }
                     ?>
-                            <span class="span2 hidden-phone whole_row_link">
+                            <span class="request-list-number hidden-phone whole_row_link">
                                 <?php
                                     echo "$record->number";
                                 ?>
                             </span>
-                            <span class="span2 hidden-phone request_service whole_row_link">
+                            <span class="request-list-service hidden-phone  whole_row_link">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
 
-                            <span class="span3 request_desc whole_row_link">
+                            <span class="request-list-description whole_row_link">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="span2 incident_status whole_row_link">
+                            <span class="request-list-status whole_row_link">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];

@@ -1448,7 +1448,7 @@ h5.home_date {
     background-size: 18%;
 }
 
-/* --- Service Now Ticketing --- */
+/* --- ServiceNow 320 --- */
 
 .resolved_ticket {
     color: #999;
@@ -1458,43 +1458,22 @@ h5.home_date {
     color: #999;
 }
 
- #header_desc {
-    width:41.5%;
-    display:inline-block;
-}
-
-.whole_row_link {
-    padding-bottom:1em;
-    padding-top:1em;
-}
-
-.request_desc{
-    text-overflow:ellipsis;
-    white-space:nowrap;
-    overflow:hidden;
-    width:40%;
-}
-
-.request_service {
-    text-overflow:ellipsis;
-    white-space:nowrap;
-    overflow:hidden;
-}
-
-.row_underline {
-    overflow: auto;
-    border-bottom: 1px #777 solid;
-    margin:0;
-}
-
-.inner_request_list {
+.request-list {
+    padding: 0;
     margin: 0;
+    list-style: none;
 }
 
-li {
-    list-style-type:none;
-}
+.request-list-header { color: #666; border-bottom: solid 1px #ccc; margin-bottom: 15px; }
 
+.request-list a { text-decoration: none; }
+.request-list span { display: inline-block; line-height: 30px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.request-list-number { }
+.request-list-service { }
+.request-list-description { width: 64%; }
+.request-list-status { width: 100px; }
+    
 .caller-comments, .caller-comments pre {
     color: #000;
 }
@@ -2529,14 +2508,15 @@ li {
         margin-left: 10px;
     }
     
-    /*** ServiceNow ***/
-    .request_desc {
-        width: 44%;
-    }
+    /*** ServiceNow 768px ***/
 
-    #header_desc {
-        width: 47%;
-    }
+    
+    .request-list-number { width: 100px;  }
+    .request-list-service { width: 120px; }
+    .request-list-description { width: 36%; }
+    .request-list-status { width: 100px; }
+
+
 }
 
 @media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
@@ -2560,14 +2540,9 @@ li {
         text-align: left;
     }
     
-    /*** ServiceNow ***/
-    .request_desc {
-        width:46.5%;
-    }
-
-    #header_desc {
-        width:49%;
-    }
+    /*** ServiceNow 920 ***/
+    
+    .request-list-description { width: 45%;}
 }
 
 @media screen and (min-width: 1200px) {
@@ -2610,14 +2585,9 @@ li {
         min-height: 36px;
     }
     
-    /*** ServiceNow ***/
-    .request_desc {
-        display: inline-block;
-        width: 48%;
-    }
-
-    #header_desc {
-        width:49.5%;
-    }
+    /*** ServiceNow  1200***/
+    
+    .request-list-service { width: 190px}
+    .request-list-description { width: 50%;}
 
 }
