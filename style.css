@@ -1473,12 +1473,17 @@ h5.home_date {
 
     
 .caller-comments, .caller-comments pre {
-    color: #000;
+    color: #3071a9;
+    border: none;
 }
 
 .support-comments , .support-comments pre {
-    color: #888;
+    color: #333;
+    border: none;
 }
+
+.comment-timestamp { font-size: 85%;}
+.comment-timestamp .create-date { color: #aaa; display: inline-block; margin-left: 15px; }
 
 /* --- IE mobile fixes --- */
 

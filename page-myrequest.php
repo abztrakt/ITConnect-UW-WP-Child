@@ -193,7 +193,7 @@
                                 echo "<div class='media-body support-comments'>";
                             }
                             
-                            echo "<p><strong class='user_name'>$comment->sys_created_by</strong> $comment->sys_created_on</p>";
+                            echo "<div class='comment-timestamp'><strong class='user_name'>$comment->sys_created_by</strong> <span class='create-date'>$comment->sys_created_on</span></div>";
                             echo "<pre>";
                             echo stripslashes($comment->value);
                             echo "</pre>";
