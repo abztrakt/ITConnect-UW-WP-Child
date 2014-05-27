@@ -2509,7 +2509,8 @@ h5.home_date {
     }
     
     /*** ServiceNow 768px ***/
-
+    
+    .request-list a span:hover { text-decoration: underline; }
     
     .request-list-number { width: 100px;  }
     .request-list-service { width: 120px; }
