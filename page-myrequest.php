@@ -182,18 +182,20 @@
                         usort( $comments, 'sortByCreatedOnAsc' );
                         echo "<ol style='margin-left:0;'>";
                         
-                        $logged_in = $_SERVER['REMOTE_USER'];
                         
                         foreach( $comments as $comment ) {
                             echo "<li class='media'>";
+                                                                            
+                            $display_user = $_SERVER['REMOTE_USER'] ;
                                                                                 
-                            if ($comment->sys_created_by == $logged_in ) {
+                            if ($comment->sys_created_by == $_SERVER['REMOTE_USER'] ) {
                                 echo "<div class='media-body caller-comments'>";
                             } else {
+                                $display_user = "UW-IT SUPPORT STAFF";
                                 echo "<div class='media-body support-comments'>";
                             }
                             
-                            echo "<div class='comment-timestamp'><strong class='user_name'>$comment->sys_created_by</strong> <span class='create-date'>$comment->sys_created_on</span></div>";
+                            echo "<div class='comment-timestamp'><strong class='user_name'>$display_user</strong> <span class='create-date'>$comment->sys_created_on</span></div>";
                             echo "<pre>";
                             echo stripslashes($comment->value);
                             echo "</pre>";
