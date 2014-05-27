@@ -64,7 +64,7 @@
                         $states = array(
                             "New" => 'label label-success',
                             "Active" => 'label label-success',
-                            "Awaiting User Info" => 'label label-success',
+                            "Awaiting User Info" => 'label label-warning',
                             "Awaiting Tier 2 Info" => 'label label-success',
                             "Awaiting Vendor Info" => 'label label-success',
                             "Internal Review" => 'label label-success',
@@ -173,10 +173,11 @@
                                 $record->state = "Active";
                             }
                             if ($record->state == "Resolved" || $record->state == "Closed") {
-                                echo "<li class='row_underline inner_row_underline resolved_ticket'><a href='$detail_url'>";
-                            } else {
+                                echo "<li class='resolved_ticket'><a href='$detail_url'>";
+                            }
+                            else {
                                 $detail_url = site_url() . '/myrequest/' . $record->number;
-                                echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
+                                echo "<li><a href='$detail_url'>";
                             }
                     ?>
                             <span class="span2 hidden-phone whole_row_link">

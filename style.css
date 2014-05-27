@@ -1471,8 +1471,8 @@ h5.home_date {
 
 .request-list-number { }
 .request-list-service { }
-.request-list-description { width: 64%; }
-.request-list-status { width: 100px; }
+.request-list-description { width: 60%; }
+.request-list-status { width: 110px; }
     
 .caller-comments, .caller-comments pre {
     color: #000;
@@ -2514,9 +2514,6 @@ h5.home_date {
     .request-list-number { width: 100px;  }
     .request-list-service { width: 120px; }
     .request-list-description { width: 36%; }
-    .request-list-status { width: 100px; }
-
-
 }
 
 @media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
@@ -2588,6 +2585,6 @@ h5.home_date {
     /*** ServiceNow  1200***/
     
     .request-list-service { width: 190px}
-    .request-list-description { width: 50%;}
+    .request-list-description { width: 49%;}
 
 }

@@ -149,7 +149,7 @@
                         $states = array(
                             "New" => 'class="label label-success"',
                             "Active" => 'class="label label-success"',
-                            "Awaiting User Info" => 'class="label label-success"',
+                            "Awaiting User Info" => 'class="label label-warning"',
                             "Awaiting Tier 2 Info" => 'class="label label-success"',
                             "Awaiting Vendor Info" => 'class="label label-success"',
                             "Internal Review" => 'class="label label-success"',
