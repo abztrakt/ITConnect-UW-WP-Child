@@ -145,9 +145,9 @@
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span class='$class' style='width:auto;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span class='$class' style='width:auto;display:inline-block;line-height:15px;color:#fff;'>$record->state</span>";
                                     } else {
-                                        echo "<span style='width:auto;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span style='width:auto;display:inline-block;line-height:15px;color:#fff;'>$record->state</span>";
                                     }
                                 ?>
                             </span>

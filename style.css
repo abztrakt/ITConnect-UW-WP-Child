@@ -1450,13 +1450,7 @@ h5.home_date {
 
 /* --- ServiceNow 320 --- */
 
-.resolved_ticket {
-    color: #999;
-}
 
-.resolved_ticket a {
-    color: #999;
-}
 
 .request-list {
     padding: 0;
@@ -1465,14 +1459,18 @@ h5.home_date {
 }
 
 .request-list-header { color: #666; border-bottom: solid 1px #ccc; margin-bottom: 15px; }
+.request-list-header .request-list-description { text-decoration: none; }
 
 .request-list a { text-decoration: none; }
 .request-list span { display: inline-block; line-height: 30px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .request-list-number { }
 .request-list-service { }
-.request-list-description { width: 60%; }
+.request-list-description { width: 60%; text-decoration: underline; }
 .request-list-status { width: 110px; }
+    
+.resolved_ticket span { color: #999; }
+
     
 .caller-comments, .caller-comments pre {
     color: #000;
@@ -2510,11 +2508,12 @@ h5.home_date {
     
     /*** ServiceNow 768px ***/
     
-    .request-list a span:hover { text-decoration: underline; }
-    
-    .request-list-number { width: 100px;  }
-    .request-list-service { width: 120px; }
-    .request-list-description { width: 36%; }
+    .request-list li:hover { background: #f4f4f4; }
+        
+    .request-list-header .request-list-number { text-decoration: none;  }
+    .request-list-number { width: 100px; text-decoration: underline;  }
+    .request-list-service { width: 120px; color: #222; }
+    .request-list-description { width: 35%; color: #222; text-decoration: none; }
 }
 
 @media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
