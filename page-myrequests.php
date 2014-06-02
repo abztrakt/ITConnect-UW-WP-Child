@@ -96,20 +96,20 @@
                 ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 class="assistive-text">Incidents</h2>
+                    <h2 id="incident_header" class="assistive-text">Incidents</h2>
                     
                     <div class="request-list request-list-header">
-                        <span class="request-list-number hidden-phone">Number</span>
-                        <span class="request-list-service hidden-phone request_service ">Service</span>
-                        <span class="request-list-description" id="header_desc">Description</span>
-                        <span class="request-list-status">Status</span>
+                        <span id="col_head_num" class="request-list-number hidden-phone">Number</span>
+                        <span id="col_head_ser" class="request-list-service hidden-phone">Service</span>
+                        <span id="col_head_des" class="request-list-description">Description</span>
+                        <span id="col_head_sta" class="request-list-status">Status</span>
                     </div>
                     
                     
                     <?php } ?>
 
                     <?php if( $has_inc ) { ?>
-                    <ol class="request-list">
+                    <ol class="request-list" aria-labelledby="incident_header">
                     
                     <?php
                     usort($inc_json->records, 'sortByNumberDesc');
@@ -122,26 +122,26 @@
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<li class='resolved_ticket'><a href='$detail_url'>";
                             } else {
-                                echo "<li class=''><a href='$detail_url'>";
+                                echo "<li class='row_underline inner_row_underline'><a href='$detail_url'>";
                             }
                     ?>
-                            <span class="request-list-number hidden-phone whole_row_link">
+                            <span class="request-list-number hidden-phone whole_row_link" aria-labelledby="col_head_num">
                                 <?php
                                     echo "$record->number";
                                 ?>
                             </span>
-                            <span class="request-list-service hidden-phone  whole_row_link">
+                            <span class="request-list-service hidden-phone  whole_row_link" aria-labelledby="col_head_ser">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
 
-                            <span class="request-list-description whole_row_link">
+                            <span class="request-list-description whole_row_link" aria-labelledby="col_head_des">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="request-list-status whole_row_link">
+                            <span class="request-list-status whole_row_link" aria-labelledby="col_head_sta">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
@@ -159,11 +159,11 @@
                     <?php } ?>
 
                     <?php if( $has_req || $has_inc ) { ?>
-                    <h2 class="assistive-text">Requests</h2>
+                    <h2 id="request_header" class="assistive-text">Requests</h2>
                     <?php } ?>
 
                     <?php if( $has_req ) { ?>
-                    <ol class="request-list">
+                    <ol class="request-list" aria-labelledby="request_header">
                     <?php
                     
                     usort($req_json->records, 'sortByNumberDesc');
@@ -180,22 +180,22 @@
                                 echo "<li><a href='$detail_url'>";
                             }
                     ?>
-                            <span class="request-list-number hidden-phone whole_row_link">
+                            <span class="request-list-number hidden-phone whole_row_link" aria-labelledby="col_head_num">
                                 <?php
                                 echo "$record->number";
                                 ?>
                             </span>
-                            <span class="request-list-service hidden-phone  whole_row_link">
+                            <span class="request-list-service hidden-phone  whole_row_link" aria-labelledby="col_head_ser">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
-                            <span class="request-list-description whole_row_link">
+                            <span class="request-list-description whole_row_link" aria-labelledby="col_head_des">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="request-list-status whole_row_link">
+                            <span class="request-list-status whole_row_link" aria-labelledby="col_head_sta">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
