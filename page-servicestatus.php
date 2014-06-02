@@ -69,7 +69,12 @@
                 ?>
                     
                             
-                <?php if(empty($JSON->records)) { 
+
+                <?php 
+                if(!$body) {
+                    echo "<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>";
+                }
+                elseif(empty($JSON->records)) { 
                     echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
                 } ?>
                 
