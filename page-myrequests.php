@@ -163,7 +163,7 @@
                     <?php } ?>
 
                     <?php if( $has_req ) { ?>
-                    <ol class="inner_request_list">
+                    <ol class="request-list">
                     <?php
                     
                     usort($req_json->records, 'sortByNumberDesc');
@@ -180,28 +180,28 @@
                                 echo "<li><a href='$detail_url'>";
                             }
                     ?>
-                            <span class="span2 hidden-phone whole_row_link">
+                            <span class="request-list-number hidden-phone whole_row_link">
                                 <?php
                                 echo "$record->number";
                                 ?>
                             </span>
-                            <span class="span2 hidden-phone request_service whole_row_link">
+                            <span class="request-list-service hidden-phone  whole_row_link">
                                 <?php
                                 echo "$record->cmdb_ci";
                                 ?>
                             </span>
-                            <span class="span3 request_desc whole_row_link">
+                            <span class="request-list-description whole_row_link">
                                 <?php
                                 echo "$record->short_description";
                                 ?>
                             </span>
-                            <span class="span2 request_status whole_row_link">
+                            <span class="request-list-status whole_row_link">
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span class='$class' style='width:auto;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span class='$class' style='width:auto;display:inline-block;line-height:15px;color:#fff;'>$record->state</span>";
                                     } else {
-                                        echo "<span style='width:auto;display:inline-block;line-height:15px;'>$record->state</span>";
+                                        echo "<span style='width:auto;display:inline-block;line-height:15px;color:#fff;'>$record->state</span>";
                                     }
                                 ?>
                             </span>
