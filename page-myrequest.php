@@ -29,6 +29,7 @@
         }
 
         $response = wp_remote_post( $comments_url, $args );
+        wp_redirect( $_SERVER['REQUEST_URI'] ); exit;
     }
 ?>
 
