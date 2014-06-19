@@ -452,4 +452,10 @@ add_action('wp', 'custom_error_pages');
 
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
+function edit_admin_menus() {
+    remove_submenu_page('themes.php', 'uw-patch-band');
+}
+
+add_action('admin_menu', 'edit_admin_menus', 999);
+
 ?>
