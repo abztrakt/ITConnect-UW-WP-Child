@@ -52,7 +52,7 @@ if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
       /*wp_register_style( 'bootstrap-responsive', get_bloginfo('template_directory') . '/css/bootstrap-responsive.css', array('bootstrap'), '2.0.3' );*/
       wp_register_style( 'bootstrap-offcanvas',get_bloginfo('stylesheet_directory') . '/css/bootstrap-offcanvas.css', array(), '1.0.0' );
 
-      wp_register_style( 'google-font-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300' );
+      wp_register_style( 'google-font-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600.600italic' );
       wp_register_style( 'itconnect-master', get_bloginfo('stylesheet_directory') . '/style.css', array(), '1.0' );
       wp_enqueue_style( 'bootstrap' );
       wp_enqueue_style( 'bootstrap-offcanvas' );
@@ -150,6 +150,18 @@ if (! function_exists ( 'it_widgets_init' )):
     );
 
     register_sidebar($args3);
+
+    $args4 = array(
+      'name' => 'ServiceNow Sidebar',
+      'id' => 'servicenow-sidebar',
+      'description' => 'Widgets for the left column of the ServiceNow pages on ITConnect',
+      'before_widget' => '<div id="%1$s class="widget %2$s">',
+      'after_widget' => '</div>'
+    );
+
+    register_sidebar($args4);
+
+
   }
 endif;
 
@@ -310,6 +322,33 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
   }
 endif;
 
+function add_query_vars($qvars) {
+    $qvars[] = "ticketID";
+    return $qvars;
+}
+add_filter('query_vars', 'add_query_vars');
+
+function add_rewrite_rules($aRules) {
+    $aNewRules = array('myrequest/([^/]+)/?$' => 'index.php?pagename=myrequest&ticketID=$matches[1]');
+    $aRules = $aNewRules + $aRules;
+    return $aRules;
+}
+add_filter('rewrite_rules_array', 'add_rewrite_rules');
+
+// Takes two datetime objects and sorts descending by sys_updated_on
+function sortByUpdatedOnDesc($a, $b) {
+    return $a->sys_updated_on < $b->sys_updated_on;
+}
+
+// Takes two datetime objects and sorts descending by sys_created_on
+function sortByCreatedOnAsc($a, $b) {
+    return $a->sys_created_on > $b->sys_created_on;
+}
+
+// Takes two strings and sorts descending by number
+function sortByNumberDesc($a, $b) {
+    return $a->number < $b->number;
+}
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
@@ -341,4 +380,9 @@ add_action('wp', 'custom_error_pages');
 
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
+function edit_admin_menus() {
+    remove_submenu_page('themes.php', 'uw-patch-band');
+}
+
+add_action('admin_menu', 'edit_admin_menus', 999);
 ?>
