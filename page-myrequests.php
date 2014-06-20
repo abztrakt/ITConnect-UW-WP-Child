@@ -1,4 +1,15 @@
 <?php define( 'DONOTCACHEPAGE', True ); ?>
+<?php
+$user = $_SERVER['REMOTE_USER'];
+?>
+<!--
+<?php
+echo "DEBUG: ";
+echo "<pre>";
+var_dump($_SERVER);
+echo "</pre>";
+?>
+-->
 <?php get_header(); ?>
     <div id="wrap">
         <div id="primary">
@@ -44,14 +55,14 @@
 				<div class="entry-content">
 					<?php the_content(); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) );
-          if(isset($_SERVER['REMOTE_USER'])) {
+          if(isset( $user ) ) {
                     include_once(ABSPATH . 'wp-admin/includes/plugin.php');
                     // prompt the user to log in and leave feedback if appropriate
                     if (is_plugin_active('document-feedback/document-feedback.php') && !is_user_logged_in()): ?>
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-                <div style="text-align:right; color:#777; margin-bottom:2em;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
+                <div style="text-align:right; color:#777; margin-bottom:2em;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $user; ?></div>
                 <?php
                     // Only do this work if we have everything we need to get to ServiceNow.
                     if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
@@ -75,7 +86,7 @@
                         );
 
                         // Requests
-                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
+                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $user;
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $req_json = json_decode( $body );
@@ -85,7 +96,7 @@
                         }
 
                         // Incidents
-                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
+                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $user;
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $inc_json = json_decode( $body );
