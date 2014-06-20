@@ -1,5 +1,13 @@
 <?php define( 'DONOTCACHEPAGE', True ); ?>
-<?php $user = $_SERVER['REMOTE_USER'];
+<?php
+if(isset( $_SERVER['REMOTE_USER'])) {
+    $user = $_SERVER['REMOTE_USER'];
+} else if(isset($_SERVER['REDIRECT_REMOTE_USER'])) {
+    $user = $_SERVER['REDIRECT_REMOTE_USER'];
+} else if(isset($_SERVER['PHP_AUTH_USER'])) {
+    $user = $_SERVER['PHP_AUTH_USER'];
+}
+?>
 <?php
     $error_flag = False;
     $sn_num = get_query_var('ticketID');
