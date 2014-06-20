@@ -1,15 +1,19 @@
 <?php define( 'DONOTCACHEPAGE', True ); ?>
 <?php
-$user = $_SERVER['REMOTE_USER'];
+if ( isset( $_SERVER['REMOTE_USER'] ) ) {
+    $user = $_SERVER['REMOTE_USER'];
+} else if ( isset( $_SERVER['REDIRECT_REMOTE_USER'] ) ) {
+    $user = $_SERVER['REDIRECT_REMOTE_USER'];
+} else if ( isset( $_SERVER['PHP_AUTH_USER'] ) ) {
+    $user = $_SERVER['PHP_AUTH_USER'];
+}
 ?>
-<!--
 <?php
-echo "DEBUG: ";
-echo "<pre>";
-var_dump($_SERVER);
-echo "</pre>";
+//echo "DEBUG: ";
+//echo "<pre>";
+//var_dump($_SERVER);
+//echo "</pre>";
 ?>
--->
 <?php get_header(); ?>
     <div id="wrap">
         <div id="primary">
