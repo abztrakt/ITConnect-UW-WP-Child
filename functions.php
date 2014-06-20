@@ -370,6 +370,60 @@ function custom_error_pages() {
     }
 }
 
+function enable_ajax() {
+    wp_enqueue_script( 'function', get_stylesheet_directory_uri().'/js/get_services.js', 'jquery', true);
+    wp_localize_script( 'function', 'service_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+}
+add_action('template_redirect', 'enable_ajax');
+
+function serviceSometime() {
+    $SN_URL = $_REQUEST['SN_URL'];
+    $hash = $_REQUEST['hash'];
+    
+    $args = array(
+        'headers' => array(
+            'Authorization' => 'Basic ' . $hash,
+        ),
+        'timeout' => 25,
+    );
+    // All active, Medium and High Impacted Incidents
+    $url = $SN_URL . '/incident_list.do?JSONv2&sysparm_query=active=true%5Eimpact%3D2%5EORimpact%3D1%5EORDERBYcmdb_ci&displayvalue=true';
+ 
+    $response = wp_remote_get( $url, $args );
+    $body = wp_remote_retrieve_body( $response );
+    $JSON = json_decode( $body );
+    if(!$body) {
+        echo "<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>";
+    } elseif(empty($JSON->records)) {
+        echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
+    } 
+    $sn_data = array();
+    foreach( $JSON->records as $record ) {
+        if( !isset( $sn_data[$record->cmdb_ci] ) ) {
+            $sn_data[$record->cmdb_ci] = array();
+        }
+        $sn_data[$record->cmdb_ci][] = $record;
+    }
+
+    echo "<h2 class='assistive-text' id='impact_headeing'>Impacted Services</h2>";
+    # put the services into a single ordered list
+    echo "<ol style='list-style:none;padding-left:0;margin-left:0;' aria-labelledby='impact_heading'>";
+    foreach( $sn_data as $ci) {
+        $service = array_search($ci, $sn_data);
+        // handle the case of blank services
+        if ($service !== '' ) {
+            echo "<li>$service</li>";
+        }
+    }
+    echo "</ol>";
+    echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing IT problems not listed on this page? Need more information about a service impact? Want to provide feedback about this page? <a href='/itconnect/help'>Get help.</a></p>";
+    die();
+}
+
+add_action('wp_ajax_nopriv_serviceSometime', 'serviceSometime');
+add_action('wp_ajax_serviceSometime', 'serviceSometime');
+
+
 function custom_error_titles() {
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 401) {
         return "Unauthorized User.";

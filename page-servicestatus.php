@@ -50,91 +50,35 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-
+        <div id="spinner" style="width:150px; margin:auto; display: none;">
+            <img src="/itconnect/wp-admin/images/wpspin_light-2x.gif" alt="Loading..." />
+        </div>
+        <div id="services">
 				<?php
-                    // Only do this work if we have everything we need to get to ServiceNow.
-                    if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
-                        $args = array(
-                            'headers' => array(
-                                'Authorization' => 'Basic ' . base64_encode( SN_USER . ':' . SN_PASS ),
-                            ),
-                            'timeout' => 20,
-                        );
-                        // All active, Medium and High Impacted Incidents
-                        $url = SN_URL . '/incident_list.do?JSONv2&sysparm_query=active=true%5Eimpact%3D2%5EORimpact%3D1%5EORDERBYcmdb_ci&displayvalue=true';
-
-                        $response = wp_remote_get( $url, $args );
-                        $body = wp_remote_retrieve_body( $response );
-                        $JSON = json_decode( $body );
+                // Only do this work if we have everything we need to get to ServiceNow.
+                  if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
+                    $SN_URL = SN_URL;
+                    $hash = base64_encode( SN_USER . ':' . SN_PASS );
                 ?>
-                    
-                            
 
-                <?php 
-                if(!$body) {
-                    echo "<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>";
-                }
-                elseif(empty($JSON->records)) { 
-                    echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
-                } ?>
-                
-                
-                    <?php
-                        $sn_data = array();
-                        foreach( $JSON->records as $record ) {
-                            if( !isset( $sn_data[$record->cmdb_ci] ) ) {
-                                $sn_data[$record->cmdb_ci] = array();
-                            }
-                            $sn_data[$record->cmdb_ci][] = $record;
-                        }
-                    ?>
-
-                    <?php
-                        
-                        echo "<h2 class='assistive-text' id='impact_headeing'>Impacted Services</h2>";
-                        
-                        # put the services into a single ordered list
-                        echo "<ol style='list-style:none;padding-left:0;margin-left:0;' aria-labelledby='impact_heading'>";
-                    
-                        foreach( $sn_data as $ci) {
-                            $service = array_search($ci, $sn_data);
-                            // handle the case of blank services
-                            if ($service !== '' ) {
-                                echo "<li>$service</li>";
-                            }
-                        }
-                        echo "</ol>";
-                        
-                        echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing IT problems not listed on this page? Need more information about a service impact? Want to provide feedback about this page? <a href='/itconnect/help'>Get help.</a></p>";
-                        
-                        //echo "DEBUG: ";
-                        //echo "<pre>";
-                        //var_dump($sn_data);
-                        //echo "</pre>";
-                    ?>
-
-                <!--<h3>All (placeholder while Craig reworks the logic)</h3>
-                    <ul>
-                <?php
-                    // we will want to group all incidents by the "cmdb_ci"
-                    foreach( $JSON->records as $record ) {
-                        echo "<li><strong>$record->cmdb_ci</strong><br/>
-                        <span style='color:#aaa;'>$record->number - $record->short_description</span> <span class='label label-danger'>$record->impact</span></li>";
-                    }
-                }?>
-                    </ul>
-                -->
+                </div>
                 <footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
             </article><!-- #post-<?php the_ID(); ?> -->
           </div>
 
-			<?php endwhile; // end of the loop. ?>
+			<?php
+          }
+          endwhile; // end of the loop. 
+      ?>
 				</div>
  			 </div>
 			</div><!-- #content -->
 		</div><!-- #primary -->
         <div class="push"></div>
    </div><!-- #wrap -->
+   <script>
+      get_services("<?php echo $SN_URL ?>", "<?php echo $hash ?>");
+   </script>
 <?php get_footer(); ?>
