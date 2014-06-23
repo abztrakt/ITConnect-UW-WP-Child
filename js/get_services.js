@@ -1,7 +1,7 @@
-function get_services(url, hash) {
+function get_services() {
     $.ajax({
         url: service_ajax.ajaxurl,
-        data: ({action: 'serviceSometime', SN_URL: url, hash: hash}),
+        data: ({action: 'service_status'}),
         beforeSend: function(xhr) {
           $('#spinner').show();
         },
@@ -34,7 +34,7 @@ function ajaxError(jqxhr, type, error) {
         msg += "Error text: " + error;
     }   
   }
-  alert(msg);
+  console.log(msg);
 }
 
 

@@ -346,9 +346,9 @@ function enable_ajax() {
 }
 add_action('template_redirect', 'enable_ajax');
 
-function serviceSometime() {
-    $SN_URL = $_REQUEST['SN_URL'];
-    $hash = $_REQUEST['hash'];
+function service_status() {
+    $SN_URL = SN_URL;
+    $hash = base64_encode( SN_USER . ':' . SN_PASS );
     
     $args = array(
         'headers' => array(
@@ -390,8 +390,8 @@ function serviceSometime() {
     die();
 }
 
-add_action('wp_ajax_nopriv_serviceSometime', 'serviceSometime');
-add_action('wp_ajax_serviceSometime', 'serviceSometime');
+add_action('wp_ajax_nopriv_service_status', 'service_status');
+add_action('wp_ajax_service_status', 'service_status');
 
 
 function custom_error_titles() {
