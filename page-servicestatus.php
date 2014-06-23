@@ -51,14 +51,12 @@
                     <?php endif;?>
 				</div><!-- .entry-content -->
         <div id="spinner" style="width:150px; margin:auto; display: none;">
-            <img src="/itconnect/wp-admin/images/wpspin_light-2x.gif" alt="Loading..." />
+            <img src="/itconnect/wp-admin/images/loading.gif" alt="Loading..." />
         </div>
         <div id="services">
 				<?php
                 // Only do this work if we have everything we need to get to ServiceNow.
                   if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
-                    $SN_URL = SN_URL;
-                    $hash = base64_encode( SN_USER . ':' . SN_PASS );
                 ?>
 
                 </div>
@@ -79,6 +77,6 @@
         <div class="push"></div>
    </div><!-- #wrap -->
    <script>
-      get_services("<?php echo $SN_URL ?>", "<?php echo $hash ?>");
+      get_services();
    </script>
 <?php get_footer(); ?>
