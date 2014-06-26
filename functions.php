@@ -379,7 +379,6 @@ add_action('template_redirect', 'enable_ajax');
 function service_status() {
     $SN_URL = SN_URL;
     $hash = base64_encode( SN_USER . ':' . SN_PASS );
-    
     $args = array(
         'headers' => array(
             'Authorization' => 'Basic ' . $hash,
@@ -392,32 +391,46 @@ function service_status() {
     $response = wp_remote_get( $url, $args );
     $body = wp_remote_retrieve_body( $response );
     $JSON = json_decode( $body );
-    if(!$body) {
-        echo "<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>";
-    } elseif(empty($JSON->records)) {
-        echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
-    } 
-    $sn_data = array();
-    foreach( $JSON->records as $record ) {
-        if( !isset( $sn_data[$record->cmdb_ci] ) ) {
-            $sn_data[$record->cmdb_ci] = array();
+        if(!$body) {
+            echo "<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>";
+        }   
+        elseif(empty($JSON->records)) {
+            echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
+        } 
+        $sn_data = array();
+        foreach( $JSON->records as $record ) { 
+            if( !isset( $sn_data[$record->cmdb_ci] ) ) { 
+                $sn_data[$record->cmdb_ci] = array();
+                unset($first);
+            }
+            $create = $record->sys_created_on;
+            if( !isset( $first ) ) { 
+                $first = $create;
+            }
+            if($create < $first) {
+                $first = $create;
+            }
+            $sn_data[$record->cmdb_ci][] = $record;
+            $sn_data[$record->cmdb_ci][] = $first;
         }
-        $sn_data[$record->cmdb_ci][] = $record;
-    }
 
-    echo "<h2 class='assistive-text' id='impact_headeing'>Impacted Services</h2>";
-    # put the services into a single ordered list
-    echo "<ol style='list-style:none;padding-left:0;margin-left:0;' aria-labelledby='impact_heading'>";
-    foreach( $sn_data as $ci) {
-        $service = array_search($ci, $sn_data);
-        // handle the case of blank services
-        if ($service !== '' ) {
-            echo "<li>$service</li>";
-        }
-    }
-    echo "</ol>";
-    echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing IT problems not listed on this page? Need more information about a service impact? Want to provide feedback about this page? <a href='/itconnect/help'>Get help.</a></p>";
-    die();
+            echo "<h2 class='assistive-text' id='impact_headeing'>Impacted Services</h2>";
+
+            # put the services into a single ordered list
+            echo "<ol style='list-style:none;padding-left:0;margin-left:0;' aria-labelledby='impact_heading'>";
+
+            foreach( $sn_data as $ci) {
+                $service = array_search($ci, $sn_data);
+                // handle the case of blank services
+                if ($service !== '' ) { 
+                    $time = end($ci);
+                    echo "<li><pre>$service - Affected since: $time </pre></li>";
+                }
+            }
+            echo "</ol>";
+
+            echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing IT problems not listed on this page? Need more information about a service impact? Want to provide feedback about this page? <a href='/itconnect/help'>Get help.</a></p>";
+          die();
 }
 
 add_action('wp_ajax_nopriv_service_status', 'service_status');
