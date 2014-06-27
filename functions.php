@@ -423,7 +423,7 @@ function service_status() {
                 $service = array_search($ci, $sn_data);
                 // handle the case of blank services
                 
-                    if ($service !== '' && !preg_match('/^\d{5,}$/', $service)) { 
+                    if ( $service !== '' && !preg_match('/^\d{5,}$/', $service) ) { 
                         $time = end($ci);
                         echo "<li style='margin:10px;'><strong>$service</strong><ul style='list-style:none;margin:5px;'><li style='margin-left:15px;'><span style='color:#aaa;'> Reported at $time </span></li></ul></li>";
                     }
