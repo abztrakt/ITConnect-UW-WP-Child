@@ -1,5 +1,14 @@
 <?php define( 'DONOTCACHEPAGE', True ); ?>
 <?php
+if(isset( $_SERVER['REMOTE_USER'])) {
+    $user = $_SERVER['REMOTE_USER'];
+} else if(isset($_SERVER['REDIRECT_REMOTE_USER'])) {
+    $user = $_SERVER['REDIRECT_REMOTE_USER'];
+} else if(isset($_SERVER['PHP_AUTH_USER'])) {
+    $user = $_SERVER['PHP_AUTH_USER'];
+}
+?>
+<?php
     $error_flag = False;
     $sn_num = get_query_var('ticketID');
     if( $sn_num == '' ) {
@@ -10,7 +19,7 @@
     if( isset( $_POST['submitted'] ) && isset( $_POST['comments'] ) ) {
         $comments = $_POST['comments'];
         $comments_json = array(
-            'actor' => $_SERVER['REMOTE_USER'],
+            'actor' => $user,
             'record' => $sn_num,
             'comment' => $comments,
         );
@@ -86,7 +95,7 @@
 				</div><!-- .entry-content -->
 
                 <?php
-            if(isset($_SERVER['REMOTE_USER'])) {
+            if(isset($user)) {
                 if( isset( $response ) ) {
                     $status = json_decode($response['body'], true);
                     if( $status['Error']['Status'] !== '200' ) {
@@ -97,7 +106,7 @@
                     }
                 }
                 ?>
-                <div style="text-align:right; color:#777; margin-bottom:2em;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $_SERVER['REMOTE_USER']; ?></div>
+                <div style="text-align:right; color:#777; margin-bottom:2em;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $user; ?></div>
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
                     //TODO: this work is repeated above, this should be refactored so we don't do that
@@ -110,10 +119,10 @@
 
                         $sn_type = substr($sn_num, 0, 3);
                         if( $sn_type == 'REQ' ) {
-                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $_SERVER['REMOTE_USER'];
+                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user;
                             $sn_type = 'request (REQ)';
                         } else if( $sn_type == 'INC' ) {
-                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $_SERVER['REMOTE_USER'];
+                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $user;
                             $sn_type = 'incident (INC)';
                         } else {
                             echo "Unrecognized type";
@@ -187,9 +196,9 @@
                         foreach( $comments as $comment ) {
                             echo "<li class='media'>";
                                                                             
-                            $display_user = $_SERVER['REMOTE_USER'] ;
+                            $display_user = $user ;
                                                                                 
-                            if ($comment->sys_created_by == $_SERVER['REMOTE_USER'] ) {
+                            if ($comment->sys_created_by == $user ) {
                                 echo "<div class='media-body caller-comments'>";
                             } else {
                                 $display_user = "UW-IT SUPPORT STAFF";
