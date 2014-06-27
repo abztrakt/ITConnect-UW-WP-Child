@@ -5,9 +5,9 @@ remove_filter( 'the_content', 'wptexturize' );
 remove_filter( 'the_excerpt', 'wptexturize' );
 remove_filter( 'comment_text', 'wptexturize' );
 
-if ( ! function_exists( 'uw_setup' ) ):  
+if ( ! function_exists( 'uw_setup' ) ):
 
-  function uw_setup() 
+  function uw_setup()
   {
 
       add_theme_support( 'automatic-feed-links' );
@@ -25,7 +25,7 @@ if ( ! function_exists( 'uw_setup' ) ):
 
     define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyeleven_header_image_width', 1280 ) );
     define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyeleven_header_image_height', 215 ) );
-    
+
     $args = array(
             'width'         => 1170,
             'height'        => 100,
@@ -106,7 +106,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
     wp_enqueue_script( 'trumba' );
 
 
-    if( is_404() || $_REQUEST['status'] == 401) {
+    if( is_404() || (isset($_REQUEST['status']) && $_REQUEST['status'] == 401)) {
 
       wp_enqueue_script( 'jquery.imagesloaded' );
       wp_enqueue_script( 'jquery.parallax' );
@@ -140,7 +140,7 @@ if (! function_exists ( 'it_widgets_init' )):
     );
 
     register_sidebar($args2);
-  
+
     $args3 = array(
       'name' => 'HuskyBytes Sidebar',
       'id' => 'huskybytes-sidebar',
@@ -189,18 +189,48 @@ if (! function_exists ( 'spud_func' )):
         'spudtype' => 'main',
     ), $atts ) );
 
-    $spud = "<script type='text/javascript'>\$Trumba.addSpud({webName: '{$webname}', spudType: '{$spudtype}'});</script>";
+    //Trumba alerts user if they didn't set webname or spudtype
+    unset($atts['webname'], $atts['spudtype']);
+    $keys = array_keys($atts);
+    $values = array_values($atts);
+    $i = 0;
+    foreach($keys as $key) {
+        if ($key === "teaserbase" || $key === "detailbase") {
+            if ($key === "teaserbase") {
+                $key = "teaserBase";
+            } elseif ($key === "detailbase") {
+                $key = "detailBase";
+            }
+            $embedSpud .= ', '.$key.': \''.$values[$i].'\'';
+        }
+        elseif ($key === "url") {
+            $urlArgumentValues = explode(' ', trim($values[$i]));
+            $count = 0;
+            $urlAddToEmbedSpud = "";
+            foreach($urlArgumentValues as $urlOneValue) {
+                if($count == 0) {
+                    $urlAddToEmbedSpud = '{'.$urlOneValue.': "';
+                    $count++;
+                } else {
+                    $urlAddToEmbedSpud .= $urlOneValue." ";
+                }
+            }
+            $embedSpud .= ', '.$key.': '.$urlAddToEmbedSpud."\"} ";
+        }
+        $i++;
+    }
 
+    $spud = "<script type='text/javascript'>\$Trumba.addSpud({webName: '{$webname}', spudType: '{$spudtype}'$embedSpud});</script>";
     return $spud;
-  }
-  add_shortcode( 'spud', 'spud_func' );
+    }
+    add_shortcode( 'spud', 'spud_func' );
 endif;
 
 add_action( 'widgets_init', 'it_widgets_init' );
 
 require('main-image-options.php' );
 
-if ( ! function_exists( 'is_custom_main_image' ) ):  
+if ( ! function_exists( 'is_custom_main_image' ) ):
   function is_custom_main_image()
   {
     $option = get_option('main_image'); 
@@ -414,5 +444,7 @@ function custom_error_titles() {
 }
 
 add_action('wp', 'custom_error_pages');
+
+remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 ?>
