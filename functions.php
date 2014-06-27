@@ -424,7 +424,7 @@ function service_status() {
                 // handle the case of blank services
                 if ($service !== '' ) { 
                     $time = end($ci);
-                    echo "<li><pre>$service - Affected since: $time </pre></li>";
+                    echo "<li style='margin:10px;'><strong>$service</strong><ul style='list-style:none;margin:5px;'><li style='margin-left:15px;'><span style='color:#aaa;'> Reported at $time </span></li></ul></li>";
                 }
             }
             echo "</ol>";

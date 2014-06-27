@@ -53,21 +53,14 @@
         <div id="spinner" style="width:150px; margin:auto; display: none;">
             <img src="/itconnect/wp-admin/images/loading.gif" alt="Loading..." />
         </div>
-        <div id="services">
-				<?php
-                // Only do this work if we have everything we need to get to ServiceNow.
-                  if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
-                ?>
-
+        <div id="services"></div>
                 </div>
                 <footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer><!-- .entry-meta -->
             </article><!-- #post-<?php the_ID(); ?> -->
-          </div>
 
 			<?php
-          }
           endwhile; // end of the loop. 
       ?>
 				</div>
