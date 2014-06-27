@@ -393,7 +393,7 @@ function service_status() {
     $JSON = json_decode( $body );
         if(!$body) {
             echo "<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>";
-        }   
+        }
         elseif(empty($JSON->records)) {
             echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
         } 
@@ -422,10 +422,11 @@ function service_status() {
             foreach( $sn_data as $ci) {
                 $service = array_search($ci, $sn_data);
                 // handle the case of blank services
-                if ($service !== '' ) { 
-                    $time = end($ci);
-                    echo "<li style='margin:10px;'><strong>$service</strong><ul style='list-style:none;margin:5px;'><li style='margin-left:15px;'><span style='color:#aaa;'> Reported at $time </span></li></ul></li>";
-                }
+                
+                    if ($service !== '' && !preg_match('/^\d{5,}$/', $service)) { 
+                        $time = end($ci);
+                        echo "<li style='margin:10px;'><strong>$service</strong><ul style='list-style:none;margin:5px;'><li style='margin-left:15px;'><span style='color:#aaa;'> Reported at $time </span></li></ul></li>";
+                    }
             }
             echo "</ol>";
 
