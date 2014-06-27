@@ -8,33 +8,14 @@ function get_services() {
         complete: function() {
           $('#spinner').hide();
         },
-        error: ajaxError,
+        error: function() {
+          $('#services').html("<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>");
+        },
         success: function(response, textStatus, jqXHR) {
           $('#services').html(response);
         }
     });
 }
 
-function ajaxError(jqxhr, type, error) {
-  console.log(jqxhr);
-  var msg = "An Ajax error occurred!";
-  if (type == 'error') {
-    if (jqxhr.readyState == 0) {
-    // Request was never made - security block?
-        msg += "Looks like the browser security-blocked the request.";
-    } else {
-        // Probably an HTTP error.
-        msg += 'Error code: ' + jqxhr.status + "" +
-        'Error text: ' + error + "" +
-        'Full content of response: ' + jqxhr.responseText;
-    }   
-  } else {
-    msg += 'Error type: ' + type;
-    if (error != "") {
-        msg += "Error text: " + error;
-    }   
-  }
-  console.log(msg);
-}
 
 
