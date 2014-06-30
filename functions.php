@@ -427,7 +427,9 @@ function service_status() {
                     $time = end($ci);
                     echo "<li style='margin-top:10px;' class='clearfix'><span style='display:inline-block; max-width:50%;font-weight:bold;' class='pull-left'>$service</span><span style='color:#aaa;font-size:95%;' class='pull-right'> <span class='hidden-phone hidden-tablet'>Reported at</span> $time </span></li>";
                 }
+
             }
+
             echo "</ol>";
 
             echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing IT problems not listed on this page? Need more information about a service impact? Want to provide feedback about this page? <a href='/itconnect/help'>Get help.</a></p>";
