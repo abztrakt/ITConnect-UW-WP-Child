@@ -341,8 +341,8 @@ function sortByUpdatedOnDesc($a, $b) {
 }
 
 // Takes two datetime objects and sorts descending by sys_created_on
-function sortByCreatedOnAsc($a, $b) {
-    return $a->sys_created_on > $b->sys_created_on;
+function sortByCreatedOnDesc($a, $b) {
+    return $a->sys_created_on < $b->sys_created_on;
 }
 
 // Takes two strings and sorts descending by number
