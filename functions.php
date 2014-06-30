@@ -422,19 +422,14 @@ function service_status() {
             foreach( $sn_data as $ci) {
                 $service = array_search($ci, $sn_data);
                 // handle the case of blank services
-<<<<<<< HEAD
-                if ($service !== '' ) { 
+
+                if ( $service !== '' && !preg_match('/^\d{5,}$/', $service) ) { 
                     $time = end($ci);
                     echo "<li style='margin-top:10px;' class='clearfix'><span style='display:inline-block; max-width:50%;font-weight:bold;' class='pull-left'>$service</span><span style='color:#aaa;font-size:95%;' class='pull-right'> <span class='hidden-phone hidden-tablet'>Reported at</span> $time </span></li>";
                 }
-=======
-                
-                    if ( $service !== '' && !preg_match('/^\d{5,}$/', $service) ) { 
-                        $time = end($ci);
-                        echo "<li style='margin:10px;'><strong>$service</strong><ul style='list-style:none;margin:5px;'><li style='margin-left:15px;'><span style='color:#aaa;'> Reported at $time </span></li></ul></li>";
-                    }
->>>>>>> 45b83c8580b6625fdfdca3d1a411f9282d30ac9e
+            
             }
+
             echo "</ol>";
 
             echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing IT problems not listed on this page? Need more information about a service impact? Want to provide feedback about this page? <a href='/itconnect/help'>Get help.</a></p>";
