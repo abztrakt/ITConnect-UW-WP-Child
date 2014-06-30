@@ -187,6 +187,23 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
                         echo "</table>";
                         echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
+
+                        if(!$error_flag) {
+                            $submit_url = site_url() . '/myrequest/' . $sn_num . '/'; ?>
+                            <form role='form' action="<?php $submit_url; ?>" method='post'>
+                            <div class='form-group' style='margin-bottom:1em;'>
+                                <label for='exampleInputPassword1'>Respond to UW-IT:</label>
+                                <textarea name='comments' class='form-control' rows='3' style='resize:vertical;'></textarea>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Submit</button>
+                            <input type="hidden" name="submitted" id="submitted" value="true" />
+                        </form>
+                        <?php 
+                        } else {
+                          echo "<h3>Status 403: Unauthorized</h3>";
+                          echo "<p>Please log in to your UW NETID in order to view your Requests and Incidents</p>";
+                        } 
+
                         echo "<h3 style='margin-top:2em;'>Additional comments:</h3>";
                        
                         usort( $comments, 'sortByCreatedOnDesc' );
@@ -214,25 +231,10 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         }
                         echo "</ol>";
                         } //end if else to see if incident/request number doesn't match
-                    }
+                      }
+                   }
                 ?>
 
-                <?php  if(!$error_flag) {
-                $submit_url = site_url() . '/myrequest/' . $sn_num . '/'; ?>
-                  <form role='form' action="<?php $submit_url; ?>" method='post'>
-                    <div class='form-group' style='margin-bottom:1em;'>
-                    <label for='exampleInputPassword1'>Respond to UW-IT:</label>
-                    <textarea name='comments' class='form-control' rows='3' style='resize:vertical;'></textarea>
-                    </div>
-                    <button type='submit' class='btn btn-primary'>Submit</button>
-                    <input type="hidden" name="submitted" id="submitted" value="true" />
-                  </form>
-                <?php } 
-                } else {
-                    echo "<h3>Status 403: Unauthorized</h3>";
-                    echo "<p>Please log in to your UW NETID in order to view your Requests and Incidents</p>";
-                }
-                ?>
 
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
