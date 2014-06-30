@@ -189,7 +189,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
                         echo "<h3 style='margin-top:2em;'>Additional comments:</h3>";
                        
-                        usort( $comments, 'sortByCreatedOnAsc' );
+                        usort( $comments, 'sortByCreatedOnDesc' );
                         echo "<ol style='margin-left:0;'>";
                         
                         
