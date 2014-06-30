@@ -249,4 +249,11 @@ if(isset( $_SERVER['REMOTE_USER'])) {
 		</div><!-- #primary -->
         <div class="push"></div>
    </div><!-- #wrap -->
+   <script>
+$(document).ready(function(){
+    $("form").submit(function(){
+        $('button[type=submit], input[type=submit]').attr('disabled',true);
+    })
+});
+   </script>
 <?php get_footer(); ?>
