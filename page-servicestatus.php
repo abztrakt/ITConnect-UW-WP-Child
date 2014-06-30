@@ -50,7 +50,7 @@
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-        <div id="spinner" style="width:150px; margin:auto; display: none;">
+        <div id="spinner" style="width:150px; margin:auto; display: none; text-align:center; line-height:100px;">
             <img src="/itconnect/wp-admin/images/loading.gif" alt="Loading..." />
         </div>
         <div id="services"></div>
