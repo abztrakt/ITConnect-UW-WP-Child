@@ -341,8 +341,8 @@ function sortByUpdatedOnDesc($a, $b) {
 }
 
 // Takes two datetime objects and sorts descending by sys_created_on
-function sortByCreatedOnAsc($a, $b) {
-    return $a->sys_created_on > $b->sys_created_on;
+function sortByCreatedOnDesc($a, $b) {
+    return $a->sys_created_on < $b->sys_created_on;
 }
 
 // Takes two strings and sorts descending by number
@@ -386,14 +386,14 @@ function service_status() {
         'timeout' => 25,
     );
     // All active, Medium and High Impacted Incidents
-    $url = $SN_URL . '/incident_list.do?JSONv2&sysparm_query=active=true%5Eimpact%3D2%5EORimpact%3D1%5EORDERBYcmdb_ci&displayvalue=true';
+    $url = $SN_URL . '/incident_list.do?JSONv2&sysparm_query=active%3Dtrue%5Eimpact%3D2%5EORimpact%3D1%5Eu_sectorNOT%20INK20%2CPNWGP%2CPWave&displayvalue=true';
  
     $response = wp_remote_get( $url, $args );
     $body = wp_remote_retrieve_body( $response );
     $JSON = json_decode( $body );
         if(!$body) {
             echo "<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>";
-        }   
+        }
         elseif(empty($JSON->records)) {
             echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
         } 
@@ -422,10 +422,18 @@ function service_status() {
             foreach( $sn_data as $ci) {
                 $service = array_search($ci, $sn_data);
                 // handle the case of blank services
+<<<<<<< HEAD
                 if ($service !== '' ) { 
                     $time = end($ci);
                     echo "<li style='margin-top:10px;' class='clearfix'><span style='display:inline-block; max-width:50%;font-weight:bold;' class='pull-left'>$service</span><span style='color:#aaa;font-size:95%;' class='pull-right'> <span class='hidden-phone hidden-tablet'>Reported at</span> $time </span></li>";
                 }
+=======
+                
+                    if ( $service !== '' && !preg_match('/^\d{5,}$/', $service) ) { 
+                        $time = end($ci);
+                        echo "<li style='margin:10px;'><strong>$service</strong><ul style='list-style:none;margin:5px;'><li style='margin-left:15px;'><span style='color:#aaa;'> Reported at $time </span></li></ul></li>";
+                    }
+>>>>>>> 45b83c8580b6625fdfdca3d1a411f9282d30ac9e
             }
             echo "</ol>";
 
