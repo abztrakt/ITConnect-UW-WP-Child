@@ -1,5 +1,4 @@
-<?
-
+<?  
 remove_filter( 'the_title', 'wptexturize' );
 remove_filter( 'the_content', 'wptexturize' );
 remove_filter( 'the_excerpt', 'wptexturize' );
@@ -397,40 +396,43 @@ function service_status() {
         elseif(empty($JSON->records)) {
             echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
         } 
-        $sn_data = array();
-        foreach( $JSON->records as $record ) { 
-            if( !isset( $sn_data[$record->cmdb_ci] ) ) { 
-                $sn_data[$record->cmdb_ci] = array();
-                unset($first);
+
+        if ( !empty( $JSON->records ) ) {
+            $sn_data = array();
+            foreach( $JSON->records as $record ) { 
+                if( !isset( $sn_data[$record->cmdb_ci] ) ) { 
+                    $sn_data[$record->cmdb_ci] = array();
+                    unset($first);
+                }
+                $create = $record->sys_created_on;
+                if( !isset( $first ) ) { 
+                    $first = $create;
+                }
+                if($create < $first) {
+                    $first = $create;
+                }
+                $sn_data[$record->cmdb_ci][] = $record;
+                $sn_data[$record->cmdb_ci][] = $first;
             }
-            $create = $record->sys_created_on;
-            if( !isset( $first ) ) { 
-                $first = $create;
-            }
-            if($create < $first) {
-                $first = $create;
-            }
-            $sn_data[$record->cmdb_ci][] = $record;
-            $sn_data[$record->cmdb_ci][] = $first;
-        }
 
-            echo "<h2 class='assistive-text' id='impact_headeing'>Impacted Services</h2>";
+                echo "<h2 class='assistive-text' id='impact_headeing'>Impacted Services</h2>";
 
-            # put the services into a single ordered list
-            echo "<ol style='list-style:none;padding-left:0;margin-left:0;' aria-labelledby='impact_heading'>";
+                # put the services into a single ordered list
+                echo "<ol style='list-style:none;padding-left:0;margin-left:0;' aria-labelledby='impact_heading'>";
 
-            foreach( $sn_data as $ci) {
-                $service = array_search($ci, $sn_data);
+                foreach( $sn_data as $ci) {
+                    $service = array_search($ci, $sn_data);
 
-                // handle the case of blank services and switches who's 'name' is a sequence of 5 or more numbers
-                if ( $service !== '' && !preg_match('/^\d{5,}$/', $service) ) { 
-                    $time = end($ci);
-                    echo "<li style='margin-top:10px;' class='clearfix'><span style='display:inline-block; max-width:50%;font-weight:bold;' class='pull-left'>$service</span><span style='color:#aaa;font-size:95%;' class='pull-right'> <span class='hidden-phone hidden-tablet'>Reported at</span> $time </span></li>";
+                    // handle the case of blank services and switches who's 'name' is a sequence of 5 or more numbers
+                    if ( $service !== '' && !preg_match('/^\d{5,}$/', $service) ) { 
+                        $time = end($ci);
+                        echo "<li style='margin-top:10px;' class='clearfix'><span style='display:inline-block; max-width:50%;font-weight:bold;' class='pull-left'>$service</span><span style='color:#aaa;font-size:95%;' class='pull-right'> <span class='hidden-phone hidden-tablet'>Reported at</span> $time </span></li>";
+                    }
+
                 }
 
-            }
-
-            echo "</ol>";
+                echo "</ol>";
+        }
 
             echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing IT problems not listed on this page? Need more information about a service impact? Want to provide feedback about this page? <a href='/itconnect/help'>Get help.</a></p>";
           die();
