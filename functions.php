@@ -52,7 +52,7 @@ if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
       /*wp_register_style( 'bootstrap-responsive', get_bloginfo('template_directory') . '/css/bootstrap-responsive.css', array('bootstrap'), '2.0.3' );*/
       wp_register_style( 'bootstrap-offcanvas',get_bloginfo('stylesheet_directory') . '/css/bootstrap-offcanvas.css', array(), '1.0.0' );
 
-      wp_register_style( 'google-font-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300' );
+      wp_register_style( 'google-font-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600.600italic' );
       wp_register_style( 'itconnect-master', get_bloginfo('stylesheet_directory') . '/style.css', array(), '1.0' );
       wp_enqueue_style( 'bootstrap' );
       wp_enqueue_style( 'bootstrap-offcanvas' );
@@ -150,6 +150,18 @@ if (! function_exists ( 'it_widgets_init' )):
     );
 
     register_sidebar($args3);
+
+    $args4 = array(
+      'name' => 'ServiceNow Sidebar',
+      'id' => 'servicenow-sidebar',
+      'description' => 'Widgets for the left column of the ServiceNow pages on ITConnect',
+      'before_widget' => '<div id="%1$s class="widget %2$s">',
+      'after_widget' => '</div>'
+    );
+
+    register_sidebar($args4);
+
+
   }
 endif;
 
@@ -310,6 +322,33 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
   }
 endif;
 
+function add_query_vars($qvars) {
+    $qvars[] = "ticketID";
+    return $qvars;
+}
+add_filter('query_vars', 'add_query_vars');
+
+function add_rewrite_rules($aRules) {
+    $aNewRules = array('myrequest/([^/]+)/?$' => 'index.php?pagename=myrequest&ticketID=$matches[1]');
+    $aRules = $aNewRules + $aRules;
+    return $aRules;
+}
+add_filter('rewrite_rules_array', 'add_rewrite_rules');
+
+// Takes two datetime objects and sorts descending by sys_updated_on
+function sortByUpdatedOnDesc($a, $b) {
+    return $a->sys_updated_on < $b->sys_updated_on;
+}
+
+// Takes two datetime objects and sorts descending by sys_created_on
+function sortByCreatedOnDesc($a, $b) {
+    return $a->sys_created_on < $b->sys_created_on;
+}
+
+// Takes two strings and sorts descending by number
+function sortByNumberDesc($a, $b) {
+    return $a->number < $b->number;
+}
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
@@ -330,6 +369,76 @@ function custom_error_pages() {
         exit;
     }
 }
+
+function enable_ajax() {
+    wp_enqueue_script( 'function', get_stylesheet_directory_uri().'/js/get_services.js', 'jquery', true);
+    wp_localize_script( 'function', 'service_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+}
+add_action('template_redirect', 'enable_ajax');
+
+function service_status() {
+    $SN_URL = SN_URL;
+    $hash = base64_encode( SN_USER . ':' . SN_PASS );
+    $args = array(
+        'headers' => array(
+            'Authorization' => 'Basic ' . $hash,
+        ),
+        'timeout' => 25,
+    );
+    // All active, Medium and High Impacted Incidents
+    $url = $SN_URL . '/incident_list.do?JSONv2&sysparm_query=active%3Dtrue%5Eimpact%3D2%5EORimpact%3D1%5Eu_sectorNOT%20INK20%2CPNWGP%2CPWave&displayvalue=true';
+ 
+    $response = wp_remote_get( $url, $args );
+    $body = wp_remote_retrieve_body( $response );
+    $JSON = json_decode( $body );
+        if(!$body) {
+            echo "<div class='alert alert-warning' style='margin-top:2em;'>We are currently experiencing problems retrieving the status of our services. Please try again in a few minutes.</div>";
+        }
+        elseif(empty($JSON->records)) {
+            echo "<div class='alert alert-warning' style='margin-top:2em;'>All services are operational.</div>";
+        } 
+        $sn_data = array();
+        foreach( $JSON->records as $record ) { 
+            if( !isset( $sn_data[$record->cmdb_ci] ) ) { 
+                $sn_data[$record->cmdb_ci] = array();
+                unset($first);
+            }
+            $create = $record->sys_created_on;
+            if( !isset( $first ) ) { 
+                $first = $create;
+            }
+            if($create < $first) {
+                $first = $create;
+            }
+            $sn_data[$record->cmdb_ci][] = $record;
+            $sn_data[$record->cmdb_ci][] = $first;
+        }
+
+            echo "<h2 class='assistive-text' id='impact_headeing'>Impacted Services</h2>";
+
+            # put the services into a single ordered list
+            echo "<ol style='list-style:none;padding-left:0;margin-left:0;' aria-labelledby='impact_heading'>";
+
+            foreach( $sn_data as $ci) {
+                $service = array_search($ci, $sn_data);
+
+                // handle the case of blank services and switches who's 'name' is a sequence of 5 or more numbers
+                if ( $service !== '' && !preg_match('/^\d{5,}$/', $service) ) { 
+                    $time = end($ci);
+                    echo "<li style='margin-top:10px;' class='clearfix'><span style='display:inline-block; max-width:50%;font-weight:bold;' class='pull-left'>$service</span><span style='color:#aaa;font-size:95%;' class='pull-right'> <span class='hidden-phone hidden-tablet'>Reported at</span> $time </span></li>";
+                }
+
+            }
+
+            echo "</ol>";
+
+            echo "<p class='alert alert-info' style='margin-top: 2em;'>Experiencing IT problems not listed on this page? Need more information about a service impact? Want to provide feedback about this page? <a href='/itconnect/help'>Get help.</a></p>";
+          die();
+}
+
+add_action('wp_ajax_nopriv_service_status', 'service_status');
+add_action('wp_ajax_service_status', 'service_status');
+
 
 function custom_error_titles() {
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 401) {

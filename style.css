@@ -1448,6 +1448,43 @@ h5.home_date {
     background-size: 18%;
 }
 
+/* --- ServiceNow 320 --- */
+
+
+
+.request-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.request-list-header { color: #666; border-bottom: solid 1px #ccc; margin-bottom: 15px; }
+.request-list-header .request-list-description { text-decoration: none; }
+
+.request-list a { text-decoration: none; display: block; }
+.request-list span { display: inline-block; line-height: 30px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.request-list-number { }
+.request-list-service { }
+.request-list-description { width: 60%; text-decoration: underline; }
+.request-list-status { width: 110px; }
+    
+.resolved_ticket span { color: #999; }
+
+    
+.caller-comments, .caller-comments pre {
+    color: #888;
+    border: none;
+}
+
+.support-comments , .support-comments pre {
+    color: #333;
+    border: none;
+}
+
+.comment-timestamp { font-size: 85%;}
+.comment-timestamp .create-date { color: #aaa; display: inline-block; margin-left: 15px; }
+
 /* --- IE mobile fixes --- */
 
 #ie7 .visible-phone {
@@ -2473,6 +2510,16 @@ h5.home_date {
     #ie7 #footer-right > ul > li {
         margin-left: 10px;
     }
+    
+    /*** ServiceNow 768px ***/
+    
+    .request-list a { padding-left: 15px; margin-left: -15px; }
+    .request-list li a:hover, .request-list li a:focus { background: #f4f4f4; }
+        
+    .request-list-header .request-list-number { text-decoration: none;  }
+    .request-list-number { width: 100px; text-decoration: underline;  }
+    .request-list-service { width: 120px; color: #222; }
+    .request-list-description { width: 35%; color: #222; text-decoration: none; }
 }
 
 @media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
@@ -2495,6 +2542,10 @@ h5.home_date {
         padding: 0px;
         text-align: left;
     }
+    
+    /*** ServiceNow 920 ***/
+    
+    .request-list-description { width: 45%;}
 }
 
 @media screen and (min-width: 1200px) {
@@ -2536,4 +2587,10 @@ h5.home_date {
         background-color: rgb(1, 87, 179);
         min-height: 36px;
     }
+    
+    /*** ServiceNow  1200***/
+    
+    .request-list-service { width: 190px}
+    .request-list-description { width: 49%;}
+
 }
