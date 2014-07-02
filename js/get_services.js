@@ -1,4 +1,5 @@
 function get_services() {
+    $('#noscript').remove();
     $.ajax({
         url: service_ajax.ajaxurl,
         data: ({action: 'service_status'}),
