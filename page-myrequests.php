@@ -132,7 +132,6 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                         if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
                             $record->state = "Active";
                         }
-
                             $detail_url = site_url() . '/myrequest/' . $record->number;
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<li class='resolved_ticket'><a href='$detail_url'>";
@@ -183,15 +182,15 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     
                     usort($req_json->records, 'sortByNumberDesc');
                     foreach ( $req_json->records as $record ) {
-
+                    
                             if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
                                 $record->state = "Active";
                             }
+                            $detail_url = site_url() . '/myrequest/' . $record->number;
                             if ($record->state == "Resolved" || $record->state == "Closed") {
                                 echo "<li class='resolved_ticket'><a href='$detail_url'>";
                             }
                             else {
-                                $detail_url = site_url() . '/myrequest/' . $record->number;
                                 echo "<li><a href='$detail_url'>";
                             }
                     ?>
