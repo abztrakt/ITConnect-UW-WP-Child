@@ -386,7 +386,7 @@ function service_status() {
         'timeout' => 25,
     );
     // All active, Medium and High Impacted Incidents
-    $url = $SN_URL . '/incident_list.do?JSONv2&sysparm_query=active%3Dtrue%5EstateNOT%20IN6%2C7%5Eimpact%3D2%5EORimpact%3D1%5Eu_sectorNOT%20INK20%2CPNWGP%2CPWave&displayvalue=true';
+    $url = $SN_URL . '/incident_list.do?JSONv2&sysparm_query=active%3Dtrue%5EstateNOT%20IN6%2C7%5Eimpact%3D2%5EORimpact%3D1%5Eu_sectorNOT%20INK20%2CPNWGP%2CPWave%5EORu_sector%3D&displayvalue=true';
  
     $response = wp_remote_get( $url, $args );
     $body = wp_remote_retrieve_body( $response );
