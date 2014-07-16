@@ -50,7 +50,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 
       <?php uw_breadcrumbs(); ?>
-            <div id="main_content" role="main">
+            <div id="main_content" role="main" style="position:relative;">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<h1 class="entry-title hidden-phone"><?php apply_filters('italics', get_the_title()); ?></h1>
@@ -66,7 +66,9 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-                <div style="text-align:right; color:#777; margin-bottom:2em;"><span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $user; ?></div>
+                <div style="text-align:right; color:#777; position:absolute; top: 10px; right: 10px;">
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $user; ?> &nbsp;&nbsp;&nbsp;<button class="btn btn-mini" type="button" style="vertical-align:text-bottom;">LOGOUT</button>
+                </div>
                 <?php
                     // Only do this work if we have everything we need to get to ServiceNow.
                     if ( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
