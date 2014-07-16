@@ -7,6 +7,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
 } else if ( isset( $_SERVER['PHP_AUTH_USER'] ) ) {
     $user = $_SERVER['PHP_AUTH_USER'];
 }
+
 ?>
 <?php
 //echo "DEBUG: ";
@@ -78,6 +79,12 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                             )
                         );
 
+                        $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $user;
+                        $response = wp_remote_get( $url, $args );
+                        $body = wp_remote_retrieve_body( $response );
+                        $user_json = json_decode( $body );
+                        $id = $user_json->records[0]->sys_id;
+
                         $states = array(
                             "New" => 'label label-success',
                             "Active" => 'label label-success',
@@ -92,7 +99,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                         );
 
                         // Requests
-                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $user;
+                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $id;
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $req_json = json_decode( $body );
@@ -102,7 +109,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                         }
 
                         // Incidents
-                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $user;
+                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $user. '^ORwatch_listLIKE' . $id;
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $inc_json = json_decode( $body );
