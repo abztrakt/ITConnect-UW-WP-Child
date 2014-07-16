@@ -119,12 +119,18 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                             )
                         );
 
+                        $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $user;
+                        $response = wp_remote_get( $url, $args );
+                        $body = wp_remote_retrieve_body( $response );
+                        $user_json = json_decode( $body );
+                        $id = $user_json->records[0]->sys_id;
+
                         $sn_type = substr($sn_num, 0, 3);
                         if( $sn_type == 'REQ' ) {
-                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user;
+                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $id;
                             $sn_type = 'request (REQ)';
                         } else if( $sn_type == 'INC' ) {
-                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $user;
+                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $user . '^ORwatch_listLIKE' . $id;
                             $sn_type = 'incident (INC)';
                         } else {
                             echo "Unrecognized type";
