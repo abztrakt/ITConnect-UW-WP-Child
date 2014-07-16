@@ -106,7 +106,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                     }
                 }
                 ?>
-                <div style="text-align:right; color:#777; position:absolute; top: 10px; right: 10px;">
+                <div class="user-logout">
                     <span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $user; ?> &nbsp;&nbsp;&nbsp;<button class="btn btn-mini" type="button" style="vertical-align:text-bottom;">LOGOUT</button>
                 </div>
                 <?php
@@ -179,9 +179,9 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         echo "<tr><td>Status:</td><td class='request_status'>";
                                 if (array_key_exists($record->state, $states)) {
                                     $class = $states[$record->state];
-                                    echo "<span $class>$record->state</span>";
+                                    echo "<span $class>$record->state</span> <span class='label label-warning'>Watching</span>";
                                 } else {
-                                    echo "<span>$record->state</span>";
+                                    echo "<span>$record->state</span> <span class='label label-warning'>Watching</span>";
                                 }
                         echo "</td></tr>";
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";

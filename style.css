@@ -1450,7 +1450,11 @@ h5.home_date {
 
 /* --- ServiceNow 320 --- */
 
+.user-logout {
+    text-align:right; color:#777; position:absolute; top: -38px; right: 10px;
+}
 
+.watcher-eye { line-height: 15px !important; color: #999; vertical-align: text-bottom; }
 
 .request-list {
     padding: 0;
@@ -1468,6 +1472,7 @@ h5.home_date {
 .request-list-service { }
 .request-list-description { width: 60%; text-decoration: underline; }
 .request-list-status { width: 110px; }
+.request-list-status span { width:auto;display:inline-block;line-height:15px;color:#fff; }
     
 .resolved_ticket span { color: #999; }
 
@@ -2513,6 +2518,8 @@ h5.home_date {
     
     /*** ServiceNow 768px ***/
     
+    .user-logout { top: 10px; }
+    
     .request-list a { padding-left: 15px; margin-left: -15px; }
     .request-list li a:hover, .request-list li a:focus { background: #f4f4f4; }
         
@@ -2545,7 +2552,7 @@ h5.home_date {
     
     /*** ServiceNow 920 ***/
     
-    .request-list-description { width: 45%;}
+    .request-list-description { width: 45%; }
 }
 
 @media screen and (min-width: 1200px) {

@@ -66,7 +66,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     <p id='feedback_prompt'><?php printf(__('<a href="%s">Log in</a> to leave feedback.'), wp_login_url( get_permalink() . '#document-feedback' ) ); ?></p>
                     <?php endif;?>
 				</div><!-- .entry-content -->
-                <div style="text-align:right; color:#777; position:absolute; top: 10px; right: 10px;">
+                <div class="user-logout">
                     <span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $user; ?> &nbsp;&nbsp;&nbsp;<button class="btn btn-mini" type="button" style="vertical-align:text-bottom;">LOGOUT</button>
                 </div>
                 <?php
@@ -161,9 +161,9 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span class='$class' style='width:auto;display:inline-block;line-height:15px;color:#fff;'>$record->state</span>";
+                                        echo "<span class='$class'>$record->state</span> <span class='label label-warning'>Watching</span>";
                                     } else {
-                                        echo "<span style='width:auto;display:inline-block;line-height:15px;color:#fff;'>$record->state</span>";
+                                        echo "<span>$record->state</span> <span class='label label-warning'>Watching</span>";
                                     }
                                 ?>
                             </span>
@@ -215,9 +215,9 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span class='$class' style='width:auto;display:inline-block;line-height:15px;color:#fff;'>$record->state</span>";
+                                        echo "<span class='$class'>$record->state</span> <span class='label label-warning'>Watching</span>";
                                     } else {
-                                        echo "<span style='width:auto;display:inline-block;line-height:15px;color:#fff;'>$record->state</span>";
+                                        echo "<span>$record->state</span> <span class='label label-warning'>Watching</span>";
                                     }
                                 ?>
                             </span>
@@ -241,6 +241,9 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     echo "<p>Please log into your UW NETID to view your list of Requests and Incidents</p>";
                 }
                 ?>
+                
+                <div style="color:#999; font-size:.9em; margin-top:1em;"><span class="glyphicon glyphicon-eye-open watcher-eye"></span> Requests you are currently watching.</div>
+                
                 <div style="margin-top:2em;">
                     <p class="alert alert-info">Not seeing your request?  You may need to login as a different UW NetID.</p>
                 </div>
