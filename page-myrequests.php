@@ -174,7 +174,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                         echo "<span class='$class'>$record->state</span>";
                                     }
                                     if (strpos($record->watch_list, $name) !== FALSE) {
-                                        echo "<span class='label label-warning'>Watching</span>";
+                                        echo " <span class='label label-warning'>Watching</span>";
                                     }
                                 ?>
                             </span>
@@ -229,7 +229,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                         echo "<span class='$class'>$record->state</span>";
                                     }
                                     if (strpos($record->watch_list, $name) !== FALSE) { 
-                                        echo "<span class='label label-warning'>Watching</span>";
+                                        echo " <span class='label label-warning'>Watching</span>";
                                     }
                                 ?>
                             </span>
