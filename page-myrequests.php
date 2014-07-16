@@ -84,6 +84,9 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                         $body = wp_remote_retrieve_body( $response );
                         $user_json = json_decode( $body );
                         $id = $user_json->records[0]->sys_id;
+                        $firstname = $user_json->records[0]->first_name;
+                        $lastname = $user_json->records[0]->last_name;
+                        $name = $firstname . " " . $lastname;
 
                         $states = array(
                             "New" => 'label label-success',
@@ -168,9 +171,10 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span class='$class'>$record->state</span> <span class='label label-warning'>Watching</span>";
-                                    } else {
-                                        echo "<span>$record->state</span> <span class='label label-warning'>Watching</span>";
+                                        echo "<span class='$class'>$record->state</span>";
+                                    }
+                                    if (strpos($record->watch_list, $name) !== FALSE) {
+                                        echo "<span class='label label-warning'>Watching</span>";
                                     }
                                 ?>
                             </span>
@@ -222,9 +226,10 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                 <?php
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
-                                        echo "<span class='$class'>$record->state</span> <span class='label label-warning'>Watching</span>";
-                                    } else {
-                                        echo "<span>$record->state</span> <span class='label label-warning'>Watching</span>";
+                                        echo "<span class='$class'>$record->state</span>";
+                                    }
+                                    if (strpos($record->watch_list, $name) !== FALSE) { 
+                                        echo "<span class='label label-warning'>Watching</span>";
                                     }
                                 ?>
                             </span>
