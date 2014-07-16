@@ -241,9 +241,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     echo "<p>Please log into your UW NETID to view your list of Requests and Incidents</p>";
                 }
                 ?>
-                
-                <div style="color:#999; font-size:.9em; margin-top:1em;"><span class="glyphicon glyphicon-eye-open watcher-eye"></span> Requests you are currently watching.</div>
-                
+                                
                 <div style="margin-top:2em;">
                     <p class="alert alert-info">Not seeing your request?  You may need to login as a different UW NetID.</p>
                 </div>
