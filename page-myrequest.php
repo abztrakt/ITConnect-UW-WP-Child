@@ -143,6 +143,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
+                        $watch_list = explode(',', $record->watch_list);
 
                         // Get the comments
                         $url = SN_URL . '/sys_journal_field.do?displayvalue=true&JSONv2&sysparm_cation=getRecords&sysparm_query=active=true^element=comments^element_id=' . $record->sys_id;
@@ -220,15 +221,32 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                        
                         usort( $comments, 'sortByCreatedOnDesc' );
                         echo "<ol style='margin-left:0;'>";
-                        
-                        
+
+                        $prevwatch = [];
+
                         foreach( $comments as $comment ) {
+                            $comment_user = $comment->sys_created_by;
+                            if (!in_array($comment_user, $prevwatch) && $comment_user != $user) {
+                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $comment_user;
+                                $response = wp_remote_get( $url, $args );
+                                $body = wp_remote_retrieve_body( $response );
+                                $user_json = json_decode( $body );
+                                $firstname = $user_json->records[0]->first_name;
+                                $lastname = $user_json->records[0]->last_name;
+                                $name = $firstname . " " . $lastname;
+                                array_push($prevwatch, $comment_user);
+                                if ( in_array($name, $watch_list)) {
+                                    $watcher = True;
+                                }
+                            }
                             echo "<li class='media'>";
-                                                                            
-                            $display_user = $user ;
+                            $display_user = $user;
                                                                                 
                             if ($comment->sys_created_by == $user ) {
                                 echo "<div class='media-body caller-comments'>";
+                            } elseif ($watcher) {
+                                echo "<div class='media-body support-comments'>";
+                                $display_user = "Watcher";
                             } else {
                                 $display_user = "UW-IT SUPPORT STAFF";
                                 echo "<div class='media-body support-comments'>";
