@@ -23,7 +23,7 @@
                             <td>Phone</td><td>206-221-5000</td>
                         </tr>
                         <tr>
-                            <td>In-Person</td><td><a href='http://www.washington.edu/maps/?l=UWTC'>UW Tower, C-3000</a><br /> M-F 8-8, Sun 1-8</td>
+                            <td>In-Person</td><td><a href='http://www.washington.edu/maps/?l=UWTC'>UW Tower, C-3000</a><br /> M-F 8-8</td>
                         </tr>
                     </table>
                 </div>
