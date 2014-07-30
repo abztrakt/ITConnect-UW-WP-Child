@@ -462,7 +462,7 @@ add_action('admin_menu', 'edit_admin_menus', 999);
 add_action('admin_menu', 'custom_footer_fields');
 
 function custom_footer_fields() {
-    add_options_page('Footer Options', 'Footer Options', 'administrator', __FILE__, 'build_options_page');
+    add_submenu_page('themes.php','Footer Content', 'Footer Content', 'administrator', __FILE__, 'build_options_page');
 }
 
 add_action('admin_init', 'reg_build_options');
