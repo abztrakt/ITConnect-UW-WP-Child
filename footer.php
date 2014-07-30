@@ -1,5 +1,5 @@
 <?php wp_footer(); ?>
-
+<?php $options = get_option('footer_options'); ?>
 <div id="footerBG">
     <div id="footer-band"></div>
     <div id="footer" role="navigation" aira-label="Global Footer Menu">
@@ -10,20 +10,20 @@
                 <div id='footer_links_left' class='span4'>
                     <table>
                         <tr>
-                            <td>Online</td><td><a href='<?php echo get_site_url();?>/it-connect-home/question'>Contact form</a></td>
+                            <td>Online</td><td><a href='<?php echo get_site_url();?>/it-connect-home/question'><?= $options['online'] ?></a></td>
                         </tr>
                         <tr>
-                            <td>Email</td><td><a href='mailto:help@uw.edu'>help@uw.edu</a></td>
+                            <td>Email</td><td><a href='mailto:<?= $options['email'] ?>'><?= $options['email'] ?></a></td>
                         </tr>
                     </table>
                 </div>
                 <div id='footer_links_mid' class='span4'>
                     <table>
                         <tr>
-                            <td>Phone</td><td>206-221-5000</td>
+                            <td>Phone</td><td><?= $options['phone'] ?></td>
                         </tr>
                         <tr>
-                            <td>In-Person</td><td><a href='http://www.washington.edu/maps/?l=UWTC'>UW Tower, C-3000</a><br /> M-F 8-8</td>
+                            <td>In-Person</td><td><?= $options['inperson'] ?></td>
                         </tr>
                     </table>
                 </div>
