@@ -458,4 +458,76 @@ function edit_admin_menus() {
 
 add_action('admin_menu', 'edit_admin_menus', 999);
 
+//Footer Options
+add_action('admin_menu', 'custom_footer_fields');
+
+function custom_footer_fields() {
+    add_options_page('Footer Options', 'Footer Options', 'administrator', __FILE__, 'build_options_page');
+}
+
+add_action('admin_init', 'reg_build_options');
+
+function build_options_page() {
+   ?>
+   <div>
+    <h2>Footer Content</h2>
+    <p>Change ITConnect footer content here. Keep HTML input to only textarea blocks please.</p>
+    <form method="POST" action="options.php" enctype="multipart/form-data">
+        <?php settings_fields('footer_options'); ?>
+        <?php do_settings_sections(__FILE__); ?>
+        <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
+    </form>
+   </div>
+   <?php
+}
+
+function reg_build_options() {
+    register_setting('footer_options', 'footer_options', 'validate_setting');
+    add_settings_section('main_section', 'Options', 'section_cb', __FILE__);
+    add_settings_field('online', 'Online <br /><em style="font-weight: 300;">Online contact method</em>', 'set_online', __FILE__, 'main_section');
+    add_settings_field('email', 'Email', 'set_email', __FILE__, 'main_section');
+    add_settings_field('phone', 'Phone', 'set_phone', __FILE__, 'main_section');
+    add_settings_field('inperson','In-Person <br /><em style="font-weight: 300;">In-Person Help Desk</em>', 'set_inperson', __FILE__, 'main_section');
+    add_settings_field('field1', 'Extra Field 1', 'set_field1', __FILE__, 'main_section');
+    add_settings_field('field2', 'Extra Field 2', 'set_field2', __FILE__, 'main_section');
+}
+
+function validate_setting($footer_options) {
+    return $footer_options;
+}
+
+function section_cb() {
+//empty callback, just needed for function argument
+}
+
+function set_online() {
+    $options = get_option('footer_options');
+    echo "<input name='footer_options[online]' type='text' value='{$options['online']}' />";
+}
+
+function set_email() {
+    $options = get_option('footer_options');
+    echo "<input name='footer_options[email]' type='text' value='{$options['email']}' />";
+}
+
+function set_phone() {
+    $options = get_option('footer_options');
+    echo "<input name='footer_options[phone]' type='text' value='{$options['phone']}' />";
+}
+
+function set_inperson() {
+    $options = get_option('footer_options');
+    echo "<textarea name='footer_options[inperson]'>{$options['inperson']}</textarea>";
+}
+
+function set_field1() {
+    $options = get_option('footer_options');
+    echo "<textarea name='footer_options[field1]'>{$options['field1']}</textarea>";
+}
+
+function set_field2() {
+    $options = get_option('footer_options');
+    echo "<textarea name='footer_options[field2]'>{$options['field2']}</textarea>";
+}
+//End Footer Options
 ?>
