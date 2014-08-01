@@ -222,7 +222,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         usort( $comments, 'sortByCreatedOnDesc' );
                         echo "<ol style='margin-left:0;'>";
 
-                        $prevwatch = [];
+                        $prevwatch = array();
 
                         foreach( $comments as $comment ) {
                             $comment_user = $comment->sys_created_by;
