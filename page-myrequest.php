@@ -107,7 +107,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                 }
                 ?>
                 <div class="user-logout">
-                    <span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $user; ?> &nbsp;&nbsp;&nbsp;<a href="https://weblogin.washington.edu/logout/" class="btn btn-mini" style="vertical-align:text-bottom;">LOGOUT</a>
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;<?php echo $user; ?> &nbsp;&nbsp;&nbsp;<a href="<?php echo home_url('/user_logout'); ?>" class="btn btn-mini" style="vertical-align:text-bottom;">LOGOUT</a>
                 </div>
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
@@ -245,7 +245,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         usort( $comments, 'sortByCreatedOnDesc' );
                         echo "<ol style='margin-left:0;'>";
 
-                        $prevwatch = [];
+                        $prevwatch = array();
 
                         foreach( $comments as $comment ) {
                             $comment_user = $comment->sys_created_by;
