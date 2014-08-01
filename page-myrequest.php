@@ -153,18 +153,26 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         $recordwl = $JSONwl->records[0];
                         $watch_list = explode(',', $recordwl->watch_list);
 
-                        if($name == $record->u_caller or $user == $record->caller_id->user_name) {
-                            $caller_nid = $user;
-                        } else {
-                            if ($sn_type == 'request (REQ)') {
+                        if ($sn_type == 'request (REQ)') {
+                            if( $record->u_caller == $name ) {
+                                $caller_nid = $user;
+                            } else {
                                 $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . urlencode($record->u_caller);
-                            } else if ($sn_type == 'incident (INC)') {
-                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=UWNetID%3D' . $record->caller_id->user_name;
+                                $caller_response = wp_remote_get( $url, $args );
+                                $caller_body = wp_remote_retrieve_body( $caller_response );
+                                $caller_json = json_decode( $caller_body );
+                                $caller_nid = $caller_json->records[0]->user_name;
                             }
-                            $caller_response = wp_remote_get( $url, $args );
-                            $caller_body = wp_remote_retrieve_body( $caller_response );
-                            $caller_json = json_decode( $caller_body );
-                            $caller_nid = $caller_json->records[0]->user_name;
+                        } else if ($sn_type == 'incident (INC)') {
+                            if( $record->caller_id == $name ) {
+                                $caller_nid = $user;
+                            } else {
+                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . urlencode($record->caller_id);
+                                $caller_response = wp_remote_get( $url, $args );
+                                $caller_body = wp_remote_retrieve_body( $caller_response );
+                                $caller_json = json_decode( $caller_body );
+                                $caller_nid = $caller_json->records[0]->user_name;
+                            }
                         }
 
                         // Get the comments
