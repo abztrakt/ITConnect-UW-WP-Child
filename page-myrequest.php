@@ -156,16 +156,15 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         if($name == $record->u_caller or $user == $record->caller_id->user_name) {
                             $caller_nid = $user;
                         } else {
-                            if ($sn_type == 'REQ') {
+                            if ($sn_type == 'request (REQ)') {
                                 $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . urlencode($record->u_caller);
-                            } else if ($sn_type == 'INC') {
-                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . $record->caller_id->user_name;
+                            } else if ($sn_type == 'incident (INC)') {
+                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=UWNetID%3D' . $record->caller_id->user_name;
                             }
                             $caller_response = wp_remote_get( $url, $args );
                             $caller_body = wp_remote_retrieve_body( $caller_response );
                             $caller_json = json_decode( $caller_body );
                             $caller_nid = $caller_json->records[0]->user_name;
-
                         }
 
                         // Get the comments
@@ -248,6 +247,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         $prevwatch = array();
 
                         foreach( $comments as $comment ) {
+                            $watcher = False;
                             $comment_user = $comment->sys_created_by;
                             if (!in_array($comment_user, $prevwatch) && $comment_user != $user) {
                                 $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $comment_user;
@@ -261,11 +261,11 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                                 }
                             }
                             echo "<li class='media'>";
-                            $display_user = $user;
                             if ($comment->sys_created_by == $user) {
                                 echo "<div class='media-body caller-comments'>";
+                                $display_user = $user;
                             } elseif ($comment->sys_created_by == $caller_nid) {
-                                echo "<dive class='media-body support-comments'>";
+                                echo "<div class='media-body support-comments'>";
                                 $display_user = "Caller";
                             } elseif ($watcher) {
                                 echo "<div class='media-body support-comments'>";
