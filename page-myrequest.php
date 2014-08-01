@@ -23,7 +23,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
             'record' => $sn_num,
             'comment' => $comments,
         );
-        $comments_json = json_encode( $comments_json );
+          $comments_json = json_encode( $comments_json );
         $comments_url = SN_URL . '/comment.do';
 
         // If a POST and have comments - create a comment in SN
@@ -123,18 +123,20 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $user_json = json_decode( $body );
-                        $id = $user_json->records[0]->sys_id;
+                        $user_id = $user_json->records[0]->sys_id;
                         $firstname = $user_json->records[0]->first_name;
                         $lastname = $user_json->records[0]->last_name;
                         $name = $firstname . " " . $lastname;
 
                         $sn_type = substr($sn_num, 0, 3);
                         if( $sn_type == 'REQ' ) {
-                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $id;
+                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                             $sn_type = 'request (REQ)';
+                            $urlwl =  SN_URL . '/u_simple_requests_list.do?JSONv2&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                         } else if( $sn_type == 'INC' ) {
-                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $user . '^ORwatch_listLIKE' . $id;
+                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                             $sn_type = 'incident (INC)';
+                            $urlwl = SN_URL . '/incident.do?JSONv2&sysparm_query=number='. $sn_num . '^caller_id.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                         } else {
                             echo "Unrecognized type";
                             $error_flag = True;
@@ -143,7 +145,28 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         $body = wp_remote_retrieve_body( $response );
                         $JSON = json_decode( $body );
                         $record = $JSON->records[0];
-                        $watch_list = explode(',', $record->watch_list);
+
+
+                        $responsewl = wp_remote_get( $urlwl, $args );
+                        $bodywl = wp_remote_retrieve_body( $responsewl );
+                        $JSONwl = json_decode( $bodywl );
+                        $recordwl = $JSONwl->records[0];
+                        $watch_list = explode(',', $recordwl->watch_list);
+
+                        if($name == $record->u_caller or $user == $record->caller_id->user_name) {
+                            $caller_nid = $user;
+                        } else {
+                            if ($sn_type == 'REQ') {
+                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . urlencode($record->u_caller);
+                            } else if ($sn_type == 'INC') {
+                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . $record->caller_id->user_name;
+                            }
+                            $caller_response = wp_remote_get( $url, $args );
+                            $caller_body = wp_remote_retrieve_body( $caller_response );
+                            $caller_json = json_decode( $caller_body );
+                            $caller_nid = $caller_json->records[0]->user_name;
+
+                        }
 
                         // Get the comments
                         $url = SN_URL . '/sys_journal_field.do?displayvalue=true&JSONv2&sysparm_cation=getRecords&sysparm_query=active=true^element=comments^element_id=' . $record->sys_id;
@@ -191,7 +214,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                                     $class = $states[$record->state];
                                     echo "<span $class>$record->state</span>";
                                 }
-                                if (strpos($record->watch_list, $name) !== FALSE) {
+                                if ( in_array($user_id, $watch_list)) {
                                     echo " <span class='label label-warning'>Watching</span>";
                                 }
                         echo "</td></tr>";
@@ -231,25 +254,25 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                                 $response = wp_remote_get( $url, $args );
                                 $body = wp_remote_retrieve_body( $response );
                                 $user_json = json_decode( $body );
-                                $firstname = $user_json->records[0]->first_name;
-                                $lastname = $user_json->records[0]->last_name;
-                                $name = $firstname . " " . $lastname;
+                                $comment_user_id = $user_json->records[0]->sys_id;
                                 array_push($prevwatch, $comment_user);
-                                if ( in_array($name, $watch_list)) {
+                                if ( in_array($comment_user_id, $watch_list)) {
                                     $watcher = True;
                                 }
                             }
                             echo "<li class='media'>";
                             $display_user = $user;
-                                                                                
-                            if ($comment->sys_created_by == $user ) {
+                            if ($comment->sys_created_by == $user) {
                                 echo "<div class='media-body caller-comments'>";
+                            } elseif ($comment->sys_created_by == $caller_nid) {
+                                echo "<dive class='media-body support-comments'>";
+                                $display_user = "Caller";
                             } elseif ($watcher) {
                                 echo "<div class='media-body support-comments'>";
                                 $display_user = "Watcher";
                             } else {
-                                $display_user = "UW-IT SUPPORT STAFF";
                                 echo "<div class='media-body support-comments'>";
+                                $display_user = "UW-IT SUPPORT STAFF";
                             }
                             
                             echo "<div class='comment-timestamp'><strong class='user_name'>$display_user</strong> <span class='create-date'>$comment->sys_created_on</span></div>";

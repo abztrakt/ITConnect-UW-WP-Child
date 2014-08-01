@@ -83,7 +83,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $user_json = json_decode( $body );
-                        $id = $user_json->records[0]->sys_id;
+                        $user_id = $user_json->records[0]->sys_id;
                         $firstname = $user_json->records[0]->first_name;
                         $lastname = $user_json->records[0]->last_name;
                         $name = $firstname . " " . $lastname;
@@ -102,7 +102,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                         );
 
                         // Requests
-                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $id;
+                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $req_json = json_decode( $body );
@@ -110,15 +110,27 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                         if( !empty( $req_json->records ) ) {
                             $has_req = TRUE;
                         }
+                        if($has_req) {
+                            $urlwl = SN_URL . '/u_simple_requests_list.do?JSONv2&sysparm_query=state!=14^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
+                            $responsewl = wp_remote_get( $urlwl, $args );
+                            $bodywl = wp_remote_retrieve_body( $responsewl );
+                            $req_jsonwl = json_decode( $bodywl );
+                        }
 
                         // Incidents
-                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^caller_id.user_name=' . $user. '^ORwatch_listLIKE' . $id;
+                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^state!=14^caller_id.user_name=' . $user. '^ORwatch_listLIKE' . $user_id;
                         $response = wp_remote_get( $url, $args );
                         $body = wp_remote_retrieve_body( $response );
                         $inc_json = json_decode( $body );
                         $has_inc = FALSE;
                         if( !empty( $inc_json->records ) ) {
                             $has_inc = TRUE;
+                        }
+                        if($has_inc) {
+                            $urlwl = SN_URL . '/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^state!=14^caller_id.user_name=' . $user. '^ORwatch_listLIKE' . $user_id;
+                            $responsewl = wp_remote_get( $urlwl, $args );
+                            $bodywl = wp_remote_retrieve_body( $responsewl );
+                            $inc_jsonwl = json_decode( $bodywl );
                         }
                 ?>
 
@@ -135,11 +147,14 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     
                     <?php } ?>
 
+
                     <?php if( $has_inc ) { ?>
                     <ol class="request-list" aria-labelledby="incident_header">
                     
                     <?php
                     usort($inc_json->records, 'sortByNumberDesc');
+                    usort($inc_jsonwl->records, 'sortByNumberDesc');
+                    $inc_count = 0;
                     foreach ( $inc_json->records as $record ) {
                         if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
                             $record->state = "Active";
@@ -173,9 +188,10 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                         $class = $states[$record->state];
                                         echo "<span class='$class'>$record->state</span>";
                                     }
-                                    if (strpos($record->watch_list, $name) !== FALSE) {
+                                    if ( strpos($inc_jsonwl->records[$inc_count]->watch_list, $user_id) !== FALSE) {
                                         echo " <span class='label label-warning'>Watching</span>";
                                     }
+                                    $inc_count++;
                                 ?>
                             </span>
                         </a></li>
@@ -194,6 +210,8 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     <?php
                     
                     usort($req_json->records, 'sortByNumberDesc');
+                    usort($req_jsonwl->records, 'sortByNumberDesc');
+                    $req_count = 0;
                     foreach ( $req_json->records as $record ) {
                     
                             if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
@@ -228,9 +246,11 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                         $class = $states[$record->state];
                                         echo "<span class='$class'>$record->state</span>";
                                     }
-                                    if (strpos($record->watch_list, $name) !== FALSE) { 
+                                    if ( strpos($req_jsonwl->records[$req_count]->watch_list, $user_id) !== FALSE) {
                                         echo " <span class='label label-warning'>Watching</span>";
                                     }
+                                    $req_count++;
+
                                 ?>
                             </span>
                         </a></li>
