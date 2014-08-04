@@ -517,17 +517,17 @@ function set_phone() {
 
 function set_inperson() {
     $options = get_option('footer_options');
-    echo "<textarea name='footer_options[inperson]'>{$options['inperson']}</textarea>";
+    echo "<textarea name='footer_options[inperson]' cols='40'>{$options['inperson']}</textarea>";
 }
 
 function set_field1() {
     $options = get_option('footer_options');
-    echo "<textarea name='footer_options[field1]'>{$options['field1']}</textarea>";
+    echo "<textarea name='footer_options[field1]' cols='40'>{$options['field1']}</textarea>";
 }
 
 function set_field2() {
     $options = get_option('footer_options');
-    echo "<textarea name='footer_options[field2]'>{$options['field2']}</textarea>";
+    echo "<textarea name='footer_options[field2]' cols='40'>{$options['field2']}</textarea>";
 }
 //End Footer Options
 ?>
