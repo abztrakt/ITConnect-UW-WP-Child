@@ -1456,6 +1456,8 @@ h5.home_date {
 
 .watcher-eye { line-height: 15px !important; color: #999; vertical-align: text-bottom; }
 
+.resolved_ticket span { color: #999; }
+
 .request-list {
     padding: 0;
     margin: 0;
@@ -1470,12 +1472,9 @@ h5.home_date {
 
 .request-list-number { }
 .request-list-service { }
-.request-list-description { width: 60%; text-decoration: underline; }
-.request-list-status { width: 110px; }
+.request-list-description { width: 50%; text-decoration: underline; }
+.request-list-status { width: 120px; margin-left: 0.5em;}
 .request-list-status span { width:auto;display:inline-block;line-height:15px;color:#fff; }
-    
-.resolved_ticket span { color: #999; }
-
     
 .caller-comments, .caller-comments pre {
     color: #888;
@@ -2598,6 +2597,4 @@ h5.home_date {
     /*** ServiceNow  1200***/
     
     .request-list-service { width: 190px}
-    .request-list-description { width: 49%;}
-
 }
