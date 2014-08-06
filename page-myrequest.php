@@ -211,10 +211,9 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                             "Closed" => 'class="label label-default"',
                         );
 
-                        if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
+                        if ($record->state != "Resolved" && $record->state != "Awaiting User Info" && $record->state != "Closed") {
                             $record->state = "Active";
                         }
-
 
                         echo "<tr><td>Status:</td><td class='request_status'>";
                                 if (array_key_exists($record->state, $states)) {
@@ -231,7 +230,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         echo "</table>";
                         echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
 
-                        if(!$error_flag) {
+                        if(!$error_flag && $record->state != "Closed") {
                             $submit_url = site_url() . '/myrequest/' . $sn_num . '/'; ?>
                             <form role='form' action="<?php $submit_url; ?>" method='post'>
                             <div class='form-group' style='margin-bottom:1em;'>
@@ -242,6 +241,8 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                             <input type="hidden" name="submitted" id="submitted" value="true" />
                         </form>
                         <?php 
+                        } else if ($record->state == "Closed") {
+                          echo "<p class='alert alert-error'>This record has been closed. If you wish to revisit this issue, you can reference the issue number above in a new request to <a href='mailto:help@uw.edu'>help@uw.edu</a>.";
                         } else {
                           echo "<h3>Status 403: Unauthorized</h3>";
                           echo "<p>Please log in to your UW NETID in order to view your Requests and Incidents</p>";
@@ -282,7 +283,6 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                                 echo "<div class='media-body support-comments'>";
                                 $display_user = "UW-IT SUPPORT STAFF";
                             }
-                            
                             echo "<div class='comment-timestamp'><strong class='user_name'>$display_user</strong> <span class='create-date'>$comment->sys_created_on</span></div>";
                             echo "<pre>";
                             echo stripslashes($comment->value);
