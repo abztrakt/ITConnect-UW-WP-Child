@@ -1473,7 +1473,7 @@ h5.home_date {
 .request-list-number { }
 .request-list-service { }
 .request-list-description { width: 50%; text-decoration: underline; }
-.request-list-status { width: 120px; margin-left: 0.5em;}
+.request-list-status { width: 125px; margin-left: 0.5em;}
 .request-list-status span { width:auto;display:inline-block;line-height:15px;color:#fff; }
     
 .caller-comments, .caller-comments pre {
@@ -2313,6 +2313,13 @@ h5.home_date {
         float: left;
         padding: 0px;
     }
+nline   Contact form
+Email   help@uw.edu
+Phone   206-221-5000
+In-Person   UW Tower, C-3000
+M-F 8-8
+
+
 
     #home_tertiary div.media-body {
         width: 80%;
@@ -2525,7 +2532,7 @@ h5.home_date {
     .request-list-header .request-list-number { text-decoration: none;  }
     .request-list-number { width: 100px; text-decoration: underline;  }
     .request-list-service { width: 120px; color: #222; }
-    .request-list-description { width: 35%; color: #222; text-decoration: none; }
+    .request-list-description { width: 30%; color: #222; text-decoration: none; }
 }
 
 @media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
@@ -2551,7 +2558,7 @@ h5.home_date {
     
     /*** ServiceNow 920 ***/
     
-    .request-list-description { width: 45%; }
+    .request-list-description { width: 41%; }
 }
 
 @media screen and (min-width: 1200px) {
@@ -2596,5 +2603,6 @@ h5.home_date {
     
     /*** ServiceNow  1200***/
     
-    .request-list-service { width: 190px}
+    .request-list-service { width: 190px};
+    .request-list-description{ width: 45%};
 }
