@@ -244,6 +244,14 @@ jQuery(window).load(function() {
           $mini.slideDown()
       }
     });
+ 
+   $(".ptoc a").click(function(event) {
+        event.preventDefault();
+        var header_id = $(this).attr('href');
+        var offset = $(header_id).offset();
+        $('body,html').scrollTop(offset.top - 30);   //offset by the height of banner which is 30px
+   });
+
 
 
 /*

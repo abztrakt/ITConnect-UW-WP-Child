@@ -62,20 +62,6 @@
 				</div>
  			 </div>
 			</div><!-- #content -->
-
-            <script>
-                $(".ptoc a").click(function(event) {
-                    event.preventDefault();
-                    var header_id = $(this).attr('href');
-                    var offset = $(header_id).offset();
-                    <?php if (!is_user_logged_in()): ?>
-                        $('body,html').scrollTop(offset.top - 30);   //offset by the height of uw banner which is 30px
-                    <?php else: ?>
-                        $('body,html').scrollTop(offset.top - 60);   //offset by the height of uw and wp-admin banner combined which is 60px 
-                    <?php endif; ?>
-                });
-            </script>
-
 		</div><!-- #primary -->
         <div class="push"></div>
    </div><!-- #wrap -->
