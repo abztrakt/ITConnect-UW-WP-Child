@@ -22,6 +22,11 @@ Template: UW-Wordpress-Theme
     background: #FAFAFA;
 }
 
+*:target {
+    margin-top: -60px;
+    padding-top: 60px;
+}
+
 /*** Push down footer ***  Pushing too far at the moment *
 html, body {
     height: 100%;

@@ -55,7 +55,6 @@
 			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
             </article><!-- #post-<?php the_ID(); ?> -->
           </div>
-                
 
 			<?php endwhile; // end of the loop. ?>
             
