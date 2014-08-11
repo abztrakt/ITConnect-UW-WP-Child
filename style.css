@@ -23,6 +23,11 @@ Template: UW-Wordpress-Theme
 }
 
 *:target {
+    margin-top: -40px;
+    padding-top: 40px;
+}
+
+.logged-in *:target {
     margin-top: -60px;
     padding-top: 60px;
 }
