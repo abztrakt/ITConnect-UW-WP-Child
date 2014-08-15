@@ -1468,12 +1468,14 @@ h5.home_date {
 .request-list-header .request-list-description { text-decoration: none; }
 
 .request-list a { text-decoration: none; display: block; }
-.request-list span { display: inline-block; line-height: 30px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.request-list span { display: inline-block; line-height: 30px; white-space: nowrap; /*overflow: hidden; text-overflow: ellipsis;*/ }
 
 .request-list-number { }
 .request-list-service { }
 .request-list-description { width: 50%; text-decoration: underline; }
-.request-list-status { width: 125px; margin-left: 0.5em;}
+
+.request-list-status { width: 125px; margin-left: 0.5em; overflow: visible !important; }
+
 .request-list-status span { width:auto;display:inline-block;line-height:15px;color:#fff; }
     
 .caller-comments, .caller-comments pre {
@@ -2524,7 +2526,7 @@ h5.home_date {
         
     .request-list-header .request-list-number { text-decoration: none;  }
     .request-list-number { width: 100px; text-decoration: underline;  }
-    .request-list-service { width: 120px; color: #222; }
+    .request-list-service { width: 130px; color: #222; }
     .request-list-description { width: 30%; color: #222; text-decoration: none; }
 }
 
