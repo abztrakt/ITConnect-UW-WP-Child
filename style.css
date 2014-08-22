@@ -1468,7 +1468,7 @@ h5.home_date {
 .request-list-header .request-list-description { text-decoration: none; }
 
 .request-list a { text-decoration: none; display: block; }
-.request-list span { display: inline-block; line-height: 30px; white-space: nowrap; /*overflow: hidden; text-overflow: ellipsis;*/ }
+.request-list span { display: inline-block; line-height: 30px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .request-list-number { }
 .request-list-service { }
@@ -1476,7 +1476,7 @@ h5.home_date {
 
 .request-list-status { width: 125px; margin-left: 0.5em; overflow: visible !important; }
 
-.request-list-status span { width:auto;display:inline-block;line-height:15px;color:#fff; }
+.request-list-status span { width:auto;display:inline-block;line-height:15px;color:#fff; margin-top: -20px; }
     
 .caller-comments, .caller-comments pre {
     color: #888;
