@@ -982,7 +982,7 @@ article div.entry-content ol.procedure li ul,
 article div.entry-content ol.procedure li ol,
 article div.entry-content ol.procedure li li { margin: .3em; padding: 0 0 0 1em; }
 
-article div.entry-content li.colheads span {
+article div.entry-content li.colheads span.spacing {
     margin-left:1.5em;
 }
 
