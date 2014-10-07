@@ -188,7 +188,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                         $class = $states[$record->state];
                                         echo "<span class='$class'>$record->state</span>";
                                     }
-                                    if ( strpos($inc_jsonwl->records[$inc_count]->watch_list, $user_id) !== FALSE) {
+                                    if ( strpos($inc_jsonwl->records[$inc_count]->watch_list, $user_id) !== FALSE && $inc_jsonwl->records[$inc_count]->u_caller != $user_id) {
                                         echo " <span class='label label-warning'>Watching</span>";
                                     }
                                     $inc_count++;
@@ -213,7 +213,6 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     usort($req_jsonwl->records, 'sortByNumberDesc');
                     $req_count = 0;
                     foreach ( $req_json->records as $record ) {
-                    
                             if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
                                 $record->state = "Active";
                             }
@@ -246,7 +245,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                                         $class = $states[$record->state];
                                         echo "<span class='$class'>$record->state</span>";
                                     }
-                                    if ( strpos($req_jsonwl->records[$req_count]->watch_list, $user_id) !== FALSE) {
+                                    if ( strpos($req_jsonwl->records[$req_count]->watch_list, $user_id) !== FALSE && $req_jsonwl->records[$req_count]->u_caller != $user_id) {
                                         echo " <span class='label label-warning'>Watching</span>";
                                     }
                                     $req_count++;
