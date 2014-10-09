@@ -220,7 +220,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                                     $class = $states[$record->state];
                                     echo "<span $class>$record->state</span>";
                                 }
-                                if ( in_array($user_id, $watch_list)) {
+                                if ( in_array($user_id, $watch_list) && $user_id != $recordwl->u_caller) {
                                     echo " <span class='label label-warning'>Watching</span>";
                                 }
                         echo "</td></tr>";
