@@ -486,7 +486,7 @@ function reg_build_options() {
     add_settings_section('main_section', 'Options', 'section_cb', __FILE__);
     add_settings_field('online', 'Contact form (URL) <br /><em style="font-weight: 300;">Example: http://site.com/page</em>', 'set_online', __FILE__, 'main_section');
     add_settings_field('email', 'Email <br /><em style="font-weight: 300;">Example: user@uw.edu</em>', 'set_email', __FILE__, 'main_section');
-    add_settings_field('phone', 'Phone <br /><em style="font-weight: 300;">Example: 999-9999-9999', 'set_phone', __FILE__, 'main_section');
+    add_settings_field('phone', 'Phone <br /><em style="font-weight: 300;">Example: 999-999-9999', 'set_phone', __FILE__, 'main_section');
     add_settings_field('inperson_text','In-Person Service Center Text (Name of location) <br /><em style="font-weight: 300;">Example: UW Tower, C-3000</em>', 'set_inperson_text', __FILE__, 'main_section');
     add_settings_field('inperson_hours','In-Person Service Center Hours (Enter Text) <br /><em style="font-weight: 300;">Example: M-F 8-8</em>', 'set_inperson_hours', __FILE__, 'main_section');
     add_settings_field('inperson_url','In-Person Service Center URL (Link to page) <br /><em style="font-weight: 300;">Example: http://site.com/page</em>', 'set_inperson_url', __FILE__, 'main_section');
@@ -505,17 +505,23 @@ function section_cb() {
 
 function set_online() {
     $options = get_option('footer_options');
-    echo "<input name='footer_options[online]' type='text' size='45' value='{$options['online']}' />";
+    $url_pattern = '(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Invalid URL format';
+    echo "<input name='footer_options[online]' pattern='$url_pattern' title='$warning' type='text' size='45' value='{$options['online']}' />";
 }
 
 function set_email() {
     $options = get_option('footer_options');
-    echo "<input name='footer_options[email]' type='text' value='{$options['email']}' />";
+    $email_pattern = '[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9_\.\-]+\.[a-zA-Z0-9]+)';
+    $warning = 'invalid email format';
+    echo "<input name='footer_options[email]' pattern='$email_pattern' title='$warning'type='text' value='{$options['email']}' />";
 }
 
 function set_phone() {
     $options = get_option('footer_options');
-    echo "<input name='footer_options[phone]' type='text' value='{$options['phone']}' />";
+    $phone_pattern = '(\d{3}?\-?\d{3}\-?\d{4})';
+    $warning = 'invalid phone number';
+    echo "<input name='footer_options[phone]' pattern='$phone_pattern' title='$warning' type='text'  value='{$options['phone']}' />";
 }
 
 function set_inperson_text() {
@@ -530,17 +536,23 @@ function set_inperson_hours() {
 
 function set_inperson_url() {
     $options = get_option('footer_options');
-    echo "<input name='footer_options[inperson_url]' type='text' size='45'  value='{$options['inperson_url']}' />";
+    $url_pattern = '(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Invalid URL format';
+    echo "<input name='footer_options[inperson_url]'  pattern='$url_pattern' title='$warning'  type='text' size='45'  value='{$options['inperson_url']}' />";
 }
 
 function set_twitter() {
     $options = get_option('footer_options');
-    echo "<input name='footer_options[twitter]' type='text' size='45' value='{$options['twitter']}' />";
+    $url_pattern = '(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Invalid URL format';
+    echo "<input name='footer_options[twitter]' pattern='(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)([/a-zA-z0-9_\-\.\+\?=%]*)?' title='Invalid URL' type='text' size='45' value='{$options['twitter']}' />";
 }
 
 function set_youtube() {
     $options = get_option('footer_options');
-    echo "<input name='footer_options[youtube]' type='text' size='45' value='{$options['youtube']}' />";
+    $url_pattern = '(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Invalid URL format';
+    echo "<input name='footer_options[youtube]'  pattern='$url_pattern' title='$warning' type='text' size='45' value='{$options['youtube']}' />";
 }
 //End Footer Options
 ?>
