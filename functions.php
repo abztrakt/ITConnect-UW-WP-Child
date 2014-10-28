@@ -309,7 +309,7 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
       foreach ($links as $index=>$link) :
 
         $link = str_replace('span', 'a', $link);
-        if ( strip_tags($link) == $current ) 
+           if ( strip_tags($link) == $current ) 
           echo "<li class=\"disabled\"><a href='javascript:void(0);'>$current</a></li>";
         else
           echo "<li>$link</li>";
@@ -464,7 +464,7 @@ function build_options_page() {
    ?>
    <div>
     <h2>Footer Content</h2>
-    <p>Change ITConnect footer content here. Keep HTML input to only textarea blocks please.</p>
+    <p>Change ITConnect footer content here. Please <b>do not</b> enter any HTML in to the fields</p>
     <form method="POST" action="options.php" enctype="multipart/form-data">
         <?php settings_fields('footer_options'); ?>
         <?php do_settings_sections(__FILE__); ?>
@@ -477,12 +477,15 @@ function build_options_page() {
 function reg_build_options() {
     register_setting('footer_options', 'footer_options', 'validate_setting');
     add_settings_section('main_section', 'Options', 'section_cb', __FILE__);
-    add_settings_field('online', 'Online <br /><em style="font-weight: 300;">Online contact method</em>', 'set_online', __FILE__, 'main_section');
-    add_settings_field('email', 'Email', 'set_email', __FILE__, 'main_section');
-    add_settings_field('phone', 'Phone', 'set_phone', __FILE__, 'main_section');
-    add_settings_field('inperson','In-Person <br /><em style="font-weight: 300;">In-Person Help Desk</em>', 'set_inperson', __FILE__, 'main_section');
-    add_settings_field('field1', 'Extra Field 1', 'set_field1', __FILE__, 'main_section');
-    add_settings_field('field2', 'Extra Field 2', 'set_field2', __FILE__, 'main_section');
+    add_settings_field('online', 'Contact form (URL) <br /><em style="font-weight: 300;">Example: http://site.com/page</em>', 'set_online', __FILE__, 'main_section');
+    add_settings_field('email', 'Email <br /><em style="font-weight: 300;">Example: user@uw.edu</em>', 'set_email', __FILE__, 'main_section');
+    add_settings_field('phone', 'Phone <br /><em style="font-weight: 300;">Example: 999-9999-9999', 'set_phone', __FILE__, 'main_section');
+    add_settings_field('inperson_text','In-Person Service Center Text (Name of location) <br /><em style="font-weight: 300;">Example: UW Tower, C-3000</em>', 'set_inperson_text', __FILE__, 'main_section');
+    add_settings_field('inperson_hours','In-Person Service Center Hours (Enter Text) <br /><em style="font-weight: 300;">Example: M-F 8-8</em>', 'set_inperson_hours', __FILE__, 'main_section');
+    add_settings_field('inperson_url','In-Person Service Center URL (Link to page) <br /><em style="font-weight: 300;">Example: http://site.com/page</em>', 'set_inperson_url', __FILE__, 'main_section');
+
+    add_settings_field('twitter','Twitter (URL) <br /><em style="font-weight:300;">Exapmle:http://site.com/page</em>', 'set_twitter',__FILE__,'main_section');
+    add_settings_field('youtube','Youtube (URL) <br /><em style="font-weight:300;">Exapmle:http://site.com/page</em>', 'set_youtube',__FILE__,'main_section');
 }
 
 function validate_setting($footer_options) {
@@ -495,7 +498,7 @@ function section_cb() {
 
 function set_online() {
     $options = get_option('footer_options');
-    echo "<input name='footer_options[online]' type='text' value='{$options['online']}' />";
+    echo "<input name='footer_options[online]' type='text' size='45' value='{$options['online']}' />";
 }
 
 function set_email() {
@@ -508,19 +511,29 @@ function set_phone() {
     echo "<input name='footer_options[phone]' type='text' value='{$options['phone']}' />";
 }
 
-function set_inperson() {
+function set_inperson_text() {
     $options = get_option('footer_options');
-    echo "<textarea name='footer_options[inperson]' cols='40'>{$options['inperson']}</textarea>";
+    echo "<input name='footer_options[inperson_text]' type='text' size='45' value='{$options['inperson_text']}' />";
 }
 
-function set_field1() {
+function set_inperson_hours() {
     $options = get_option('footer_options');
-    echo "<textarea name='footer_options[field1]' cols='40'>{$options['field1']}</textarea>";
+    echo "<input name='footer_options[inperson_hours]' type='text' size='45' value='{$options['inperson_hours']}' />";
 }
 
-function set_field2() {
+function set_inperson_url() {
     $options = get_option('footer_options');
-    echo "<textarea name='footer_options[field2]' cols='40'>{$options['field2']}</textarea>";
+    echo "<input name='footer_options[inperson_url]' type='text' size='45'  value='{$options['inperson_url']}' />";
+}
+
+function set_twitter() {
+    $options = get_option('footer_options');
+    echo "<input name='footer_options[twitter]' type='text' size='45' value='{$options['twitter']}' />";
+}
+
+function set_youtube() {
+    $options = get_option('footer_options');
+    echo "<input name='footer_options[youtube]' type='text' size='45' value='{$options['youtube']}' />";
 }
 //End Footer Options
 ?>
