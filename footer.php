@@ -17,7 +17,7 @@
                             <td>Email</td><td><a href='mailto:<?= $options['email'] ?>'><?php echo $options['email']?></a></td>
                         </tr>
 			<tr>
-      <td>Phone</td><td style="color:white"><?php echo $options['phone']?></td>
+      <td>Phone</td><td><?php echo $options['phone']?></td>
 			</tr>
 		      </tbody>
                     </table>
@@ -26,7 +26,7 @@
                     <table>
 		      <tbody>                                        
                         <tr>
-                            <td>In-Person</td><td><a href='<?php $options['inperson_url']?>'><?php echo $options['inperson_text']?></a><br><p style="color:white"><?php echo $options['inperson_hours']?></p></td>
+                            <td>In-Person</td><td><a href='<?php $options['inperson_url']?>'><?php echo $options['inperson_text']?></a><br><p><?php echo $options['inperson_hours']?></p></td>
                         </tr>
 			<tr>
 			   <td>Services</td><td><a href="http://depts.washington.edu/uwtscat">UW-IT Service Catalog</a></td>
@@ -38,8 +38,8 @@
 		  <table class="table">
 		   <tbody>		   
                       <td>Connect With Us</td>
-		       <td><a href='<?php echo $options['twitter']?>'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/twitter25.png' style="width: 18px;"> Twitter </a><br />
-		         <a href='<?php echo $options['youtube']?>'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/youtube25.png' style="width: 18px;"> YouTube </a>
+		       <td><a href='<?php echo $options['twitter']?>'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/twitter25.png' class="footer-logo-link"> Twitter </a><br />
+		         <a href='<?php echo $options['youtube']?>'><img src='<?php echo get_stylesheet_directory_uri(); ?>/img/youtube25.png' class="footer-logo-link"> YouTube </a>
 			 </td> 
 		   </tbody>
 		  </table>
