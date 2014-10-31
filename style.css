@@ -1321,6 +1321,10 @@ h5.home_date {
     clear: left;
 }
 
+.footer-logo-link {
+    width: 18px;
+}
+
 /***  404 Page Styles ***/
 
 .parallax-viewport {
