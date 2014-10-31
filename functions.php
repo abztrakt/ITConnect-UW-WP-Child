@@ -498,7 +498,7 @@ function section_cb() {
 
 function set_online() {
     $options = get_option('footer_options'); 
-    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-]+(\.{1}[a-zA-Z0-9_\-]*)?\.{1}[a-zA-Z0-9]+([/a-zA-z0-9_\-\+\?=%]*)?';
+    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
     $warning = 'Invalid URL format';
    
     echo "<input name='footer_options[online]' pattern='$url_pattern' title='$warning' type='text' size='45' value='{$options['online']}' />";
@@ -537,7 +537,7 @@ function set_inperson_url() {
 
 function set_twitter() {
     $options = get_option('footer_options');
-    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\..[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
     $warning = 'Invalid URL format';
     echo "<input name='footer_options[twitter]' pattern='(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?' title='Invalid URL' type='text' size='45' value='{$options['twitter']}' />";
 }
