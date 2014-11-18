@@ -215,6 +215,11 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                             $record->state = "Active";
                         }
 
+                        $url = SN_URL . '/sys_attachment.do?JSONv2&sysparm_query=table_sys_id=' . $record->sys_id;
+                        $response = wp_remote_get( $url, $args );
+                        $body = wp_remote_retrieve_body( $response );
+                        $JSON = json_decode( $body );
+
                         echo "<tr><td>Status:</td><td class='request_status'>";
                                 if (array_key_exists($record->state, $states)) {
                                     $class = $states[$record->state];
@@ -227,6 +232,16 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
                         echo "<tr><td>Opened on:</td> <td>$record->opened_at</td></tr>";
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
+                        echo "<tr><td>Attachments:</td> <td>";
+
+                        foreach( $JSON->records as $attachment ) {
+                            $attID = $attachment->sys_id;
+                            $attName = $attachment->file_name;
+                            $url = 'myattachment/' . $attID;
+                            echo "<a href='" . $url . "' target='_blank'>" . $attName . "</a>";
+                        }
+
+                        echo "</td></tr>";
                         echo "</table>";
                         echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
 
@@ -249,7 +264,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         } 
 
                         echo "<h3 style='margin-top:2em;'>Additional comments:</h3>";
-                       
+
                         usort( $comments, 'sortByCreatedOnDesc' );
                         echo "<ol style='margin-left:0;'>";
 
