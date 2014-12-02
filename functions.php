@@ -334,6 +334,8 @@ function add_rewrite_rules($aRules) {
 }
 add_filter('rewrite_rules_array', 'add_rewrite_rules');
 
+
+
 // Takes two datetime objects and sorts descending by sys_updated_on
 function sortByUpdatedOnDesc($a, $b) {
     return $a->sys_updated_on < $b->sys_updated_on;
@@ -368,13 +370,13 @@ function custom_error_pages() {
         exit;
     }
 }
-
-function enable_ajax() {
-    wp_enqueue_script( 'function', get_stylesheet_directory_uri().'/js/get_services.js', 'jquery', true);
-    wp_localize_script( 'function', 'service_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+// Enable an ajax function in WP. Based on http://premium.wpmudev.org/blog/how-to-use-ajax-with-php-on-your-wp-site-without-a-plugin/
+/*function enable_ajax() {
+    wp_localize_script( 'attach', 'get_attach', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+    wp_enqueue_script( 'attach', get_stylesheet_directory_uri().'/js/get_attach.js', 'jquery', true);
 }
 add_action('template_redirect', 'enable_ajax');
-
+*/
 function service_status() {
     $SN_URL = SN_URL;
     $hash = base64_encode( SN_USER . ':' . SN_PASS );
