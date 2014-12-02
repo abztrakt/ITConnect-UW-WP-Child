@@ -237,8 +237,11 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         foreach( $JSON->records as $attachment ) {
                             $attID = $attachment->sys_id;
                             $attName = $attachment->file_name;
-                            $url = 'myattachment/' . $attID;
-                            echo "<a href='" . $url . "' target='_blank'>" . $attName . "</a>";
+                            $content_type = $attachment->content_type;
+                            $url = 'https://uweval.service-now.com/sys_attachment.do?sys_id=' . $attID;
+                        ?>
+                            <a href=<?= $url; ?>> <?= $attName; ?> </a>
+                        <?php
                         }
 
                         echo "</td></tr>";
