@@ -239,8 +239,24 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                             $attName = $attachment->file_name;
                             $content_type = $attachment->content_type;
                             $url = 'https://uweval.service-now.com/sys_attachment.do?sys_id=' . $attID;
+                            if (strstr($content_type, "/", true) == "image") {
+                            ?>
+                                <a href=<?= $url; ?> title="<?= $attName ?>"><div class="att_wrap"><i class="fa fa-file-image-o fa-2x"></i><p><?= $attName ?></p></div></a>
+                            <?php
+                            } else if (strstr($content_type, "/") == "/pdf" ) {
+                            ?>
+                                <a href=<?= $url; ?> title="<?= $attName ?>"><div class="att_wrap"><i class="fa fa-file-pdf-o fa-2x"></i><p><?= $attName ?></p></div></a>
+                            <?php
+                            } else if ( strpos( strstr($content_type, "/"), "zip") ) {
+                            ?>
+                                <a href=<?= $url; ?> title="<?= $attName ?>"><div class="att_wrap"><i class="fa fa-file-zip-o fa-2x"></i><p><?= $attName ?></p></div></a>
+                            <?php
+                            } else {
+                            ?>
+                                <a href=<?= $url; ?> title="<?= $attName ?>"><div class="att_wrap"><i class="fa fa-file-o fa-2x"></i><p><?= $attName ?></p></div></a>
+                            <?php
+                            }
                         ?>
-                            <a href=<?= $url; ?>> <?= $attName; ?> </a>
                         <?php
                         }
 

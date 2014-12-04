@@ -14,6 +14,26 @@ Template: UW-Wordpress-Theme
     margin-right: auto;
 }
 
+.att_wrap {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 45%;
+    color: #8D8D8A;
+    min-height: 100%;
+    height: 100%;
+    display: inline-block;
+
+}
+
+.att_wrap:hover {
+    color: #0066FF;
+}
+
+.att_wrap p {
+    color: #000000;
+}
+
 .row {
     width: 100%;
 }
@@ -164,7 +184,6 @@ a, a:hover {
     font-style: oblique;
     font-weight: 900;
 }
-
 
 /*** Braille Embossing Service Request Form ***/
 
