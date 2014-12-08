@@ -1,5 +1,6 @@
 <?php define( 'DONOTCACHEPAGE', True ); ?>
 <?php
+//Get the NETID logged in user
 if ( isset( $_SERVER['REMOTE_USER'] ) ) {
     $user = $_SERVER['REMOTE_USER'];
 } else if ( isset( $_SERVER['REDIRECT_REMOTE_USER'] ) ) {
@@ -79,14 +80,13 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                             )
                         );
 
-                        $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $user;
-                        $response = wp_remote_get( $url, $args );
-                        $body = wp_remote_retrieve_body( $response );
-                        $user_json = json_decode( $body );
+                        //User table entry for user with user_name matching logged in NETID
+
+                        $user_url = '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $user;
+                        $user_json = get_SN($user_url, $args);
+
+                        //Service now sys_id for logged in user
                         $user_id = $user_json->records[0]->sys_id;
-                        $firstname = $user_json->records[0]->first_name;
-                        $lastname = $user_json->records[0]->last_name;
-                        $name = $firstname . " " . $lastname;
 
                         $states = array(
                             "New" => 'label label-success',
@@ -102,35 +102,29 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                         );
 
                         // Requests
-                        $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
-                        $response = wp_remote_get( $url, $args );
-                        $body = wp_remote_retrieve_body( $response );
-                        $req_json = json_decode( $body );
+                        $req_url = '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=state!=14^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
+                        $req_json = get_SN($req_url, $args);
                         $has_req = FALSE;
                         if( !empty( $req_json->records ) ) {
                             $has_req = TRUE;
                         }
                         if($has_req) {
-                            $urlwl = SN_URL . '/u_simple_requests_list.do?JSONv2&sysparm_query=state!=14^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
-                            $responsewl = wp_remote_get( $urlwl, $args );
-                            $bodywl = wp_remote_retrieve_body( $responsewl );
-                            $req_jsonwl = json_decode( $bodywl );
+                            //Same request as above with sys_id's instead of dispaly values (used to check if user is a watcher)
+                            $req_urlwl = '/u_simple_requests_list.do?JSONv2&sysparm_query=state!=14^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
+                            $req_jsonwl = get_SN($req_urlwl, $args);
                         }
 
                         // Incidents
-                        $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^state!=14^caller_id.user_name=' . $user. '^ORwatch_listLIKE' . $user_id;
-                        $response = wp_remote_get( $url, $args );
-                        $body = wp_remote_retrieve_body( $response );
-                        $inc_json = json_decode( $body );
+                        $inc_url = '/incident.do?JSONv2&displayvalue=true&sysparm_action=getRecords&sysparm_query=active=true^state!=14^caller_id.user_name=' . $user. '^ORwatch_listLIKE' . $user_id;
+                        $inc_json = get_SN($inc_url, $args);
                         $has_inc = FALSE;
                         if( !empty( $inc_json->records ) ) {
                             $has_inc = TRUE;
                         }
                         if($has_inc) {
-                            $urlwl = SN_URL . '/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^state!=14^caller_id.user_name=' . $user. '^ORwatch_listLIKE' . $user_id;
-                            $responsewl = wp_remote_get( $urlwl, $args );
-                            $bodywl = wp_remote_retrieve_body( $responsewl );
-                            $inc_jsonwl = json_decode( $bodywl );
+                            //same request as above with sys_id's instead of dispaly values (used for the watchlist)
+                            $inc_urlwl = '/incident.do?JSONv2&sysparm_action=getRecords&sysparm_query=active=true^state!=14^caller_id.user_name=' . $user. '^ORwatch_listLIKE' . $user_id;
+                            $inc_jsonwl = get_SN($inc_urlwl, $args);
                         }
                 ?>
 
@@ -152,8 +146,9 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     <ol class="request-list" aria-labelledby="incident_header">
                     
                     <?php
-                    usort($inc_json->records, 'sortByNumberDesc');
-                    usort($inc_jsonwl->records, 'sortByNumberDesc');
+                    //Display incidents
+                    usort($inc_json->records, 'sortByNumberDesc'); //order tickets by number descending
+                    usort($inc_jsonwl->records, 'sortByNumberDesc'); //match ordering in watch list
                     $inc_count = 0;
                     foreach ( $inc_json->records as $record ) {
                         if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
@@ -184,10 +179,12 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                             </span>
                             <span class="request-list-status whole_row_link" aria-labelledby="col_head_sta">
                                 <?php
+                                    //get and display the state of the record
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
                                         echo "<span class='$class'>$record->state</span>";
                                     }
+                                    //check to see if logged in user is in watchlist and is not the caller - if so display watching label
                                     if ( strpos($inc_jsonwl->records[$inc_count]->watch_list, $user_id) !== FALSE && $inc_jsonwl->records[$inc_count]->u_caller != $user_id) {
                                         echo " <span class='label label-warning'>Watching</span>";
                                     }
@@ -208,9 +205,9 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     <?php if( $has_req ) { ?>
                     <ol class="request-list" aria-labelledby="request_header">
                     <?php
-                    
-                    usort($req_json->records, 'sortByNumberDesc');
-                    usort($req_jsonwl->records, 'sortByNumberDesc');
+                    //Dispaly Requests
+                    usort($req_json->records, 'sortByNumberDesc'); //order tickets by number descending
+                    usort($req_jsonwl->records, 'sortByNumberDesc'); //match ordering in watch list
                     $req_count = 0;
                     foreach ( $req_json->records as $record ) {
                     
@@ -242,10 +239,12 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                             </span>
                             <span class="request-list-status whole_row_link" aria-labelledby="col_head_sta">
                                 <?php
+                                    //Get and display state of the request
                                     if (array_key_exists($record->state, $states)) {
                                         $class = $states[$record->state];
                                         echo "<span class='$class'>$record->state</span>";
                                     }
+                                    //if logged in user is in the watch list and not the caller then display watching tag
                                     if ( strpos($req_jsonwl->records[$req_count]->watch_list, $user_id) !== FALSE && $req_jsonwl->records[$req_count]->u_caller != $user_id) {
                                         echo " <span class='label label-warning'>Watching</span>";
                                     }

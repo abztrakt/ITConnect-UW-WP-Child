@@ -379,6 +379,16 @@ function custom_error_pages() {
 }
 add_action('template_redirect', 'enable_ajax');
 */
+
+//Builds a request to Service Now and returns results as a JSON object.
+function get_SN($url, $args) {
+    $url = SN_URL . $url;
+    $response = wp_remote_get( $url, $args );
+    $body = wp_remote_retrieve_body( $response );
+    $json = json_decode( $body );
+    return $json;
+}
+
 function service_status() {
     $SN_URL = SN_URL;
     $hash = base64_encode( SN_USER . ':' . SN_PASS );
