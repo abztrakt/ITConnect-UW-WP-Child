@@ -252,7 +252,6 @@ jQuery(window).load(function() {
     window.onhashchange = function() {
         if( $('body').hasClass('admin-bar')) {
             window.scrollBy(0, -60);
-            alert('scrolling by 60');
         }
     }
 /*
