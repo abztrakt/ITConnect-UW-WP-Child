@@ -244,7 +244,17 @@ jQuery(window).load(function() {
           $mini.slideDown()
       }
     });
-  
+
+/*
+ * On-page links
+ */
+
+    window.onhashchange = function() {
+        if( $('body').hasClass('admin-bar')) {
+            window.scrollBy(0, -60);
+            alert('scrolling by 60');
+        }
+    }
 /*
  * Dropdowns
  */
@@ -605,7 +615,5 @@ $(document).ready(function() {
     //soptions.fadeIn();
     if ( typeof _gaq !== 'undefined' ) _gaq.push(['_trackEvent', 'Enhanced Search','Focus',$(this).attr('placeholder')]);
   })
-
-
 
 })
