@@ -14,6 +14,24 @@ Template: UW-Wordpress-Theme
     margin-right: auto;
 }
 
+.att_wrap {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 45%;
+    color: #8D8D8A;
+    display: inline-block;
+
+}
+
+.att_wrap:hover {
+    color: #0066FF;
+}
+
+.att_wrap p {
+    color: #000000;
+}
+
 .row {
     width: 100%;
 }
@@ -174,7 +192,6 @@ a, a:hover {
     font-style: oblique;
     font-weight: 900;
 }
-
 
 /*** Braille Embossing Service Request Form ***/
 
@@ -992,7 +1009,7 @@ article div.entry-content ol.procedure li ul,
 article div.entry-content ol.procedure li ol,
 article div.entry-content ol.procedure li li { margin: .3em; padding: 0 0 0 1em; }
 
-article div.entry-content li.colheads span {
+.prc {
     margin-left:1.5em;
 }
 
@@ -1329,6 +1346,10 @@ h5.home_date {
     text-transform: uppercase;
     margin: auto;
     clear: left;
+}
+
+.footer-logo-link {
+    width: 18px;
 }
 
 /***  404 Page Styles ***/

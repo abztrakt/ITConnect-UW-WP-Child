@@ -16,6 +16,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
         wp_redirect( $new_url );
     }
 
+    //Handle submitting comments
     if( isset( $_POST['submitted'] ) && isset( $_POST['comments'] ) ) {
         $comments = $_POST['comments'];
         $comments_json = array(
@@ -23,7 +24,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
             'record' => $sn_num,
             'comment' => $comments,
         );
-          $comments_json = json_encode( $comments_json );
+        $comments_json = json_encode( $comments_json );
         $comments_url = SN_URL . '/comment.do';
 
         // If a POST and have comments - create a comment in SN
@@ -95,6 +96,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
 				</div><!-- .entry-content -->
 
                 <?php
+            //Handle errors posting comments
             if(isset($user)) {
                 if( isset( $response ) ) {
                     $status = json_decode($response['body'], true);
@@ -111,7 +113,6 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                 </div>
                 <?php
                     //Only do this work if we have everything we need to get to ServiceNow
-                    //TODO: this work is repeated above, this should be refactored so we don't do that
                     if( defined('SN_USER') && defined('SN_PASS') && defined('SN_URL') ) {
                         $args = array(
                             'headers' => array(
@@ -119,76 +120,64 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                             )
                         );
 
-                        $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $user;
-                        $response = wp_remote_get( $url, $args );
-                        $body = wp_remote_retrieve_body( $response );
-                        $user_json = json_decode( $body );
+                        //Get table record as JSON associated with NETID logged in user
+                        $user_url = '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $user;
+                        $user_json = get_SN($user_url, $args);
+                        //SN sys_id of user
                         $user_id = $user_json->records[0]->sys_id;
                         $firstname = $user_json->records[0]->first_name;
                         $lastname = $user_json->records[0]->last_name;
+                        //fullname of user for use in comparing to watchlist
                         $name = $firstname . " " . $lastname;
 
+                        //Set full ticekt type, build display value url, and sys_id url (for use with watch list) based on the type of ticket
                         $sn_type = substr($sn_num, 0, 3);
                         if( $sn_type == 'REQ' ) {
-                            $url = SN_URL . '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
+                            $url = '/u_simple_requests_list.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                             $sn_type = 'request (REQ)';
-                            $urlwl =  SN_URL . '/u_simple_requests_list.do?JSONv2&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
+                            $urlwl =  '/u_simple_requests_list.do?JSONv2&sysparm_query=number=' . $sn_num . '^u_caller.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                         } else if( $sn_type == 'INC' ) {
-                            $url = SN_URL . '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
+                            $url = '/incident.do?JSONv2&displayvalue=true&sysparm_query=number=' . $sn_num . '^caller_id.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                             $sn_type = 'incident (INC)';
-                            $urlwl = SN_URL . '/incident.do?JSONv2&sysparm_query=number='. $sn_num . '^caller_id.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
+                            $urlwl = '/incident.do?JSONv2&sysparm_query=number='. $sn_num . '^caller_id.user_name=' . $user . '^ORwatch_listLIKE' . $user_id;
                         } else {
                             echo "Unrecognized type";
                             $error_flag = True;
                         }
-                        $response = wp_remote_get( $url, $args );
-                        $body = wp_remote_retrieve_body( $response );
-                        $JSON = json_decode( $body );
-                        $record = $JSON->records[0];
+                        $ticket_json = get_SN($url, $args);
+                        $record = $ticket_json->records[0];
 
 
-                        $responsewl = wp_remote_get( $urlwl, $args );
-                        $bodywl = wp_remote_retrieve_body( $responsewl );
-                        $JSONwl = json_decode( $bodywl );
-                        $recordwl = $JSONwl->records[0];
+                        $ticket_jsonwl = get_SN($urlwl, $args);
+                        $recordwl = $ticket_jsonwl->records[0];
+                        //array of sys_id's of users in watch list
                         $watch_list = explode(',', $recordwl->watch_list);
 
-                        if ($sn_type == 'request (REQ)') {
-                            if( $record->u_caller == $name ) {
-                                $caller_nid = $user;
-                            } else {
-                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . urlencode($record->u_caller);
-                                $caller_response = wp_remote_get( $url, $args );
-                                $caller_body = wp_remote_retrieve_body( $caller_response );
-                                $caller_json = json_decode( $caller_body );
-                                $caller_nid = $caller_json->records[0]->user_name;
+                        //We already have the logged in user's netid - is the logged in user the caller?
+                        if( $record->u_caller == $name || $record->caller_id == $name ) {
+                            $caller_nid = $user;
+                        } else {
+                            if ($sn_type == 'request (REQ)') {
+                                $caller_url = '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . urlencode($record->u_caller);
+                            } else if ($sn_type == 'incident (INC)') {
+                                $caller_url = '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . urlencode($record->caller_id);
                             }
-                        } else if ($sn_type == 'incident (INC)') {
-                            if( $record->caller_id == $name ) {
-                                $caller_nid = $user;
-                            } else {
-                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=name%3D' . urlencode($record->caller_id);
-                                $caller_response = wp_remote_get( $url, $args );
-                                $caller_body = wp_remote_retrieve_body( $caller_response );
-                                $caller_json = json_decode( $caller_body );
-                                $caller_nid = $caller_json->records[0]->user_name;
-                            }
+                            $caller_json = get_SN($caller_url, $args);
+                            $caller_nid = $caller_json->records[0]->user_name;
                         }
 
                         // Get the comments
-                        $url = SN_URL . '/sys_journal_field.do?displayvalue=true&JSONv2&sysparm_cation=getRecords&sysparm_query=active=true^element=comments^element_id=' . $record->sys_id;
-                        $response = wp_remote_get( $url, $args );
-                        $body = wp_remote_retrieve_body( $response );
-                        $JSON = json_decode( $body );
-                        $comments = $JSON->records;
+                        $comment_url = '/sys_journal_field.do?displayvalue=true&JSONv2&sysparm_cation=getRecords&sysparm_query=active=true^element=comments^element_id=' . $record->sys_id;
+                        $comment_json = get_SN($comment_url, $args);
+                        $comments = $comment_json->records;
 
                         if ($sn_num !== $record->number) {
                             echo "<div class='alert alert-danger'>$sn_num is not one of your current requests.</div>";
                             $error_flag = True;
                         } else  {
-                        echo "<h2 style='margin-top:0;'>$record->short_description&nbsp;&nbsp;<span style='color:#999;'>($record->number)</span></h2>";
-                        echo "<h3 class='assistive-text'>Details:</h3>";
-                        echo "<table class='table'>";
+                            echo "<h2 style='margin-top:0;'>$record->short_description&nbsp;&nbsp;<span style='color:#999;'>($record->number)</span></h2>";
+                            echo "<h3 class='assistive-text'>Details:</h3>";
+                            echo "<table class='table'>";
                         if( !empty( $record->caller_id ) ) {
                             $caller = $record->caller_id;
                         } else if( !empty( $record->u_caller ) ) {
@@ -215,6 +204,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                             $record->state = "Active";
                         }
 
+
                         echo "<tr><td>Status:</td><td class='request_status'>";
                                 if (array_key_exists($record->state, $states)) {
                                     $class = $states[$record->state];
@@ -227,9 +217,46 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
                         echo "<tr><td>Opened on:</td> <td>$record->opened_at</td></tr>";
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
+                        echo "<tr><td>Attachments:</td> <td>";
+
+                        //Get attachments
+                        $att_url = '/sys_attachment.do?JSONv2&sysparm_query=table_sys_id=' . $record->sys_id;
+                        $attach_json = get_SN($att_url, $args);
+
+                        foreach( $attach_json->records as $attachment ) {
+                            $attID = $attachment->sys_id;
+                            $attName = $attachment->file_name;
+                            $content_type = $attachment->content_type;
+                            //attachment download link
+                            $url = 'https://uweval.service-now.com/sys_attachment.do?sys_id=' . $attID;
+
+                            //Check for mimetype and display related icon
+                            if (strstr($content_type, "/", true) == "image") {
+                            ?>
+                                <a href=<?= $url; ?> title="<?= $attName ?>"><div class="att_wrap"><i class="fa fa-file-image-o fa-2x"></i><p><?= $attName ?></p></div></a>
+                            <?php
+                            } else if (strstr($content_type, "/") == "/pdf" ) {
+                            ?>
+                                <a href=<?= $url; ?> title="<?= $attName ?>"><div class="att_wrap"><i class="fa fa-file-pdf-o fa-2x"></i><p><?= $attName ?></p></div></a>
+                            <?php
+                            } else if ( strpos( strstr($content_type, "/"), "zip") ) {
+                            ?>
+                                <a href=<?= $url; ?> title="<?= $attName ?>"><div class="att_wrap"><i class="fa fa-file-zip-o fa-2x"></i><p><?= $attName ?></p></div></a>
+                            <?php
+                            } else {
+                            ?>
+                                <a href=<?= $url; ?> title="<?= $attName ?>"><div class="att_wrap"><i class="fa fa-file-o fa-2x"></i><p><?= $attName ?></p></div></a>
+                            <?php
+                            }
+                        ?>
+                        <?php
+                        }
+
+                        echo "</td></tr>";
                         echo "</table>";
                         echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
 
+                        //Set up comment box
                         if(!$error_flag && $record->state != "Closed") {
                             $submit_url = site_url() . '/myrequest/' . $sn_num . '/'; ?>
                             <form role='form' action="<?php $submit_url; ?>" method='post'>
@@ -249,36 +276,45 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         } 
 
                         echo "<h3 style='margin-top:2em;'>Additional comments:</h3>";
-                       
-                        usort( $comments, 'sortByCreatedOnDesc' );
+
+                        usort( $comments, 'sortByCreatedOnDesc' ); //comments sorted chronologically descending
                         echo "<ol style='margin-left:0;'>";
 
                         $prevwatch = array();
-
                         foreach( $comments as $comment ) {
                             $watcher = False;
                             $comment_user = $comment->sys_created_by;
-                            if (!in_array($comment_user, $prevwatch) && $comment_user != $user) {
-                                $url = SN_URL . '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $comment_user;
-                                $response = wp_remote_get( $url, $args );
-                                $body = wp_remote_retrieve_body( $response );
-                                $user_json = json_decode( $body );
+                            //is this user the logged in user or do we know they're in the watch list already? if not get their SN sys_id
+                            if ( !in_array($comment_user, $prevwatch) && $comment_user != $user) {
+                                $user_url = '/sys_user_list.do?JSONv2&sysparm_query=user_name%3D' . $comment_user;
+                                $user_json = get_SN($user_url, $args);
                                 $comment_user_id = $user_json->records[0]->sys_id;
-                                array_push($prevwatch, $comment_user);
-                                if ( in_array($comment_user_id, $watch_list)) {
+                                //Are they a watcher?
+                                if ( in_array($comment_user_id, $watch_list) ) {
                                     $watcher = True;
+                                    //We've seen them now
+                                    array_push($prevwatch, $comment_user);
                                 }
+                            } else if ( in_array($comment_user, $prevwatch) ) {
+                                $watcher = True;
+                            } else {
+
                             }
                             echo "<li class='media'>";
+                            //Check who the commenter is, following roles win in order listed if a user is more than one
+                            //logged in user?
                             if ($comment->sys_created_by == $user) {
                                 echo "<div class='media-body caller-comments'>";
                                 $display_user = $user;
+                            //caller?
                             } elseif ($comment->sys_created_by == $caller_nid) {
                                 echo "<div class='media-body support-comments'>";
                                 $display_user = "Caller";
+                            //watcher?
                             } elseif ($watcher) {
                                 echo "<div class='media-body support-comments'>";
                                 $display_user = "Watcher";
+                            //support staff
                             } else {
                                 echo "<div class='media-body support-comments'>";
                                 $display_user = "UW-IT SUPPORT STAFF";

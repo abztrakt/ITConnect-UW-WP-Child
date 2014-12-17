@@ -53,11 +53,13 @@ if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
 
       wp_register_style( 'google-font-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600.600italic' );
       wp_register_style( 'itconnect-master', get_bloginfo('stylesheet_directory') . '/style.css', array(), '1.0' );
+      wp_register_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
       wp_enqueue_style( 'bootstrap' );
       wp_enqueue_style( 'bootstrap-offcanvas' );
       /* wp_enqueue_style( 'bootstrap-responsive' ); */
       wp_enqueue_style( 'google-font-open-sans' );
       wp_enqueue_style( 'itconnect-master' );
+      wp_enqueue_style( 'font-awesome' );
   }
 
 endif;
@@ -308,7 +310,7 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
       foreach ($links as $index=>$link) :
 
         $link = str_replace('span', 'a', $link);
-        if ( strip_tags($link) == $current ) 
+           if ( strip_tags($link) == $current ) 
           echo "<li class=\"disabled\"><a href='javascript:void(0);'>$current</a></li>";
         else
           echo "<li>$link</li>";
@@ -333,6 +335,8 @@ function add_rewrite_rules($aRules) {
     return $aRules;
 }
 add_filter('rewrite_rules_array', 'add_rewrite_rules');
+
+
 
 // Takes two datetime objects and sorts descending by sys_updated_on
 function sortByUpdatedOnDesc($a, $b) {
@@ -368,12 +372,22 @@ function custom_error_pages() {
         exit;
     }
 }
-
-function enable_ajax() {
-    wp_enqueue_script( 'function', get_stylesheet_directory_uri().'/js/get_services.js', 'jquery', true);
-    wp_localize_script( 'function', 'service_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+// Enable an ajax function in WP. Based on http://premium.wpmudev.org/blog/how-to-use-ajax-with-php-on-your-wp-site-without-a-plugin/
+/*function enable_ajax() {
+    wp_localize_script( 'attach', 'get_attach', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+    wp_enqueue_script( 'attach', get_stylesheet_directory_uri().'/js/get_attach.js', 'jquery', true);
 }
 add_action('template_redirect', 'enable_ajax');
+*/
+
+//Builds a request to Service Now and returns results as a JSON object.
+function get_SN($url, $args) {
+    $url = SN_URL . $url;
+    $response = wp_remote_get( $url, $args );
+    $body = wp_remote_retrieve_body( $response );
+    $json = json_decode( $body );
+    return $json;
+}
 
 function service_status() {
     $SN_URL = SN_URL;
@@ -458,4 +472,102 @@ function edit_admin_menus() {
 
 add_action('admin_menu', 'edit_admin_menus', 999);
 
+//Footer Options
+add_action('admin_menu', 'custom_footer_fields');
+
+function custom_footer_fields() {
+    add_submenu_page('themes.php','Footer Content', 'Footer Content', 'administrator', __FILE__, 'build_options_page');
+}
+
+add_action('admin_init', 'reg_build_options');
+
+function build_options_page() {
+   ?>
+   <div>
+    <h2>Footer Content</h2>
+    <p>Change ITConnect footer content here. Please <b>do not</b> enter any HTML in to the fields</p>
+    <form method="POST" action="options.php" enctype="multipart/form-data">
+        <?php settings_fields('footer_options'); ?>
+        <?php do_settings_sections(__FILE__); ?>
+        <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
+    </form>
+   </div>
+   <?php
+}
+
+function reg_build_options() {
+    register_setting('footer_options', 'footer_options', 'validate_setting');
+    add_settings_section('main_section', 'Options', 'section_cb', __FILE__);
+    add_settings_field('online', 'Contact form (URL) <br /><em style="font-weight: 300;">Example: http://site.com/page</em>', 'set_online', __FILE__, 'main_section');
+    add_settings_field('email', 'Email <br /><em style="font-weight: 300;">Example: user@uw.edu</em>', 'set_email', __FILE__, 'main_section');
+    add_settings_field('phone', 'Phone <br /><em style="font-weight: 300;">Example: 999-999-9999', 'set_phone', __FILE__, 'main_section');
+    add_settings_field('inperson_text','In-Person Service Center Text (Name of location) <br /><em style="font-weight: 300;">Example: UW Tower, C-3000</em>', 'set_inperson_text', __FILE__, 'main_section');
+    add_settings_field('inperson_hours','In-Person Service Center Hours (Enter Text) <br /><em style="font-weight: 300;">Example: M-F 8-8</em>', 'set_inperson_hours', __FILE__, 'main_section');
+    add_settings_field('inperson_url','In-Person Service Center URL (Link to page) <br /><em style="font-weight: 300;">Example: http://site.com/page</em>', 'set_inperson_url', __FILE__, 'main_section');
+
+    add_settings_field('twitter','Twitter (URL) <br /><em style="font-weight:300;">Exapmle:http://site.com/page</em>', 'set_twitter',__FILE__,'main_section');
+    add_settings_field('youtube','Youtube (URL) <br /><em style="font-weight:300;">Exapmle:http://site.com/page</em>', 'set_youtube',__FILE__,'main_section');
+}
+
+function validate_setting($footer_options) {
+    return $footer_options;
+}
+
+function section_cb() {
+//empty callback, just needed for function argument
+}
+
+function set_online() {
+    $options = get_option('footer_options'); 
+    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Invalid URL format';
+   
+    echo "<input name='footer_options[online]' pattern='$url_pattern' title='$warning' type='text' size='45' value='{$options['online']}' />";
+}
+
+function set_email() {
+    $options = get_option('footer_options');
+    $email_pattern = '[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9_\.\-]+\.[a-zA-Z0-9]+)';
+    $warning = 'invalid email format';
+    echo "<input name='footer_options[email]' pattern='$email_pattern' title='$warning'type='text' value='{$options['email']}' />";
+}
+
+function set_phone() {
+    $options = get_option('footer_options');
+    $phone_pattern = '(\d{3}?\-?\d{3}\-?\d{4})';
+    $warning = 'invalid phone number';
+    echo "<input name='footer_options[phone]' pattern='$phone_pattern' title='$warning' type='text'  value='{$options['phone']}' />";
+}
+
+function set_inperson_text() {
+    $options = get_option('footer_options');
+    echo "<input name='footer_options[inperson_text]' type='text' size='45' value='{$options['inperson_text']}' />";
+}
+
+function set_inperson_hours() {
+    $options = get_option('footer_options');
+    echo "<input name='footer_options[inperson_hours]' type='text' size='45' value='{$options['inperson_hours']}' />";
+}
+
+function set_inperson_url() {
+    $options = get_option('footer_options');
+    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Invalid URL format';
+    echo "<input name='footer_options[inperson_url]'  pattern='$url_pattern' title='$warning'  type='text' size='45'  value='{$options['inperson_url']}' />";
+}
+
+function set_twitter() {
+    $options = get_option('footer_options');
+    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Invalid URL format';
+    echo "<input name='footer_options[twitter]' pattern='(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?' title='Invalid URL' type='text' size='45' value='{$options['twitter']}' />";
+}
+
+function set_youtube() {
+    $options = get_option('footer_options');
+    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Invalid URL format';
+    echo "<input name='footer_options[youtube]'  pattern='$url_pattern' title='$warning' type='text' size='45' value='{$options['youtube']}' />";
+}
+//End Footer Options
 ?>
