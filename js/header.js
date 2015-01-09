@@ -244,7 +244,14 @@ jQuery(window).load(function() {
           $mini.slideDown()
       }
     });
-  
+
+/*
+ * On-page links
+ */
+
+    window.onhashchange = function() {
+        window.scrollBy(0, -30);
+    }
 /*
  * Dropdowns
  */
@@ -605,7 +612,5 @@ $(document).ready(function() {
     //soptions.fadeIn();
     if ( typeof _gaq !== 'undefined' ) _gaq.push(['_trackEvent', 'Enhanced Search','Focus',$(this).attr('placeholder')]);
   })
-
-
 
 })

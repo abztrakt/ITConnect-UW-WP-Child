@@ -210,7 +210,6 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                     usort($req_jsonwl->records, 'sortByNumberDesc'); //match ordering in watch list
                     $req_count = 0;
                     foreach ( $req_json->records as $record ) {
-                    
                             if ($record->state != "Resolved" && $record->state != "Awaiting User Info") {
                                 $record->state = "Active";
                             }

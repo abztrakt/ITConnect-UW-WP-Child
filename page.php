@@ -40,7 +40,11 @@
 					<h1 class="entry-title hidden-phone"><?php apply_filters('italics', get_the_title()); ?></h1>
 				</header><!-- .entry-header -->
 
-				<div class="entry-content">
+<?php if (is_user_logged_in()) { ?>
+				<div class="logged-in entry-content">
+<?php  } else { ?>
+                <div class="entry-content">
+<?php } ?>
 					<?php the_content(); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) );
                     include_once(ABSPATH . 'wp-admin/includes/plugin.php');
@@ -55,7 +59,6 @@
 			    <p id="last-modified-date">Last modified: <?php the_modified_date(); ?></p>
             </article><!-- #post-<?php the_ID(); ?> -->
           </div>
-                
 
 			<?php endwhile; // end of the loop. ?>
             
