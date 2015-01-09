@@ -273,7 +273,7 @@ if ( isset( $_SERVER['REMOTE_USER'] ) ) {
                 ?>
                                 
                 <div style="margin-top:2em;">
-                    <p class="alert alert-info">Not seeing your request?  You may need to log in under a different UW NetID.</p>
+                    <p class="alert alert-info">Not seeing your request?  You may need to log in using a different UW NetID.</p>
                 </div>
 				<footer class="entry-meta">
 					<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
