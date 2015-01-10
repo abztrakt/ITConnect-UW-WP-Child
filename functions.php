@@ -340,12 +340,16 @@ add_filter('rewrite_rules_array', 'add_rewrite_rules');
 
 // Takes two datetime objects and sorts descending by sys_updated_on
 function sortByUpdatedOnDesc($a, $b) {
-    return $a->sys_updated_on < $b->sys_updated_on;
+    $dt_a = DateTime::createFromFormat('m-d-Y H:i:s', $a->sys_updated_on);
+    $dt_b = DateTime::createFromFormat('m-d-Y H:i:s', $b->sys_updated_on);
+    return $dt_a < $dt_b;
 }
 
 // Takes two datetime objects and sorts descending by sys_created_on
 function sortByCreatedOnDesc($a, $b) {
-    return $a->sys_created_on < $b->sys_created_on;
+    $dt_a = DateTime::createFromFormat('m-d-Y H:i:s', $a->sys_created_on);
+    $dt_b = DateTime::createFromFormat('m-d-Y H:i:s', $b->sys_created_on);
+    return $dt_a < $dt_b;
 }
 
 // Takes two strings and sorts descending by number
