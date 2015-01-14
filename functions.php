@@ -323,6 +323,7 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
   }
 endif;
 
+/*
 function add_query_vars($qvars) {
     $qvars[] = "ticketID";
     return $qvars;
@@ -335,8 +336,6 @@ function add_rewrite_rules($aRules) {
     return $aRules;
 }
 add_filter('rewrite_rules_array', 'add_rewrite_rules');
-
-
 
 // Takes two datetime objects and sorts descending by sys_updated_on
 function sortByUpdatedOnDesc($a, $b) {
@@ -356,6 +355,7 @@ function sortByCreatedOnDesc($a, $b) {
 function sortByNumberDesc($a, $b) {
     return $a->number < $b->number;
 }
+*/
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
@@ -382,7 +382,6 @@ function custom_error_pages() {
     wp_enqueue_script( 'attach', get_stylesheet_directory_uri().'/js/get_attach.js', 'jquery', true);
 }
 add_action('template_redirect', 'enable_ajax');
-*/
 
 //Builds a request to Service Now and returns results as a JSON object.
 function get_SN($url, $args) {
@@ -458,7 +457,7 @@ function service_status() {
 
 add_action('wp_ajax_nopriv_service_status', 'service_status');
 add_action('wp_ajax_service_status', 'service_status');
-
+*/
 
 function custom_error_titles() {
     if (isset($_REQUEST['status']) && $_REQUEST['status'] == 401) {
