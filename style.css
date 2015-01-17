@@ -2584,7 +2584,7 @@ h5.home_date {
     
     /*** ServiceNow 920 ***/
     
-    .request-list-description { width: 41%; }
+    .request-list-description { width: 34%; }
 }
 
 @media screen and (min-width: 1200px) {
