@@ -228,7 +228,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                             $attName = $attachment->file_name;
                             $content_type = $attachment->content_type;
                             //attachment download link
-                            $url = 'https://uweval.service-now.com/sys_attachment.do?sys_id=' . $attID;
+                            $url = SN_URL . '/sys_attachment.do?sys_id=' . $attID;
 
                             //Check for mimetype and display related icon
                             if (strstr($content_type, "/", true) == "image") {
