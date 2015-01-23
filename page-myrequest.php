@@ -217,10 +217,10 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         echo "<tr><td>Service:</td> <td>$record->cmdb_ci</td></tr>";
                         echo "<tr><td>Opened on:</td> <td>$record->opened_at</td></tr>";
                         echo "<tr><td>Last Updated:</td> <td>$record->sys_updated_on</td></tr>";
-                        echo "<tr><td>Attachments:</td> <td>";
+                        //echo "<tr><td>Attachments:</td> <td>";
 
                         //Get attachments
-                        $att_url = '/sys_attachment.do?JSONv2&sysparm_query=table_sys_id=' . $record->sys_id;
+                        /*$att_url = '/sys_attachment.do?JSONv2&sysparm_query=table_sys_id=' . $record->sys_id;
                         $attach_json = get_SN($att_url, $args);
 
                         foreach( $attach_json->records as $attachment ) {
@@ -252,7 +252,7 @@ if(isset( $_SERVER['REMOTE_USER'])) {
                         <?php
                         }
 
-                        echo "</td></tr>";
+                        echo "</td></tr>";*/
                         echo "</table>";
                         echo "<h3 style='margin-top:2em;'>Description:</h3><div><pre>" . stripslashes($record->description) . " </pre></div>";
 
