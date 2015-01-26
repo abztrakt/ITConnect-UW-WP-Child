@@ -47,7 +47,7 @@ if ( ! function_exists( 'uw_enqueue_default_styles' ) ):
   function uw_enqueue_default_styles() {
       global $current_blog;
       $is_child_theme = get_bloginfo('template_directory') != get_bloginfo('stylesheet_directory');
-      wp_register_style( 'bootstrap',get_bloginfo('stylesheet_directory') . '/css/bootstrap-3.1.1.min.css', array(), '3.1.1' );
+      wp_register_style( 'bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css' );
       /*wp_register_style( 'bootstrap-responsive', get_bloginfo('template_directory') . '/css/bootstrap-responsive.css', array('bootstrap'), '2.0.3' );*/
       wp_register_style( 'bootstrap-offcanvas',get_bloginfo('stylesheet_directory') . '/css/bootstrap-offcanvas.css', array(), '1.0.0' );
 
@@ -323,6 +323,7 @@ if ( ! function_exists( 'custom_prev_next_links') ) :
   }
 endif;
 
+/*
 function add_query_vars($qvars) {
     $qvars[] = "ticketID";
     return $qvars;
@@ -354,6 +355,7 @@ function sortByCreatedOnDesc($a, $b) {
 function sortByNumberDesc($a, $b) {
     return $a->number < $b->number;
 }
+*/
 
 $template_dir = get_stylesheet_directory();
 require( $template_dir . '/inc/documentation.php' );
