@@ -2122,6 +2122,7 @@ h5.home_date {
 
     #menu-main .main-menu-home {
         display: inherit;
+        padding-top: 0.3em;
     }
 
     #menu-main .main-menu-home a {
