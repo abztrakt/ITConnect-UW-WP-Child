@@ -2105,7 +2105,7 @@ h5.home_date {
         border-right: none;
     }
 
-    #menu-main > li:hover, #menu-main > li > a:focus, #menu-main > li.child_open {
+    #menu-main > li:hover, #menu-main > li > a:focus, #menu-main > li > a:hover, #menu-main > li.child_open {
         color: white;
         background-color: rgba(213, 229, 244, .25);
     }
