@@ -1285,7 +1285,7 @@ h5.home_date {
     padding: 0px;
 }
 
-#footer_links_left td:first-child, #footer_links_mid td:first-child {
+#footer_links_left td:first-child, #footer_links_mid td:first-child, #footer_links_right td:first-child {
     text-align: right;
 }
 
@@ -2229,6 +2229,7 @@ h5.home_date {
         width: 241px;
         float: left;
         height: auto;
+        display: block;
     }
 
     .dropdown-menu.open li {
