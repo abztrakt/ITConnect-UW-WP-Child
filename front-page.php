@@ -7,7 +7,6 @@
 			<div class="row">
 
 				<div id="home_main" class="col-sm-9" <?php custom_main_image();?>>
-                    <span id='overlay' class='visible-sm'></span>
         			<?php while ( have_posts() ) : the_post(); ?>
 
         			<span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
@@ -16,7 +15,7 @@
 
         			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-        				<header class="entry-header hidden-lg hidden-md">
+        				<header class="entry-header hidden-lg hidden-md hidden-sm">
         					<h1 class="entry-title"><?php apply_filters('italics', get_the_title()); ?></h1>
         				</header><!-- .entry-header -->
 
