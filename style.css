@@ -2183,7 +2183,7 @@ h5.home_date {
     .navbar.mobile .navbar-toggle {
         display: inline-block;
         /*position: absolute;*/
-        top: 8px;
+        /*top: 8px;*/
     }
 
     .navbar.mobile .visible-sm {
