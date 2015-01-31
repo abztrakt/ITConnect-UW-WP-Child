@@ -524,7 +524,7 @@ function section_cb() {
 function set_online() {
     $options = get_option('footer_options'); 
     $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
-    $warning = 'Invalid URL format';
+    $warning = 'Example: http://example.com/page';
    
     echo "<input name='footer_options[online]' pattern='$url_pattern' title='$warning' type='text' size='45' value='{$options['online']}' />";
 }
@@ -532,14 +532,14 @@ function set_online() {
 function set_email() {
     $options = get_option('footer_options');
     $email_pattern = '[a-zA-Z0-9_\.\-]+@([a-zA-Z0-9_\.\-]+\.[a-zA-Z0-9]+)';
-    $warning = 'invalid email format';
+    $warning = 'Example: user@uw.edu';
     echo "<input name='footer_options[email]' pattern='$email_pattern' title='$warning'type='text' value='{$options['email']}' />";
 }
 
 function set_phone() {
     $options = get_option('footer_options');
     $phone_pattern = '(\d{3}?\-?\d{3}\-?\d{4})';
-    $warning = 'invalid phone number';
+    $warning = 'Example: 999-999-9999';
     echo "<input name='footer_options[phone]' pattern='$phone_pattern' title='$warning' type='text'  value='{$options['phone']}' />";
 }
 
@@ -556,21 +556,21 @@ function set_inperson_hours() {
 function set_inperson_url() {
     $options = get_option('footer_options');
     $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
-    $warning = 'Invalid URL format';
+    $warning = 'Example: http://example.com/page';
     echo "<input name='footer_options[inperson_url]'  pattern='$url_pattern' title='$warning'  type='text' size='45'  value='{$options['inperson_url']}' />";
 }
 
 function set_twitter() {
     $options = get_option('footer_options');
     $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
-    $warning = 'Invalid URL format';
-    echo "<input name='footer_options[twitter]' pattern='(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?' title='Invalid URL' type='text' size='45' value='{$options['twitter']}' />";
+    $warning = 'Example: http://example.com/page';
+    echo "<input name='footer_options[twitter]' pattern='(http|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?' title='$warning' type='text' size='45' value='{$options['twitter']}' />";
 }
 
 function set_youtube() {
     $options = get_option('footer_options');
     $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
-    $warning = 'Invalid URL format';
+    $warning = 'Example: http://example.com/page';
     echo "<input name='footer_options[youtube]'  pattern='$url_pattern' title='$warning' type='text' size='45' value='{$options['youtube']}' />";
 }
 //End Footer Options
