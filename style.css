@@ -525,7 +525,9 @@ body { background: #f5f7f6; }
 
 #thin-strip li:nth-child(6) a { background-position: center -690px; }
 
-#thin-strip li:nth-child(7) a { background-position: center -530px; }
+#thin-strip li:nth-child(7) a { background-position: center -80px; }
+
+#thin-strip li:nth-child(8) a { background-position: center -530px; }
 
 #thin-strip li:nth-child(9) a { background-position: center -83px;  }
 
