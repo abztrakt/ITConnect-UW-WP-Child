@@ -32,8 +32,8 @@
 			<li><a href="http://myuw.washington.edu/">My UW</a></li>
          <!--   <li class="visible-desktop"><a href="http://www.bothell.washington.edu/">UW Bothell</a></li>
             <li class="visible-desktop"><a href="http://www.tacoma.uw.edu/">UW Tacoma</a></li>  -->
-            <li class="visible-sm"><a href="http://www.uw.edu/news">News</a></li>
-			<li class="visible-sm"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
+            <li class="visible-xs"><a href="http://www.uw.edu/news">News</a></li>
+			<li class="visible-xs"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
 		</ul>
 	</div>
 </div>
