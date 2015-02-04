@@ -2124,7 +2124,6 @@ h5.home_date {
 
     #menu-main .main-menu-home {
         display: inherit;
-        padding-top: 0.3em;
     }
 
     #menu-main .main-menu-home a {
@@ -2132,7 +2131,6 @@ h5.home_date {
         background-repeat: no-repeat;
         background-position: 48% 48%;
         width: 16px;
-        height: 16px;
         padding-top: 7px;
         padding-bottom: 7px;
         font-size: 0px;
