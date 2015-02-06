@@ -2388,17 +2388,9 @@ h5.home_date {
         padding-right: 0px;
     }
 
-    #secondary div {
-        padding: 0px;
-    }
-
     #secondary ul li.current_page_item a {
         font-weight: normal;
         color: #2a71bc;;
-    }
-
-    #secondary li, #secondary h2 {
-        padding-left: 10%
     }
 
     #secondary ul li.current_page_item {
