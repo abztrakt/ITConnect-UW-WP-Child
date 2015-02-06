@@ -2,12 +2,11 @@
 
 		<div id="primary">
 			<div id="content" class="container">
-        
-        <div id="four04" class="visible-phone">
+        <div id="four04" class="visible-xs visible-sm">
              <img alt="Error 404" src="<?php bloginfo('template_url'); ?>/img/404/404.jpg" />
         </div>
 
-        <div id="parallax" class="parallax-viewport hidden-phone">
+        <div id="parallax" class="parallax-viewport visible-md visible-lg">
 
           <div class="parallax-layer" style="width:942px;">
             <img alt="Clouds" src="<?php bloginfo('template_url'); ?>/img/404/sky.jpg" />
