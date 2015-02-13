@@ -562,6 +562,7 @@ body { background: #f5f7f6; }
 
 .navbar .nav li a:hover {
     color: #fff;
+    background-color: rgba(213, 229, 244, .25);
 }
 
 #menu-main .main-menu-home {
