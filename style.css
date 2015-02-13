@@ -2129,10 +2129,9 @@ h5.home_date {
         background-repeat: no-repeat;
         background-position: 48% 48%;
         width: 16px;
-        padding: 15px 17px;
+        padding: 14px 17px;
         font-size: 0px;
     }
-
 
     /*** Nav menu in mobile mode for when the navbar is too big for one line ***/
 
@@ -2565,6 +2564,7 @@ h5.home_date {
 }
 
 @media screen and (min-width: 920px) {  /* footer will remain two line format to avoid overlapping if screen width is less than 920px, otherwise it will be in one line */
+
     #footer-main {
         height: 29px;
     }    
@@ -2606,7 +2606,7 @@ h5.home_date {
         margin-right: 0px;
     }
     #menu-main > li > a { 
-        padding: 9px 15px;
+        padding: 9px 17px;
     }
 
     #menu-main .main-menu-home a {
