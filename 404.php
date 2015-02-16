@@ -2,8 +2,8 @@
 
 		<div id="primary">
 			<div id="content" class="container">
-        <div id="four04" class="visible-xs visible-sm">
-             <img alt="Error 404" src="<?php bloginfo('template_url'); ?>/img/404/404.jpg" />
+        <div id="four04" class="visible-xs visible-sm col-xs-12 col-sm-12">
+             <img alt="Error 404" src="<?php bloginfo('template_url'); ?>/img/404/404.jpg" style="width:90%" />
         </div>
 
         <div id="parallax" class="parallax-viewport visible-md visible-lg">
@@ -24,14 +24,14 @@
 
         <div class="row four-oh-four">
         <div id="main_content" role="main">
-          <div class="span4 offset3">
+          <div class="col-md-4 col-lg-4 col-md-offset-3 col-lg-offest-3">
            <h3>Not what you were expecting?</h3>
            <p>Dubs tells us this page might not be what you had in mind when you set out on your journey through the UW Web.  Don&#146;t worry, you&#146;re not in the Dawg House! Here are some of Dubs&#146; favorite pages if you feel like exploring: </p>
 
           </div>
           </div>
           <div id="sidebar" role="navigation" aria-label="Sidebar Menu">
-          <div class="span3">
+          <div class="col-md-3 col-lg-3">
             <ul>
               <li><a href="//www.washington.edu">UW home page</a></li>
               <li><a href="//www.washington.edu/discover/">Discover the UW</a></li>
