@@ -113,7 +113,7 @@ function main_image_options_html() {
                     <p style="height:400px; color:white;">Current custom image</p>
                 </div>
             </div>
-        <?}?>
+        <?php } ?>
 
 	</div>
 <?php
