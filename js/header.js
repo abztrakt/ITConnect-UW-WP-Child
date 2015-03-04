@@ -59,7 +59,7 @@ jQuery(document).ready(function($){
             .prepend(html)
             .data('alert-height', $('#uwalert-alert-message').outerHeight() + adjust )
 
-          var mini = $('<a id="alert-mini" class="hidden-phone"/>')
+          var mini = $('<a id="alert-mini" class="hidden-xs"/>')
                         .attr({href:'#',title:post.title})
                         .click(function() {
                           $('body').data('scrolling',true).animate({scrollTop:0}, {duration:500, easing:'swing', complete:function() {$('body').data('scrolling',false)}})

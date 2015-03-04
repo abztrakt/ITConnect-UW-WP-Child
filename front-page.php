@@ -6,8 +6,7 @@
             <?php include('outages.php'); ?>
 			<div class="row">
 
-				<div id="home_main" class="span9" <?php custom_main_image();?>>
-                    <span id='overlay' class='visible-phone'></span>
+				<div id="home_main" class="col-sm-9" <?php custom_main_image();?>>
         			<?php while ( have_posts() ) : the_post(); ?>
 
         			<span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
@@ -16,11 +15,11 @@
 
         			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-        				<header class="entry-header hidden-desktop hidden-tablet">
+        				<header class="entry-header hidden-lg hidden-md hidden-sm">
         					<h1 class="entry-title"><?php apply_filters('italics', get_the_title()); ?></h1>
         				</header><!-- .entry-header -->
 
-        				<div class="entry-content hidden-phone">
+        				<div class="entry-content hidden-xs">
         					<?php the_content(); ?>
         					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
         				</div><!-- .entry-content -->
@@ -56,7 +55,7 @@
 
                     ?>
                     <div id="main_content" role="main">
-        			<div id="home_spotlight" class="hidden-phone">
+        			<div id="home_spotlight" class="hidden-xs">
                         <?php
                         $counter = 0;
                         $divcount = 0;
@@ -86,14 +85,14 @@
 				</div>
                 </div>
 
-                <div id="home_secondary" class="span3" role="complementary">
+                <div id="home_secondary" class="col-sm-3" role="complementary">
                     <div class="stripe-top"></div><div class="stripe-bottom"></div>
                       <div class="home_sidebar" id="sidebar" role="navigation" aria-label="Sidebar Menu">
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
                 </div>
 
-                <div id="home_tertiary" class="span9 visible-phone" style="background-color:#fff;">
+                <div id="home_tertiary" class="col-sm-9 visible-xs" style="background-color:#fff;">
                     <h2>News</h2>
                     <?php foreach ($postslist as $post) : setup_postdata($post); ?>
                     <div class="media">

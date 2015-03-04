@@ -11,16 +11,16 @@
                         </div>
 
 				    </div>
-                    <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
+                    <p id="mobile_image" class="col-sm-9 visible-xs" <?php custom_main_image();?>>
                         <span id='overlay'></span>
                         <span class='category'>News</span>
                     </p>
                     <?php include('outages.php'); ?>
-                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>
-				    <div id='tertiary' class="span9">
+                    <p class="pull-left visible-sm"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All</span></p>
+				    <div id='tertiary' class="col-sm-9">
                         <?php uw_breadcrumbs(); ?>
                         <div id="main_content" role="main">
-                        <h1 class='hidden-phone news-title'>News
+                        <h1 class='hidden-xs news-title'>News
                         <?php
                             $cat_id = get_cat_ID('HuskyBytes');
                             $categories = get_categories('exclude=' . $cat_id);

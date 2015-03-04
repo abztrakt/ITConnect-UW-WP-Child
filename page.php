@@ -5,14 +5,14 @@
 
 
 			<div class="row row-offcanvas row-offcanvas-left">
-				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
+				<div id="secondary" class="col-sm-3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>
                       <div class="" id="sidebar" role="navigation" aria-label="Sidebar Menu">
                       <?php if (is_active_sidebar('homepage-sidebar') && is_front_page()) : dynamic_sidebar('homepage-sidebar'); else: dynamic_sidebar('sidebar'); endif; ?>
                       </div>
 				</div>
 			    <?php while ( have_posts() ) : the_post(); ?>
-				<p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
+				<p id="mobile_image" class="col-sm-9 visible-xs" <?php custom_main_image();?>>
                     <span id='overlay'></span>
                     <span class='category'>
                     <?php $ancestor_list = array_reverse(get_post_ancestors($post->ID));
@@ -28,8 +28,10 @@
                     </span>
                 </p>
                 <?php include('outages.php'); ?>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php if(!$is_top) { echo get_the_title(); }?></span></p>
-				<div id='tertiary' class="span9">
+                
+                <div class="sidebar-menu visible-xs"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php if(!$is_top) { echo get_the_title(); }?></span></div>
+                
+				<div id='tertiary' class="col-sm-9">
 
       <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 
@@ -37,7 +39,7 @@
             <div id="main_content" role="main">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
-					<h1 class="entry-title hidden-phone"><?php apply_filters('italics', get_the_title()); ?></h1>
+					<h1 class="entry-title hidden-xs"><?php apply_filters('italics', get_the_title()); ?></h1>
 				</header><!-- .entry-header -->
 
 <?php if (is_user_logged_in()) { ?>

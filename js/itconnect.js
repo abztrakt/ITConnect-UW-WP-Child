@@ -179,11 +179,14 @@
         $('#tertiary').css("min-height", containerHeight);
     }
 
-    function checkNavbarWrap() {
+    function checkNavbarWrap(mobile) {
+        
         $('.navbar.mobile').removeClass('mobile');
+        
         if (($('.navbar').height() > 50 ) && (!mobile)) {
             $('.navbar').addClass('mobile');
         }
+ 
     }
 
     function fixDropdownOverrun() {
