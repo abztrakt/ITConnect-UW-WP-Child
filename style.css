@@ -1879,10 +1879,12 @@ h5.home_date {
         left: 125px;
     }
 
-    .wordmark:hover {
+    .wordmark:hover, .wordmark:focus {
         color: white;
         text-decoration: none;
     }
+
+
 
     /* ----  Top Search ---- */
 
