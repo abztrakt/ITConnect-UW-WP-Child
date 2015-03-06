@@ -203,6 +203,8 @@ jQuery(window).load(function() {
     setTimeout(function(){
         window.scrollTo(0,0);
     }, 0);
+  } else if ( window.location.has.lenght > 0 ) {
+    window.scrollTo(0, $(window).scrollTop()) - 40 )
   }
   /**
    * Header Strip
