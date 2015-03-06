@@ -13,12 +13,12 @@
 		<a class="wordmark hidden-xs" <?php custom_wordmark(); ?> href="<?php echo site_url(); ?>">IT Connect</a>
 		<a class="wordmark visible-xs" <?php custom_wordmark(); ?> href="<?php echo is_custom_wordmark() ? home_url('/') : '//www.washington.edu'; ?>">University of Washington</a>
         <p id="header_description" class="hidden-xs ">Information technology tools and resources at the UW</p>
-        <a title="Show search" role="button" href="#searchicon-wrapper" id="searchicon-wrapper" aria-haspopup="true">Search</a>
+        <a title="Show search" role="button" href="#searchicon-wrapper" id="searchicon-wrapper" aria-controls="search">Search</a>
 
       <?php get_template_part('uw-search'); ?>
 
 		</div>
-		<a title="Show menu" role="button" href="#listicon-wrapper" id="listicon-wrapper" aria-haspopup="true">Menu</a>
+		<a title="Show menu" role="button" href="#listicon-wrapper" id="listicon-wrapper" aria-controls="thin-strip">Menu</a>
 </div>
 
 <div id="thin-strip" class='top-fixed'>
