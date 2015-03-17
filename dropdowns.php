@@ -4,9 +4,9 @@
         <div id="navbar-menu">
           <a class="btn btn-xs" id="help-button" href="<?php bloginfo('url'); ?>/help">Need Help?</a>
           
-          <a class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".nav-collapse" title="Open Navigation" href="#menu" tabindex="0" role="button" aria-haspopup="true">
+          <a class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".nav-collapse" title="Open Navigation" href="#menu" tabindex="0" role="button">
           <!--TODO: THIS IS IN THE NEW SYTAX NOW
-          <a class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="Open Navigation" href="#menu" tabindex="0" role="button" aria-haspopup="true">-->
+          <a class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="Open Navigation" href="#menu" tabindex="0" role="button">-->
           
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>

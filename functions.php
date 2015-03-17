@@ -1,4 +1,4 @@
-<?  
+<?php
 remove_filter( 'the_title', 'wptexturize' );
 remove_filter( 'the_content', 'wptexturize' );
 remove_filter( 'the_excerpt', 'wptexturize' );
@@ -75,7 +75,7 @@ if ( ! function_exists( 'uw_enqueue_default_scripts' ) ):
     wp_deregister_script('jquery'); //we use googles CDN below
     wp_deregister_script('header'); //we use our own below
     wp_register_script( 'jquery','//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array(), '1.7.2' );
-    wp_register_script( 'header', get_bloginfo('stylesheet_directory') . '/js/header.js', array('jquery'), '1.3' );
+    wp_register_script( 'header', get_bloginfo('stylesheet_directory') . '/js/header.js', array('jquery'), '1.4.1' );
     wp_register_script( 'jquery.firenze', get_bloginfo('template_directory') . '/js/jquery.firenze.js', array('jquery'), '1.0.1' );
     wp_register_script( 'jquery.weather', get_bloginfo('template_directory') . '/js/jquery.weather.js', array('jquery'), '1.1' );
     wp_register_script( 'jquery.placeholder', get_bloginfo('template_directory') . '/js/jquery.placeholder.js', array('jquery'), '1.0' );

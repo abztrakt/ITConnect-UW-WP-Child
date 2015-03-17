@@ -2,7 +2,7 @@
 <?php $options = get_option('footer_options'); ?>
 <div id="footerBG">
     <div id="footer-band"></div>
-    <div id="footer" role="navigation" aira-label="Global Footer Menu">
+    <div id="footer" role="navigation" aria-label="Global Footer Menu">
         <div class="it_container">
         <div class='row'>
         <!--<?php uw_footer_menu(); ?>  Will want to use this, but for styling purposes, making flat HTML -->
@@ -55,7 +55,7 @@
     </div>
 </div>
 
-<div id="footer-main" role="footer">
+<div id="footer-main" role="contentinfo">
   <div class="it_container">
       <div id="footer-right">
           <ul role="footer">

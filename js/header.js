@@ -189,8 +189,8 @@ jQuery(document).ready(function($){
 
     var $this = $(this)
 
-    //if ( !$this.data('open') && !$this.height() && $this.not('.thin-fixed'))
-      //$this.css('visibility','hidden')
+    if ( !$this.data('open') && !$this.height() && $this.not('.thin-fixed'))
+      $this.css('visibility','hidden')
 
   })
 
@@ -203,6 +203,8 @@ jQuery(window).load(function() {
     setTimeout(function(){
         window.scrollTo(0,0);
     }, 0);
+  } else if ( window.location.has.length > 0 ) {
+    window.scrollTo(0, $(window).scrollTop() - 40 )
   }
   /**
    * Header Strip
@@ -301,7 +303,7 @@ jQuery(window).load(function() {
         var $this   = $(this)
           , $ul     = $this.children('.dropdown-menu')
 
-          $ul.addClass('open').attr('aria-hidden','false')
+          $ul.addClass('open').attr('aria-expanded','true')
           $ul.parent('li').addClass('child_open');          //by Jon: add psuedo hover class
             //.height($ul.data('height'))  unnecessary reset to 'height'
 
@@ -340,7 +342,7 @@ jQuery(window).load(function() {
           window.scrollTo(0,0)
             $('.dropdown-menu').removeClass('open')//.height(0) another unnecessary reset to 0
             $('#menu-main > li').removeClass('child_open');     //by Jon: remove psuedo hover class
-            $ul.addClass('open').attr('aria-hidden','false')
+            $ul.addClass('open').attr('aria-expanded','true')
             $ul.parent('li').addClass('child_open');            //by Jon: add psuedo hover class
               //.height(height) unnecessary
         }
@@ -361,7 +363,7 @@ jQuery(window).load(function() {
         , $this    = $(this)
         , $anchors = $this.closest('ul').find('a')
         , clearMenus = function() { 
-          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true');
+          $('.dropdown-menu').removeClass('open').attr('aria-expanded','false');
           $('#menu-main > li').removeClass('child_open');     //by Jon: remove psuedo hover class
           $('span.navbar-caret').hide();
         }
@@ -424,14 +426,14 @@ jQuery(window).load(function() {
         , $ul   = $this.siblings('ul')
         , $anchors = $('a.dropdown-toggle')
         , clearMenus = function() { 
-          $('.dropdown-menu').removeClass('open').attr('aria-hidden','true');
+          $('.dropdown-menu').removeClass('open').attr('aria-expanded','false');
           $('#menu-main > li').removeClass('child_open');     //by Jon: remove psuedo hover class
           $('span.navbar-caret').hide();
         }
 
       switch(e.keyCode) {
         case keys.enter:
-          $ul.addClass('open').attr('aria-hidden','false')
+          $ul.addClass('open').attr('aria-expanded','true')
               .find('a').first().focus()
           $ul.parent('li').addClass('child_open');            //by Jon: add psuedo hover class to parent
           $('span.navbar-caret').css('left', $this.parent().position().left + 20 ).show();

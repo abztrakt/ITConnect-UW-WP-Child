@@ -15,7 +15,7 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php if ( has_post_thumbnail() ): ?>
-  <meta property="og:image" content="<?php $ogthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) ); echo $ogthumb[0]; ?>" /> 
+  <meta property="og:image" content="<?php $ogthumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' ); echo $ogthumb[0]; ?>" />
   <?php endif; ?>
   <title>
     <?php
