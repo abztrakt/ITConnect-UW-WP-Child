@@ -2634,6 +2634,7 @@ h5.home_date {
 
     #sidebar.home_sidebar h2.widgettitle {
         padding-left: 15%;
+        line-height: 40px;
     }
 
     #ie7 #navbar-menu {
