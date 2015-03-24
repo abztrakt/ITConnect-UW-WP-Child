@@ -797,6 +797,10 @@ a.btn-offcanvas.active {
     padding-left: 0px;
 }
 
+#sidebar.home_sidebar .widget_nav_menu ul li {
+    box-sizing: initial;
+}
+
 #sidebar.home_sidebar ul {
     list-style-type: none;
     margin: 0px;
