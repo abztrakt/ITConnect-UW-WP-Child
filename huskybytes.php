@@ -11,7 +11,7 @@ Template Name Posts: HuskyBytes
 			
 						
 			<div class="row row-offcanvas row-offcanvas-left">
-				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
+				<div id="secondary" class="col-sm-3 col-xs-3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                     <div id="sidebar">
 					    <?php dynamic_sidebar('huskybytes-sidebar'); ?>
@@ -20,7 +20,7 @@ Template Name Posts: HuskyBytes
 
 				<?php while ( have_posts() ) : the_post(); ?>
 				
-                <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
+                <p id="mobile_image" class="hidden-lg hidden-md hidden-sm" <?php custom_main_image();?>>
                     <span id='overlay'></span>
                     <span class='category'>
                     <?php $categories = get_the_category();
@@ -29,8 +29,8 @@ Template Name Posts: HuskyBytes
                     </span>
                 </p>
                 <?php include('outages.php'); ?>
-                <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All News</span></p>
-				<div id='tertiary' class="span9">
+                <p class="sidebar-menu hidden-lg hidden-md hidden-sm col-xs-3"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span>All News</span></p>
+				<div id='tertiary' class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 					<span id="arrow-mark"></span>
 						
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

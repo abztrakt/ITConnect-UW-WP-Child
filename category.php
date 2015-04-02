@@ -5,22 +5,22 @@
 			
 						
 			<div class="row row-offcanvas row-offcanvas-left">
-				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
+				<div id="secondary" class="col-sm-3 col-xs-3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                         <div id="sidebar" role="navigation" aria-label="Sidebar Menu">
                         <?php dynamic_sidebar('news-sidebar'); ?>
                         </div>
 				    </div>
-                    <p id="mobile_image" class="span9 visible-sm" <?php custom_main_image();?>>
+                    <p id="mobile_image" class="hidden-lg hidden-md hidden-sm" <?php custom_main_image();?>>
                         <span id='overlay'></span>
                         <span class='category'><?= single_cat_title(); ?></span>
                     </p>
                     <?php include('outages.php'); ?>
-                    <p class="pull-left visible-sm"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); single_cat_title(); ?></span></p>
-				<div id='tertiary' class="span9">
+                    <p class="sidebar-menu hidden-lg hidden-md hidden-sm col-xs-3"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); single_cat_title(); ?></span></p>
+				<div id='tertiary' class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                     <?php uw_breadcrumbs(); ?>
                     <div id="main_content" role="main">
-                    <h1 class='news-title hidden-sm'><?php single_month_title(' '); single_cat_title(); ?>
+                    <h1 class='news-title hidden-sm hidden-xs'><?php single_month_title(' '); single_cat_title(); ?>
 		<?php
                      $current_page = get_query_var('paged');
                      if ($current_page == 0) {

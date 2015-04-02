@@ -4,19 +4,19 @@
 			
 						
 			<div class="row row-offcanvas row-offcanvas-left">
-				<div id="secondary" class="span3 sidebar-offcanvas" role="complementary">
+				<div id="secondary" class="col-xs-3 col-sm-3 sidebar-offcanvas" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
                         <div id="sidebar">
                             <?php dynamic_sidebar('huskybytes-sidebar'); ?>
                         </div>
 				    </div>
-                    <p id="mobile_image" class="span9 visible-phone" <?php custom_main_image();?>>
+                    <p id="mobile_image" class="hidden-lg hidden-md hidden-sm" <?php custom_main_image();?>>
                         <span id='overlay'></span>
                         <span class='category'>HuskyBytes News</span>
                     </p>
                     <?php include('outages.php'); ?>
-                    <p class="pull-left visible-phone"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); ?></span></p>
-				<div id='tertiary' class="span9">
+                    <p class="sidebar-menu hidden-lg hidden-md hidden-sm col-xs-3"><a href="#sidebar" class="btn btn-primary btn-offcanvas" data-toggle="offcanvas"></a><span><?php single_month_title(' '); ?></span></p>
+				<div id='tertiary' class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                     <?php uw_breadcrumbs(); ?>
                     <h1 class='news-title hidden-phone'>HuskyBytes News
                     <?php 
@@ -29,7 +29,7 @@
                         </a>
                     </div>
                     </h1>
-                    <h1 class='news-title hidden-phone'><?php single_month_title(' '); ?></h1>
+                    <h1 class='news-title hidden-xs'><?php single_month_title(' '); ?></h1>
 				    <span id="arrow-mark" <?php the_blogroll_banner_style(); ?> ></span>
 								
                     <?php while ( have_posts() ) : the_post(); ?>

@@ -692,6 +692,7 @@ ul.breadcrumbs-list li.current:after {
     width: 100%;
     background: #F5F5F7;
     margin: 0px;
+    padding: 0px;
 }
 
 p.pull-left.visible-sm span {
