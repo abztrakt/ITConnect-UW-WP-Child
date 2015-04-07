@@ -177,23 +177,22 @@ a, a:hover {
 
 #outages a {
     color: #9D1111;
+    position: relative;
+    height: 24px;
+    line-height: 22px;
 }
 
 #outages p {
     display: inline-block;
-    margin-bottom: 0px;
-    height: 24px;
-    line-height: 22px;
-    padding-left: 3px;
+    position: relative;
+    top: -2px;
 }
 
 #outages span {
-    position: relative;
-    top: 3px;
     height: 24px;
     font-size: 24px;
     font-style: oblique;
-    font-weight: 900;
+    font-weight: 900; 
 }
 
 /*** Braille Embossing Service Request Form ***/
