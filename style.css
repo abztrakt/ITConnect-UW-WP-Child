@@ -185,11 +185,13 @@ a, a:hover {
     height: 24px;
     line-height: 22px;
     padding-left: 3px;
+    position: relative;
+    top: -2px;
 }
 
 #outages span {
     position: relative;
-    top: 3px;
+    top: 2px;
     height: 24px;
     font-size: 24px;
     font-style: oblique;
