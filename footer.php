@@ -29,7 +29,7 @@
                             <td>In-Person</td><td><a href='<?php echo $options['inperson_url'] ?>'><?php echo $options['inperson_text']?></a><br><p><?php echo $options['inperson_hours']?></p></td>
                         </tr>
 			<tr>
-			   <td>Services</td><td><a href="http://depts.washington.edu/uwtscat">UW-IT Service Catalog</a></td>
+			   <td>Services</td><td><a href='<?php echo $options['services_url'] ?>'>UW-IT Service Catalog</a></td>
 			</tr>
 		      </tbody>
                     </table>
