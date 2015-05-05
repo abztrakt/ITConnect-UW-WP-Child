@@ -507,6 +507,7 @@ function reg_build_options() {
     add_settings_field('inperson_text','In-Person Service Center Text (Name of location) <br /><em style="font-weight: 300;">Example: UW Tower, C-3000</em>', 'set_inperson_text', __FILE__, 'main_section');
     add_settings_field('inperson_hours','In-Person Service Center Hours (Enter Text) <br /><em style="font-weight: 300;">Example: M-F 8-8</em>', 'set_inperson_hours', __FILE__, 'main_section');
     add_settings_field('inperson_url','In-Person Service Center URL (Link to page) <br /><em style="font-weight: 300;">Example: http://site.com/page</em>', 'set_inperson_url', __FILE__, 'main_section');
+    add_settings_field('services_url', 'Service Catalog URL<br /><em style="font-weight: 300;">Example: http://site.com</em>', 'set_services_url', __FILE__, 'main_section');
 
     add_settings_field('twitter','Twitter (URL) <br /><em style="font-weight:300;">Exapmle:http://site.com/page</em>', 'set_twitter',__FILE__,'main_section');
     add_settings_field('youtube','Youtube (URL) <br /><em style="font-weight:300;">Exapmle:http://site.com/page</em>', 'set_youtube',__FILE__,'main_section');
@@ -557,6 +558,14 @@ function set_inperson_url() {
     $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
     $warning = 'Example: http://example.com/page';
     echo "<input name='footer_options[inperson_url]'  pattern='$url_pattern' title='$warning'  type='text' size='45'  value='{$options['inperson_url']}' />";
+}
+
+function set_services_url() {
+    $options = get_option('footer_options');
+    $url_pattern = '(http|https|ftp)://[a-zA-Z0-9_\-\.\+]+\.[a-zA-Z0-9]+([/a-zA-z0-9_\-\.\+\?=%]*)?';
+    $warning = 'Example: http://example.com';
+    echo "<input name='footer_options[services_url]' pattern='$url_pattern' title='$warning' type='text' size='45' value='{$options['services_url']}' />";
+
 }
 
 function set_twitter() {
