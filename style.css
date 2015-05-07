@@ -2641,75 +2641,81 @@ h5.home_date {
         background-color: rgb(1, 87, 179);
         min-height: 36px;
     }
-    
+
     /*** ServiceNow  1200***/
-    
+
     .request-list-service { width: 190px};
     .request-list-description{ width: 45%};
 }
 
 
 /**** ACA SERVICE TEMPLATE STYLE ******************************************/
-.no_leftpadding {
+
+.no-leftpadding {
 	padding-left:0px;
 }
-.mailman_link{
+
+.mailman-link {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	border: 1px #eee;
-	
-}
-.badge_label{
-	font-size:80%;
-	color:#666;	
 }
 
-.label-student{
+.badge-label {
+	font-size:80%;
+	color:#666;
+}
+
+.label-student {
   background-color: #4b2e83;
 }
 
-.label-faculty{
+.label-faculty {
   background-color: #7a65a3;
 }
 
-.label-staff{
+.label-staff {
   background-color: #777;
 }
 
-.logobox{
+.logobox {
 	padding-left: 0px;
 }
-.link_top_login{
-	padding-left:5px;	
+
+.link-top-login {
+	padding-left:5px;
 	font-size: 90%;
 }
 
-.description{
+.description {
 	font-style: italic;
 }
 
-.bold_label{
+.bold-label {
 	font-weight: 700; 
 }
 
-.link_padding{
+.link-padding {
 	padding-left: 25px;
 }
 
-.sidebar{
+.sidebar {
 	background-color : #eff3f7;
 	padding-left:10px;
 	padding-right:10px;
 	padding-top: 5px;
 	padding-bottom:5px;
 }
-.sidebar_h3{
+
+.sidebar-h3 {
 	margin-top: 10px;
 	padding-left:5px;
 }
-.glyphicon-envelope{
+
+.glyphicon-envelope {
 	color:#337ab7;
 }
+
 /*
 .user-logout {
     text-align:right; color:#777;
